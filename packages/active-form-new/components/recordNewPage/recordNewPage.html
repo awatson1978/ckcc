@@ -1,0 +1,16 @@
+
+<template name="recordNewPage">
+  <article id="recordNewPage" class="page">
+    {{> recordHeader type="record"}}
+    <div class="pageBody" style="{{getOpacity}}">
+      {{#autoForm collection="Foo" id="newFooForm" type="insert" schema=FooSchema buttonContent="Save" buttonClass="glass-footer-btn" }}
+        {{#each afFieldNames}}
+          {{> afQuickField name=this.name options=afOptionsFromSchema autocomplete="off"}}
+        {{/each}}
+        
+      <button id="newRecordButton" type="submit" class="glass-footer-btn">Save Foo</button>
+
+      {{/autoForm}}
+    </div>
+  </article>
+</template>

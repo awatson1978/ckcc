@@ -1,0 +1,15 @@
+<head>
+  <title>PathologyReport</title>
+</head>
+
+<template name="appLayout">
+  {{> navbarHeader}}
+
+    <div class="hidden">{{resized}}</div>
+    <div id="mainPanel" class="padded helveticas" style="{{getStyle}}">
+      {{> yield }}
+    </div>
+
+
+  {{> navbarFooter}}
+</template>

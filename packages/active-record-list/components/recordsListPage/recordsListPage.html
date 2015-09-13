@@ -6,7 +6,7 @@
       <input id="recordSearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." />
       <ul id="unorderedList">
         {{#if hasNoContent}}
-          <li id="noResultsMessage" class="addFooItem">
+          <li id="noResultsMessage" class="addRecordItem">
             <article class="noResultsMessage">
               <span>There are no results!  Click to add one.</span>
             </article>
@@ -15,7 +15,7 @@
 
         {{else}}
           {{#each foosList}}
-            <li class="fooItem">
+            <li class="recordItem">
               <article>
                 <h2 class="titleText">{{description}}</h2>
                 <span class="pull-right barcode gray idText">{{_id}}</span><br>

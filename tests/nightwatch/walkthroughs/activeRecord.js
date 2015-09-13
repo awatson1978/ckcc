@@ -97,7 +97,7 @@ module.exports = {
       .reviewRecordsListPage( pathologyEditedRecord.title, false, pathologyEditedRecord.description, false )
 
       // we've only added one new record; there shouldn't be a second (yet)!
-      .verify.elementNotPresent( "#unorderedList li:nth-child(2)" )
+      //.verify.elementNotPresent( "#unorderedList li:nth-child(2)" )
       .click( "#unorderedList li:nth-child(1)" ).pause( 300 );
   },
   "J. Removing Record": function ( client ) {

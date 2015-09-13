@@ -21,10 +21,10 @@ Router.map(function(){
 // TEMPLATE INPUTS
 
 Template.recordsListPage.events({
-  'click .addFooItem':function(){
+  'click .addRecordItem':function(){
     Router.go('/insert/foo');
   },
-  'click .fooItem':function(){
+  'click .recordItem':function(){
     Router.go('/view/foo/' + this._id);
   },
   // use keyup to implement dynamic filtering

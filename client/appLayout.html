@@ -6,10 +6,9 @@
   {{> navbarHeader}}
 
     <div class="hidden">{{resized}}</div>
-    <div id="mainPanel" class="padded helveticas" style="{{getStyle}}">
+    <div id="mainPanel" class="padded helveticas" style="{{getStyle}} {{getOpacity}}">
       {{> yield }}
     </div>
-
 
   {{> navbarFooter}}
 </template>

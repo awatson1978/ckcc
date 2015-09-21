@@ -1,4 +1,14 @@
+
+
+
+
 Template.navbarFooter.events({
+  'click #newCollaborationBtn': function (){
+    Router.go('/new/collaboration');
+  },
+  'click #collaborationsBtn': function (){
+    Router.go('/grid/collaborations');
+  },
   "click #homeBtn": function (event, template) {
     Router.go('/');
   },
@@ -32,9 +42,9 @@ Template.navbarFooter.events({
         scrollTop: $('.recordFooter').offset().top
     }, 500);
   }
-
-
 });
+
+
 
 Template.navbarFooter.helpers({
   rendered: function () {

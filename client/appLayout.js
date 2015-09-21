@@ -58,8 +58,9 @@ Template.appLayout.delayedLayout = function (timeout) {
 
 //==================================================================================================
 
-Template.registerHelper("getOpacity", function () {
-  return "background: rgba(255,255,255," + Session.get("glassOpacity") + ");";
+
+Template.registerHelper("getOpacity", function (){
+  return "background: linear-gradient(225deg, transparent 28.28px, rgba(255,255,255," + Session.get("glassOpacity") + ") 0) top right;";
 });
 
 Template.registerHelper("btnPrimary", function () {

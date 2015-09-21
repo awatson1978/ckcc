@@ -36,8 +36,8 @@ Package.onUse(function (api) {
 
   // api.use('iron:router@1.0.4');
   api.addFiles([
-    'components/entryPages.less',
     'components/entryPages.js',
+    'components/entryPages.less',
 
     'components/entrySignIn/entrySignIn.html',
     'components/entrySignIn/entrySignIn.js',

@@ -21,6 +21,10 @@
   button:focus{
     outline: none;
   }
+
+  .eastLinks{
+    visibility: visible;
+  }
 }
 
 
@@ -33,7 +37,11 @@
 
 // portrait orientation
 @media only screen and (max-width: 768px) {
-
+  footer{
+    .eastLinks{
+      visibility: hidden;
+    }
+  }
 }
 
 // landscape orientation

@@ -1,6 +1,7 @@
-## active-user-demo
+## pathology report demo
 
-An ActiveRecord reference implementation using Meteor, AutoForms, and aiming for a Day Made of Glass user interface. Part of the Glass UI subproject of the Clinical Meteor Track.
+ActiveRecord, ActiveEntry, Collaborations, and more.  A rewrite of the Clincial Trials and MedBook-CRFs applications.
+
 
 =========================
 #### Installation  

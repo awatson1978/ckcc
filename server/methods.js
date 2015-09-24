@@ -105,7 +105,7 @@ Meteor.methods({
       };
 
       console.log('newRecord', newRecord);
-      Foo.insert(newRecord);
+      //Foo.insert(newRecord);
     }
   }
 });

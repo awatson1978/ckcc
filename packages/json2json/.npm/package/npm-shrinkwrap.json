@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "node-json2json": {
+      "version": "0.0.3"
+    }
+  }
+}

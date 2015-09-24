@@ -113,9 +113,9 @@ Template.recordUpsertPage.events({
   'click #previewFooButton':function (){
     Router.go('/customer/' + this._id);
   },
-  'click #upsertFooButton': function () {
+  'submit #upsertFooForm': function () {
     console.log('creating new foo...');
-    Template.recordUpsertPage.saveFoo(this);
+    //Template.recordUpsertPage.saveFoo(this);
   }
 });
 
@@ -123,12 +123,36 @@ Template.recordUpsertPage.events({
 Template.recordUpsertPage.saveFoo = function (record){
   // TODO:  add validation functions
 
+  // var customerObject = {
+  //   title: $('input[name="title"]').val(),
+  //   description: $('input[name="description"]').val(),
+  //   imageUrl: $('input[name="imageUrl"]').val(),
+  //   url: $('input[name="url"]').val()
+  // };
+
   var customerObject = {
-    title: $('input[name="title"]').val(),
-    description: $('input[name="description"]').val(),
-    imageUrl: $('input[name="imageUrl"]').val(),
-    url: $('input[name="url"]').val()
+    institutionName: $('input[name="institutionName"]').val(),
+    institutionId: $('input[name="institutionId"]').val(),
+    physicianName: $('input[name="physicianName"]').val(),
+    studyName: $('input[name="studyName"]').val(),
+    studyId: $('input[name="studyId"]').val(),
+    patientAge: $('input[name="patientAge"]').val(),
+    patientGender: $('input[name="patientGender"]').val(),
+    diagnosisDescription: $('input[name="diagnosisDescription"]').val(),
+    diagnosisCode: $('input[name="diagnosisCode"]').val(),
+    diseaseSubtype: $('input[name="diseaseSubtype"]').val(),
+    priorTreatmentHistory: $('input[name="priorTreatmentHistory"]').val(),
+    complicatingConditions: $('input[name="complicatingConditions"]').val(),
+    lastFollowUpDate: $('input[name="lastFollowUpDate"]').val(),
+    familyHistory: $('input[name="familyHistory"]').val(),
+    molecularTesting: $('input[name="molecularTesting"]').val(),
+    actionableFindings: $('input[name="actionableFindings"]').val(),
+    genomicAnalysis: $('input[name="genomicAnalysis"]').val(),
+    biopsySource: $('input[name="biopsySource"]').val(),
+    tumorCellFraction: $('input[name="tumorCellFraction"]').val(),
+    otherStudies: $('input[name="otherStudies"]').val()
   };
+
 
   console.log ("customerObject", customerObject);
 

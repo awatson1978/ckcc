@@ -58,10 +58,13 @@ Package.onUse(function (api) {
     // 'components/recordUpsertPage/recordUpsertPage.html',
     // 'components/recordUpsertPage/recordUpsertPage.js',
     // 'components/recordUpsertPage/recordUpsertPage.less',
+    'lib/activeRecord.js'
 
   ], 'client');
 
-  api.addFiles('active-record.js');
+  //api.addFiles('active-record.js');
+
+  api.export("ActiveRecord");
 });
 
 Package.onTest(function (api) {
@@ -69,5 +72,5 @@ Package.onTest(function (api) {
   api.use('photonic:active-record');
   api.use('clinical:verification');
 
-  api.addFiles('active-record-tests.js');
+  api.addFiles('tests/active-record.js');
 });

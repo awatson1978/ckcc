@@ -1,6 +1,6 @@
 <template name="navbarHeader">
   <header id="navbarHeader" class="helveticas">
-    <a href="/" class="navbarTitle">PathologyReport</a>
+    <a href="/" class="navbarTitle">{{getTitleText}}</a>
     <div class="eastLinks">
       <a href="{{getUsernameLink}}" class="navbarLink">{{ fullName }}</a>
       {{#if isLoggedIn }}

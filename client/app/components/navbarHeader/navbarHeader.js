@@ -14,6 +14,14 @@ Template.navbarHeader.events({
 
 
 Template.navbarHeader.helpers({
+  getTitleText: function () {
+    var headerConfig = Session.get('HeaderConfig');
+    if (headerConfig && headerConfig.text) {
+      return headerConfig.text.title;
+    } else {
+      return "---";
+    }
+  },
   getUserName: function (){
     if (Meteor.userId()){
       return User.getName();

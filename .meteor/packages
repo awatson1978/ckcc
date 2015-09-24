@@ -38,3 +38,4 @@ clinical:json2json
 clinical:user-model
 clinical:migrations
 clinical:overlays
+clinical:modals

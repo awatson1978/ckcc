@@ -3,6 +3,9 @@
 
 
 Template.navbarFooter.events({
+  'click #overlayBtn': function (){
+    Session.toggle('show_reactive_overlay');
+  },
   'click #newCollaborationBtn': function (){
     Router.go('/new/collaboration');
   },

@@ -22,6 +22,7 @@ clinical:collaborations-ui@1.1.0
 clinical:extended-api@1.0.1
 clinical:json2json@0.0.1
 clinical:migrations@0.8.6
+clinical:modals@0.0.1
 clinical:overlays@1.1.0
 clinical:user-model@0.1.4
 clinical:verification@3.0.0

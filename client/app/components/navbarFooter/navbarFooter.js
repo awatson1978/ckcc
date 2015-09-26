@@ -35,16 +35,16 @@ Template.navbarFooter.events({
     console.log('dropping database');
     Meteor.call('dropDatabase');
   },
-  'click #scrollTopBtn': function (event, template) {
-    $('html, body').animate({
-        scrollTop: 0
-    }, 500);
-  },
-  'click #scrollBottomBtn': function (event, template) {
-    $('html, body').animate({
-        scrollTop: $('.recordFooter').offset().top
-    }, 500);
-  }
+  // 'click #scrollTopBtn': function (event, template) {
+  //   $('html, body').animate({
+  //       scrollTop: 0
+  //   }, 500);
+  // },
+  // 'click #scrollBottomBtn': function (event, template) {
+  //   $('html, body').animate({
+  //       scrollTop: $('.recordFooter').offset().top
+  //   }, 500);
+  // }
 });
 
 

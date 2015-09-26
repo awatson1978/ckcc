@@ -64,13 +64,12 @@ Template.recordsListPage.helpers({
 
     Template.appLayout.delayedLayout(20);
 
-
     // this is a performant local (client-side) search on the data
     // current in our CustomerAccounts cursor, and will reactively
     // update the table
 
     return Foo.find({
-      title: {
+      studyName: {
         $regex: Session.get('fooSearchFilter'),
         $options: 'i'
     }});

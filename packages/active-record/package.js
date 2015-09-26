@@ -16,10 +16,11 @@ Package.onUse(function (api) {
   api.use('meteor-platform');
   api.use('iron:router@1.0.7');
   api.use('less');
+  //api.use('session');
 
   api.use('photonic:active-record-core@0.0.1');
   api.use('photonic:active-record-imagegrid@0.0.1');
-  api.use('photonic:active-record-list@0.0.1');
+  // api.use('photonic:active-record-list@0.0.1');
   api.use('photonic:active-record-preview@0.0.1');
   api.use('photonic:active-record-table@0.0.1');
   api.use('photonic:active-form-upsert@0.0.1');
@@ -31,6 +32,10 @@ Package.onUse(function (api) {
   api.imply('aldeed:collection2@2.3.3');
 
   api.addFiles([
+    'components/recordsListPage/recordsListPage.html',
+    'components/recordsListPage/recordsListPage.js',
+    'components/recordsListPage/recordsListPage.less',
+
     // 'components/recordFooter/recordFooter.html',
     // 'components/recordFooter/recordFooter.js',
     // 'components/recordFooter/recordFooter.less',
@@ -47,10 +52,6 @@ Package.onUse(function (api) {
     // 'components/recordPreviewPage/recordPreviewPage.js',
     // 'components/recordPreviewPage/recordPreviewPage.less',
     //
-    // 'components/recordsListPage/recordsListPage.html',
-    // 'components/recordsListPage/recordsListPage.js',
-    // 'components/recordsListPage/recordsListPage.less',
-    //
     // 'components/recordsTablePage/recordsTablePage.html',
     // 'components/recordsTablePage/recordsTablePage.js',
     // 'components/recordsTablePage/recordsTablePage.less',
@@ -58,17 +59,27 @@ Package.onUse(function (api) {
     // 'components/recordUpsertPage/recordUpsertPage.html',
     // 'components/recordUpsertPage/recordUpsertPage.js',
     // 'components/recordUpsertPage/recordUpsertPage.less',
-    'lib/activeRecord.js'
+  ], ['client']);
 
-  ], 'client');
+  api.addFiles([
+    'lib/ActiveRecord.js',
+    'lib/Foo.js'
+
+  ], ['client', 'server']);
+
+  api.addFiles(['server/publications.js'], 'server');
 
   //api.addFiles('active-record.js');
 
   api.export("ActiveRecord");
+  api.export("Foo");
 });
 
 Package.onTest(function (api) {
   api.use('tinytest');
+  api.use('meteor-platform');
+  api.use('session');
+
   api.use('photonic:active-record');
   api.use('clinical:verification');
 

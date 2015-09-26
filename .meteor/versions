@@ -82,7 +82,6 @@ photonic:active-record-core@0.0.1
 photonic:active-record-footer@0.0.1
 photonic:active-record-header@0.0.1
 photonic:active-record-imagegrid@0.0.1
-photonic:active-record-list@0.0.1
 photonic:active-record-preview@0.0.1
 photonic:active-record-table@0.0.1
 photonic:active-users-core@0.0.2

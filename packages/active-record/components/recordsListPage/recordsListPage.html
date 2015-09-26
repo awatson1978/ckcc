@@ -1,6 +1,6 @@
 
 <template name="recordsListPage">
-  <article id="recordsListPage" class="page">
+  <article id="recordsListPage" class="page fizzle">
     {{> recordHeader type="record"}}
     <div class="pageBody" style="{{getOpacity}}">
       <input id="recordSearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." />
@@ -17,7 +17,7 @@
           {{#each foosList}}
             <li class="fooItem">
               <article>
-                <h2 class="titleText">{{title}}</h2>
+                <h2 class="titleText">{{studyName}}</h2>
                 <span class="pull-right barcode gray idText">{{_id}}</span><br>
                 <span class="descriptionText">{{description}}</span>
               </article>

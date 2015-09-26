@@ -1,9 +1,9 @@
-Template.mainPage.events({
+Template.infoPage.events({
   'click #listButton': function () {
     Router.go('/list/foos');
   }
 });
 
-Template.mainPage.helpers({
+Template.infoPage.helpers({
 
 });

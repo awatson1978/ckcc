@@ -130,3 +130,45 @@ module.exports = {
       .end();
   }
 };
+
+
+
+
+
+
+
+
+
+// -------------------------------------
+// OLD SCRIPT
+
+// Signing In UserA
+// UserA Can Review Collaborations
+// UserA Can Add a Collaboration
+// UserA Can Post To Collaboration
+// View Collaboration Posts
+// UserB Requests To Join Collaboration
+// UserA Grants Access to UserB
+// UserB Can Access Collaboration
+// UserA Denies Access To UserB
+// UserB Cant See Collaboration
+
+
+// -------------------------------------
+// NEW SCRIPT
+
+// Signing In UserA
+// UserA Can Review Collaborations
+// UserA Can Add a Collaboration
+// UserA Can Post To Collaboration
+// View Collaboration Posts
+// UserB Requests To Join Collaboration
+// UserA Grants Access to UserB
+// UserB Can Access Collaboration
+// UserA Denies Access To UserB
+// UserB Cant See Collaboration
+
+
+
+
+

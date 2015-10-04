@@ -33,7 +33,7 @@ module.exports = {
   },
   "B. UserA Can Review Collaborations" : function (client) {
 
-      .sectionBreak(")
+      .sectionBreak("")
       .reviewCollaborationListPage(collaborationName)
 
   },

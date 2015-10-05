@@ -218,52 +218,124 @@ module.exports = {
   // UserA Has SignedOut Access to Collaborations 
 
 
-// Sign In UserA
+   // Sign In UserA
 
-  // UserA Has Default Public Access to Collaborations 
+    // UserA Has Default Public Access to Collaborations 
 
-  // UserA creates Public Collaboration "AwesomeArdvaarks"
-  // UserA creates Public Collaboration "BusyBees"
+    // UserA creates Public Collaboration "AwesomeArdvaarks"
+    // UserA creates Public Collaboration "BusyBees"
 
-  // UserA Has SignedIn Public Access to AwesomeArdvaarks 
-  // UserA Has SignedIn Private Access to BusyBees 
+    // UserA Has SignedIn Public Access to AwesomeArdvaarks 
+    // UserA Has SignedIn Private Access to BusyBees 
 
-  // UserB can View Details of AwesomeArdvarks
-  // UserB can View Details of BusyBees
+    // UserB can View Details of AwesomeArdvarks
+    // UserB can View Details of BusyBees
 
-  // UserB Has SignedOut Public Access to AwesomeArdvarks 
-  // UserB Has SignedOut Private Access to BusyBees
+    // UserB Has SignedOut Public Access to AwesomeArdvarks 
+    // UserB Has SignedOut Private Access to BusyBees
 
-  // UserB Requests To Join Collaboration
+    // UserB Requests To Join Collaboration
 
-    // UserB Grants Access to UserB
-    // UserB signs in
+      // UserB Grants Access to UserB
+      // UserB signs in
 
-    // UserB Has Default Public Access to Collaborations 
-    // UserB Has SignedIn Public Access to AwesomeArdvarks 
-    // UserB Has SignedIn Private Access to BusyBees 
+      // UserB Has Default Public Access to Collaborations 
+      // UserB Has SignedIn Public Access to AwesomeArdvarks 
+      // UserB Has SignedIn Private Access to BusyBees 
     
 
-  // UserA Revokes Access To UserB
+    // UserA Revokes Access To UserB
 
-    // UserB Has SignedOut Public Access to AwesomeArdvarks 
-    // UserB Has SignedOut Private Access to BusyBees
+      // UserB Has SignedOut Public Access to AwesomeArdvarks 
+      // UserB Has SignedOut Private Access to BusyBees
 
-  // UserB signs out
+    // UserB signs out
 
-    // UserB Has SignedOut Public Access to AwesomeArdvarks 
-    // UserB Has SignedOut Private Access to BusyBees
+      // UserB Has SignedOut Public Access to AwesomeArdvarks 
+      // UserB Has SignedOut Private Access to BusyBees
   
-  // UserA signs out
+    // UserA signs out
 
-  // UserA Has Default Public Access to Collaborations 
-  // UserA Has SignedOut Access to AwesomeArdvarks 
-  // UserA Has SignedOut Access to BusyBees 
-  // UserB Has SignedOut Access to AwesomeArdvarks 
-  // UserB Has SignedOut Access to BusyBees 
+    // UserA Has Default Public Access to Collaborations 
+    // UserA Has SignedOut Access to AwesomeArdvarks 
+    // UserA Has SignedOut Access to BusyBees 
 
-
-
+    // UserB Has SignedOut Access to AwesomeArdvarks 
+    // UserB Has SignedOut Access to BusyBees 
 
 
 
+// -------------------------------------
+// VALIDATION SCRIPT
+
+ 
+
+ 
+
+    // UserB can View Details of AwesomeArdvarks
+    // UserB can View Details of BusyBees
+
+    // UserB Has SignedOut Public Access to AwesomeArdvarks 
+    // UserB Has SignedOut Private Access to BusyBees
+
+    // UserB Requests To Join Collaboration
+
+      // UserB Grants Access to UserB
+      // UserB signs in
+
+      // UserB Has Default Public Access to Collaborations 
+      // UserB Has SignedIn Public Access to AwesomeArdvarks 
+      // UserB Has SignedIn Private Access to BusyBees 
+    
+
+    // UserA Revokes Access To UserB
+
+      // UserB Has SignedOut Public Access to AwesomeArdvarks 
+      // UserB Has SignedOut Private Access to BusyBees
+
+    // UserB signs out
+
+      // UserB Has SignedOut Public Access to AwesomeArdvarks 
+      // UserB Has SignedOut Private Access to BusyBees
+  
+
+
+describe('Multiactor Collaboration', function() {
+
+  describe('User B ', function() {
+
+    it('public user access to default when logged out', function(client) {
+      client
+        .assert.hasDefaultPublicAccess()
+        .assert.hasSignedOutAccess('PrivatePanda')
+    });
+
+
+    it('signed in user can manage collaborations', function(client) {
+      client
+        .signIn('userA')
+        .assert.hasDefaultPublicAccess()
+        .assert.hasSignedOutAccess('PrivatePanda')
+
+        .createCollaboration('AwesomeArdvarks', 'public')
+        .createCollaboration('BusyBees', 'public')
+
+        .assert.hasSignedInPublicAccess('AwesomeArdvaarks')
+        .assert.hasSignedInPrivateAccess('BusyBees')
+    
+
+
+
+    });
+
+
+
+    it('signed out user reverts to public access', function(client) {
+      client
+        .signOut()
+        .assert.hasDefaultPublicAccess()
+        .assert.hasSignedOutAccess('AwesomeArdvarks')
+        .assert.hasSignedOutAccess('BusyBees')
+    });
+  });
+});

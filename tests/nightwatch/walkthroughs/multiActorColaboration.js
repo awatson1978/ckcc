@@ -270,33 +270,8 @@ module.exports = {
 
  
 
- 
-
-    // UserB can View Details of AwesomeArdvarks
-    // UserB can View Details of BusyBees
-
-    // UserB Has SignedOut Public Access to AwesomeArdvarks 
-    // UserB Has SignedOut Private Access to BusyBees
-
-    // UserB Requests To Join Collaboration
-
-      // UserB Grants Access to UserB
-      // UserB signs in
-
-      // UserB Has Default Public Access to Collaborations 
-      // UserB Has SignedIn Public Access to AwesomeArdvarks 
-      // UserB Has SignedIn Private Access to BusyBees 
-    
-
-    // UserA Revokes Access To UserB
-
-      // UserB Has SignedOut Public Access to AwesomeArdvarks 
-      // UserB Has SignedOut Private Access to BusyBees
-
-    // UserB signs out
-
-      // UserB Has SignedOut Public Access to AwesomeArdvarks 
-      // UserB Has SignedOut Private Access to BusyBees
+  
+   
   
 
 
@@ -311,7 +286,7 @@ describe('Multiactor Collaboration', function() {
     });
 
 
-    it('signed in user can manage collaborations', function(client) {
+    it('signed in user can manage collaborations they own', function(client) {
       client
         .signIn('userA')
         .assert.hasDefaultPublicAccess()
@@ -322,11 +297,53 @@ describe('Multiactor Collaboration', function() {
 
         .assert.hasSignedInPublicAccess('AwesomeArdvaarks')
         .assert.hasSignedInPrivateAccess('BusyBees')
-    
-
-
-
     });
+
+    it('signed in user can request to join collaborations they don't own', function(client) {
+      client
+        .switchWindow(2)
+        .assert.hasDefaultPublicAccess()
+        .signIn('userB')
+          .viewDetails('AwesomeArdvarks')
+          .viewDetails('BusyBees')
+
+          .assert.hasSignedInPublicAccess('AwesomeArdvaarks')
+          .assert.hasSignedInPrivateAccess('BusyBees')
+
+          .requestToJoinCollaboration('BusyBees')
+    });
+
+    it('can grant access to collaborations', function(client) {
+      client
+        .switchWindow(1)
+          .grantsAccessToCollaboration('userA','BusyBees')
+    });
+
+    it('can grant access to collaborations', function(client) {
+      client
+        .switchWindow(2)
+          .assert.hasDefaultPublicAccess()
+          .assert.hasSignedInPublicAccess('AwesomeArdvaarks')
+          .assert.hasSignedInPrivateAccess('BusyBees')
+    });
+
+
+    it('can revoke access to collaborations', function(client) {
+      client
+        .switchWindow(1)
+          .revokesAccessToCollaboration('userA','BusyBees')
+    });
+
+
+    // UserA Revokes Access To UserB
+
+      // UserB Has SignedOut Public Access to AwesomeArdvarks 
+      // UserB Has SignedOut Private Access to BusyBees
+
+    // UserB signs out
+
+      // UserB Has SignedOut Public Access to AwesomeArdvarks 
+      // UserB Has SignedOut Private Access to BusyBees
 
 
 

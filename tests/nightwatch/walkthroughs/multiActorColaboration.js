@@ -221,37 +221,46 @@ module.exports = {
 // Sign In UserA
 
   // UserA Has Default Public Access to Collaborations 
-  // UserA Has SignedOut Access to Collaborations 
 
   // UserA creates Public Collaboration "AwesomeArdvaarks"
   // UserA creates Public Collaboration "BusyBees"
 
-  // UserB Has Default Public Access to Collaborations 
-  // UserB Has SignedOut Access to Collaborations 
+  // UserA Has SignedIn Public Access to AwesomeArdvaarks 
+  // UserA Has SignedIn Private Access to BusyBees 
 
   // UserB can View Details of AwesomeArdvarks
   // UserB can View Details of BusyBees
 
-    // User Can't Add, Update, or Delete Any Collaborations
-    // User Can't View Details of Any Private Collaborations
-    // User Can List and View Foos of Public Collaborations
-    // User Can't Upsert or Delete Foos of Public Collaborations
-    // User Can't List, View Details, Upsert, Or Delete Foos of Any Private Collaborations
-
-
+  // UserB Has SignedOut Public Access to AwesomeArdvarks 
+  // UserB Has SignedOut Private Access to BusyBees
 
   // UserB Requests To Join Collaboration
 
-    // UserA Grants Access to UserB
+    // UserB Grants Access to UserB
     // UserB signs in
 
+    // UserB Has Default Public Access to Collaborations 
+    // UserB Has SignedIn Public Access to AwesomeArdvarks 
+    // UserB Has SignedIn Private Access to BusyBees 
     
 
+  // UserA Revokes Access To UserB
 
-// UserB Can Access Collaboration
-// UserA Denies Access To UserB
-// UserB Cant See Collaboration
+    // UserB Has SignedOut Public Access to AwesomeArdvarks 
+    // UserB Has SignedOut Private Access to BusyBees
 
+  // UserB signs out
+
+    // UserB Has SignedOut Public Access to AwesomeArdvarks 
+    // UserB Has SignedOut Private Access to BusyBees
+  
+  // UserA signs out
+
+  // UserA Has Default Public Access to Collaborations 
+  // UserA Has SignedOut Access to AwesomeArdvarks 
+  // UserA Has SignedOut Access to BusyBees 
+  // UserB Has SignedOut Access to AwesomeArdvarks 
+  // UserB Has SignedOut Access to BusyBees 
 
 
 

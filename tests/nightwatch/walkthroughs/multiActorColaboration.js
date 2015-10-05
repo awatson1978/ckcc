@@ -299,7 +299,7 @@ describe('Multiactor Collaboration', function() {
         .assert.hasSignedInPrivateAccess('BusyBees')
     });
 
-    it('signed in user can request to join collaborations they don't own', function(client) {
+    it('signed in user can request to join collaborations they dont own', function(client) {
       client
         .switchWindow(2)
         .assert.hasDefaultPublicAccess()

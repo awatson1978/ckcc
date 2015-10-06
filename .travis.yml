@@ -42,8 +42,6 @@ before_install:
 
   # setup Meteor app
   - "cd webapp"
-  - "starrynight generate-autoconfig"
-  - "sleep 5"
   
   - "meteor &"
 

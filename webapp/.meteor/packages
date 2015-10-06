@@ -1,0 +1,41 @@
+# Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-platform
+autopublish
+insecure
+awatson1978:fonts-helveticas
+fortawesome:fontawesome
+iron:router
+grove:less
+
+photonic:glass-ui
+starrynight:dropdatabase@0.0.2
+
+clinical:barcode
+clinical:extended-api
+clinical:collaborations
+clinical:collaborations-ui
+
+clinical:active-entry@0.2.1
+photonic:active-record@0.0.3
+
+photonic:active-users-core@0.0.2
+photonic:active-users-table
+
+gadicohen:prism
+rahul:animate-everything
+
+digilord:faker
+natestrauser:jquery-scrollto
+
+meteorhacks:kadira
+
+clinical:json2json
+clinical:user-model
+clinical:migrations
+clinical:overlays
+clinical:modals

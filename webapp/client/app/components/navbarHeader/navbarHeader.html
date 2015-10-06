@@ -1,0 +1,17 @@
+<template name="navbarHeader">
+  <header id="navbarHeader" class="helveticas">
+    <a href="/" class="navbarTitle">{{getTitleText}}</a>
+    <div class="eastLinks">
+      <a href="{{getUsernameLink}}" class="navbarLink">{{ fullName }}</a>
+      {{#if isLoggedIn }}
+      <a id="logoutLink" class="navbarLink">Logout</a>
+      {{/if}}
+    </div>
+  </header>
+  <aside id="accountCard" class="helveticas" style="{{accountCardStyle}} {{cardVisibility}}">
+    <div id="accountCardHandle"></div>
+    <img id="accountAvatar" src="" alt="" />
+    <h4>{{ fullName }}</h4>
+    <h4>{{ status }}</h4>
+  </aside>
+</template>

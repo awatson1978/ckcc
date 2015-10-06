@@ -1,15 +1,13 @@
 <template name="navbarFooter">
   <footer id="navbarFooter" style="{{getOpacity}}">
-    <button id="newBtn">New Questionairre</button>
-    <!-- <button id="listBtn">Form Results</button> -->
-    <!-- <button id="tableBtn">Results Table</button> -->
-    <!-- <button id="collaborationsBtn">Collaborations</button> -->
-    <button id="newCollaborationBtn">New Collaboration</button>
+    {{#if isLoggedIn}}
+      <button id="newBtn">New Questionairre</button>
+      <button id="newCollaborationBtn">New Collaboration</button>
+    {{/if}}
     <button id="overlayBtn">Overlay</button>
     <button id="backgroundBtn">Background</button>
     <button id="opacityBtn">Opacity</button>
     <button id="keybindingsBtn">Keybindings</button>
-    <!-- <button id="imageGridBtn">Pathology Images</button> -->
 
     <div class="eastLinks">
       <!-- <button id="scrollTopBtn">Top</button>

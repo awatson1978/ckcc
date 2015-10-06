@@ -42,11 +42,11 @@ before_install:
 
   # setup Meteor app
   - "cd webapp"
-  
-  - "meteor &"
+
+  - "meteor run &"
 
   # give Meteor some time to download packages, init data, and to start
-  - "sleep 60"
+  - "sleep 90"
 
 # we're not installing starrynight globally, so we run the script from the local node_modules folder
 script: "starrynight run-tests --framework nightwatch"

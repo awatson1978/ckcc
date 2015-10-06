@@ -1,18 +1,12 @@
-clinical:active-record
+photonic:active-form-upsert
 
 ===============================
 #### Installation  
 
 ````bash
-meteor add clinical:active-record
+meteor add photonic:active-form-upsert
 ````
 
-===============================
-#### Usage  
-
-````js
-
-````
 
 ===============================
 #### Licensing  

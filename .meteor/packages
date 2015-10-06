@@ -12,19 +12,19 @@ fortawesome:fontawesome
 iron:router
 grove:less
 
-photonic:glass-ui
 starrynight:dropdatabase@0.0.2
+
+photonic:glass-ui
+photonic:active-users-core
+photonic:active-users-table@0.0.3
+
 
 clinical:barcode
 clinical:extended-api
 clinical:collaborations
 clinical:collaborations-ui
-
 clinical:active-entry@0.2.1
-photonic:active-record@0.0.3
-
-photonic:active-users-core@0.0.2
-photonic:active-users-table
+clinical:active-record@0.0.4
 
 gadicohen:prism
 rahul:animate-everything

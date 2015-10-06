@@ -30,7 +30,22 @@ Template.appLayout.rendered = function () {
 };
 
 
+
+
 Template.appLayout.helpers({
+  getBackground: function (){
+    if ( Session.get('show_background')) {
+      return "background: url(forest1.jpg) no-repeat center center fixed;";
+      // $("body").attr("class", "forest");
+      // $("html").attr("class", "");
+    } else {
+
+      return "background-color: #AEC9A8;";
+      // return "background: url(forest1.jpg) no-repeat center center fixed;";
+      // $("html").attr("class", "dissertation");
+      // $("body").attr("class", "");
+    }
+  },
   resized: function () {
     Template.appLayout.layout();
   },
@@ -59,14 +74,16 @@ Template.appLayout.delayedLayout = function (timeout) {
 //==================================================================================================
 
 
-Template.registerHelper("getOpacity", function (){
+Template.registerHelper("getOpacityWithCorner", function (){
   if (Session.get('appWidth') > 768) {
     return "background: linear-gradient(225deg, transparent 28.28px, rgba(255,255,255," + Session.get("glassOpacity") + ") 0) top right;";
   } else {
     return "background-color: rgba(255,255,255," + Session.get("glassOpacity") + "); top: 50px;";
   }
 });
-
+Template.registerHelper("getOpacity", function (){
+  return "background-color: rgba(255,255,255," + Session.get("glassOpacity") + ");";
+});
 Template.registerHelper("btnPrimary", function () {
   return "background-color: " + Session.get('backgroundColorA') + "; color: #ffffff;";
 });

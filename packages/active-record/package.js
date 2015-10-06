@@ -1,8 +1,8 @@
 Package.describe({
-  name: 'photonic:active-record',
-  version: '0.0.3',
+  name: 'clinical:active-record',
+  version: '0.0.4',
   // Brief, one-line summary of the package.
-  summary: 'Photonic::ActiveRecord',
+  summary: 'ActiveRecord component for the ClinicalFramework; provides CRUD pattern using Autoform.',
   // URL to the Git repository containing the source code for this package.
   git: 'http://github.com/awatson1978/active-record/packages/active-record',
   // By default, Meteor will default to using README.md for documentation.
@@ -16,14 +16,18 @@ Package.onUse(function (api) {
   api.use('meteor-platform');
   api.use('iron:router@1.0.7');
   api.use('less');
+  api.use('photonic:glass-ui@0.2.4');
   //api.use('session');
 
   api.use('photonic:active-record-core@0.0.1');
-  api.use('photonic:active-record-imagegrid@0.0.1');
+  api.use('photonic:active-record-header@0.0.4');
+  api.use('photonic:active-record-footer@0.0.4');
+
+  // api.use('photonic:active-record-imagegrid@0.0.1');
   // api.use('photonic:active-record-list@0.0.1');
-  api.use('photonic:active-record-preview@0.0.1');
-  api.use('photonic:active-record-table@0.0.1');
-  api.use('photonic:active-form-upsert@0.0.1');
+  //api.use('photonic:active-record-preview@0.0.1');
+  // api.use('photonic:active-record-table@0.0.1');
+  //api.use('photonic:active-form-upsert@0.0.1');
 
   // api.use('photonic:active-record-edit@0.0.1');
   // api.use('photonic:active-record-new@0.0.1');
@@ -36,29 +40,21 @@ Package.onUse(function (api) {
     'components/recordsListPage/recordsListPage.js',
     'components/recordsListPage/recordsListPage.less',
 
-    // 'components/recordFooter/recordFooter.html',
-    // 'components/recordFooter/recordFooter.js',
-    // 'components/recordFooter/recordFooter.less',
-    //
-    // 'components/recordHeader/recordHeader.html',
-    // 'components/recordHeader/recordHeader.js',
-    // 'components/recordHeader/recordHeader.less',
-
-    // 'components/recordImageGridPage/recordImageGridPage.html',
-    // 'components/recordImageGridPage/recordImageGridPage.js',
-    // 'components/recordImageGridPage/recordImageGridPage.less',
+    'components/recordImageGridPage/recordImageGridPage.html',
+    'components/recordImageGridPage/recordImageGridPage.js',
+    'components/recordImageGridPage/recordImageGridPage.less',
     //
     // 'components/recordPreviewPage/recordPreviewPage.html',
     // 'components/recordPreviewPage/recordPreviewPage.js',
     // 'components/recordPreviewPage/recordPreviewPage.less',
     //
-    // 'components/recordsTablePage/recordsTablePage.html',
-    // 'components/recordsTablePage/recordsTablePage.js',
-    // 'components/recordsTablePage/recordsTablePage.less',
+    'components/recordsTablePage/recordsTablePage.html',
+    'components/recordsTablePage/recordsTablePage.js',
+    'components/recordsTablePage/recordsTablePage.less',
     //
-    // 'components/recordUpsertPage/recordUpsertPage.html',
-    // 'components/recordUpsertPage/recordUpsertPage.js',
-    // 'components/recordUpsertPage/recordUpsertPage.less',
+    'components/recordUpsertPage/recordUpsertPage.html',
+    'components/recordUpsertPage/recordUpsertPage.js',
+    'components/recordUpsertPage/recordUpsertPage.less',
   ], ['client']);
 
   api.addFiles([
@@ -80,7 +76,7 @@ Package.onTest(function (api) {
   api.use('meteor-platform');
   api.use('session');
 
-  api.use('photonic:active-record');
+  api.use('clinical:active-record');
   api.use('clinical:verification');
 
   api.addFiles('tests/active-record.js');

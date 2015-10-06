@@ -1,16 +1,19 @@
-<head>
-  <title>PathologyReport</title>
-</head>
+  <head>
+    <title>CKCC</title>
+  </head>
 
 <template name="appLayout">
-  {{> navbarHeader}}
+  <div id="appLayout" style="{{getBackground}}">
+    {{> navbarHeader}}
 
-    <div class="hidden">{{resized}}</div>
-    <div id="mainPanel" class="padded helveticas" style="{{getStyle}} {{getOpacity}}">
-      {{> yield }}
-    </div>
+      <div class="hidden">{{resized}}</div>
+      <div id="mainPanel" class="padded helveticas" style="{{getStyle}}">
+        {{> yield }}
+      </div>
 
-  {{> reactiveOverlaysTemplate }}
+    {{> reactiveOverlaysTemplate }}
 
-  {{> navbarFooter}}
+    {{> navbarFooter}}
+  </div>
+
 </template>

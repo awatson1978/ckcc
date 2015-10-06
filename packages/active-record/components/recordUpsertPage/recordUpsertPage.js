@@ -78,7 +78,8 @@ Template.recordUpsertPage.events({
       }
     });
   },
-  "click #saveRecordButton": function (){
+  "click #saveRecordButton": function (event, template){
+    event.preventDefault();
     Template.recordUpsertPage.saveFoo(this);
     Session.set('recordReadOnly', true);
   },
@@ -123,14 +124,14 @@ Template.recordUpsertPage.events({
 Template.recordUpsertPage.saveFoo = function (record){
   // TODO:  add validation functions
 
-  // var customerObject = {
+  // var newRecord = {
   //   title: $('input[name="title"]').val(),
   //   description: $('input[name="description"]').val(),
   //   imageUrl: $('input[name="imageUrl"]').val(),
   //   url: $('input[name="url"]').val()
   // };
 
-  var customerObject = {
+  var newRecord = {
     institutionName: $('input[name="institutionName"]').val(),
     institutionId: $('input[name="institutionId"]').val(),
     physicianName: $('input[name="physicianName"]').val(),
@@ -143,6 +144,7 @@ Template.recordUpsertPage.saveFoo = function (record){
     diseaseSubtype: $('input[name="diseaseSubtype"]').val(),
     priorTreatmentHistory: $('input[name="priorTreatmentHistory"]').val(),
     complicatingConditions: $('input[name="complicatingConditions"]').val(),
+    currentStatus: $('input[name="currentStatus"]').val(),
     lastFollowUpDate: $('input[name="lastFollowUpDate"]').val(),
     familyHistory: $('input[name="familyHistory"]').val(),
     molecularTesting: $('input[name="molecularTesting"]').val(),
@@ -153,17 +155,24 @@ Template.recordUpsertPage.saveFoo = function (record){
     otherStudies: $('input[name="otherStudies"]').val()
   };
 
+  // var inputElements = $('input');
+  // var newRecord = {};
+  // inputElements.forEach(function(input){
+  //   newRecord[input.name] = input.val();
+  // });
 
-  console.log ("customerObject", customerObject);
+
+
+  console.log ("newRecord", newRecord);
 
 
   if (record._id){
-    Foo.update({_id: record._id}, {$set: customerObject }, function (error, result){
+    Foo.update({_id: record._id}, {$set: newRecord }, function (error, result){
       if (error) console.log(error);
       Router.go('/view/foo/' + record._id);
     });
   } else {
-    Foo.insert(customerObject, function (error, result){
+    Foo.insert(newRecord, function (error, result){
       if (error) console.log(error);
       Router.go('/view/foo/' + result);
     });

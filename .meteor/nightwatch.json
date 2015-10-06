@@ -16,7 +16,18 @@
     "./tests/nightwatch/commands/actions",
     "./tests/nightwatch/commands/components",
     "./tests/nightwatch/commands/methods",
-    "packages/active-record/.tests"
+    ".scrap/active-entry/components/entrySignIn/.tests",
+    ".scrap/active-entry/components/entrySignIn/.tests/actions",
+    ".scrap/active-entry/components/entrySignUp/.tests",
+    ".scrap/active-entry/components/entrySignUp/.tests/actions",
+    ".scrap/active-entry/components/forgotPassword/.tests",
+    "packages/active-record/components/recordImageGridPage/.tests",
+    "packages/active-record/components/recordPreviewPage/.tests",
+    "packages/active-record/components/recordUpsertPage/.tests",
+    "packages/active-record/components/recordUpsertPage/.tests/actions",
+    "packages/active-record/components/recordsListPage/.tests",
+    "packages/active-record/components/recordsTablePage/.tests",
+    "packages/active-users-table/components/usersTablePage/.tests"
   ],
   "custom_assertions_path": [
     "./tests/nightwatch/assertions"

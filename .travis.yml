@@ -7,7 +7,7 @@ node_js:
 services:
   - mongodb
 
-sudo: required
+sudo: false
 
 env:
   global:

@@ -16,15 +16,16 @@ boilerplate-generator@1.0.3
 callback-hook@1.0.3
 cfs:http-methods@0.0.30
 check@1.0.5
+clinical:active-entry@0.2.1
 clinical:barcode@2.0.2
 clinical:collaborations@1.1.0
 clinical:collaborations-ui@1.1.0
 clinical:extended-api@1.0.1
 clinical:json2json@0.0.1
-clinical:migrations@0.8.6
-clinical:modals@0.0.1
-clinical:overlays@1.1.0
-clinical:user-model@0.1.4
+clinical:migrations@0.8.7
+clinical:modals@0.0.2
+clinical:overlays@1.1.1
+clinical:user-model@0.1.5
 clinical:verification@3.0.0
 coffeescript@1.0.6
 ddp@1.1.0
@@ -36,7 +37,6 @@ fastclick@1.0.3
 fortawesome:fontawesome@4.3.0
 gadicohen:prism@1.0.4
 geojson-utils@1.0.3
-glass:glass-ui@0.2.2
 grove:less@0.1.1
 html-tools@1.0.4
 htmljs@1.0.4
@@ -75,7 +75,6 @@ npm-bcrypt@0.7.8_2
 observe-sequence@1.0.6
 ordered-dict@1.0.3
 pfafman:font-awesome-4@4.2.0_4
-photonic:active-entry@0.2.0
 photonic:active-form-upsert@0.0.1
 photonic:active-record@0.0.3
 photonic:active-record-core@0.0.1
@@ -86,6 +85,7 @@ photonic:active-record-preview@0.0.1
 photonic:active-record-table@0.0.1
 photonic:active-users-core@0.0.2
 photonic:active-users-table@0.0.1
+photonic:glass-ui@0.2.3
 practicalmeteor:chai@1.9.2_3
 practicalmeteor:loglevel@1.2.0_1
 practicalmeteor:sinon@1.10.3_2

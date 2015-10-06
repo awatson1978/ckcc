@@ -12,7 +12,7 @@ fortawesome:fontawesome
 iron:router
 grove:less
 
-glass:glass-ui
+photonic:glass-ui
 starrynight:dropdatabase@0.0.2
 
 clinical:barcode
@@ -20,7 +20,7 @@ clinical:extended-api
 clinical:collaborations
 clinical:collaborations-ui
 
-photonic:active-entry
+clinical:active-entry@0.2.1
 photonic:active-record@0.0.3
 
 photonic:active-users-core@0.0.2

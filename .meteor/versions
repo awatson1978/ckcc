@@ -16,7 +16,7 @@ boilerplate-generator@1.0.3
 callback-hook@1.0.3
 cfs:http-methods@0.0.30
 check@1.0.5
-clinical:active-entry@0.2.1
+clinical:active-entry@0.2.2
 clinical:active-record@0.0.4
 clinical:barcode@2.0.2
 clinical:collaborations@1.1.1
@@ -79,7 +79,7 @@ pfafman:font-awesome-4@4.2.0_4
 photonic:active-record-core@0.0.1
 photonic:active-record-footer@0.0.4
 photonic:active-record-header@0.0.4
-photonic:active-users-core@0.0.2
+photonic:active-users-core@0.0.3
 photonic:active-users-table@0.0.3
 photonic:glass-ui@0.2.4
 practicalmeteor:chai@1.9.2_3

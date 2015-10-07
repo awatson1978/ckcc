@@ -29,13 +29,13 @@ clinical:active-record@0.0.4
 gadicohen:prism
 rahul:animate-everything
 
-digilord:faker
+#digilord:faker
 natestrauser:jquery-scrollto
 
-meteorhacks:kadira
+#meteorhacks:kadira
 
 clinical:json2json
-clinical:user-model
+#clinical:user-model
 clinical:migrations
 clinical:overlays
 clinical:modals

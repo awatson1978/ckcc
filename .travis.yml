@@ -2,7 +2,7 @@
 language: node_js
 
 node_js:
-  - "4.1.0"
+  - "4.1"
 
 services:
   - mongodb
@@ -11,11 +11,17 @@ sudo: false
 
 env:
   global:
+    - CXX=g++-4.8
     - TRAVIS=true
     - DISPLAY=:99.0
     - CONFIG_PREFIX=`npm config get prefix`
   matrix:
-
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
 cache:
   directories:
     - .meteor/local/build/programs/server/assets/packages

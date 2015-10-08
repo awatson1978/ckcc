@@ -46,25 +46,15 @@ before_install:
   - "curl https://install.meteor.com | /bin/sh"
 
   # give meteor a few seconds after installing
-  - "sleep 20"
+  - "sleep 10"
 
   - "pwd"
-
-  - "echo '~/.meteor'"
-  - "ls -la ~/.meteor"
-
-  - "echo '../.meteor'"
-  - "ls -la ../.meteor"
-
-  - "echo 'usrlocalbin'"
-  - "ls -la /usr/local/bin"
-
   - "which meteor"
 
   # setup Meteor app
   # - "cd webapp"
 
-  - "meteor &"
+  - "/usr/local/bin/meteor &"
 
   # give Meteor some time to download packages, init data, and to start
   - "sleep 60"

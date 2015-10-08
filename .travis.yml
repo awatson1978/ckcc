@@ -49,10 +49,6 @@ before_install:
   - "sleep 10"
 
   - "pwd"
-  - "which meteor"
-
-  # setup Meteor app
-  # - "cd webapp"
 
   - "/usr/local/bin/meteor &"
 

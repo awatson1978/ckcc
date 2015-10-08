@@ -52,7 +52,7 @@ before_install:
   - "~/.meteor/meteor &"
 
   # give Meteor some time to download packages, init data, and to start
-  #- "sleep 60"
+  - "sleep 60"
 
   # check that node_modules exist, and what's inside
   #- "echo $(npm config get prefix)/lib/node_modules"

@@ -25,16 +25,17 @@
 
 
 // syncrhonous version; only works for checking javascript objects on client
-exports.command = function(sessionVarName, expectedValue) {
+exports.command = function (sessionVarName, expectedValue) {
   var client = this;
   this
-    .execute(function(data){
+    .execute(function (data) {
       return Session.get(data);
-    }, [sessionVarName], function(result){
+    }, [sessionVarName], function (result) {
       client.assert.ok(result.value);
-      if(expectedValue){
+      if (expectedValue) {
         client.assert.equal(result.value, expectedValue);
       }
-    }).pause(1000)
-    return this;
+    }).pause(1000);
+
+  return this;
 };

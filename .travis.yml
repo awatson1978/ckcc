@@ -61,4 +61,4 @@ before_install:
 
 
 # we're not installing starrynight globally, so we run the script from the local node_modules folder
-script: "starrynight run-tests --framework nightwatch"
+script: "starrynight run-tests --framework nightwatch --env travis"

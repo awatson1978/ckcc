@@ -24,8 +24,8 @@ addons:
     - g++-4.8
 cache:
   directories:
-    - ~/.meteor
-    - node_modules
+    #- node_modules
+    #- ~/.meteor
     #- ~/.meteor/local/build/programs/server/assets/packages
 
 before_install:
@@ -54,8 +54,7 @@ before_install:
   # give Meteor some time to download packages, init data, and to start
   - "sleep 60"
 
-  # - "ls -la /home/travis/.nvm/versions/node/v4.1.2/lib/node_modules"
-
+  # check that node_modules exist, and what's inside
   - "echo $(npm config get prefix)/lib/node_modules"
   - "ls -la $(npm config get prefix)/lib/node_modules"
 

@@ -49,7 +49,17 @@ before_install:
   - "sleep 20"
 
   - "pwd"
-  - "ls -la .meteor"
+
+  - "echo '~/.meteor'"
+  - "ls -la ~/.meteor"
+
+  - "echo '../.meteor'"
+  - "ls -la ../.meteor"
+
+  - "echo 'usrlocalbin'"
+  - "ls -la /usr/local/bin"
+
+  - "which meteor"
 
   # setup Meteor app
   # - "cd webapp"

@@ -25,14 +25,15 @@ clinical:collaborations
 clinical:collaborations-ui
 clinical:active-entry@0.2.1
 clinical:active-record@0.0.4
+clinical:env@2.1.3
 
 gadicohen:prism
 rahul:animate-everything
 
-#digilord:faker
+digilord:faker
 natestrauser:jquery-scrollto
 
-#meteorhacks:kadira
+meteorhacks:kadira
 
 clinical:json2json
 #clinical:user-model

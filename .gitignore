@@ -6,3 +6,5 @@ reports
 screenshots/*
 logs/*
 reports/*
+
+.env

@@ -1,21 +1,21 @@
 {
   "starrynight": {
-    "version": "3.2.65"
+    "version": ""
   },
   "nightwatch": {
-    "version": "0.7.6"
+    "version": ""
   },
   "src_folders": [
     "./tests/nightwatch/walkthroughs"
   ],
   "output_folder": "./tests/nightwatch/reports",
   "custom_commands_path": [
-    "./tests/nightwatch/commands",
-    "./tests/nightwatch/commands/api/entry",
-    "./tests/nightwatch/commands/api/meteor",
-    "./tests/nightwatch/commands/actions",
-    "./tests/nightwatch/commands/components",
-    "./tests/nightwatch/commands/methods",
+    "tests/nightwatch/commands",
+    "tests/nightwatch/commands/api/entry",
+    "tests/nightwatch/commands/api/meteor",
+    "tests/nightwatch/commands/actions",
+    "tests/nightwatch/commands/components",
+    "tests/nightwatch/commands/methods",
     "packages/active-record/components/recordImageGridPage/.tests",
     "packages/active-record/components/recordPreviewPage/.tests",
     "packages/active-record/components/recordUpsertPage/.tests",

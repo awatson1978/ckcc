@@ -48,9 +48,7 @@ before_install:
   # give meteor a few seconds after installing
   - "sleep 10"
 
-  - "pwd"
-
-  - "/usr/local/bin/meteor &"
+  - "~/.meteor/meteor &"
 
   # give Meteor some time to download packages, init data, and to start
   - "sleep 60"

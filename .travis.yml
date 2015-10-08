@@ -54,7 +54,7 @@ before_install:
   # give Meteor some time to download packages, init data, and to start
   - "sleep 60"
 
-  - "ls -la /home/travis/.nvm/v0.10.38/lib/node_modules/"
+  # - "ls -la /home/travis/.nvm/v0.10.38/lib/node_modules/"
 
   - "echo $(npm config get prefix)/lib/node_modules"
   - "ls -la $(npm config get prefix)/lib/node_modules"

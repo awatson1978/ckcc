@@ -24,8 +24,9 @@ addons:
     - g++-4.8
 cache:
   directories:
-    - .meteor/local/build/programs/server/assets/packages
-    - .meteor
+    - ~/.meteor
+    - node_modules
+    #- ~/.meteor/local/build/programs/server/assets/packages
 
 before_install:
   # - set CONFIG_PREFIX=`npm config get prefix`
@@ -52,6 +53,12 @@ before_install:
 
   # give Meteor some time to download packages, init data, and to start
   - "sleep 60"
+
+  - "ls -la /home/travis/.nvm/v0.10.38/lib/node_modules/"
+
+  - "echo $(npm config get prefix)/lib/node_modules"
+  - "ls -la $(npm config get prefix)/lib/node_modules"
+
 
 # we're not installing starrynight globally, so we run the script from the local node_modules folder
 script: "starrynight run-tests --framework nightwatch"

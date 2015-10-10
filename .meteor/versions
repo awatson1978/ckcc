@@ -32,6 +32,7 @@ clinical:keybindings@0.0.2
 clinical:migrations@0.8.7
 clinical:modals@0.0.2
 clinical:overlays@1.1.1
+clinical:user-model@0.2.0
 clinical:users-picklist@0.0.2
 coffeescript@1.0.10
 ddp@1.2.2
@@ -69,11 +70,13 @@ launch-screen@1.0.4
 livedata@1.0.15
 localstorage@1.0.5
 logging@1.0.8
+matb33:collection-hooks@0.7.15
 meteor@1.1.9
 meteor-platform@1.2.3
 meteorhacks:inject-initial@1.0.2
 meteorhacks:kadira@2.23.6
 meteorhacks:meteorx@1.4.1
+meteorhacks:unblock@1.1.0
 minifiers@1.1.7
 minimongo@1.0.10
 mobile-status-bar@1.0.6
@@ -105,12 +108,15 @@ routepolicy@1.0.6
 service-configuration@1.0.5
 session@1.1.1
 sha@1.0.4
+socialize:base-model@0.2.3
+socialize:server-time@0.1.2
 spacebars@1.0.7
 spacebars-compiler@1.0.7
 srp@1.0.4
 starrynight:dropdatabase@0.0.3
 templating@1.1.4
 templating-tools@1.0.0
+tmeasday:publish-with-relations@0.2.0
 tracker@1.0.9
 ui@1.0.8
 underscore@1.0.4

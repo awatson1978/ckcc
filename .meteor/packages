@@ -35,9 +35,9 @@ natestrauser:jquery-scrollto
 meteorhacks:kadira
 
 clinical:json2json
-#clinical:user-model
 clinical:migrations
 clinical:overlays
 clinical:modals
 clinical:keybindings
 clinical:users-picklist
+clinical:user-model@0.2.0

@@ -7,7 +7,7 @@ Template.menuPage.helpers ({
     return Collaborations.find().count();
   },
   getQuestionsCount: function () {
-    return 1;
+    return Questionnaires.find().count() + "*";
   },
   getClinicalDataCount: function () {
     return Foo.find().count();

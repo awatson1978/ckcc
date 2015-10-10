@@ -9,6 +9,7 @@ Session.setDefault('showFormBuilderCard', false);
 
 Template.leftDock.events({
   'click #firstDocument': function () {
+    Session.set('inboxCardOpen', false);
     Router.go('/new/questionnaire');
   },
   'click #inboxCard .cardHandle': function () {

@@ -21,8 +21,8 @@ Template.menuPage.events({
   "click #collaborationsTile": function (event, template){
     Router.go('/grid/collaborations');
   },
-  "click #questionairesTile": function (event, template){
-    Router.go('/insert/foo');
+  "click #questionnairesTile": function (event, template){
+    Router.go('/list/questionnaires/');
   },
   "click #clinicalDataTile": function (event, template){
     Router.go('/list/foos');

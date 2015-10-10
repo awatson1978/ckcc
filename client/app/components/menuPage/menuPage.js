@@ -3,7 +3,18 @@
 
 
 Template.menuPage.helpers ({
-
+  getCollaborationsCount: function () {
+    return Collaborations.find().count();
+  },
+  getQuestionsCount: function () {
+    return 1;
+  },
+  getClinicalDataCount: function () {
+    return Foo.find().count();
+  },
+  getUsersCount: function () {
+    return Meteor.users.find().count();
+  }
 });
 
 Template.menuPage.events({

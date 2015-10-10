@@ -28,7 +28,6 @@ clinical:active-record@0.0.4
 clinical:env@2.1.3
 
 gadicohen:prism
-rahul:animate-everything
 
 digilord:faker
 natestrauser:jquery-scrollto
@@ -40,3 +39,5 @@ clinical:json2json
 clinical:migrations
 clinical:overlays
 clinical:modals
+clinical:keybindings
+clinical:users-picklist

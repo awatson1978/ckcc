@@ -1,23 +1,16 @@
 
 
-Session.setDefault("show_background", false);
-Session.setDefault("is_opaque", false);
+
 
 
 Template.navbarFooter.events({
-  'click #backgroundBtn': function (){
-    Session.toggle('show_background');
-  },
-  'click #opacityBtn': function (){
-    if(Session.get('is_opaque')){
-      Session.set("glassOpacity", 0.9);
-      Session.set('is_opaque', false);
-    } else {
-      Session.set("glassOpacity", 1);
-      Session.set('is_opaque', true);
-    }
+
+  'click #userPickListBtn': function (){
+    Session.toggle('show_reactive_overlay');
+    Session.toggle('show_users_picklist');
   },
   'click #keybindingsBtn': function (){
+    Session.toggle('show_reactive_overlay');
     Session.toggle('show_keybindings');
   },
   'click #overlayBtn': function (){
@@ -62,12 +55,4 @@ Template.navbarFooter.events({
   //       scrollTop: $('.recordFooter').offset().top
   //   }, 500);
   // }
-});
-
-
-
-Template.navbarFooter.helpers({
-  rendered: function () {
-
-  }
 });

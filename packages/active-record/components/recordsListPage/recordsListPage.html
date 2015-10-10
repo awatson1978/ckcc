@@ -17,8 +17,10 @@
           {{#each foosList}}
             <li class="fooItem">
               <article>
-                <h2 class="titleText">{{studyName}}</h2>
+                <h2 class="titleText">{{institutionId}} - {{participantId}}</h2>
                 <span class="pull-right barcode gray idText">{{_id}}</span><br>
+                <span class="physicianName">{{physicianName}}</span>
+                <span class="pull-right ageGenderText">{{patientGender}} / {{patientAge}}</span>
                 <span class="descriptionText">{{description}}</span>
               </article>
               <div class="fadeAway"></div>

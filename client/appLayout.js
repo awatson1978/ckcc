@@ -23,29 +23,18 @@ Meteor.startup(function () {
 });
 
 
+
+
 //==================================================================================================
+
+
 
 Template.appLayout.rendered = function () {
   Template.appLayout.layout();
+  $('body').addClass('greenBackground');
 };
 
-
-
-
 Template.appLayout.helpers({
-  getBackground: function (){
-    if ( Session.get('show_background')) {
-      return "background: url(forest1.jpg) no-repeat center center fixed;";
-      // $("body").attr("class", "forest");
-      // $("html").attr("class", "");
-    } else {
-
-      return "background-color: #AEC9A8;";
-      // return "background: url(forest1.jpg) no-repeat center center fixed;";
-      // $("html").attr("class", "dissertation");
-      // $("body").attr("class", "");
-    }
-  },
   resized: function () {
     Template.appLayout.layout();
   },

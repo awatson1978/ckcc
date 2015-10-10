@@ -15,11 +15,11 @@ Package.onUse(function (api) {
 
   api.use('meteor-platform');
   api.use('iron:router@1.0.7');
-  api.use('less');
+  api.use('grove:less@0.1.1');
   api.use('photonic:glass-ui@0.2.4');
   //api.use('session');
 
-  api.use('photonic:active-record-core@0.0.1');
+  api.use('photonic:active-record-core@0.0.2');
   api.use('photonic:active-record-header@0.0.4');
   api.use('photonic:active-record-footer@0.0.4');
 

@@ -1,5 +1,5 @@
 <template name="recordUpsertPage">
-  <div id="recordUpsertPage" class="horizontally-padded page" style={{getOpacity}}>
+  <div id="recordUpsertPage" class="horizontally-padded page" style={{getOpacityWithCorner}}>
     <!-- <header class="pageHeader">
       <i class="indexButton fa fa-chevron-left"></i>
       <h4 class="recordId barcode">{{_id}}</h4>
@@ -22,7 +22,8 @@
     <div id="recordUpsertCard" class="card-contents">
       {{#autoForm collection="Foo" id="newFooForm" type="insert" schema=FooSchema buttonContent="Save" buttonClass="glass-footer-btn" doc=this }}
         {{#each afFieldNames}}
-          {{> afQuickField name=this.name options=afOptionsFromSchema placeholder="schemaLabel" autocomplete="off"}}
+          {{> afQuickField name=this.name options=afOptionsFromSchema autocomplete="off"}}
+          <!-- {{> afQuickField name=this.name options=afOptionsFromSchema placeholder="schemaLabel" autocomplete="off"}} -->
         {{/each}}
 
       <button id="saveRecordButton" type="submit" class="glass-footer-btn">Save Foo</button>

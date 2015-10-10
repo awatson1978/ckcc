@@ -1,7 +1,29 @@
 /* CSS declarations go here */
 
+// animate everything
+* { -webkit-transition: ease .2s; transition: ease .2s; }
+
+// prevent any selection
+* {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.selectable{
+  -webkit-touch-callout: all;
+  -webkit-user-select: all;
+  -khtml-user-select: all;
+  -moz-user-select: all;
+  -ms-user-select: all;
+  user-select: all;
+}
+
+
 body{
-  background: url(forest1.jpg) no-repeat center center fixed;
+  //background: url('/forest1.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -22,12 +44,6 @@ body{
   overflow-y: scroll;
 }
 
-.forest{
-  background: url(forest2.JPG) no-repeat center center fixed;
-}
-.dissertation{
-  color: #888888;
-}
 
 #mainPanel{
   position: absolute;
@@ -52,6 +68,15 @@ body{
 
 
 
+//==================================================================================================
+// BACKGROUND STYLES
+
+.forestBackground{
+  background: url('/forest1.jpg') no-repeat center center fixed;
+}
+.greenBackground{
+  background-color: #AEC9A8;
+}
 
 
 //==================================================================================================
@@ -127,4 +152,11 @@ a{
     max-width: 768px;
   }
 
+}
+
+// landscape orientation
+@media only screen and (max-width: 768px) {
+  .dockedCard{
+    visibility: hidden;
+  }
 }

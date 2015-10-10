@@ -1,19 +1,24 @@
-  <head>
-    <title>CKCC</title>
-  </head>
+<head>
+  <title>CKCC</title>
+</head>
+
+
 
 <template name="appLayout">
-  <div id="appLayout" style="{{getBackground}}">
+  <!-- <div id="appLayout" style="{{getBackground}}"> -->
     {{> navbarHeader}}
 
       <div class="hidden">{{resized}}</div>
-      <div id="mainPanel" class="padded helveticas" style="{{getStyle}}">
+      <div id="mainPanel" class="helveticas" style="{{getStyle}}">
         {{> yield }}
       </div>
 
     {{> reactiveOverlaysTemplate }}
 
     {{> navbarFooter}}
-  </div>
+  <!-- </div> -->
+
+  {{> keybindingsModal }}
+  {{> userPicklistModal }}
 
 </template>

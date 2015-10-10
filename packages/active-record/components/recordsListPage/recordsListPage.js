@@ -68,10 +68,27 @@ Template.recordsListPage.helpers({
     // current in our CustomerAccounts cursor, and will reactively
     // update the table
 
-    return Foo.find({
-      studyName: {
-        $regex: Session.get('fooSearchFilter'),
-        $options: 'i'
-    }});
+    return Foo.find({$or:[
+      {
+        institutionId: {
+          $regex: Session.get('fooSearchFilter'),
+          $options: 'i'
+      }},
+      {
+        participantId: {
+          $regex: Session.get('fooSearchFilter'),
+          $options: 'i'
+      }},
+      {
+        _id: {
+          $regex: Session.get('fooSearchFilter'),
+          $options: 'i'
+      }},
+      {
+        physicianName: {
+          $regex: Session.get('fooSearchFilter'),
+          $options: 'i'
+      }}
+    ]});
   }
 });

@@ -1,0 +1,28 @@
+<template name="leftDock">
+  <div id="leftDock">
+    {{#if showInbox}}
+      <aside id="inboxCard" class="helveticas dockedCard leftDockedCard" style="{{leftCardStyle}} {{leftCardVisibility 'inboxCardOpen'}}">
+        <!-- <img id="accountAvatar" src="" alt="" /> -->
+        <div id="secondInboxItem" src="" alt="">
+          <i id="firstDocument" class="fa fa-5x fa-file-text-o"></i>
+          <i id="secondDocument" class="fa fa-5x fa-file-text-o"></i>
+          <i id="thirdDocument" class="fa fa-5x fa-file-text-o"></i>
+          <!-- <span class="helveticas fa">Q</span> -->
+        </div>
+        <div class="cardHandle"></div>
+      </aside>
+    {{/if}}
+
+    {{#if showOutbox}}
+      <aside id="outboxCard" class="helveticas dockedCard leftDockedCard" style="{{leftCardStyle}} {{leftCardVisibility 'outboxCardOpen'}}">
+        <div class="cardHandle"></div>
+      </aside>
+    {{/if}}
+
+    {{#if showFormBuilder}}
+      <aside id="formBuilderCard" class="helveticas dockedCard leftDockedCard" style="{{leftCardStyle}} {{leftCardVisibility 'formBuilderCardOpen'}}">
+        <div class="cardHandle"></div>
+      </aside>
+    {{/if}}
+  </div>
+</template>

@@ -20,7 +20,16 @@
     {{> recordHeader type="record"}}
 
     <div id="recordUpsertCard" class="card-contents">
-      {{#autoForm collection="Foo" id="newFooForm" type="insert" schema=FooSchema buttonContent="Save" buttonClass="glass-footer-btn" doc=this }}
+      {{#autoForm
+        id="newFooForm"
+        collection="Foo" 
+        type="insert"
+        schema=FooSchema
+        buttonContent="Save"
+        buttonClass="glass-footer-btn"
+        doc=this
+      }}
+
         {{#each afFieldNames}}
           {{> afQuickField name=this.name options=afOptionsFromSchema autocomplete="off"}}
           <!-- {{> afQuickField name=this.name options=afOptionsFromSchema placeholder="schemaLabel" autocomplete="off"}} -->

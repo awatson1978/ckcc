@@ -65,7 +65,11 @@ Template.appLayout.delayedLayout = function (timeout) {
 
 Template.registerHelper("getOpacityWithCorner", function (){
   if (Session.get('appWidth') > 768) {
-    return "background: linear-gradient(225deg, transparent 28.28px, rgba(255,255,255," + Session.get("glassOpacity") + ") 0) top right;";
+    if (Session.get('mainPanelIsCard')) {
+      return "background: linear-gradient(225deg, transparent 28.28px, rgba(255,255,255," + Session.get("glassOpacity") + ") 0) top right;";
+    } else {
+      return "background-color: rgba(255,255,255," + Session.get("glassOpacity") + "); top: 50px;";
+    }
   } else {
     return "background-color: rgba(255,255,255," + Session.get("glassOpacity") + "); top: 50px;";
   }

@@ -39,6 +39,7 @@ clinical:migrations
 clinical:overlays
 clinical:modals
 clinical:keybindings
+clinical:study-picklist
 clinical:users-picklist
-clinical:user-model@0.2.0
+clinical:user-model
 clinical:active-questionnaire

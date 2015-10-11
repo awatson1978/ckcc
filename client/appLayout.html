@@ -7,6 +7,8 @@
 <template name="appLayout">
   <!-- <div id="appLayout" style="{{getBackground}}"> -->
     {{> navbarHeader}}
+      {{> leftDock }}
+      {{> rightDock }}
 
       <div class="hidden">{{resized}}</div>
       <div id="mainPanel" class="helveticas" style="{{getStyle}}">
@@ -20,5 +22,6 @@
 
   {{> keybindingsModal }}
   {{> userPicklistModal }}
+  {{> studyPicklistModal }}
 
 </template>

@@ -1,5 +1,5 @@
 <template name="navbarFooter">
-  <footer id="navbarFooter" style="{{getOpacity}}">
+  <footer id="navbarFooter" style="{{getOpacity}} {{isVisible}}">
     {{#if isLoggedIn}}
       <button id="newBtn">New Questionairre</button>
       <button id="newCollaborationBtn">New Collaboration</button>
@@ -7,6 +7,7 @@
     <!-- <button id="overlayBtn">Overlay</button> -->
     <button id="keybindingsBtn">Keybindings</button>
     <button id="userPickListBtn">User Picklist</button>
+    <button id="studyPickListBtn">Study Picklist</button>
 
     <div class="eastLinks">
       <!-- <button id="scrollTopBtn">Top</button>

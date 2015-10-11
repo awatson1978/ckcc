@@ -14,6 +14,13 @@ Template.navbarHeader.events({
 
 
 Template.navbarHeader.helpers({
+  isVisible: function (){
+    if (Session.get('showNavbars')) {
+      return "height: 50px; top: 0px";
+    } else {
+      return "height: 0px; top: -50px;";
+    }
+  },
   getTitleText: function () {
     var headerConfig = Session.get('HeaderConfig');
     if (headerConfig && headerConfig.text) {

@@ -1,10 +1,11 @@
 
 Session.setDefault('inboxCardOpen', false);
 Session.setDefault('outboxCardOpen', false);
+Session.setDefault('formBuilderCardOpen', false);
 
 Session.setDefault('showInboxCard', false);
-Session.setDefault('showOutboxCard', false);
-Session.setDefault('showFormBuilderCard', false);
+Session.setDefault('showOutboxCard', true);
+Session.setDefault('showFormBuilderCard', true);
 
 
 Template.leftDock.events({
@@ -17,6 +18,9 @@ Template.leftDock.events({
   },
   'click #outboxCard .cardHandle': function () {
     Session.toggle('outboxCardOpen');
+  },
+  'click #formBuilderCard .cardHandle': function () {
+    Session.toggle('formBuilderCardOpen');
   }
 });
 
@@ -41,6 +45,9 @@ Template.leftDock.helpers({
   leftCardStyle: function () {
     return "background: linear-gradient(315deg, transparent 16px, rgba(255,255,255," +
       Session.get("glassOpacity") + ") 0) bottom right;";
+  },
+  formBuilderHeight: function (){
+    // return "height: 500px;";
+    return "height: " + (parseInt(Session.get("appHeight")) - 550) + "px !important;";
   }
-
 });

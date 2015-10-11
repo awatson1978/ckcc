@@ -1,10 +1,21 @@
 
 
 
-
+Template.navbarFooter.helpers({
+  isVisible: function (){
+    if (Session.get('showNavbars')) {
+      return "height: 50px;";
+    } else {
+      return "height: 0px;";
+    }
+  }
+});
 
 Template.navbarFooter.events({
-
+  'click #studyPickListBtn': function (){
+    Session.toggle('show_reactive_overlay');
+    Session.toggle('show_study_picklist');
+  },
   'click #userPickListBtn': function (){
     Session.toggle('show_reactive_overlay');
     Session.toggle('show_users_picklist');

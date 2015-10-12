@@ -46,7 +46,7 @@ Template.navbarFooter.events({
     Router.go('/table/foos');
   },
   "click #newBtn": function (event, template) {
-    Router.go('/insert/foo');
+    Router.go('/build/questionnaire');
   },
   "click #initializeBtn": function (event, template) {
     console.log('initializing database');

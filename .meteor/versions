@@ -25,7 +25,7 @@ clinical:active-questionnaire@0.0.4
 clinical:active-record@0.0.7
 clinical:barcode@2.0.2
 clinical:collaborations@1.1.2
-clinical:collaborations-ui@1.1.4
+clinical:collaborations-ui@1.1.5
 clinical:env@2.1.5
 clinical:extended-api@1.0.3
 clinical:json2json@0.0.1

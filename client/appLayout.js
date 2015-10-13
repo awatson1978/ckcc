@@ -39,9 +39,28 @@ Template.appLayout.helpers({
     Template.appLayout.layout();
   },
   getStyle: function () {
-    return parseStyle({
-      "left": Session.get('transparencyDivLeft') + "px;"
-    });
+    var style = {
+      left: Session.get('transparencyDivLeft') + "px;"
+    };
+
+    if (Session.get('mainPanelIsCard')) {
+      if (Session.get('showNavbars')) {
+        style.top = "100px;";
+        style["margin-bottom"] = "100px;";
+      } else {
+        style.top = "50px;";
+        style["margin-bottom"] = "50px;";
+      }
+    } else {
+      if (Session.get('showNavbars')) {
+        style.top = "50px;";
+        style["margin-bottom"] = "50px;";
+      } else {
+        style.top = "0px;";
+        style["margin-bottom"] = "0px;";
+      }
+    }
+    return parseStyle(style);
   }
 });
 

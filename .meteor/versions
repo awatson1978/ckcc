@@ -21,7 +21,7 @@ callback-hook@1.0.4
 cfs:http-methods@0.0.30
 check@1.0.6
 clinical:active-entry@0.2.4
-clinical:active-questionnaire@0.0.4
+clinical:active-questionnaire@0.0.7
 clinical:active-record@0.0.7
 clinical:barcode@2.0.2
 clinical:collaborations@1.1.2

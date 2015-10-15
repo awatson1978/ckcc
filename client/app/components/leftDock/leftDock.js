@@ -25,6 +25,12 @@ Template.leftDock.events({
 });
 
 Template.leftDock.helpers({
+  getSelectedUserName: function (){
+    return Session.get('selectedUserName');
+  },
+  getSelectedUserId: function (){
+    return Session.get('selectedUserId');
+  },
   showFormBuilder: function (){
     return Session.get('showFormBuilderCard');
   },

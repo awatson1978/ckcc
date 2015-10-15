@@ -3,14 +3,16 @@
     {{#if isLoggedIn}}
       <button id="newBtn">New Questionairre</button>
       <button id="addCollaborationButton">New Collaboration</button>
+    <button id="saveFormButton">Save Form</button>
     {{/if}}
     <!-- <button id="overlayBtn">Overlay</button> -->
-    <button id="keybindingsBtn">Keybindings</button>
-    <button id="userPickListBtn">User Picklist</button>
-    <button id="studyPickListBtn">Study Picklist</button>
 
     <div class="eastLinks">
-      <button id="saveFormButton">Save Form</button>
+      {{#if isLoggedIn}}
+      <button id="userPickListBtn">User Picklist</button>
+      <button id="studyPickListBtn">Study Picklist</button>
+      {{/if}}
+      <button id="keybindingsBtn">Keybindings</button>
 
       <!-- <button id="scrollTopBtn">Top</button>
       <button id="scrollBottomBtn">Bottom</button> -->

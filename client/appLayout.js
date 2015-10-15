@@ -4,6 +4,10 @@ Session.setDefault('appWidth', $(window).width());
 Session.setDefault("glassOpacity", .95);
 Session.setDefault("backgroundColorA", '#456ad7');
 
+Session.setDefault("eastRule", '#456ad7');
+Session.setDefault("westRule", '#456ad7');
+Session.setDefault("northRule", '#456ad7');
+Session.setDefault("southRule", '#456ad7');
 
 Meteor.startup(function () {
   window.addEventListener('resize', function () {

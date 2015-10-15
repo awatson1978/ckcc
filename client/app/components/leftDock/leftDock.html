@@ -16,6 +16,14 @@
     {{#if showOutbox}}
       <aside id="outboxCard" class="helveticas dockedCard leftDockedCard" style="{{leftCardStyle 'outboxCardOpen'}} {{leftCardVisibility 'outboxCardOpen'}}">
         <div class="cardHandle"></div>
+        <h4>Active Record</h4>
+        <hr>
+        <h6>{{getActiveRecordId}}</h6>
+
+        <h4>Selected User</h4>
+        <hr>
+        <h6>{{getSelectedUserName}}</h6>
+        <h6>{{getSelectedUserId}}</h6>
       </aside>
     {{/if}}
 

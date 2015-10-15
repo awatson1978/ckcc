@@ -6,22 +6,40 @@
 
 <template name="appLayout">
   <!-- <div id="appLayout" style="{{getBackground}}"> -->
-    {{> navbarHeader}}
+
+    {{> yield 'header'}}
+    <!-- {{> navbarHeader}} -->
       {{> leftDock }}
       {{> rightDock }}
 
       <div class="hidden">{{resized}}</div>
-      <div id="mainPanel" class="helveticas" style="{{getStyle}}">
+
+      {{> yield 'sidebar'}}
+
+      <div id="mainPanel" class="helveticas" style="{{getStyle}} {{getNorthRule}}">
         {{> yield }}
       </div>
+      <div id="secondPanel" class="helveticas" style="{{getSecondPanelStyle}} {{getNorthRule}}">
+        {{> yield 'secondPage'}}
+      </div>
+
+
 
     {{> reactiveOverlaysTemplate }}
 
-    {{> navbarFooter}}
+    <!-- {{> navbarFooter}} -->
+    {{> yield 'footer'}}
   <!-- </div> -->
 
   {{> keybindingsModal }}
   {{> userPicklistModal }}
   {{> studyPicklistModal }}
 
+</template>
+
+
+<template name="secondPage">
+  <div class="secondPage" id="secondPage">
+
+  </div>
 </template>

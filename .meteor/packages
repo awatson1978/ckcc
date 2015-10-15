@@ -43,3 +43,5 @@ clinical:study-picklist
 clinical:users-picklist
 clinical:user-model
 clinical:active-questionnaire
+clinical:accounts-housemd
+clinical:no-select-everything

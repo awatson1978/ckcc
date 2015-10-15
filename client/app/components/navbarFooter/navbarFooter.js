@@ -12,6 +12,9 @@ Template.navbarFooter.helpers({
 });
 
 Template.navbarFooter.events({
+  'click #saveFormButton': function (){
+    $('#upsertCollaborationButton').click();
+  },
   'click #studyPickListBtn': function (){
     Session.toggle('show_reactive_overlay');
     Session.toggle('show_study_picklist');
@@ -27,7 +30,7 @@ Template.navbarFooter.events({
   'click #overlayBtn': function (){
     Session.toggle('show_reactive_overlay');
   },
-  'click #newCollaborationBtn': function (){
+  'click #addCollaborationButton': function (){
     Router.go('/new/collaboration');
   },
   'click #collaborationsBtn': function (){

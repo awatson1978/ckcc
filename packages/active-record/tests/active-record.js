@@ -1,4 +1,4 @@
-describe('photonic:active-record', function () {
+describe('clinical:active-record', function () {
 
 
   describe('ActiveRecord - constructor', function () {

@@ -13,7 +13,7 @@ exports.command = function(methodName, timeout) {
         var response = (meteorError ? { error: meteorError } : { result: meteorResult });
         meteorCallback(response);
       })
-    }, [hipaaEvent], function(result){
+    }, [methodName], function(result){
       console.log("result.value", result.value);
       client.assert.ok(result.value);
     }).pause(1000)

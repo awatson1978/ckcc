@@ -3,24 +3,6 @@
 // animate everything
 * { -webkit-transition: ease .2s; transition: ease .2s; }
 
-// prevent any selection
-* {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.selectable{
-  -webkit-touch-callout: all;
-  -webkit-user-select: all;
-  -khtml-user-select: all;
-  -moz-user-select: all;
-  -ms-user-select: all;
-  user-select: all;
-}
-
 
 body{
   //background: url('/forest1.jpg') no-repeat center center fixed;
@@ -37,7 +19,7 @@ body{
   width: 100%;
   height: 100%;
   position: fixed;
-  //top: 0px;
+  top: 0px;
   left: 0px;
   margin: 0px;
   padding: 0px;
@@ -47,12 +29,17 @@ body{
 
 #mainPanel{
   position: absolute;
-  top: 100px;
-  margin-bottom: 100px;
   left: 0px;
   width: 100%;
 }
-
+#secondPanel{
+  position: fixed;
+  left: 0px;
+  width: 768px;
+  min-height: 100px;
+  background-color: white;
+  //border: 1px solid red;
+}
 
 // .page{
 //   padding-top: 40px;

@@ -2,11 +2,16 @@
   <header id="navbarHeader" class="helveticas" style="{{getOpacity}} {{isVisible}}">
     <a href="/" class="navbarTitle" style="{{isVisible}}">{{getTitleText}}</a>
     <div class="eastLinks" >
-      <a href="{{getUsernameLink}}" class="navbarLink" style="{{isVisible}}">{{ fullName }}</a>
+      <a id="usernameLink" href="{{getUsernameLink}}" class="navbarLink" style="{{isVisible}}">{{ fullName }}</a>
       {{#if isLoggedIn }}
       <a id="logoutLink" class="navbarLink" style="{{isVisible}}">Logout</a>
       {{/if}}
     </div>
   </header>
+  <!-- {{#if showSearchBar}} -->
+  <aside id="searchBar" class="searchBar" style="{{getSearchStyle}}">
+    <input type="text" name="globalSearchBar" value="" placeholder="search..." style="{{getSearchStyle}}">
+  </aside>
+  <!-- {{/if}} -->
 
 </template>

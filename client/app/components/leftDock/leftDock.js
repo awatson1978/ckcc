@@ -29,8 +29,7 @@ Template.leftDock.helpers({
     return Session.get('showFormBuilderCard');
   },
   showInbox: function () {
-    return true;
-    //return Session.get('showInboxCard');
+    return Session.get('showInboxCard');
   },
   showOutbox: function () {
     return Session.get('showOutboxCard');
@@ -42,12 +41,25 @@ Template.leftDock.helpers({
       return "left: -310px;";
     }
   },
-  leftCardStyle: function () {
+  leftCardStyle: function (dockCard) {
+    var result = 0;
+    if (Session.get('showNavbars')) {
+      result = result + 50;
+    }
+    if (Session.get('showSearchbar')) {
+      result = result + 50;
+    }
+    if (dockCard === "inboxCardOpen") {
+      result = result + 50;
+    } else if (dockCard === "outboxCardOpen"){
+      result = result + 190;
+    } else if (dockCard === "formBuilderCardOpen"){
+      result = result + 430;
+    }
     return "background: linear-gradient(315deg, transparent 16px, rgba(255,255,255," +
-      Session.get("glassOpacity") + ") 0) bottom right;";
+      Session.get("glassOpacity") + ") 0) bottom right; top: " + result + "px;";
   },
   formBuilderHeight: function (){
-    // return "height: 500px;";
     return "height: " + (parseInt(Session.get("appHeight")) - 550) + "px !important;";
   }
 });

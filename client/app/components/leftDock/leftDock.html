@@ -1,7 +1,7 @@
 <template name="leftDock">
   <div id="leftDock">
     {{#if showInbox}}
-      <aside id="inboxCard" class="helveticas dockedCard leftDockedCard" style="{{leftCardStyle}} {{leftCardVisibility 'inboxCardOpen'}}">
+      <aside id="inboxCard" class="helveticas dockedCard leftDockedCard" style="{{leftCardStyle 'inboxCardOpen'}} {{leftCardVisibility 'inboxCardOpen'}}">
         <!-- <img id="accountAvatar" src="" alt="" /> -->
         <div id="secondInboxItem" src="" alt="">
           <i id="firstDocument" class="fa fa-5x fa-file-text-o"></i>
@@ -14,13 +14,13 @@
     {{/if}}
 
     {{#if showOutbox}}
-      <aside id="outboxCard" class="helveticas dockedCard leftDockedCard" style="{{leftCardStyle}} {{leftCardVisibility 'outboxCardOpen'}}">
+      <aside id="outboxCard" class="helveticas dockedCard leftDockedCard" style="{{leftCardStyle 'outboxCardOpen'}} {{leftCardVisibility 'outboxCardOpen'}}">
         <div class="cardHandle"></div>
       </aside>
     {{/if}}
 
     {{#if showFormBuilder}}
-      <aside id="formBuilderCard" class="helveticas dockedCard leftDockedCard" style="{{leftCardStyle}} {{leftCardVisibility 'formBuilderCardOpen'}} {{formBuilderHeight}}">
+      <aside id="formBuilderCard" class="helveticas dockedCard leftDockedCard" style="{{leftCardStyle 'formBuilderCardOpen'}} {{leftCardVisibility 'formBuilderCardOpen'}} {{formBuilderHeight}}">
         <div class="cardHandle {{formBuilderHeight}}"></div>
       </aside>
     {{/if}}

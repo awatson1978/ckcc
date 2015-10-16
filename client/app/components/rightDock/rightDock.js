@@ -10,7 +10,8 @@ Session.setDefault('backgroundColor', 'green');
 Session.setDefault("avatarImgSrc", 'https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xfa1/v/t1.0-9/10959424_1048857758463899_5840518008623403253_n.jpg?oh=9e5f381178590a5a67ff82f5e5dc37aa&oe=56D11A43');
 Session.setDefault("backgroundImgSrc", 'forest1.jpg');
 
-Session.setDefault('is_opaque', 'opaque');
+Session.setDefault('isOpaque', 'opaque');
+Session.setDefault('foregroundTheme', 'light');
 
 
 Template.rightDock.events({
@@ -19,6 +20,12 @@ Template.rightDock.events({
   },
   'change #avatarImgSrcInput': function (){
     Session.set('avatarImgSrc', $('#avatarImgSrcInput').val());
+  },
+  'click #lightBtn': function (){
+    Session.set('foregroundTheme', 'light');
+  },
+  'click #darkBtn': function (){
+    Session.set('foregroundTheme', 'dark');
   },
   'click #redBtn': function (){
     //Session.set('backgroundColor', 'red');
@@ -58,15 +65,15 @@ Template.rightDock.events({
     Session.toggle("show_background");
   },
   'click #opacityBtn': function () {
-    if (Session.equals('is_opaque', 'opaque')) {
+    if (Session.equals('isOpaque', 'opaque')) {
       Session.set("glassOpacity", 1);
-      Session.set('is_opaque', 'high');
-    } else if (Session.equals('is_opaque', 'high')) {
+      Session.set('isOpaque', 'high');
+    } else if (Session.equals('isOpaque', 'high')) {
       Session.set("glassOpacity", 0.8);
-      Session.set('is_opaque', 'low');
-    } else if (Session.equals('is_opaque', 'low')) {
+      Session.set('isOpaque', 'low');
+    } else if (Session.equals('isOpaque', 'low')) {
       Session.set("glassOpacity", 0.3);
-      Session.set('is_opaque', 'opaque');
+      Session.set('isOpaque', 'opaque');
     }
   },
   'click #accountCard .cardHandle': function () {

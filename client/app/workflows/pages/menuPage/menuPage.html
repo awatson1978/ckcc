@@ -1,0 +1,57 @@
+<template name="menuPage">
+  <div id="menuPage" class="helveticas padded page {{getTileTheme}}" style="{{getOpacity}} {{getPagePadding}} {{getPageBorder}} {{getBackground}}">
+
+    <div id="menuItems">
+      <div id="collaborationsTile" class="menuItem" style="{{getMenuWidth}}">
+        <h4>COLLABORATIONS</h4>
+        <hr>
+        <h1>{{ getCollaborationsCount }}</h1>
+      </div>
+
+      <div id="questionnairesTile" class="menuItem" style="{{getMenuWidth}}">
+        <h4>QUESTIONAIRES</h4>
+        <hr>
+        <h1>{{ getQuestionsCount }}</h1>
+      </div>
+
+      <div id="clinicalDataTile" class="menuItem" style="{{getMenuWidth}}">
+        <h4>CLINICAL DATA</h4>
+        <hr>
+        <h1>{{ getClinicalDataCount }}</h1>
+      </div>
+
+      <div id="usersTile" class="menuItem" style="{{getMenuWidth}}">
+        <h4>USERS</h4>
+        <hr>
+        <h1>{{ getUsersCount }}</h1>
+      </div>
+
+      <div id="studiesTile" class="menuItem" style="{{getMenuWidth}}">
+        <h4>STUDIES</h4>
+        <hr>
+        <h1>{{ getStudiesCount }}</h1>
+      </div>
+      <div id="sponsorsTile" class="menuItem" style="{{getMenuWidth}}">
+        <h4>SPONSORS</h4>
+        <hr>
+        <h1>{{ getStudiesCount }}</h1>
+      </div>
+      <div id="subjectsTile" class="menuItem" style="{{getMenuWidth}}">
+        <h4>SUBJECTS</h4>
+        <hr>
+        <h1>{{ getStudiesCount }}</h1>
+      </div>
+      <div id="commentsTils" class="menuItem" style="{{getMenuWidth}}">
+        <h4>COMMENTS</h4>
+        <hr>
+        <h1>{{ getStudiesCount }}</h1>
+      </div>
+      <div id="auditTile" class="menuItem" style="{{getMenuWidth}}">
+        <h4>AUDIT</h4>
+        <hr>
+        <h1>{{ getStudiesCount }}</h1>
+      </div>
+
+    </div>
+  </div>
+</template>

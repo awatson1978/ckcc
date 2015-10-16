@@ -1,10 +1,45 @@
+Session.setDefault('hasPageBorder', true);
+Session.setDefault('hasPagePadding', true);
+Session.setDefault('pageBackgroundIsWhite', true);
+
 Template.menuPage.helpers({
+  getBackground: function (){
+    if (Session.get('pageBackgroundIsWhite')) {
+      return "background-color: white;";
+    } else {
+      return "background-color: inherit";
+    }
+  },
+  getPagePadding: function (){
+    if (Session.get('hasPagePadding')) {
+      return "padding: 40px;";
+    } else {
+      return "padding: 0px;";
+    }
+  },
+  getPageBorder: function (){
+    if (Session.get('hasPageBorder')) {
+      return "border: 5px dashed darkgray;";
+    } else {
+      return "border: 0px none;";
+    }
+  },
+  getTileTheme: function (){
+    if (Session.equals('foregroundTheme', 'light')) {
+      return "lightTheme";
+    } else {
+      return "darkTheme";
+    }
+  },
   getMenuWidth: function () {
     if (Session.get('appWidth') > 768) {
-      return "width: 185px;";
+      return "width: 180px;";
     } else {
       return "width: " + ($('#menuPage').width() - 40) + "px;";
     }
+  },
+  getStudiesCount: function () {
+    return 0;
   },
   getCollaborationsCount: function () {
     return Collaborations.find().count();

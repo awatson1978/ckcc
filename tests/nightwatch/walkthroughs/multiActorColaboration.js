@@ -19,11 +19,11 @@ var newPostUrl = "http://www.wikipedia.com";
 
 
 module.exports = {
-  // before: function (client){
-  //   client
-  //     .url("http://localhost:3000").pause(500)
-  //     .callMeteorMethod('initializeUsers');
-  // },
+  before: function (client){
+    client
+      .url("http://localhost:3000").pause(500)
+      .callMeteorMethod('dropCollaborations');
+  },
   "A. Signing In UserA": function (client) {
 
     client
@@ -45,9 +45,9 @@ module.exports = {
     client
       .click("#addCollaborationButton").pause(500)
       .reviewUpsertCollaborationForm(false, false, false, false, false, false, false)
-      .upsertCollaboration(collaborationName, collaborationDescription, emailA, emailA, "")
+      .upsertCollaboration(collaborationName, collaborationDescription, emailA, emailA, "", true, true)
       .pause(1000)
-      .reviewCollaborationGrid(collaborationName)
+      .reviewCollaborationGrid(collaborationName);
       // .listOfCollaborationsContains(collaborationName, collaborationDescription);
 
     client.end();

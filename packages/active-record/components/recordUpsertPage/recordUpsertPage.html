@@ -1,5 +1,5 @@
 <template name="recordUpsertPage">
-  <div id="recordUpsertPage" class="horizontally-padded page" style={{getOpacityWithCorner}}>
+  <div id="recordUpsertPage" class="page">
     <!-- <header class="pageHeader">
       <i class="indexButton fa fa-chevron-left"></i>
       <h4 class="recordId barcode">{{_id}}</h4>
@@ -19,10 +19,10 @@
     </header> -->
     {{> recordHeader type="record"}}
 
-    <div id="recordUpsertCard" class="card-contents">
+    <div id="recordUpsertCard" class="horizontally-padded card-contents" style="{{getOpacity}}">
       {{#autoForm
         id="newFooForm"
-        collection="Foo" 
+        collection="Foo"
         type="insert"
         schema=FooSchema
         buttonContent="Save"

@@ -1,5 +1,9 @@
 Meteor.methods({
   initializeDatabase: function (){
+    Meteor.call("initializeClinicalData");
+    Meteor.call("initializeCollaborations");
+  },
+  initializeClinicalData: function (){
     var count = 0;
 
     for (var i = 0; i < 50; i++) {
@@ -35,7 +39,8 @@ Meteor.methods({
         otherStudies: faker.lorem.sentence()
       });
     }
-
+  },
+  initializeCollaborations: function (){
     for (var i = 0; i < 10; i++) {
       Collaborations.insert({
         isUnlisted: Random.choice([true, false]),
@@ -48,6 +53,9 @@ Meteor.methods({
         requiresAdministratorApprovalToJoin: Random.choice([true, false]),
       });
     }
+  },
+  dropCollaborations: function (){
+    Collaborations.remove({});
   }
 });
 

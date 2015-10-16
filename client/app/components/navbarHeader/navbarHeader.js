@@ -1,6 +1,4 @@
 Session.setDefault("show_background", false);
-Session.setDefault("is_opaque", false);
-
 
 
 
@@ -12,6 +10,7 @@ Template.navbarHeader.events({
   }
 });
 
+//
 
 Template.navbarHeader.helpers({
   getSearchStyle: function (){
@@ -22,9 +21,9 @@ Template.navbarHeader.helpers({
       style = "top: 0px;";
     }
     if (Session.get('showSearchbar')) {
-      style = style + " height: 50px; visibility:visible;";
+      style = style + " height: 50px; visibility: visible; background: linear-gradient(315deg, transparent 24px, rgba(255,255,255," + Session.get('glassOpacity') + ") 0) bottom right;";
     } else {
-      style = style + " height: 0px; visibility:hidden;";
+      style = style + " height: 0px; visibility: hidden; background: linear-gradient(315deg, transparent 24px, rgba(255,255,255," + Session.get('glassOpacity') + ") 0) bottom right;";
     }
     return style;
   },

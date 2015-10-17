@@ -91,7 +91,7 @@ module.exports = {
       .click("#firstDocument").pause(1000)
       .waitForElementVisible("#recordUpsertPage", 3000)
       .reviewPatientIntakeForm()
-      .upsertPatientIntakeForm(institutionName, studyName, patientId, patientAge, patientGender, diagnosis)
+      .upsertPatientIntakeForm(intakeQuestionnaire)
       .pause(3000);
   },
   "F. View Questionnaires associated with a Collaboration": function (client) {

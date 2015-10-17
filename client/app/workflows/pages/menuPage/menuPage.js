@@ -1,4 +1,4 @@
-Session.setDefault('hasPageBorder', true);
+Session.setDefault('hasPageBorder', false);
 Session.setDefault('hasPagePadding', true);
 Session.setDefault('pageBackgroundIsWhite', true);
 

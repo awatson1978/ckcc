@@ -9,13 +9,13 @@
           <i id="thirdDocument" class="fa fa-5x fa-file-text-o"></i>
           <!-- <span class="helveticas fa">Q</span> -->
         </div>
-        <div class="cardHandle"></div>
+        <div id="inboxCardHandle" class="cardHandle"></div>
       </aside>
     {{/if}}
 
     {{#if showOutbox}}
       <aside id="outboxCard" class="helveticas dockedCard leftDockedCard" style="{{leftCardStyle 'outboxCardOpen'}} {{leftCardVisibility 'outboxCardOpen'}}">
-        <div class="cardHandle"></div>
+        <div id="outboxCardHandle" class="cardHandle"></div>
         <h4>Active Record</h4>
         <hr>
         <h6>{{getActiveRecordId}}</h6>

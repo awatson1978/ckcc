@@ -1,14 +1,15 @@
 <template name="navbarFooter">
   <footer id="navbarFooter" style="{{getOpacity}} {{isVisible}}">
     {{#if isLoggedIn}}
-      <button id="newBtn">New Questionairre</button>
       <button id="addCollaborationButton">New Collaboration</button>
-    <button id="saveFormButton">Save Form</button>
+      <button id="newQuestionnaireBtn">New Questionnaire</button>
+      <button id="saveFormButton">Save Form</button>
     {{/if}}
     <!-- <button id="overlayBtn">Overlay</button> -->
 
     <div class="eastLinks">
       {{#if isLoggedIn}}
+      <button id="collaborationPickListBtn">Collaboration Picklist</button>
       <button id="userPickListBtn">User Picklist</button>
       <button id="studyPickListBtn">Study Picklist</button>
       {{/if}}

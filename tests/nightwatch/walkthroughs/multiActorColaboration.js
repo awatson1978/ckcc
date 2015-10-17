@@ -10,19 +10,40 @@ var emailB = "camron@test.org";
 var passwordA = "house";
 var passwordB = "camron";
 
-var collaborationName = "My Foo Collaboration";
-var collaborationDescription = "Lorem Ipsum...";
+// collaboration
+var newCollaboration = {
+  collaborationName: "California Kids Cancer Comparison",
+  description: "Lorem ipsum...",
+  slug: "CKCC",
+  administrators: [emailA],
+  collaborators: [emailA, emailB],
+  isUnlisted: false,
+  requiresAdmin: false
+};
 
-var newPostTitle = "This Be a Post";
-var newPostDescription = "Words, words, words...";
-var newPostUrl = "http://www.wikipedia.com";
+// questionnaire
+var intakeQuestionnaire = {
+  questionnaireName: "CKCC Patient Intake",
+  institutionName: "U.C. Santa Cruz",
+  institutionId: "UCSC",
+  collaborationId: "CKCC",
+  collaborationName: "CKCC"
+};
 
+// patient enrollment form (new clinical data point)
+var newPatientEnrollment = {
+  institutionName: "UCSC",
+  studyName: "CKCC",
+  patientAge: "17",
+  patientGender: "Famale",
+  diagnosis: "Lorem ipsum..."
+};
 
 module.exports = {
   before: function (client){
     client
       .url("http://localhost:3000").pause(500)
-      .callMeteorMethod('dropCollaborations');
+      .dropCollaborations();
   },
   "A. Signing In UserA": function (client) {
 
@@ -44,34 +65,49 @@ module.exports = {
   "C. UserA Can Add a Collaboration": function (client) {
     client
       .click("#addCollaborationButton").pause(500)
-      .reviewUpsertCollaborationForm(false, false, false, false, false, false, false)
-      .upsertCollaboration(collaborationName, collaborationDescription, emailA, emailA, "", true, true)
+      .reviewUpsertCollaboration()
+      .upsertCollaboration(newCollaboration)
       .pause(1000)
-      .reviewCollaborationGrid(collaborationName);
-      // .listOfCollaborationsContains(collaborationName, collaborationDescription);
-
-    client.end();
+      .reviewCollaborationGrid(newCollaboration)
+      .verify.elementPresent("#globalSearchBar")
+        .clearValue('#globalSearchBar')
+        .setValue('#globalSearchBar', newCollaboration.slug)
+        .click("#collaborationGridElements .post:nth-child(1)")
+      .reviewUpsertCollaboration(newCollaboration);
   },
-  // "D. UserA Can Post To Collaboration": function (client) {
-  //   client
-  //     .verify.elementPresent("#newPostLink")
-  //     .click("#newPostLink").pause(1000)
-  //     .waitForElementVisible("#postSubmitPage", 3000)
-  //     .reviewPostSubmitPage()
-  //     .submitPost(newPostTitle, newPostDescription, newPostUrl, collaborationName)
-  //     .pause(3000);
-  // },
-  // "E. View Collaboration Posts": function (client) {
-  //   client
-  //     .click("#collaborationListButton").pause(500)
-  //     .verify.elementPresent("#collaborationListPage")
-  //     .verify.elementPresent("#collaborationsList")
-  //     .click("#collaborationsList .collaboration:nth-child(1)").pause(300)
-  //     .collaborationHasPost(collaborationName, newPostTitle)
-  //     .canSeePost(newPostTitle)
-  //     .signOut(usernameA);
-  //
-  // },
+  "D. UserA Can Add a Questionnaire": function (client) {
+    client
+      .click("#newQuestionnaireBtn").pause(500)
+      .reviewUpsertQuestionnare()
+      .upsertQuestionnaire(intakeQuestionnaire)
+      .pause(1000)
+      .reviewQuestionnairesList(intakeQuestionnaire);
+  },
+  "E. UserA Can complete a Questionnaire": function (client) {
+    client
+      .verify.elementPresent("#inboxCardHandle")
+      .click("#inboxCardHandle").pause(600)
+      .verify.elementPresent("#firstDocument")
+      .click("#firstDocument").pause(1000)
+      .waitForElementVisible("#recordUpsertPage", 3000)
+      .reviewPatientIntakeForm()
+      .upsertPatientIntakeForm(institutionName, studyName, patientId, patientAge, patientGender, diagnosis)
+      .pause(3000);
+  },
+  "F. View Questionnaires associated with a Collaboration": function (client) {
+    client
+      .click("#collaborationListButton").pause(500)
+      .verify.elementPresent("#collaborationListPage")
+      .verify.elementPresent("#collaborationsList")
+      .click("#collaborationsList .collaboration:nth-child(1)").pause(300)
+      .reviewQuestionnairesList()
+      .verify.elementPresent("#questionnaireSearchInput")
+        .clearValue('#questionnaireSearchInput')
+        .setValue('#questionnaireSearchInput', intakeQuestionnaire.name)
+        .click("#questionnairesList .questionnaireItem:nth-child(1)")
+      .reviewUpsertQuestionnare(intakeQuestionnaire)
+      .signOut(usernameA);
+  },
   // "F. UserB Requests To Join Collaboration": function (client) {
   //   client
   //     .signIn(usernameB, passwordB)
@@ -81,8 +117,6 @@ module.exports = {
   //     .canRequestCollaboration(usernameB)
   //     .requestsCollaboration()
   //     .signOut(usernameB);
-  //
-  //
   // },
   // "G. UserA Grants Access to UserB": function (client) {
   //   client
@@ -134,6 +168,9 @@ module.exports = {
   //
   //   .end();
   // }
+  "End": function (){
+    client.end();
+  }
 };
 
 

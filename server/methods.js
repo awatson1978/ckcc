@@ -1,7 +1,10 @@
 Meteor.methods({
   initializeDatabase: function (){
     Meteor.call("initializeClinicalData");
-    Meteor.call("initializeCollaborations");
+
+    if (!process.env.DEBUG) {
+      Meteor.call("initializeCollaborations");
+    }
   },
   initializeClinicalData: function (){
     var count = 0;

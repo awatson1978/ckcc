@@ -17,11 +17,11 @@ exports.command = function (intakeQuestionnaire) {
         .setValue('input[name="studyName"]', intakeQuestionnaire.studyName);
     }
 
-    if (intakeQuestionnaire.patientId) {
+    if (intakeQuestionnaire.participantId) {
       this
-        .verify.elementPresent('input[name="patientId"]')
-        .clearValue('input[name="patientId"]')
-        .setValue('input[name="patientId"]', intakeQuestionnaire.patientId);
+        .verify.elementPresent('input[name="participantId"]')
+        .clearValue('input[name="participantId"]')
+        .setValue('input[name="participantId"]', intakeQuestionnaire.participantId);
     }
 
     if (intakeQuestionnaire.patientAge) {
@@ -38,15 +38,16 @@ exports.command = function (intakeQuestionnaire) {
         .setValue('input[name="patientGender"]', intakeQuestionnaire.patientGender);
     }
 
-    if (intakeQuestionnaire.diagnosis) {
+    if (intakeQuestionnaire.diagnosisDescription) {
       this
-        .verify.elementPresent('input[name="diagnosis"]')
-        .clearValue('input[name="diagnosis"]')
-        .setValue('input[name="diagnosis"]', intakeQuestionnaire.diagnosis);
+        .verify.elementPresent('textarea[name="diagnosisDescription"]')
+        .clearValue('textarea[name="diagnosisDescription"]')
+        .setValue('textarea[name="diagnosisDescription"]', intakeQuestionnaire.diagnosisDescription);
     }
   }
 
-  this.verify.elementPresent("#saveRecordButton");
+  this.verify.elementPresent("#saveDataButton")
+    .click("#saveDataButton").pause(500);
 
   return this;
 };

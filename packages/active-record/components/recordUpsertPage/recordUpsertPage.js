@@ -135,13 +135,6 @@ Template.recordUpsertPage.saveFoo = function (record, questionnaire){
   // TODO:  add validation functions
 
   // var newRecord = {
-  //   title: $('input[name="title"]').val(),
-  //   description: $('input[name="description"]').val(),
-  //   imageUrl: $('input[name="imageUrl"]').val(),
-  //   url: $('input[name="url"]').val()
-  // };
-
-  // var newRecord = {
   //   institutionName: $('input[name="institutionName"]').val(),
   //   institutionId: $('input[name="institutionId"]').val(),
   //   physicianName: $('input[name="physicianName"]').val(),
@@ -167,8 +160,8 @@ Template.recordUpsertPage.saveFoo = function (record, questionnaire){
   // };
 
   var newRecord = {};
-  var inputElements = $('input');
-  var textareaElements = $('textarea');
+  var inputElements = $('#recordUpsertPage input');
+  var textareaElements = $('#recordUpsertPage textarea');
 
   console.log('inputElements', inputElements);
   console.log('textareaElements', textareaElements);
@@ -181,14 +174,7 @@ Template.recordUpsertPage.saveFoo = function (record, questionnaire){
   }
 
   newRecord.createdAt = new Date();
-
-  // inputElements.forEach(function (input){
-  //   newRecord[input.name] = input.val();
-  // });
-  // textareaElements.forEach(function (textarea){
-  //   newRecord[input.name] = textarea.val();
-  // });
-
+  newRecord.questionnaireId = questionnaire._id;
 
   console.log ("newRecord", newRecord);
 

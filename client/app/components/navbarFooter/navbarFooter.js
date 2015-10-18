@@ -12,6 +12,12 @@ Template.navbarFooter.helpers({
 });
 
 Template.navbarFooter.events({
+  'click #saveDataButton': function (){
+    $('#saveRecordButton').click();
+  },
+  'click #saveCollaborationButton': function (){
+    $('#upsertCollaborationButton').click();
+  },
   'click #saveFormButton': function (){
     $('#saveRecordButton').click();
     //$('input[type="submit"]').click();

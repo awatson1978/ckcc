@@ -3,7 +3,7 @@ exports.command = function (action, record, title, url, imageUrl, description) {
   if (action === "update") {
     this
       .verify.elementPresent("#recordUpsertPage .barcode")
-      .click("#recordUpsertPage .barcode").pause(300)
+      .click("#recordUpsertPage .barcode").pause(300);
   }
 
 

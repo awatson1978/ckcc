@@ -11,11 +11,11 @@ exports.command = function (dataRecord) {
   if (dataRecord){
     this
       .clearValue("#recordSearchInput")
-      .setValue("#recordSearchInput", dataRecord.questionnaireName).pause(500)
+      .setValue("#recordSearchInput", dataRecord.collaborationSearch).pause(5000)
       .verify.elementPresent("#recordsList .recordItem:nth-child(1)")
       .verify.elementPresent("#recordsList .recordItem:nth-child(1) article")
-      .verify.elementPresent("#recordsList .recordItem:nth-child(1) article .questionnaireName")
-      .verify.containsText("#recordsList .recordItem:nth-child(1) article .questionnaireName", dataRecord.questionnaireName);
+      .verify.elementPresent("#recordsList .recordItem:nth-child(1) article .rightSubtitle")
+      .verify.containsText("#recordsList .recordItem:nth-child(1) article .rightSubtitle", dataRecord.questionnaireName);
   };
 
   return this;

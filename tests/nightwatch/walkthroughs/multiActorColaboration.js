@@ -1,22 +1,26 @@
 // add tests to this file using the Nightwatch.js API
 // http://nightwatchjs.org/api
 
-var usernameA = "house";
-var usernameB = "camron";
-
-var emailA = "house@test.org";
-var emailB = "camron@test.org";
-
-var passwordA = "house";
-var passwordB = "camron";
+var userA = {
+  fullName: "Gregory House",
+  email: "house@test.org",
+  username: "house",
+  password: "house",
+};
+var userB = {
+  fullName: "Camron",
+  email: "camron@test.org",
+  username: "camron",
+  password: "camron",
+};
 
 // collaboration
 var newCollaboration = {
   collaborationName: "California Kids Cancer Comparison",
   description: "Lorem ipsum...",
   slug: "CKCC",
-  administrators: [emailA],
-  collaborators: [emailA, emailB],
+  administrators: [userA.email],
+  collaborators: [userA.email, userB.email],
   isUnlisted: false,
   requiresAdmin: false
 };
@@ -24,6 +28,7 @@ var newCollaboration = {
 // questionnaire
 var intakeQuestionnaire = {
   questionnaireName: "CKCC Patient Intake",
+  questionnaireSearch: "Int",
   institutionName: "U.C. Santa Cruz",
   institutionId: "UCSC",
   collaborationId: "CKCC",
@@ -33,11 +38,13 @@ var intakeQuestionnaire = {
 // patient enrollment form (new clinical data point)
 var newPatientEnrollment = {
   questionnaireName: "CKCC Patient Intake",
-  institutionName: "UCSC",
+  collaborationSearch: "Int",
+  institutionName: "U.C. Santa Cruz",
+  participantId: "abc",
   studyName: "CKCC",
   patientAge: "17",
-  patientGender: "Famale",
-  diagnosis: "Lorem ipsum..."
+  patientGender: "Female",
+  diagnosisDescription: "Lorem ipsum..."
 };
 
 module.exports = {
@@ -54,7 +61,7 @@ module.exports = {
 
     .verify.elementPresent("#usernameLink")
       .click("#usernameLink").pause(1000)
-      .signIn(emailA, passwordA)
+      .signIn(userA.email, userA.password)
       .verify.elementPresent("#collaborationsTile")
       .click("#collaborationsTile").pause(3000);
   },
@@ -81,89 +88,89 @@ module.exports = {
       .reviewUpsertQuestionnare()
       .upsertQuestionnaire(intakeQuestionnaire)
       .pause(1000)
-      .reviewQuestionnairesList(intakeQuestionnaire);
+      .reviewQuestionnairesList(intakeQuestionnaire, true);
   },
   "E. UserA Can complete a Questionnaire": function (client) {
     client
-      .verify.elementPresent("#inboxCardHandle")
-      .click("#inboxCardHandle").pause(600)
-      .verify.elementPresent("#firstDocument")
-      .click("#firstDocument").pause(1000)
-      .waitForElementVisible("#recordUpsertPage", 3000)
+      // .verify.elementPresent("#inboxCardHandle")
+      // .click("#inboxCardHandle").pause(600)
+      // .verify.elementPresent("#firstDocument")
+      // .click("#firstDocument").pause(1000)
+      // .waitForElementVisible("#recordUpsertPage", 3000)
       .reviewPatientIntakeForm()
-      .upsertPatientIntakeForm(intakeQuestionnaire)
+      .upsertPatientIntakeForm(newPatientEnrollment)
       .pause(3000);
   },
   "F. View Questionnaires associated with a Collaboration": function (client) {
     client
-      .click("#navbarTitle").pause(500)
-      .click("#clinicalDataTile").pause(500)
+      // .click("#navbarTitle").pause(500)
+      // .click("#clinicalDataTile").pause(500)
       .reviewRecordsList(newPatientEnrollment)
       .click("#recordsList .recordItem:nth-child(1)")
       .reviewPatientIntakeForm(newPatientEnrollment)
-      .signOut(emailA);
+      .signOut(userA.fullName);
   },
   // "G. UserB Requests To Join Collaboration": function (client) {
   //   client
-  //     .signIn(usernameB, passwordB)
-  ////     .confirmUserIs(usernameB)
+  //     .signIn(userB.username, userB.password)
+  ////     .confirmUserIs(userB.username)
   //     .click("#collaborationListButton").pause(500)
   //     .canNotSeeCollaboration()
-  //     .canRequestCollaboration(usernameB)
+  //     .canRequestCollaboration(userB.username)
   //     .requestsCollaboration()
-  //     .signOut(usernameB);
+  //     .signOut(userB.username);
   // },
   // "H. UserA Grants Access to UserB": function (client) {
   //   client
-  //     .signIn(usernameA, passwordA)
-  //     .confirmUserIs(usernameA)
+  //     .signIn(userA.username, userA.password)
+  //     .confirmUserIs(userA.username)
   //     .click("#collaborationListButton").pause(500)
   //     .canGrantCollaborationAccess()
-  //     .grantsCollaboration(emailB)
-  //     .signOut(usernameA).pause(500);
+  //     .grantsCollaboration(userB.email)
+  //     .signOut(userA.username).pause(500);
   //
   // },
   // "I. UserB Can Access Collaboration": function (client) {
   //   client
-  //     .signIn(usernameB, passwordB)
-  //     .confirmUserIs(usernameB)
+  //     .signIn(userB.username, userB.password)
+  //     .confirmUserIs(userB.username)
   //     .click("#collaborationListButton").pause(500)
   //     .canNotGrantCollaborationAccess()
   //     .click("#collaborationsList .collaboration:nth-child(1)").pause(1000)
   //     .acceptAlert().pause(500)
   //     .canSeePost(newPostTitle)
-  //     .signOut(usernameB);
+  //     .signOut(userB.username);
   //
   //
   // },
   // "J. UserA Denies Access To UserB": function (client) {
   //   client
-  //     .signIn(usernameA, passwordA)
-  //     .confirmUserIs(usernameA)
+  //     .signIn(userA.username, userA.password)
+  //     .confirmUserIs(userA.username)
   //     .click("#collaborationListButton").pause(500)
   //     .click("#collaborationsList .collaboration:nth-child(1) .editCollaborationButton").pause(
   //       500)
-  //     .removeNthCollaborator(emailB, 3)
+  //     .removeNthCollaborator(userB.email, 3)
   //     .click("#collaborationsList .collaboration:nth-child(1) .editCollaborationButton").pause(
   //       500)
-  //     .removeNthCollaborator(usernameB, 2)
-  //     .signOut(usernameA);
+  //     .removeNthCollaborator(userB.username, 2)
+  //     .signOut(userA.username);
   //
   //
   // },
   // "K. UserB Cant See Collaboration": function (client) {
   //   client
-  //     .signIn(usernameB, passwordB)
-  //     .confirmUserIs(usernameB)
+  //     .signIn(userB.username, userB.password)
+  //     .confirmUserIs(userB.username)
   //     .click("#collaborationListButton").pause(1000)
-  //     .canNotSeeCollaboration(usernameB)
+  //     .canNotSeeCollaboration(userB.username)
   //     .acceptAlert().pause(1000)
-  //     .signOut(usernameB)
+  //     .signOut(userB.username)
   //
   //
   //   .end();
   // }
-  "End": function (){
+  "End": function (client){
     client.end();
   }
 };
@@ -305,7 +312,7 @@ module.exports = {
 //
 //   describe('User A', function() {
 //     before(function(client, done) {
-//       client.signIn('userA','passwordA');
+//       client.signIn('userA','userA.password');
 //       done();
 //     });
 //
@@ -330,7 +337,7 @@ module.exports = {
 //     });
 //
 //     after(function(client, done) {
-//       client.signOut('userA','passwordA');
+//       client.signOut('userA','userA.password');
 //       client.end(function() {
 //         done();
 //       });
@@ -338,7 +345,7 @@ module.exports = {
 //   });
 //   describe('User B', function() {
 //     before(function(client, done) {
-//       client.signIn('userB','passwordB');
+//       client.signIn('userB','userB.password');
 //       done();
 //     });
 //
@@ -356,7 +363,7 @@ module.exports = {
 //           .requestToJoinCollaboration('BusyBees')
 //     });
 //     after(function(client, done) {
-//       client.signOut('userB','passwordB');
+//       client.signOut('userB','userB.password');
 //       client.end(function() {
 //         done();
 //       });
@@ -364,7 +371,7 @@ module.exports = {
 //   });
 //   describe('User A', function() {
 //     before(function(client, done) {
-//       client.signIn('userA','passwordA');
+//       client.signIn('userA','userA.password');
 //       done();
 //     });
 //
@@ -374,7 +381,7 @@ module.exports = {
 //           .grantsAccessToCollaboration('userA','BusyBees')
 //     });
 //     after(function(client, done) {
-//       client.signOut('userA','passwordA');
+//       client.signOut('userA','userA.password');
 //       client.end(function() {
 //         done();
 //       });
@@ -382,7 +389,7 @@ module.exports = {
 //   });
 //   describe('User B', function() {
 //     before(function(client, done) {
-//       client.signIn('userB','passwordB');
+//       client.signIn('userB','userB.password');
 //       done();
 //     });
 //     it('can grant access to collaborations', function(client) {
@@ -393,7 +400,7 @@ module.exports = {
 //           .hasSignedInPrivateAccess('BusyBees')
 //     });
 //     after(function(client, done) {
-//       client.signOut('userB','passwordB');
+//       client.signOut('userB','userB.password');
 //       client.end(function() {
 //         done();
 //       });
@@ -403,7 +410,7 @@ module.exports = {
 //   });
 //   describe('User A', function() {
 //     before(function(client, done) {
-//       client.signIn('userA','passwordA');
+//       client.signIn('userA','userA.password');
 //       done();
 //     });
 //     it('can revoke access to collaborations', function(client) {
@@ -419,7 +426,7 @@ module.exports = {
 //   });
 //   describe('User B', function() {
 //     before(function(client, done) {
-//       client.signIn('userB','passwordB');
+//       client.signIn('userB','userB.password');
 //       done();
 //     });
 //

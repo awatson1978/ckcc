@@ -3,7 +3,7 @@
   <article id="recordsListPage" class="page fizzle">
     {{> recordHeader type="record"}}
     <div class="pageBody" style="{{getOpacity}}">
-      <input id="recordSearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." />
+      <input id="recordSearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." value="{{getRecordSearchFilter}}" />
       <ul id="recordsList">
         {{#if hasNoContent}}
           <li id="noResultsMessage" class="addFooItem">
@@ -18,13 +18,13 @@
             <li class="recordItem">
               <article>
                 <h2 class="titleText">{{institutionId}} - {{participantId}}</h2>
-                <span class="pull-right barcode gray idText">{{_id}}</span><br>
-                <span class="questionnaireName">{{physicianName}}</span>
-                <span class="physicianName">{{patientGender}} / {{patientAge}}</span>
-                <span class="descriptionText">{{description}}</span>
+                <span class="pull-right barcode gray barcodeText">{{_id}}</span><br>
+                <span class="leftSubtitle">{{physicianName}}</span>
+                <span class="leftSubSubtitle">{{patientGender}} / {{patientAge}}</span>
+                <span class="leftText">{{description}}</span>
 
-                <span class="pull-right createdAtText">{{questionnaireName}}</span>
-                <span class="pull-right ageGenderText">{{createdAt}}</span>
+                <span class="pull-right rightSubtitle">{{questionnaireName}}</span>
+                <span class="pull-right rightSubSubtitle">{{createdAt}}</span>
               </article>
               <div class="fadeAway"></div>
             </li>

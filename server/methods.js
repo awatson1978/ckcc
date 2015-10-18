@@ -59,7 +59,7 @@ Meteor.methods({
           createdAt: new Date()
         };
 
-        process.env.DEBUG && console.log('newRecord', newRecord);
+        //process.env.DEBUG && console.log('newRecord', newRecord);
 
         Foo.insert(newRecord);
       }

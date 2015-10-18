@@ -17,7 +17,7 @@ Meteor.startup(function () {
       institutionName: "UCSC",
       institutionId: "UCSC",
       participantId: "",
-      questionnaireName: "CKCC Patient Intake",
+      questionnaireName: "Genetic Analysis Results",
       createdAt: new Date(),
       schema: CkccSchema
     });

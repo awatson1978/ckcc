@@ -21,6 +21,9 @@ Router.map(function () {
 // TEMPLATE INPUTS
 
 Template.recordsListPage.events({
+  'change #recordSearchInput': function(){
+    Session.set('fooSearchFilter', $('#recordSearchInput').val());
+  },
   'click .addFooItem': function () {
     Router.go('/insert/foo');
   },
@@ -51,6 +54,9 @@ Template.recordsListPage.rendered = function () {
 
 
 Template.recordsListPage.helpers({
+  getRecordSearchFilter: function (){
+    return Session.get('fooSearchFilter');
+  },
   hasNoContent: function () {
     if (Foo.find().count() === 0) {
       return true;
@@ -97,6 +103,12 @@ Template.recordsListPage.helpers({
         },
         {
           questionnaireName: {
+            $regex: Session.get('fooSearchFilter'),
+            $options: 'i'
+          }
+        },
+        {
+          collaborationName: {
             $regex: Session.get('fooSearchFilter'),
             $options: 'i'
           }

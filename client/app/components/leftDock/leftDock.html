@@ -24,6 +24,12 @@
         <hr>
         <h6>{{getSelectedUserName}}</h6>
         <h6>{{getSelectedUserId}}</h6>
+        <hr>
+        {{#if isLoggedIn}}
+        <button id="collaborationPickListBtn">Collaboration Picklist</button><br>
+        <button id="userPickListBtn">User Picklist</button><br>
+        <button id="studyPickListBtn">Study Picklist</button>
+        {{/if}}
       </aside>
     {{/if}}
 

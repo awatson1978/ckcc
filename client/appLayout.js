@@ -66,11 +66,21 @@ generateStylesheet = function (secondPanel){
     stylesheet.left = Session.get('mainPanelLeft') + "px;";
   };
 
-  if (Session.get('showNavbars')) {
-    stylesheet["margin-bottom"] = "50px;";
+  var marginBottom = 0;
+
+  if (Session.get('mainPanelIsCard')) {
+    marginBottom = marginBottom + 50;
   } else {
-    stylesheet["margin-bottom"] = "0px;";
+    marginBottom = marginBottom;
   }
+
+  if (Session.get('showNavbars')) {
+    marginBottom = marginBottom + 50;
+  } else {
+    marginBottom = marginBottom;
+  }
+
+  stylesheet["margin-bottom"] = marginBottom + "px;";
 
   return stylesheet;
 };

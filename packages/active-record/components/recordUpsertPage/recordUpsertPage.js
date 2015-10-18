@@ -11,6 +11,14 @@ Router.map(function (){
   });
 
 });
+Router.route('/questionnaire/:questionnaireId/new', {
+  name: 'recordUpsertForTemplate',
+  template: 'recordUpsertPage',
+  data: function (){
+    return Questionnaires.findOne({_id: this.params.questionnaireId});
+  }
+});
+
 Router.route('/upsert/foo/:id', {
   name: 'upsertFooRoute',
   template: 'recordUpsertPage',
@@ -80,7 +88,7 @@ Template.recordUpsertPage.events({
   },
   "click #saveRecordButton": function (event, template){
     event.preventDefault();
-    Template.recordUpsertPage.saveFoo(this);
+    Template.recordUpsertPage.saveFoo(false, this);
     Session.set('recordReadOnly', true);
   },
   "click .barcode": function (){
@@ -90,7 +98,7 @@ Template.recordUpsertPage.events({
     } else {
       Session.set('recordReadOnly', true);
       console.log('Locking the record...');
-      Template.recordUpsertPage.saveFoo(this);
+      Template.recordUpsertPage.saveFoo(false, this);
     }
   },
   "click #lockFooButton": function (){
@@ -113,15 +121,17 @@ Template.recordUpsertPage.events({
   },
   'click #previewFooButton':function (){
     Router.go('/customer/' + this._id);
-  },
-  'submit #upsertFooForm': function () {
-    console.log('creating new foo...');
-    //Template.recordUpsertPage.saveFoo(this);
   }
+  // 'submit #saveRecordButton': function () {
+  //   console.log('creating new foo...');
+  //   Template.recordUpsertPage.saveFoo(false, this);
+  // }
 });
 
 
-Template.recordUpsertPage.saveFoo = function (record){
+Template.recordUpsertPage.saveFoo = function (record, questionnaire){
+
+  console.log("Template.recordUpsertPage.saveFoo", questionnaire);
   // TODO:  add validation functions
 
   // var newRecord = {
@@ -131,36 +141,53 @@ Template.recordUpsertPage.saveFoo = function (record){
   //   url: $('input[name="url"]').val()
   // };
 
-  var newRecord = {
-    institutionName: $('input[name="institutionName"]').val(),
-    institutionId: $('input[name="institutionId"]').val(),
-    physicianName: $('input[name="physicianName"]').val(),
-    studyName: $('input[name="studyName"]').val(),
-    studyId: $('input[name="studyId"]').val(),
-    patientAge: $('input[name="patientAge"]').val(),
-    patientGender: $('input[name="patientGender"]').val(),
-    diagnosisDescription: $('input[name="diagnosisDescription"]').val(),
-    diagnosisCode: $('input[name="diagnosisCode"]').val(),
-    diseaseSubtype: $('input[name="diseaseSubtype"]').val(),
-    priorTreatmentHistory: $('input[name="priorTreatmentHistory"]').val(),
-    complicatingConditions: $('input[name="complicatingConditions"]').val(),
-    currentStatus: $('input[name="currentStatus"]').val(),
-    lastFollowUpDate: $('input[name="lastFollowUpDate"]').val(),
-    familyHistory: $('input[name="familyHistory"]').val(),
-    molecularTesting: $('input[name="molecularTesting"]').val(),
-    actionableFindings: $('input[name="actionableFindings"]').val(),
-    genomicAnalysis: $('input[name="genomicAnalysis"]').val(),
-    biopsySource: $('input[name="biopsySource"]').val(),
-    tumorCellFraction: $('input[name="tumorCellFraction"]').val(),
-    otherStudies: $('input[name="otherStudies"]').val()
-  };
+  // var newRecord = {
+  //   institutionName: $('input[name="institutionName"]').val(),
+  //   institutionId: $('input[name="institutionId"]').val(),
+  //   physicianName: $('input[name="physicianName"]').val(),
+  //   studyName: $('input[name="studyName"]').val(),
+  //   studyId: $('input[name="studyId"]').val(),
+  //   patientAge: $('input[name="patientAge"]').val(),
+  //   patientGender: $('input[name="patientGender"]').val(),
+  //   diagnosisDescription: $('input[name="diagnosisDescription"]').val(),
+  //   diagnosisCode: $('input[name="diagnosisCode"]').val(),
+  //   diseaseSubtype: $('input[name="diseaseSubtype"]').val(),
+  //   priorTreatmentHistory: $('input[name="priorTreatmentHistory"]').val(),
+  //   complicatingConditions: $('input[name="complicatingConditions"]').val(),
+  //   currentStatus: $('input[name="currentStatus"]').val(),
+  //   lastFollowUpDate: $('input[name="lastFollowUpDate"]').val(),
+  //   familyHistory: $('input[name="familyHistory"]').val(),
+  //   molecularTesting: $('input[name="molecularTesting"]').val(),
+  //   actionableFindings: $('input[name="actionableFindings"]').val(),
+  //   genomicAnalysis: $('input[name="genomicAnalysis"]').val(),
+  //   biopsySource: $('input[name="biopsySource"]').val(),
+  //   tumorCellFraction: $('input[name="tumorCellFraction"]').val(),
+  //   otherStudies: $('input[name="otherStudies"]').val(),
+  //   createdAt: new Date()
+  // };
 
-  // var inputElements = $('input');
-  // var newRecord = {};
-  // inputElements.forEach(function(input){
+  var newRecord = {};
+  var inputElements = $('input');
+  var textareaElements = $('textarea');
+
+  console.log('inputElements', inputElements);
+  console.log('textareaElements', textareaElements);
+
+  for (var i = 0; i < inputElements.length; i++) {
+    newRecord[inputElements[i].name] = inputElements[i].value;
+  }
+  for (var i = 0; i < textareaElements.length; i++) {
+    newRecord[textareaElements[i].name] = textareaElements[i].value;
+  }
+
+  newRecord.createdAt = new Date();
+
+  // inputElements.forEach(function (input){
   //   newRecord[input.name] = input.val();
   // });
-
+  // textareaElements.forEach(function (textarea){
+  //   newRecord[input.name] = textarea.val();
+  // });
 
 
   console.log ("newRecord", newRecord);
@@ -174,7 +201,8 @@ Template.recordUpsertPage.saveFoo = function (record){
   } else {
     Foo.insert(newRecord, function (error, result){
       if (error) console.log(error);
-      Router.go('/view/foo/' + result);
+      Router.go('/list/foos');
+      //Router.go('/view/foo/' + result);
     });
   }
 };

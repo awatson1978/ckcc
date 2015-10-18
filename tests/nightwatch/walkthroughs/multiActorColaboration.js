@@ -32,6 +32,7 @@ var intakeQuestionnaire = {
 
 // patient enrollment form (new clinical data point)
 var newPatientEnrollment = {
+  questionnaireName: "CKCC Patient Intake",
   institutionName: "UCSC",
   studyName: "CKCC",
   patientAge: "17",
@@ -59,7 +60,6 @@ module.exports = {
   },
   "B. UserA Can Review Collaborations": function (client) {
     client
-      //.reviewCollaborationGrid(collaborationName);
       .reviewCollaborationGrid();
   },
   "C. UserA Can Add a Collaboration": function (client) {
@@ -96,29 +96,24 @@ module.exports = {
   },
   "F. View Questionnaires associated with a Collaboration": function (client) {
     client
-      .click("#collaborationListButton").pause(500)
-      .verify.elementPresent("#collaborationListPage")
-      .verify.elementPresent("#collaborationsList")
-      .click("#collaborationsList .collaboration:nth-child(1)").pause(300)
-      .reviewQuestionnairesList()
-      .verify.elementPresent("#questionnaireSearchInput")
-        .clearValue('#questionnaireSearchInput')
-        .setValue('#questionnaireSearchInput', intakeQuestionnaire.name)
-        .click("#questionnairesList .questionnaireItem:nth-child(1)")
-      .reviewUpsertQuestionnare(intakeQuestionnaire)
-      .signOut(usernameA);
+      .click("#navbarTitle").pause(500)
+      .click("#clinicalDataTile").pause(500)
+      .reviewRecordsList(newPatientEnrollment)
+      .click("#recordsList .recordItem:nth-child(1)")
+      .reviewPatientIntakeForm(newPatientEnrollment)
+      .signOut(emailA);
   },
-  // "F. UserB Requests To Join Collaboration": function (client) {
+  // "G. UserB Requests To Join Collaboration": function (client) {
   //   client
   //     .signIn(usernameB, passwordB)
-  //     .confirmUserIs(usernameB)
+  ////     .confirmUserIs(usernameB)
   //     .click("#collaborationListButton").pause(500)
   //     .canNotSeeCollaboration()
   //     .canRequestCollaboration(usernameB)
   //     .requestsCollaboration()
   //     .signOut(usernameB);
   // },
-  // "G. UserA Grants Access to UserB": function (client) {
+  // "H. UserA Grants Access to UserB": function (client) {
   //   client
   //     .signIn(usernameA, passwordA)
   //     .confirmUserIs(usernameA)
@@ -128,7 +123,7 @@ module.exports = {
   //     .signOut(usernameA).pause(500);
   //
   // },
-  // "H. UserB Can Access Collaboration": function (client) {
+  // "I. UserB Can Access Collaboration": function (client) {
   //   client
   //     .signIn(usernameB, passwordB)
   //     .confirmUserIs(usernameB)
@@ -141,7 +136,7 @@ module.exports = {
   //
   //
   // },
-  // "I. UserA Denies Access To UserB": function (client) {
+  // "J. UserA Denies Access To UserB": function (client) {
   //   client
   //     .signIn(usernameA, passwordA)
   //     .confirmUserIs(usernameA)
@@ -156,7 +151,7 @@ module.exports = {
   //
   //
   // },
-  // "J. UserB Cant See Collaboration": function (client) {
+  // "K. UserB Cant See Collaboration": function (client) {
   //   client
   //     .signIn(usernameB, passwordB)
   //     .confirmUserIs(usernameB)

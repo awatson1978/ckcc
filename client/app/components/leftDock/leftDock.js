@@ -9,6 +9,18 @@ Session.setDefault('showFormBuilderCard', true);
 
 
 Template.leftDock.events({
+  'click #collaborationPickListBtn': function (){
+    Session.toggle('show_reactive_overlay');
+    Session.toggle('showCollaborationPicklist');
+  },
+  'click #studyPickListBtn': function (){
+    Session.toggle('show_reactive_overlay');
+    Session.toggle('show_study_picklist');
+  },
+  'click #userPickListBtn': function (){
+    Session.toggle('show_reactive_overlay');
+    Session.toggle('show_users_picklist');
+  },
   'click #firstDocument': function () {
     Session.set('inboxCardOpen', false);
     Router.go('/new/questionnaire');

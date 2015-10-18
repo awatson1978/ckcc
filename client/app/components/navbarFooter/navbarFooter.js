@@ -13,19 +13,8 @@ Template.navbarFooter.helpers({
 
 Template.navbarFooter.events({
   'click #saveFormButton': function (){
-    $('#upsertCollaborationButton').click();
-  },
-  'click #collaborationPickListBtn': function (){
-    Session.toggle('show_reactive_overlay');
-    Session.toggle('showCollaborationPicklist');
-  },
-  'click #studyPickListBtn': function (){
-    Session.toggle('show_reactive_overlay');
-    Session.toggle('show_study_picklist');
-  },
-  'click #userPickListBtn': function (){
-    Session.toggle('show_reactive_overlay');
-    Session.toggle('show_users_picklist');
+    $('#saveRecordButton').click();
+    //$('input[type="submit"]').click();
   },
   'click #keybindingsBtn': function (){
     Session.toggle('show_reactive_overlay');

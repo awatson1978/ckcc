@@ -4,7 +4,7 @@
     {{> recordHeader type="record"}}
     <div class="pageBody" style="{{getOpacity}}">
       <input id="recordSearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." />
-      <ul id="unorderedList">
+      <ul id="recordsList">
         {{#if hasNoContent}}
           <li id="noResultsMessage" class="addFooItem">
             <article class="noResultsMessage">
@@ -15,13 +15,16 @@
 
         {{else}}
           {{#each foosList}}
-            <li class="fooItem">
+            <li class="recordItem">
               <article>
                 <h2 class="titleText">{{institutionId}} - {{participantId}}</h2>
                 <span class="pull-right barcode gray idText">{{_id}}</span><br>
-                <span class="physicianName">{{physicianName}}</span>
-                <span class="pull-right ageGenderText">{{patientGender}} / {{patientAge}}</span>
+                <span class="questionnaireName">{{physicianName}}</span>
+                <span class="physicianName">{{patientGender}} / {{patientAge}}</span>
                 <span class="descriptionText">{{description}}</span>
+
+                <span class="pull-right createdAtText">{{questionnaireName}}</span>
+                <span class="pull-right ageGenderText">{{createdAt}}</span>
               </article>
               <div class="fadeAway"></div>
             </li>

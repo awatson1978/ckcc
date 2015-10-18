@@ -22,8 +22,8 @@ Meteor.startup(function () {
       schema: CkccSchema
     });
   }
-
 });
+
 
 
 PathologySchema = new SimpleSchema({

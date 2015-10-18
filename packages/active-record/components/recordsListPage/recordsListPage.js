@@ -9,7 +9,7 @@ Session.setDefault('skipCount', 0);
 //------------------------------------------------------------------------------
 // ROUTING
 
-Router.map(function(){
+Router.map(function () {
   this.route('recordsListPage', {
     path: '/list/foos/',
     template: 'recordsListPage'
@@ -21,15 +21,16 @@ Router.map(function(){
 // TEMPLATE INPUTS
 
 Template.recordsListPage.events({
-  'click .addFooItem':function(){
+  'click .addFooItem': function () {
     Router.go('/insert/foo');
   },
-  'click .fooItem':function(){
+  'click .recordItem': function (event, template) {
+    event.preventDefault();
     Router.go('/view/foo/' + this._id);
   },
   // use keyup to implement dynamic filtering
   // keyup is preferred to keypress because of end-of-line issues
-  'keyup #recordSearchInput': function() {
+  'keyup #recordSearchInput': function () {
     Session.set('fooSearchFilter', $('#recordSearchInput').val());
   }
 });
@@ -42,7 +43,7 @@ Template.recordsListPage.events({
 var OFFSCREEN_CLASS = 'off-screen';
 var EVENTS = 'webkitTransitionEnd oTransitionEnd transitionEnd msTransitionEnd transitionend';
 
-Template.recordsListPage.rendered = function(){
+Template.recordsListPage.rendered = function () {
   console.log("trying to update layout...");
 
   Template.appLayout.delayedLayout(20);
@@ -50,14 +51,14 @@ Template.recordsListPage.rendered = function(){
 
 
 Template.recordsListPage.helpers({
-  hasNoContent: function(){
-    if(Foo.find().count() === 0){
+  hasNoContent: function () {
+    if (Foo.find().count() === 0) {
       return true;
-    }else{
+    } else {
       return false;
     }
   },
-  foosList: function() {
+  foosList: function () {
     // this triggers a refresh of data elsewhere in the table
     // step C:  receive some data and set our reactive data variable with a new value
     Session.set('receivedData', new Date());
@@ -68,27 +69,39 @@ Template.recordsListPage.helpers({
     // current in our CustomerAccounts cursor, and will reactively
     // update the table
 
-    return Foo.find({$or:[
-      {
-        institutionId: {
-          $regex: Session.get('fooSearchFilter'),
-          $options: 'i'
-      }},
-      {
-        participantId: {
-          $regex: Session.get('fooSearchFilter'),
-          $options: 'i'
-      }},
-      {
-        _id: {
-          $regex: Session.get('fooSearchFilter'),
-          $options: 'i'
-      }},
-      {
-        physicianName: {
-          $regex: Session.get('fooSearchFilter'),
-          $options: 'i'
-      }}
-    ]});
+    return Foo.find({
+      $or: [
+        {
+          institutionId: {
+            $regex: Session.get('fooSearchFilter'),
+            $options: 'i'
+          }
+        },
+        {
+          participantId: {
+            $regex: Session.get('fooSearchFilter'),
+            $options: 'i'
+          }
+        },
+        {
+          _id: {
+            $regex: Session.get('fooSearchFilter'),
+            $options: 'i'
+          }
+        },
+        {
+          physicianName: {
+            $regex: Session.get('fooSearchFilter'),
+            $options: 'i'
+          }
+        },
+        {
+          questionnaireName: {
+            $regex: Session.get('fooSearchFilter'),
+            $options: 'i'
+          }
+        }
+    ]
+  },{sort: {createdAt: -1}});
   }
 });

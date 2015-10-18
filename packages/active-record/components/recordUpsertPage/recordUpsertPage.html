@@ -36,6 +36,9 @@
         {{/each}}
 
       <button id="saveRecordButton" type="submit" class="glass-footer-btn">Save Foo</button>
+      {{#if this}}
+        <button id="removeRecordButton" data-_id={{doc._id}} data-name={{doc.name}} type="button" class="right removeRecord btn btn-danger">Delete</button>
+      {{/if}}
 
       {{/autoForm}}
 

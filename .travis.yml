@@ -51,12 +51,14 @@ before_install:
 
   - "pwd"
   - "ls -la"
+  - "more .meteor/versions"
 
   - "starrynight fetch"
   - "sleep 10"
   - "pwd"
   - "ls -la ./packages"
-
+  - "ls -la ./packages/clinical-active-record"
+  - "ls -la ./packages/clinical-active-record/lib"
 
   - "~/.meteor/meteor &"
 

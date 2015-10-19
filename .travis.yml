@@ -52,7 +52,6 @@ before_install:
   - "pwd"
   - "ls -la"
   - "cat .meteor/versions"
-  - "ls -la ~/.meteor/packages"
   - "starrynight fetch"
   - "sleep 10"
   - "pwd"
@@ -65,6 +64,7 @@ before_install:
 
   # give Meteor some time to download packages, init data, and to start
   - "sleep 70"
+  - "ls -la ~/.meteor/packages"
 
   # check that node_modules exist, and what's inside
   #- "echo $(npm config get prefix)/lib/node_modules"

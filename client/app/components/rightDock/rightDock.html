@@ -1,0 +1,39 @@
+<template name="rightDock">
+  <div id="rightDock">
+    {{#if showAccount}}
+      <aside id="accountCard" class="helveticas dockedCard rightDockedCard" style="{{rightCardStyle}} {{cardVisibility 'accountCardOpen'}}">
+        <div class="cardHandle"></div>
+        <img id="accountAvatar" src="{{getAvatarImgSrc}}" alt="" />
+        <h4>{{ fullName }}</h4>
+        <h4>{{ status }}</h4>
+      </aside>
+    {{/if}}
+
+
+    {{#if showProfile}}
+      <aside id="profileCard" class="helveticas dockedCard rightDockedCard" style="{{rightCardStyle}} {{cardVisibility 'profileCardOpen'}}">
+        <div class="cardHandle"></div>
+        <button id="backgroundBtn">Background</button>
+        <button id="opacityBtn">Opacity</button>
+        <hr>
+        <input id="backgroundImgSrcInput" type="text" name="backgroundImgSrcInput" value="{{getBackgroundImgSrcInput}}" placeholder="http://somewhere.com/background.jpg">
+        <hr>
+        <input id="avatarImgSrcInput" type="text" name="avatarImgSrc" value="{{getAvatarImgSrc}}" placeholder="http://somewhere.com/avatar.jpg">
+        <hr>
+        <button id="initializeBtn">Initialize</button>
+        <button id="dropBtn">Drop</button>
+        <hr>
+        <button type="button" id="redBtn" class="redBtn colorThemeBtn"></button>
+        <button type="button" id="blueBtn" class="blueBtn colorThemeBtn"></button>
+        <button type="button" id="greenBtn" class="greenBtn colorThemeBtn"></button>
+        <button type="button" id="whiteBtn" class="whiteBtn colorThemeBtn"></button>
+        <button type="button" id="grayBtn" class="grayBtn colorThemeBtn"></button>
+        <button type="button" id="lightGrayBtn" class="lightGrayBtn colorThemeBtn"></button>
+        <hr>
+        <button type="button" id="darkBtn" class="darkBtn colorThemeBtn"></button>
+        <button type="button" id="lightBtn" class="lightBtn colorThemeBtn"></button>
+
+      </aside>
+    {{/if}}
+  </div>
+</template>

@@ -1,29 +1,35 @@
 
 
-Session.setDefault("show_background", false);
-Session.setDefault("is_opaque", false);
 
+Template.navbarFooter.helpers({
+  isVisible: function (){
+    if (Session.get('showNavbars')) {
+      return "height: 50px;";
+    } else {
+      return "height: 0px;";
+    }
+  }
+});
 
 Template.navbarFooter.events({
-  'click #backgroundBtn': function (){
-    Session.toggle('show_background');
+  'click #saveDataButton': function (){
+    $('#saveRecordButton').click();
   },
-  'click #opacityBtn': function (){
-    if(Session.get('is_opaque')){
-      Session.set("glassOpacity", 0.9);
-      Session.set('is_opaque', false);
-    } else {
-      Session.set("glassOpacity", 1);
-      Session.set('is_opaque', true);
-    }
+  'click #saveCollaborationButton': function (){
+    $('#upsertCollaborationButton').click();
+  },
+  'click #saveFormButton': function (){
+    $('#saveRecordButton').click();
+    //$('input[type="submit"]').click();
   },
   'click #keybindingsBtn': function (){
+    Session.toggle('show_reactive_overlay');
     Session.toggle('show_keybindings');
   },
   'click #overlayBtn': function (){
     Session.toggle('show_reactive_overlay');
   },
-  'click #newCollaborationBtn': function (){
+  'click #addCollaborationButton': function (){
     Router.go('/new/collaboration');
   },
   'click #collaborationsBtn': function (){
@@ -41,8 +47,8 @@ Template.navbarFooter.events({
   "click #tableBtn": function (event, template) {
     Router.go('/table/foos');
   },
-  "click #newBtn": function (event, template) {
-    Router.go('/insert/foo');
+  "click #newQuestionnaireBtn": function (event, template) {
+    Router.go('/build/questionnaire');
   },
   "click #initializeBtn": function (event, template) {
     console.log('initializing database');
@@ -62,12 +68,4 @@ Template.navbarFooter.events({
   //       scrollTop: $('.recordFooter').offset().top
   //   }, 500);
   // }
-});
-
-
-
-Template.navbarFooter.helpers({
-  rendered: function () {
-
-  }
 });

@@ -31,7 +31,6 @@ exports.command = function (pathology) {
     .verify.elementPresent('select[name="PTEN_test_performed"]')
 
     .verify.elementPresent("#saveRecordButton");
-    // .verify.elementPresent(".removeRecordButton");
 
   // if (pathology) {
   //   this

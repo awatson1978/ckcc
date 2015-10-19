@@ -7,4 +7,9 @@ Meteor.startup(function (){
     var result = json2json.transform(data,transform);
 
     console.log('json2json.result', result);
+
+
+  Env.allow({
+    DEBUG: true
+  });
 });

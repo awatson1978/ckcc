@@ -1,19 +1,47 @@
-  <head>
-    <title>CKCC</title>
-  </head>
+<head>
+  <title>CKCC</title>
+</head>
+
+
 
 <template name="appLayout">
-  <div id="appLayout" style="{{getBackground}}">
-    {{> navbarHeader}}
+  <!-- <div id="appLayout" style="{{getBackground}}"> -->
+
+    {{> yield 'header'}}
+    <!-- {{> navbarHeader}} -->
+      {{> leftDock }}
+      {{> rightDock }}
 
       <div class="hidden">{{resized}}</div>
-      <div id="mainPanel" class="padded helveticas" style="{{getStyle}}">
+
+      {{> yield 'sidebar'}}
+
+      <div id="mainPanel" class="helveticas" style="{{getStyle}} {{getNorthRule}}">
         {{> yield }}
       </div>
+      <div id="secondPanel" class="helveticas" style="{{getSecondPanelStyle}} {{getNorthRule}} {{getOpacityWithCorner}}">
+        {{> yield 'secondPage'}}
+      </div>
+
+
 
     {{> reactiveOverlaysTemplate }}
 
-    {{> navbarFooter}}
-  </div>
+    <!-- {{> navbarFooter}} -->
+    {{> yield 'footer'}}
+  <!-- </div> -->
 
+  <!-- these are the only major things preventing appLayout being refactored into clinical:active-layout -->
+  {{> keybindingsModal }}
+  {{> userPicklistModal }}
+  {{> studyPicklistModal }}
+  {{> collaborationPicklistModal }}
+
+</template>
+
+
+<template name="secondPage">
+  <div id="secondPage" class="secondPage">
+
+  </div>
 </template>

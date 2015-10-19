@@ -1,0 +1,42 @@
+<template name="leftDock">
+  <div id="leftDock">
+    {{#if showInbox}}
+      <aside id="inboxCard" class="helveticas dockedCard leftDockedCard" style="{{leftCardStyle 'inboxCardOpen'}} {{leftCardVisibility 'inboxCardOpen'}}">
+        <!-- <img id="accountAvatar" src="" alt="" /> -->
+        <div id="secondInboxItem" src="" alt="">
+          <i id="firstDocument" class="fa fa-5x fa-file-text-o"></i>
+          <i id="secondDocument" class="fa fa-5x fa-file-text-o"></i>
+          <i id="thirdDocument" class="fa fa-5x fa-file-text-o"></i>
+          <!-- <span class="helveticas fa">Q</span> -->
+        </div>
+        <div id="inboxCardHandle" class="cardHandle"></div>
+      </aside>
+    {{/if}}
+
+    {{#if showOutbox}}
+      <aside id="outboxCard" class="helveticas dockedCard leftDockedCard" style="{{leftCardStyle 'outboxCardOpen'}} {{leftCardVisibility 'outboxCardOpen'}}">
+        <div id="outboxCardHandle" class="cardHandle"></div>
+        <h4>Active Record</h4>
+        <hr>
+        <h6>{{getActiveRecordId}}</h6>
+
+        <h4>Selected User</h4>
+        <hr>
+        <h6>{{getSelectedUserName}}</h6>
+        <h6>{{getSelectedUserId}}</h6>
+        <hr>
+        {{#if isLoggedIn}}
+        <button id="collaborationPickListBtn">Collaboration Picklist</button><br>
+        <button id="userPickListBtn">User Picklist</button><br>
+        <button id="studyPickListBtn">Study Picklist</button>
+        {{/if}}
+      </aside>
+    {{/if}}
+
+    {{#if showFormBuilder}}
+      <aside id="formBuilderCard" class="helveticas dockedCard leftDockedCard" style="{{leftCardStyle 'formBuilderCardOpen'}} {{leftCardVisibility 'formBuilderCardOpen'}} {{formBuilderHeight}}">
+        <div class="cardHandle {{formBuilderHeight}}"></div>
+      </aside>
+    {{/if}}
+  </div>
+</template>

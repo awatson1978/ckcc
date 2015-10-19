@@ -1,17 +1,17 @@
 <template name="navbarHeader">
-  <header id="navbarHeader" class="helveticas" style="{{getOpacity}}">
-    <a href="/" class="navbarTitle">{{getTitleText}}</a>
-    <div class="eastLinks">
-      <a href="{{getUsernameLink}}" class="navbarLink">{{ fullName }}</a>
+  <header id="navbarHeader" class="helveticas" style="{{getOpacity}} {{isVisible}}">
+    <a id="navbarTitle" href="/" class="navbarTitle" style="{{isVisible}}">{{getTitleText}}</a>
+    <div class="eastLinks" >
+      <a id="usernameLink" href="{{getUsernameLink}}" class="navbarLink" style="{{isVisible}}">{{ fullName }}</a>
       {{#if isLoggedIn }}
-      <a id="logoutLink" class="navbarLink">Logout</a>
+      <a id="logoutLink" class="navbarLink" style="{{isVisible}}">Logout</a>
       {{/if}}
     </div>
   </header>
-  <aside id="accountCard" class="helveticas" style="{{accountCardStyle}} {{cardVisibility}}">
-    <div id="accountCardHandle"></div>
-    <img id="accountAvatar" src="" alt="" />
-    <h4>{{ fullName }}</h4>
-    <h4>{{ status }}</h4>
+  <!-- {{#if showSearchBar}} -->
+  <aside id="searchBar" class="searchBar" style="{{getOpacity}} {{getSearchStyle}}">
+    <input id="globalSearchBar" type="text" name="globalSearchBar" value="" placeholder="search...">
   </aside>
+  <!-- {{/if}} -->
+
 </template>

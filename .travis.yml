@@ -49,8 +49,13 @@ before_install:
   # give meteor a few seconds after installing
   - "sleep 5"
 
-  - "starrynight fetch"
+  - "pwd"
+  - "ls -la"
 
+  - "starrynight fetch"
+  - "pwd"
+  - "ls -la"
+  
   - "sleep 30"
 
   - "~/.meteor/meteor &"

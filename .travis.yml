@@ -53,10 +53,10 @@ before_install:
   - "ls -la"
 
   - "starrynight fetch"
+  - "sleep 10"
   - "pwd"
-  - "ls -la"
-  
-  - "sleep 30"
+  - "ls -la ./packages"
+
 
   - "~/.meteor/meteor &"
 

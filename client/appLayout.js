@@ -9,6 +9,8 @@ Session.setDefault("westRule", '#456ad7');
 Session.setDefault("northRule", '#456ad7');
 Session.setDefault("southRule", '#456ad7');
 
+Session.setDefault('activeRecord', null);
+
 Meteor.startup(function () {
   window.addEventListener('resize', function () {
     Session.set("resize", new Date());

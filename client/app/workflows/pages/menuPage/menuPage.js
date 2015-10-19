@@ -1,6 +1,6 @@
 Session.setDefault('hasPageBorder', false);
-Session.setDefault('hasPagePadding', true);
-Session.setDefault('pageBackgroundIsWhite', true);
+Session.setDefault('hasPagePadding', false);
+Session.setDefault('pageBackgroundIsWhite', false);
 
 Template.menuPage.helpers({
   getBackground: function (){

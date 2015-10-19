@@ -17,7 +17,7 @@ starrynight:dropdatabase@0.0.2
 photonic:glass-ui
 photonic:active-users-core
 photonic:active-users-table@0.0.3
-
+photonic:no-select-everything
 
 
 gadicohen:prism
@@ -29,6 +29,7 @@ meteorhacks:kadira
 
 clinical:barcode
 clinical:extended-api
+
 clinical:collaborations
 clinical:collaborations-ui
 clinical:active-entry
@@ -44,4 +45,3 @@ clinical:users-picklist
 clinical:user-model
 clinical:active-questionnaire
 clinical:accounts-housemd
-clinical:no-select-everything

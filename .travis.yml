@@ -51,7 +51,7 @@ before_install:
 
   - "pwd"
   - "ls -la"
-  - "more .meteor/versions"
+  - "cat .meteor/versions"
 
   - "starrynight fetch"
   - "sleep 10"

@@ -12,13 +12,15 @@ Template.navbarFooter.helpers({
 });
 
 Template.navbarFooter.events({
-  'click #studyPickListBtn': function (){
-    Session.toggle('show_reactive_overlay');
-    Session.toggle('show_study_picklist');
+  'click #saveDataButton': function (){
+    $('#saveRecordButton').click();
   },
-  'click #userPickListBtn': function (){
-    Session.toggle('show_reactive_overlay');
-    Session.toggle('show_users_picklist');
+  'click #saveCollaborationButton': function (){
+    $('#upsertCollaborationButton').click();
+  },
+  'click #saveFormButton': function (){
+    $('#saveRecordButton').click();
+    //$('input[type="submit"]').click();
   },
   'click #keybindingsBtn': function (){
     Session.toggle('show_reactive_overlay');
@@ -27,7 +29,7 @@ Template.navbarFooter.events({
   'click #overlayBtn': function (){
     Session.toggle('show_reactive_overlay');
   },
-  'click #newCollaborationBtn': function (){
+  'click #addCollaborationButton': function (){
     Router.go('/new/collaboration');
   },
   'click #collaborationsBtn': function (){
@@ -45,7 +47,7 @@ Template.navbarFooter.events({
   "click #tableBtn": function (event, template) {
     Router.go('/table/foos');
   },
-  "click #newBtn": function (event, template) {
+  "click #newQuestionnaireBtn": function (event, template) {
     Router.go('/build/questionnaire');
   },
   "click #initializeBtn": function (event, template) {

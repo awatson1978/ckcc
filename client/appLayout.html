@@ -6,22 +6,42 @@
 
 <template name="appLayout">
   <!-- <div id="appLayout" style="{{getBackground}}"> -->
-    {{> navbarHeader}}
+
+    {{> yield 'header'}}
+    <!-- {{> navbarHeader}} -->
       {{> leftDock }}
       {{> rightDock }}
 
       <div class="hidden">{{resized}}</div>
-      <div id="mainPanel" class="helveticas" style="{{getStyle}}">
+
+      {{> yield 'sidebar'}}
+
+      <div id="mainPanel" class="helveticas" style="{{getStyle}} {{getNorthRule}}">
         {{> yield }}
       </div>
+      <div id="secondPanel" class="helveticas" style="{{getSecondPanelStyle}} {{getNorthRule}} {{getOpacityWithCorner}}">
+        {{> yield 'secondPage'}}
+      </div>
+
+
 
     {{> reactiveOverlaysTemplate }}
 
-    {{> navbarFooter}}
+    <!-- {{> navbarFooter}} -->
+    {{> yield 'footer'}}
   <!-- </div> -->
 
+  <!-- these are the only major things preventing appLayout being refactored into clinical:active-layout -->
   {{> keybindingsModal }}
   {{> userPicklistModal }}
   {{> studyPicklistModal }}
+  {{> collaborationPicklistModal }}
 
+</template>
+
+
+<template name="secondPage">
+  <div id="secondPage" class="secondPage">
+
+  </div>
 </template>

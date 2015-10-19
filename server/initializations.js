@@ -4,16 +4,26 @@ Meteor.startup(function () {
       userCount: 0
     });
   }
-  // if (Questionnaires.find().count() === 0) {
-  //   Questionnaires.insert({
-  //     institutionName: "",
-  //     institutionId: "",
-  //     participantId: "",
-  //     schema: PathologySchema
-  //   });
-  // }
-
+  if (Questionnaires.find().count() === 0) {
+    Questionnaires.insert({
+      institutionName: "UCSC",
+      institutionId: "UCSC",
+      participantId: "",
+      questionnaireName: "Pathology Report",
+      createdAt: new Date(),
+      schema: PathologySchema
+    });
+    Questionnaires.insert({
+      institutionName: "UCSC",
+      institutionId: "UCSC",
+      participantId: "",
+      questionnaireName: "Genetic Analysis Results",
+      createdAt: new Date(),
+      schema: CkccSchema
+    });
+  }
 });
+
 
 
 PathologySchema = new SimpleSchema({

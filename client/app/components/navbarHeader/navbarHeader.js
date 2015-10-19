@@ -1,6 +1,4 @@
 Session.setDefault("show_background", false);
-Session.setDefault("is_opaque", false);
-
 
 
 
@@ -12,8 +10,26 @@ Template.navbarHeader.events({
   }
 });
 
+//
 
 Template.navbarHeader.helpers({
+  getSearchStyle: function (){
+    style = "";
+    if (Session.get('showNavbars')) {
+      style = "top: 50px;";
+    } else {
+      style = "top: 0px;";
+    }
+    if (Session.get('showSearchbar')) {
+      style = style + " height: 50px; visibility: visible; background: linear-gradient(315deg, transparent 24px, rgba(255,255,255," + Session.get('glassOpacity') + ") 0) bottom right;";
+    } else {
+      style = style + " height: 0px; visibility: hidden; background: linear-gradient(315deg, transparent 24px, rgba(255,255,255," + Session.get('glassOpacity') + ") 0) bottom right;";
+    }
+    return style;
+  },
+  showSearchBar: function (){
+    return Session.get('showSearchbar');
+  },
   isVisible: function (){
     if (Session.get('showNavbars')) {
       return "height: 50px; top: 0px";

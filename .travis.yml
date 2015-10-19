@@ -49,10 +49,22 @@ before_install:
   # give meteor a few seconds after installing
   - "sleep 5"
 
+  - "pwd"
+  - "ls -la"
+  - "cat .meteor/versions"
+  - "starrynight fetch"
+  - "sleep 10"
+  - "pwd"
+  - "ls -la ./packages"
+  - "ls -la ./packages/clinical-active-record"
+  - "ls -la ./packages/clinical-active-record/lib"
+  - "cat ./packages/clinical-active-record/package.js"
+
   - "~/.meteor/meteor &"
 
   # give Meteor some time to download packages, init data, and to start
-  - "sleep 60"
+  - "sleep 70"
+  - "ls -la ~/.meteor/packages"
 
   # check that node_modules exist, and what's inside
   #- "echo $(npm config get prefix)/lib/node_modules"

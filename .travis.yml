@@ -58,6 +58,10 @@ before_install:
 
   - "sleep 20"
 
+  # starrynight fetch moves us into the /packages directory
+  # so we need to go up a level
+  - "cd .."
+
   - "~/.meteor/meteor &"
 
 

@@ -51,12 +51,12 @@ before_install:
 
   - "starrynight fetch"
 
-  - "sleep 20"
+  - "sleep 30"
 
   - "~/.meteor/meteor &"
 
   # give Meteor some time to download packages, init data, and to start
-  - "sleep 60"
+  - "sleep 70"
 
   # check that node_modules exist, and what's inside
   #- "echo $(npm config get prefix)/lib/node_modules"

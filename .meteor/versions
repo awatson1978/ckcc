@@ -23,7 +23,7 @@ check@1.0.6
 clinical:accounts-housemd@1.1.0
 clinical:active-entry@1.2.5
 clinical:active-questionnaire@1.0.7
-clinical:active-record@1.0.9
+clinical:active-record@1.0.10
 clinical:barcode@3.0.1
 clinical:collaborations@2.1.2
 clinical:collaborations-ui@2.1.6

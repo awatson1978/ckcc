@@ -61,7 +61,7 @@ Meteor.methods({
 
         //process.env.DEBUG && console.log('newRecord', newRecord);
 
-        Foo.insert(newRecord);
+        Records.insert(newRecord);
       }
     }
     //}
@@ -72,7 +72,7 @@ Meteor.methods({
 });
 
 Meteor.startup(function (){
-  if (Foo.find().count() === 0){
+  if (Records.find().count() === 0){
     Meteor.call('initializeDatabase');
   }
 });

@@ -48,7 +48,7 @@ Template.menuPage.helpers({
     return Questionnaires.find().count() + "*";
   },
   getClinicalDataCount: function () {
-    return Foo.find().count();
+    return Records.find().count();
   },
   getUsersCount: function () {
     return Meteor.users.find().count();
@@ -63,7 +63,7 @@ Template.menuPage.events({
     Router.go('/list/questionnaires/');
   },
   "click #clinicalDataTile": function (event, template) {
-    Router.go('/list/foos');
+    Router.go('/list/records');
   }
 });
 

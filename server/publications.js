@@ -1,15 +1,15 @@
-Meteor.publish("foo", function (recordId) {
+Meteor.publish("records", function (recordId) {
   if (recordId) {
     // if (User.collaborationsContain(
 
-    return Foo.findOne({
+    return Records.findOne({
       _id: recordId,
       collaborations: {
         $in: User.getCollaborations()
       }
     });
   } else
-    return Foo.find({
+    return Records.find({
       collaborations: {
         $in: User.getCollaborations()
       }

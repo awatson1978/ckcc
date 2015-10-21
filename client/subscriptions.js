@@ -1,6 +1,7 @@
-Session.setDefault("fooId", null);
+Session.setDefault("ActiveRecordId", null);
 
-Meteor.subscribe("foo", Session.get('fooId'));
+Meteor.subscribe("records", Session.get('ActiveRecordId'));
+
 
 Meteor.subscribe("publicStats");
 

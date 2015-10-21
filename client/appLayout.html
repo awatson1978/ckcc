@@ -5,10 +5,9 @@
 
 
 <template name="appLayout">
-  <!-- <div id="appLayout" style="{{getBackground}}"> -->
 
     {{> yield 'header'}}
-    <!-- {{> navbarHeader}} -->
+
       {{> leftDock }}
       {{> rightDock }}
 
@@ -27,11 +26,8 @@
 
     {{> reactiveOverlaysTemplate }}
 
-    <!-- {{> navbarFooter}} -->
     {{> yield 'footer'}}
-  <!-- </div> -->
 
-  <!-- these are the only major things preventing appLayout being refactored into clinical:active-layout -->
   {{> keybindingsModal }}
   {{> userPicklistModal }}
   {{> studyPicklistModal }}

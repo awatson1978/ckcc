@@ -39,13 +39,13 @@ Template.navbarFooter.events({
     Router.go('/');
   },
   "click #listBtn": function (event, template) {
-    Router.go('/list/foos');
+    Router.go('/list/records');
   },
   "click #imageGridBtn": function (event, template) {
-    Router.go('/grid/foos');
+    Router.go('/grid/records');
   },
   "click #tableBtn": function (event, template) {
-    Router.go('/table/foos');
+    Router.go('/table/records');
   },
   "click #newQuestionnaireBtn": function (event, template) {
     Router.go('/build/questionnaire');

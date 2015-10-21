@@ -1,7 +1,7 @@
 //
 // var sessionBar = false;
 // var glassOpacity = 0;
-// var fooVal = false;
+// var recordVal = false;
 //
 // //var expect = require('chai').expect;
 //
@@ -10,7 +10,7 @@
 //
 //     var sessionBar = false;
 //     client
-//       .url("http://localhost:3000/list/foos")
+//       .url("http://localhost:3000/list/records")
 //       .execute(function(data){
 //         return TEST_STATUS;
 //       }, [''], function(result){

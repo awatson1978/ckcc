@@ -3,6 +3,9 @@ Session.setDefault('hasPagePadding', false);
 Session.setDefault('pageBackgroundIsWhite', false);
 
 Template.menuPage.helpers({
+  getNullCount: function (){
+    return 0;
+  },
   getBackground: function (){
     if (Session.get('pageBackgroundIsWhite')) {
       return "background-color: white;";
@@ -39,7 +42,7 @@ Template.menuPage.helpers({
     }
   },
   getStudiesCount: function () {
-    return 0;
+    return Studies.find().count();
   },
   getCollaborationsCount: function () {
     return Collaborations.find().count();
@@ -56,6 +59,9 @@ Template.menuPage.helpers({
 });
 
 Template.menuPage.events({
+  'click #studiesTile': function (){
+    Router.go('/list/studies/');
+  },
   "click #collaborationsTile": function (event, template) {
     Router.go('/grid/collaborations');
   },

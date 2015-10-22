@@ -1,20 +1,20 @@
-Meteor.publish("records", function (recordId) {
-  if (recordId) {
-    // if (User.collaborationsContain(
-
-    return Records.findOne({
-      _id: recordId,
-      collaborations: {
-        $in: User.getCollaborations()
-      }
-    });
-  } else
-    return Records.find({
-      collaborations: {
-        $in: User.getCollaborations()
-      }
-  });
-});
+// Meteor.publish("records", function (recordId) {
+//   if (recordId) {
+//     // if (User.collaborationsContain(
+//
+//     return Records.findOne({
+//       _id: recordId,
+//       collaborations: {
+//         $in: User.getCollaborations()
+//       }
+//     });
+//   } else
+//     return Records.find({
+//       collaborations: {
+//         $in: User.getCollaborations()
+//       }
+//   });
+// });
 
 
 Meteor.publish("publicStats", function (argument) {

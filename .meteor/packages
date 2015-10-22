@@ -29,7 +29,6 @@ meteorhacks:kadira
 
 clinical:barcode
 clinical:extended-api
-
 clinical:collaborations
 clinical:collaborations-ui
 clinical:active-entry
@@ -45,3 +44,5 @@ clinical:users-picklist
 clinical:user-model
 clinical:active-questionnaire
 clinical:accounts-housemd
+
+medbook:studies

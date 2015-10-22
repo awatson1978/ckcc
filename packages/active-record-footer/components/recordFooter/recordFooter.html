@@ -1,0 +1,13 @@
+
+
+<template name="recordFooter">
+  <footer class="recordFooter" style={{getOpacity}}>
+    {{#if isUpsert}}
+      <button id="saveRecordButton">Save</button>
+      {{#if hasId}}
+        <button id="removeRecordButton">Remove</button>
+      {{/if}}
+    {{else}}
+    {{/if}}
+  </footer>
+</template>

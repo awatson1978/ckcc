@@ -3,9 +3,9 @@ Session.setDefault('inboxCardOpen', false);
 Session.setDefault('outboxCardOpen', false);
 Session.setDefault('formBuilderCardOpen', false);
 
-Session.setDefault('showInboxCard', true);
-Session.setDefault('showOutboxCard', true);
-Session.setDefault('showFormBuilderCard', true);
+Session.setDefault('showInboxCard', false);
+Session.setDefault('showOutboxCard', false);
+Session.setDefault('showFormBuilderCard', false);
 
 
 Template.leftDock.events({

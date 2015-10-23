@@ -31,9 +31,9 @@ Router.map(function () {
     data: function () {
       return {};
     },
-    onAfterAction: function () {
-      showWestPanel();
-    }
+    // onAfterAction: function () {
+    //   showWestPanel();
+    // }
   });
 });
 

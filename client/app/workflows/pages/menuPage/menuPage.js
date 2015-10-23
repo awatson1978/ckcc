@@ -55,10 +55,16 @@ Template.menuPage.helpers({
   },
   getUsersCount: function () {
     return Meteor.users.find().count();
+  },
+  getHipaaCount: function () {
+    return Hipaa.find().count();
   }
 });
 
 Template.menuPage.events({
+  'click #auditTile': function (){
+    Router.go('/audit');
+  },
   'click #studiesTile': function (){
     Router.go('/list/studies/');
   },

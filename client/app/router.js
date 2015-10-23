@@ -110,38 +110,38 @@ Router.map(function () {
       setPageTitle("Welcome");
     }
   });
-  this.route('eulaRoute', {
-    path: '/eula',
-    template: 'eulaPage',
-    yieldTemplates: getYieldTemplates(),
-    onBeforeAction: function () {
-      setPageTitle("End User License Agreement");
-    }
-  });
-  this.route('privacyRoute', {
-    path: '/privacy',
-    template: 'privacyPage',
-    yieldTemplates: getYieldTemplates(),
-    onBeforeAction: function () {
-      setPageTitle("Privacy Policy");
-    }
-  });
-  this.route('glossaryRoute', {
-    path: '/glossary',
-    template: 'glossaryPage',
-    yieldTemplates: getYieldTemplates(),
-    onBeforeAction: function () {
-      setPageTitle("Glossary");
-    }
-  });
-  this.route('aboutRoute', {
-    path: '/about',
-    template: 'aboutPage',
-    yieldTemplates: getYieldTemplates(),
-    onBeforeAction: function () {
-      setPageTitle("About");
-    }
-  });
+  // this.route('eulaRoute', {
+  //   path: '/eula',
+  //   template: 'eulaPage',
+  //   yieldTemplates: getYieldTemplates(),
+  //   onBeforeAction: function () {
+  //     setPageTitle("End User License Agreement");
+  //   }
+  // });
+  // this.route('privacyRoute', {
+  //   path: '/privacy',
+  //   template: 'privacyPage',
+  //   yieldTemplates: getYieldTemplates(),
+  //   onBeforeAction: function () {
+  //     setPageTitle("Privacy Policy");
+  //   }
+  // });
+  // this.route('glossaryRoute', {
+  //   path: '/glossary',
+  //   template: 'glossaryPage',
+  //   yieldTemplates: getYieldTemplates(),
+  //   onBeforeAction: function () {
+  //     setPageTitle("Glossary");
+  //   }
+  // });
+  // this.route('aboutRoute', {
+  //   path: '/about',
+  //   template: 'aboutPage',
+  //   yieldTemplates: getYieldTemplates(),
+  //   onBeforeAction: function () {
+  //     setPageTitle("About");
+  //   }
+  // });
 
 
 

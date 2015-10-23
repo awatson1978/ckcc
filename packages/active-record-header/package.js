@@ -23,5 +23,7 @@ Package.onUse( function ( api ) {
 Package.onTest( function ( api ) {
   api.use('tinytest');
   api.use('photonic:active-record-header');
+  api.use('practicalmeteor:mocha');
+
   api.addFiles('active-record-header-tests.js');
 });

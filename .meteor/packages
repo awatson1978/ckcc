@@ -25,6 +25,8 @@ gadicohen:prism
 digilord:faker
 natestrauser:jquery-scrollto
 
+awsp:handsontable
+
 meteorhacks:kadira
 
 clinical:barcode
@@ -44,5 +46,9 @@ clinical:users-picklist
 clinical:user-model
 clinical:active-questionnaire
 clinical:accounts-housemd
+
+clinical:hl7-fhir
+clinical:hipaa-audit-log
+clinical:graphs-dailystats
 
 medbook:studies

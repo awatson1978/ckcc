@@ -9,9 +9,18 @@
     {{#if _id}}
       <i class="lockButton fa {{getLockIcon}}"></i>
     {{/if}}
-    <i class="listButton fa fa-list"></i>
-    <i class="imageGridButton fa fa-th"></i>
-    <i class="tableButton fa fa-table"></i>
+    {{#if hasListButton}}
+      <i class="listButton fa fa-list"></i>
+    {{/if}}
+    {{#if hasSpreadsheetButton}}
+      <i class="spreadsheetButton fa fa-th"></i>
+    {{/if}}
+    {{#if hasTableButton}}
+      <i class="tableButton fa fa-table"></i>
+    {{/if}}
+    {{#if hasImageGridButton}}
+      <i class="imageGridButton fa fa-image"></i>
+    {{/if}}
   </header>
 
 </template>

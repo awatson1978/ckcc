@@ -1,12 +1,12 @@
 <template name="menuPage">
-  <div id="menuPage" class="helveticas padded page {{getTileTheme}}" style="{{getOpacity}} {{getPagePadding}} {{getPageBorder}} {{getBackground}}">
+  <div id="menuPage" class="helveticas page {{getTileTheme}}" style="{{getOpacity}} {{getPagePadding}} {{getPageBorder}} {{getBackground}}">
 
     <div id="menuItems">
       <div id="collaborationsTile" class="menuItem" style="{{getMenuWidth}}">
         <h4>COLLABORATIONS</h4>
         <hr>
         <div class="panel-image">
-          <img id="sponsorsTileImage" src="/images/home/sponsors.jpg" class="panel-image-preview" />
+          <img id="collaborationsTileImage" src="/images/home/sponsors.jpg" class="panel-image-preview" />
           <!-- <img id="formBuilderTileImage" src="/images/home/formbuilder.png" class="panel-image-preview" /> -->
           <div class="statsRibbon">
             <h1>{{ getCollaborationsCount }}</h1>

@@ -15,7 +15,7 @@ var userB = {
 };
 
 // collaboration
-var newCollaboration = {
+var ckccCollaboration = {
   collaborationName: "California Kids Cancer Comparison",
   description: "Lorem ipsum...",
   slug: "CKCC",
@@ -73,14 +73,14 @@ module.exports = {
     client
       .click("#addCollaborationButton").pause(500)
       .reviewUpsertCollaboration()
-      .upsertCollaboration(newCollaboration)
+      .upsertCollaboration(ckccCollaboration)
       .pause(1000)
-      .reviewCollaborationGrid(newCollaboration)
+      .reviewCollaborationGrid(ckccCollaboration)
       .verify.elementPresent("#globalSearchBar")
         .clearValue('#globalSearchBar')
-        .setValue('#globalSearchBar', newCollaboration.slug)
+        .setValue('#globalSearchBar', ckccCollaboration.slug)
         .click("#collaborationGridElements .post:nth-child(1)")
-      .reviewUpsertCollaboration(newCollaboration);
+      .reviewUpsertCollaboration(ckccCollaboration);
   },
   "D. UserA Can Add a Questionnaire": function (client) {
     client
@@ -110,16 +110,17 @@ module.exports = {
       .reviewPatientIntakeForm(newPatientEnrollment)
       .signOut(userA.fullName);
   },
-  // "G. UserB Requests To Join Collaboration": function (client) {
-  //   client
-  //     .signIn(userB.username, userB.password)
-  ////     .confirmUserIs(userB.username)
-  //     .click("#collaborationListButton").pause(500)
-  //     .canNotSeeCollaboration()
-  //     .canRequestCollaboration(userB.username)
-  //     .requestsCollaboration()
-  //     .signOut(userB.username);
-  // },
+  "G. UserB Requests To Join Collaboration": function (client) {
+    client
+      .signIn(userB.username, userB.password)
+  //     .confirmUserIs(userB.username)
+      .click("#collaborationsTile").pause(500)
+      .canSeeCollaborationInList(userB, ckccCollaboration)
+      .canNotAccessCollaboration(userB, ckccCollaboration)
+      .canRequestCollaboration(userB, ckccCollaboration)
+      .requestsCollaboration(userB, ckccCollaboration)
+      .signOut(userB.usernam);
+  },
   // "H. UserA Grants Access to UserB": function (client) {
   //   client
   //     .signIn(userA.username, userA.password)

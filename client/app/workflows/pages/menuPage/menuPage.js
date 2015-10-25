@@ -2,6 +2,10 @@ Session.setDefault('hasPageBorder', false);
 Session.setDefault('hasPagePadding', false);
 Session.setDefault('pageBackgroundIsWhite', false);
 
+Meteor.startup(function (){
+  Session.set('hasPagePadding', false);
+});
+
 Template.menuPage.helpers({
   getNullCount: function (){
     return 0;
@@ -14,8 +18,9 @@ Template.menuPage.helpers({
     }
   },
   getPagePadding: function (){
+    //return "padding: 0px;";
     if (Session.get('hasPagePadding')) {
-      return "padding: 40px;";
+      return "padding-right: 40px; padding-left: 40px;";
     } else {
       return "padding: 0px;";
     }

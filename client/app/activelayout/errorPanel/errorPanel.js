@@ -1,11 +1,11 @@
-Session.setDefault("errorMessage", "Danger, Will Robinson....");
+Session.setDefault("errorMessage", false);
 
 Template.errorPanel.helpers({
   alertPanelVisibility: function (){
     if (Session.get('errorMessage')){
-      return "opacity: 1;";
+      return "opacity: 1; z-index: 1000; top: 0px;";
     } else {
-      return "opacity: 0;";
+      return "opacity: 0; z-index: -1; top: -50px;";
     }
   },
   getErrorMessage: function (){

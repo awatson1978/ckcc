@@ -35,20 +35,22 @@ Template.menuPage.helpers({
     }
   },
   getMenuWidth: function () {
+    var newWidth = 180;
+
     if (Session.get('appWidth') > 768) {
-      if ($('#menuPage').width() > 100) {
-        var gridWidth = (($("#menuItems").width() - 40) / 3) - 10;
-        return "min-width: 180px; width: " + gridWidth + "px;";
-      } else {
-        return "min-width: 180px; width: 210px;";
-      }
+      newWidth = (($("#menuItems").width() - 60) / 3) - 20;
     } else {
-      if ($('#menuPage').width() > 100) {
-        return "min-width: 180px; width: " + $('#menuItems').width() + "px;";
-      } else {
-        return "min-width: 180px; width: 180px;";
-      }
+      newWidth = $('#menuItems').width() - 20;
     }
+
+    if ($('#menuItems').width() < 180) {
+
+    }
+    // if (newWidth < 180) {
+    //   newWidth = 180;
+    // }
+
+    return "min-width: 180px; width: " + newWidth + "px;";
   },
   getStudiesCount: function () {
     return Studies.find().count();

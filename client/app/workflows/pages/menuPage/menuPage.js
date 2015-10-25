@@ -38,7 +38,7 @@ Template.menuPage.helpers({
     var newWidth = 180;
 
     if (Session.get('appWidth') > 768) {
-      newWidth = (($("#menuItems").width() - 60) / 3) - 20;
+      newWidth = (($("#menuItems").width() - 10) / 3) - 20;
     } else {
       newWidth = $('#menuItems').width() - 20;
     }
@@ -46,9 +46,9 @@ Template.menuPage.helpers({
     if ($('#menuItems').width() < 180) {
 
     }
-    // if (newWidth < 180) {
-    //   newWidth = 180;
-    // }
+    if (newWidth < 0) {
+      newWidth = 212;
+    }
 
     return "min-width: 180px; width: " + newWidth + "px;";
   },

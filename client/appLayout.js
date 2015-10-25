@@ -18,7 +18,9 @@ Meteor.startup(function () {
 
   Session.set("eastRule", 200);
   Session.set("westRule", 200);
-  Session.set("appWidth", 1024);
+  Session.set('appWidth', $(window).width());
+  // Session.set("appWidth", 1024);
+  Session.set('pageLeftToWestRule', false);
 
   window.addEventListener('resize', function () {
     Session.set("resize", new Date());
@@ -53,7 +55,11 @@ Template.appLayout.helpers({
     Template.appLayout.layout();
   },
   getSecondPanelStyle: function (){
-    return Style.parse(generateStylesheet(true));
+    if (Session.get('pageIsWide')) {
+      return "visibility: hidden; left: " + (Session.get('appWidth') + 1024) + "px;";
+    } else {
+      return Style.parse(generateStylesheet(true));
+    }
   },
   getStyle: function () {
     return Style.parse(generateStylesheet());

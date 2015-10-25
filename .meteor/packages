@@ -27,7 +27,7 @@ natestrauser:jquery-scrollto
 
 awsp:handsontable
 
-meteorhacks:kadira
+#meteorhacks:kadira
 
 clinical:barcode
 clinical:extended-api
@@ -50,5 +50,6 @@ clinical:accounts-housemd
 clinical:hl7-fhir
 clinical:hipaa-audit-log
 clinical:graphs-dailystats
+#clinical:form-builder
 
 medbook:studies

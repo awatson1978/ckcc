@@ -1,5 +1,7 @@
 var seed = new Meteor.Collection.ObjectID();
 
+Session.setDefault("westPanelVisible", false);
+
 Session.setDefault('selectedBuilderTab', 'addNewFieldTab');
 Session.setDefault('seed', new Meteor.Collection.ObjectID());
 Session.setDefault('multiSelectValues', {
@@ -166,6 +168,13 @@ Template.westPanel.events({
 
 
 Template.westPanel.helpers({
+  getWestPanelStyle: function (){
+    if (Session.get("westPanelVisible")) {
+      return "visibility: visible; left: 0px;";
+    } else {
+      return "visibility: hidden; left: -300px;";
+    }
+  },
   getMultiSelectValue: function () {
     return this.value;
   },

@@ -30,7 +30,6 @@ Package.onUse(function (api) {
 Package.onTest(function (api) {
   api.use('tinytest');
   api.use('photonic:active-record-core');
-  api.use('practicalmeteor:mocha');
 
   api.addFiles('active-record-core-tests.js');
 });

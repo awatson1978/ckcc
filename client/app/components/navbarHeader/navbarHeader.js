@@ -10,7 +10,6 @@ Template.navbarHeader.events({
   }
 });
 
-//
 
 Template.navbarHeader.helpers({
   getSearchStyle: function (){
@@ -32,9 +31,9 @@ Template.navbarHeader.helpers({
   },
   isVisible: function (){
     if (Session.get('showNavbars')) {
-      return "height: 50px; top: 0px";
+      return "height: 50px; top: 0px; ";
     } else {
-      return "height: 0px; top: -50px;";
+      return "height: 0px; top: -50px; ";
     }
   },
   getTitleText: function () {

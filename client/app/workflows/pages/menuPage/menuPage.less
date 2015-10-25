@@ -1,5 +1,6 @@
 #menuPage{
   padding: 40px;
+  padding-right: 20px;
   hr{
     margin-top: 20px;
   }
@@ -11,11 +12,9 @@
     min-width: 170px;
     width: 100%;
     margin-right: 20px;
-    // box-shadow: 4px 5px 10px 5px #666666;
     margin-bottom: 50px;
   }
   .menuItem:hover{
-    // box-shadow: 4px 5px 10px 5px #222222;
     box-shadow: 3px 3px 6px 3px #222222;
     opacity: 1;
   }
@@ -64,14 +63,13 @@
   color: black;
 }
 
-// // portrait orientation
-// @media only screen and (max-width: 768px) {
-//   #menuPage{
-//     padding: 40px;
-//     .menuItem{
-//       width: 100%;
-//
-//       //margin-right: 80px;
-//     }
-//   }
-// }
+// portrait orientation
+@media only screen and (max-width: 768px) {
+  #menuPage{
+    padding: 40px;
+    //padding-right: 20px;
+    .menuItem{
+      //margin-right: 0px;
+    }
+  }
+}

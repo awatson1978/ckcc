@@ -36,9 +36,18 @@ Template.menuPage.helpers({
   },
   getMenuWidth: function () {
     if (Session.get('appWidth') > 768) {
-      return "width: 180px;";
+      if ($('#menuPage').width() > 100) {
+        var gridWidth = (($("#menuItems").width() - 40) / 3) - 10;
+        return "min-width: 180px; width: " + gridWidth + "px;";
+      } else {
+        return "min-width: 180px; width: 210px;";
+      }
     } else {
-      return "width: " + ($('#menuPage').width() - 40) + "px;";
+      if ($('#menuPage').width() > 100) {
+        return "min-width: 180px; width: " + $('#menuItems').width() + "px;";
+      } else {
+        return "min-width: 180px; width: 180px;";
+      }
     }
   },
   getStudiesCount: function () {

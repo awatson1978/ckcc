@@ -1,17 +1,25 @@
-Session.set("resize", null);
-Session.setDefault('appHeight', $(window).height());
-Session.setDefault('appWidth', $(window).width());
-Session.setDefault("glassOpacity", .95);
-Session.setDefault("backgroundColorA", '#456ad7');
-
-Session.setDefault("eastRule", '#456ad7');
-Session.setDefault("westRule", '#456ad7');
-Session.setDefault("northRule", '#456ad7');
-Session.setDefault("southRule", '#456ad7');
-
-Session.setDefault('activeRecord', null);
-
 Meteor.startup(function () {
+  Session.set("resize", null);
+  Session.setDefault('appHeight', $(window).height());
+  Session.setDefault('appWidth', $(window).width());
+  Session.setDefault("glassOpacity", .95);
+  Session.setDefault("backgroundColorA", '#456ad7');
+
+  Session.setDefault("eastRule", 200);
+  Session.setDefault("westRule", 200);
+  Session.setDefault("northRule", 100);
+  Session.setDefault("southRule", 100);
+
+  Session.setDefault('activeRecord', null);
+
+  Session.setDefault('navIsFullscreen', true);
+  Session.setDefault('pageIsWide', false);
+  Session.setDefault('pageLeftToWestRule', false);
+
+  Session.set("eastRule", 200);
+  Session.set("westRule", 200);
+  Session.set("appWidth", 1024);
+
   window.addEventListener('resize', function () {
     Session.set("resize", new Date());
     Session.set("appHeight", $(window).height());
@@ -37,7 +45,7 @@ Meteor.startup(function () {
 
 Template.appLayout.onRendered(function () {
   Template.appLayout.layout();
-  $('body').addClass('greenBackground');
+  $('body').addClass('grayBackground');
 });
 
 Template.appLayout.helpers({
@@ -67,6 +75,15 @@ generateStylesheet = function (secondPanel){
   } else {
     stylesheet.left = Session.get('mainPanelLeft') + "px;";
   };
+
+  if (Session.get('pageIsWide')) {
+    stylesheet.width = (Session.get('appWidth') - 400) + "px;";
+    stylesheet["max-width"] = (Session.get('appWidth') - 400) + "px;";
+  } else {
+    stylesheet.width = "100%;";
+    stylesheet["max-width"] = "768px;";
+  }
+
 
   var marginBottom = 0;
 
@@ -102,9 +119,15 @@ Template.appLayout.layout = function () {
   // one-page with sidebar
   // 1208 =  single 768px panel + 2 margins at least 220px wide + 20px sidebar spacer
   } else if (Session.get('appWidth') > 1228) {
-    Session.set('mainPanelLeft', (Session.get('appWidth') - 768) * 0.5);
     Session.set('sidebarLeft', (Session.get('appWidth') - 1228) * 0.5);
     Session.set("sidebarVisible", true);
+    Session.set('mainPanelLeft', (Session.get('appWidth') - 768) * 0.5);
+
+    if (Session.get('pageLeftToWestRule')) {
+      Session.set('mainPanelLeft', 200);
+    } else {
+      Session.set('mainPanelLeft', (Session.get('appWidth') - 768) * 0.5);
+    }
 
   // one-page
   // 768 =  single 768px panel

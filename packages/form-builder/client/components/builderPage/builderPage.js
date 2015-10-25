@@ -1,24 +1,24 @@
 Session.setDefault('selectedBlockItem', false);
 
 Router.map(function () {
-  this.route('builderPageWithId', {
-    path: '/builder/:id',
-    template: 'builderPage',
-    onBeforeAction: function () {
-      Session.set('currentForm', this.params.id);
-    },
-    waitOn: function () {
-      return Meteor.subscribe('forms');
-    },
-    data: function () {
-      return Forms.findOne({
-        _id: this.params.id
-      });
-    },
-    onAfterAction: function () {
-      showSidebars();
-    }
-  });
+  // this.route('builderPageWithId', {
+  //   path: '/builder/:id',
+  //   template: 'builderPage',
+  //   onBeforeAction: function () {
+  //     Session.set('currentForm', this.params.id);
+  //   },
+  //   waitOn: function () {
+  //     return Meteor.subscribe('forms');
+  //   },
+  //   data: function () {
+  //     return Forms.findOne({
+  //       _id: this.params.id
+  //     });
+  //   },
+  //   onAfterAction: function () {
+  //     showSidebars();
+  //   }
+  // });
   this.route('builderPage', {
     path: '/builder',
     template: 'builderPage',

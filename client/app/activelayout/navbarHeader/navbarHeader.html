@@ -1,6 +1,6 @@
 <template name="navbarHeader">
   <header id="navbarHeader" class="helveticas" style="{{getOpacity}} {{isVisible}} {{getNavWidth}}">
-    <a id="navbarTitle" href="/" class="navbarTitle" style="{{isVisible}}">{{getTitleText}}</a>
+    <a id="navbarTitle" href="/" class="navbarTitle" style="{{isVisible}}">{{getAppTitle}}</a>
     <div class="eastLinks" >
       <a id="usernameLink" href="{{getUsernameLink}}" class="navbarLink" style="{{isVisible}}">{{ fullName }}</a>
       {{#if isLoggedIn }}

@@ -1,5 +1,7 @@
 exports.command = function (user, collaboration) {
   this
+    .sectionBreak(".canSeeCollaborationInList()")
+
     .waitForElementPresent('#collaborationGrid', 1000)
     .verify.elementPresent("#collaborationGrid #collaborationGridElements")
     .verify.elementPresent("#collaborationGrid #collaborationGridElements .collaboration")

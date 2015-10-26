@@ -4,7 +4,8 @@ exports.command = function (user, collaboration) {
     .verify.elementPresent("#collaborationGrid #collaborationGridElements")
     .verify.elementPresent("#collaborationGrid #collaborationGridElements .collaboration")
     .verify.elementPresent("#collaborationGrid #collaborationGridElements .collaboration:nth-child(1)")
-    .verify.elementPresent("#collaborationGrid #collaborationGridElements .collaboration:nth-child(1) .cardBody h2");
+    .verify.elementPresent("#collaborationGrid #collaborationGridElements .collaboration:nth-child(1) .cardBody h2")
+    .verify.containsText("#collaborationGrid #collaborationGridElements .collaboration:nth-child(1) .cardBody h2", collaboration.collaborationName);
 
   return this;
 };

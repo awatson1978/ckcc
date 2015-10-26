@@ -8,10 +8,22 @@ var userA = {
   password: "house",
 };
 var userB = {
-  fullName: "Camron",
-  email: "camron@test.org",
-  username: "camron",
-  password: "camron",
+  fullName: "Allison Camron",
+  email: "allison@test.org",
+  username: "allison",
+  password: "allison",
+};
+var userC = {
+  fullName: "James Wilson",
+  email: "wilson@test.org",
+  username: "wilson",
+  password: "wilson",
+};
+var userD = {
+  fullName: "Lisa Cuddy",
+  email: "cuddy@test.org",
+  username: "cuddy",
+  password: "cuddy",
 };
 
 // collaboration
@@ -79,7 +91,7 @@ module.exports = {
       .verify.elementPresent("#globalSearchBar")
         .clearValue('#globalSearchBar')
         .setValue('#globalSearchBar', ckccCollaboration.slug)
-        .click("#collaborationGridElements .post:nth-child(1)")
+        .click("#collaborationGridElements .collaboration:nth-child(1)")
       .reviewUpsertCollaboration(ckccCollaboration);
   },
   "D. UserA Can Add a Questionnaire": function (client) {
@@ -92,19 +104,12 @@ module.exports = {
   },
   "E. UserA Can complete a Questionnaire": function (client) {
     client
-      // .verify.elementPresent("#inboxCardHandle")
-      // .click("#inboxCardHandle").pause(600)
-      // .verify.elementPresent("#firstDocument")
-      // .click("#firstDocument").pause(1000)
-      // .waitForElementVisible("#recordUpsertPage", 3000)
       .reviewPatientIntakeForm()
       .upsertPatientIntakeForm(newPatientEnrollment)
       .pause(3000);
   },
   "F. View Questionnaires associated with a Collaboration": function (client) {
     client
-      // .click("#navbarTitle").pause(500)
-      // .click("#clinicalDataTile").pause(500)
       .reviewRecordsList(newPatientEnrollment)
       .click("#recordsList .recordItem:nth-child(1)")
       .reviewPatientIntakeForm(newPatientEnrollment)
@@ -112,14 +117,13 @@ module.exports = {
   },
   "G. UserB Requests To Join Collaboration": function (client) {
     client
-      .signIn(userB.username, userB.password)
-  //     .confirmUserIs(userB.username)
+      .signIn(userC.email, userC.password)
+      .verify.containsText("#usernameLink", userC.fullName)
       .click("#collaborationsTile").pause(500)
-      .canSeeCollaborationInList(userB, ckccCollaboration)
-      .canNotAccessCollaboration(userB, ckccCollaboration)
-      .canRequestCollaboration(userB, ckccCollaboration)
-      .requestsCollaboration(userB, ckccCollaboration)
-      .signOut(userB.usernam);
+      .canSeeCollaborationInList(userC, ckccCollaboration)
+      .canNotAccessCollaboration(userC, ckccCollaboration)
+      .requestsCollaboration(userC, ckccCollaboration)
+      .signOut(userC.fullName)
   },
   // "H. UserA Grants Access to UserB": function (client) {
   //   client

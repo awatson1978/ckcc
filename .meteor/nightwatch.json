@@ -31,10 +31,16 @@
     "packages/clinical-active-record/components/recordUpsertPage/.tests",
     "packages/clinical-active-record/components/recordUpsertPage/.tests/actions",
     "packages/clinical-active-record/components/recordsListPage/.tests",
+    "packages/clinical-active-record/components/recordsSpreadsheetPage/.tests",
     "packages/clinical-active-record/components/recordsTablePage/.tests",
     "packages/clinical-collaborations-ui/client/components/collaborationGrid/.tests",
     "packages/clinical-collaborations-ui/client/components/upsertCollaborationForm/.tests",
-    "packages/clinical-collaborations-ui/client/components/upsertCollaborationForm/.tests/actions"
+    "packages/clinical-collaborations-ui/client/components/upsertCollaborationForm/.tests/actions",
+    "packages/medbook-studies/components/studiesImageGridPage/.tests",
+    "packages/medbook-studies/components/studiesListPage/.tests",
+    "packages/medbook-studies/components/studiesTablePage/.tests",
+    "packages/medbook-studies/components/studyUpsertPage/.tests",
+    "packages/medbook-studies/components/studyUpsertPage/.tests/actions"
   ],
   "custom_assertions_path": [
     "./tests/nightwatch/assertions"

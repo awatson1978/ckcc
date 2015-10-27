@@ -138,17 +138,18 @@ module.exports = {
       .grantsCollaboration(userC.email)
       .signOut(userA.fullName).pause(500);
   },
-  // "I. UserB Can Access Collaboration": function (client) {
-  //   client
-  //     .signIn(userB.username, userB.password)
-  //     .confirmUserIs(userB.username)
-  //     .click("#collaborationListButton").pause(500)
-  //     .canNotGrantCollaborationAccess()
-  //     .click("#collaborationsList .collaboration:nth-child(1)").pause(1000)
-  //     .acceptAlert().pause(500)
-  //     .canSeePost(newPostTitle)
-  //     .signOut(userB.username);
-  // },
+  "I. UserC Can Access Collaboration": function (client) {
+    client
+      .signIn(userC.email, userC.password)
+      .verify.containsText("#usernameLink", userC.fullName)
+      .click("#collaborationsTile").pause(500)
+
+      .canAccessCollaboration(userC.email, ckccCollaboration)
+      .click("#collaborationsList .collaboration:nth-child(1)").pause(1000)
+      .acceptAlert().pause(500)
+      .canSeePost(newPostTitle)
+      .signOut(userB.username);
+  },
   // "J. UserA Denies Access To UserB": function (client) {
   //   client
   //     .signIn(userA.username, userA.password)

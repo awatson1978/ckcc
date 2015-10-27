@@ -48,20 +48,16 @@ before_install:
 
   # give meteor a few seconds after installing
   - "sleep 5"
+  - "starrynight fetch"
 
-  # - "pwd"
-  # - "ls -la"
-  # - "cat .meteor/versions"
+  - "sleep 15"
   - "starrynight generate --autoconfig"
-  - "sleep 10"
-  # - "pwd"
-  # - "ls -la ./packages"
-  # - "ls -la ./packages/medbook-studies"
-  # - "ls -la ./packages/medbook-studies"
 
+
+  - "sleep 5"
   - "~/.meteor/meteor &"
 
-  # give Meteor some time to download packages, init data, and to start
+
   - "sleep 90"
   - "ls -la ~/.meteor/packages"
 

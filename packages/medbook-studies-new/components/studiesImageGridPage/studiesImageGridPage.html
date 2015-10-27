@@ -1,0 +1,20 @@
+<template name="studyImageGridPage">
+  <article id="studyImageGridPage" class="page">
+    {{> recordHeader type="study"}}
+    <div class="pageBody" style="{{getOpacity}}">
+      <input id="studySearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." />
+
+      <ul id="studyImageGrid">
+        {{#each lists}}
+          <li>
+            <img class="studyImage" src="{{imageUrl}}" />
+          </li>
+        {{/each}}
+        <li id="addNewStudy" class="addNewStudy">
+            <img class="studyImage" src="{{imageUrl}}" />
+        </li>
+      </ul>
+    </div>
+    {{> recordFooter }}
+  </article>
+</template>

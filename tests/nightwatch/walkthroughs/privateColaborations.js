@@ -145,10 +145,7 @@ module.exports = {
       .click("#collaborationsTile").pause(500)
 
       .canAccessCollaboration(userC.email, ckccCollaboration)
-      .click("#collaborationsList .collaboration:nth-child(1)").pause(1000)
-      .acceptAlert().pause(500)
-      .canSeePost(newPostTitle)
-      .signOut(userB.username);
+      .signOut(userC.fullName);
   },
   // "J. UserA Denies Access To UserB": function (client) {
   //   client
@@ -162,8 +159,6 @@ module.exports = {
   //       500)
   //     .removeNthCollaborator(userB.username, 2)
   //     .signOut(userA.username);
-  //
-  //
   // },
   // "K. UserB Cant See Collaboration": function (client) {
   //   client

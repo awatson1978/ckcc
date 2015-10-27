@@ -52,7 +52,7 @@ before_install:
   - "pwd"
   - "ls -la"
   - "cat .meteor/versions"
-  - "starrynight fetch"
+  - "starrynight generate --autoconfig"
   - "sleep 10"
   - "pwd"
   - "ls -la ./packages"

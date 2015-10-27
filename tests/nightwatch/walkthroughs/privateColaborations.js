@@ -147,31 +147,32 @@ module.exports = {
       .canAccessCollaboration(userC.email, ckccCollaboration)
       .signOut(userC.fullName);
   },
-  // "J. UserA Denies Access To UserB": function (client) {
-  //   client
-  //     .signIn(userA.username, userA.password)
-  //     .confirmUserIs(userA.username)
-  //     .click("#collaborationListButton").pause(500)
-  //     .click("#collaborationsList .collaboration:nth-child(1) .editCollaborationButton").pause(
-  //       500)
-  //     .removeNthCollaborator(userB.email, 3)
-  //     .click("#collaborationsList .collaboration:nth-child(1) .editCollaborationButton").pause(
-  //       500)
-  //     .removeNthCollaborator(userB.username, 2)
-  //     .signOut(userA.username);
-  // },
-  // "K. UserB Cant See Collaboration": function (client) {
-  //   client
-  //     .signIn(userB.username, userB.password)
-  //     .confirmUserIs(userB.username)
-  //     .click("#collaborationListButton").pause(1000)
-  //     .canNotSeeCollaboration(userB.username)
-  //     .acceptAlert().pause(1000)
-  //     .signOut(userB.username)
-  //
-  //
-  //   .end();
-  // }
+  "J. UserA Denies Access To UserB": function (client) {
+    client
+      .signIn(userA.email, userA.password)
+      .verify.containsText("#usernameLink", userA.fullName)
+      .click("#collaborationsTile").pause(500)
+
+      .click("#collaborationGrid .collaboration:nth-child(1)").pause(500)
+      //.removeNthCollaborator(userB.email, 3)
+      .clearValue('#addCollaborationForm input[name="collaborators"]')
+      .setValue('#addCollaborationForm input[name="collaborators"]', ckccCollaboration.collaborators)
+
+      .verify.elementPresent("#saveFormButton")
+      .click("#saveFormButton").pause(500)
+
+      .signOut(userA.fullName);
+  },
+  "K. UserC Cant See Collaboration": function (client) {
+    client
+      .signIn(userC.email, userC.password)
+      .verify.containsText("#usernameLink", userC.fullName)
+      .click("#collaborationsTile").pause(500)
+
+      .canNotAccessCollaboration(userC, ckccCollaboration)
+
+      .signOut(userC.fullName);
+  },
   "End": function (client){
     client.end();
   }

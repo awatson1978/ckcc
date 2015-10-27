@@ -56,9 +56,8 @@ before_install:
   - "sleep 10"
   - "pwd"
   - "ls -la ./packages"
-  - "ls -la ./packages/clinical-active-record"
-  - "ls -la ./packages/clinical-active-record/lib"
-  - "cat ./packages/clinical-active-record/package.js"
+  - "ls -la ./packages/medbook-studies"
+  - "ls -la ./packages/medbook-studies"
 
   - "~/.meteor/meteor &"
 

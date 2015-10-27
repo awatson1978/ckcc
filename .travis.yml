@@ -54,10 +54,10 @@ before_install:
   - "cat .meteor/versions"
   - "starrynight generate --autoconfig"
   - "sleep 10"
-  - "pwd"
-  - "ls -la ./packages"
-  - "ls -la ./packages/medbook-studies"
-  - "ls -la ./packages/medbook-studies"
+  # - "pwd"
+  # - "ls -la ./packages"
+  # - "ls -la ./packages/medbook-studies"
+  # - "ls -la ./packages/medbook-studies"
 
   - "~/.meteor/meteor &"
 

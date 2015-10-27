@@ -1,6 +1,6 @@
 exports.command = function (user, collaboration) {
   this
-    .sectionBreak(".requestsCollaboration()")
+    .sectionBreak(".requestAccessToPublicCollaboration()")
     // .verify.elementPresent("#collaborationGrid")
     // .verify.elementPresent("#collaborationGrid  #collaborationGridElements")
     // .verify.elementPresent("#collaborationGrid  #collaborationGridElements .collaboration:nth-child(1)")

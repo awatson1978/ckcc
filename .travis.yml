@@ -49,9 +49,9 @@ before_install:
   # give meteor a few seconds after installing
   - "sleep 5"
 
-  - "pwd"
-  - "ls -la"
-  - "cat .meteor/versions"
+  # - "pwd"
+  # - "ls -la"
+  # - "cat .meteor/versions"
   - "starrynight generate --autoconfig"
   - "sleep 10"
   # - "pwd"
@@ -62,7 +62,7 @@ before_install:
   - "~/.meteor/meteor &"
 
   # give Meteor some time to download packages, init data, and to start
-  - "sleep 70"
+  - "sleep 90"
   - "ls -la ~/.meteor/packages"
 
   # check that node_modules exist, and what's inside

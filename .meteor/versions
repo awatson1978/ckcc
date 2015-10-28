@@ -27,7 +27,7 @@ clinical:collaborations@2.1.4
 clinical:collaborations-ui@2.1.8
 clinical:env@3.1.6
 clinical:extended-api@2.0.4
-clinical:graphs-dailystats@2.3.4
+clinical:graphs-dailystats@2.3.5
 clinical:hipaa-audit-log@2.3.5
 clinical:hl7-fhir@0.0.5
 clinical:json2json@0.0.1

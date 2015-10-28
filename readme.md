@@ -2,6 +2,7 @@
 
 Rewrite of the CRFs and Clinical-Trials apps, with a modularized package-based component/microservice architecture.
 
+![Travis Status](https://travis-ci.org/awatson1978/ckcc.svg?branch=multiuser)
 
 =========================
 #### Installation  

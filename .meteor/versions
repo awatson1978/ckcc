@@ -24,7 +24,7 @@ clinical:active-record@1.0.13
 clinical:auto-resizing@0.1.2
 clinical:barcode@3.1.0
 clinical:collaborations@2.1.4
-clinical:collaborations-ui@2.1.9
+clinical:collaborations-ui@2.1.10
 clinical:env@3.1.6
 clinical:extended-api@2.0.4
 clinical:graphs-dailystats@2.3.5

@@ -7,9 +7,9 @@ exports.command = function (email) {
     .verify.elementPresent("#collaborationGrid #collaborationGridElements .collaboration:nth-child(1) .cardBody .review")
 
     .click("#collaborationGrid #collaborationGridElements .collaboration:nth-child(1) .review").pause(500)
-    .verify.hidden("#errorPanel")
+    // .verify.hidden("#errorPanel")
 
-    .verify.elementPresent("#collaborationReview", 3000)
+    .verify.elementPresent("#collaborationReview")
     .verify.elementPresent("#collaborationReview .basicPanel")
 
     .verify.elementPresent("#collaborationReview .basicPanel table")

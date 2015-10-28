@@ -1,0 +1,22 @@
+<template name="navbarFooter">
+  <footer id="navbarFooter" style="{{getOpacity}} {{isVisible}} {{getNavWidth}}">
+    {{#if isLoggedIn}}
+      <button id="addCollaborationButton">New Collaboration</button>
+      <button id="saveCollaborationButton">Save Collaboration</button>
+      <button id="newQuestionnaireBtn">New Questionnaire</button>
+      <button id="saveFormButton">Save Questionnaire</button>
+      <button id="saveDataButton">Save Data</button>
+    {{/if}}
+    <!-- <button id="overlayBtn">Overlay</button> -->
+
+    <div class="eastLinks">
+
+      <button id="keybindingsBtn">Keybindings</button>
+
+      <!-- <button id="scrollTopBtn">Top</button>
+      <button id="scrollBottomBtn">Bottom</button> -->
+      <!-- <button id="initializeBtn">Initialize</button>
+      <button id="dropBtn">Drop</button> -->
+    </div>
+  </footer>
+</template>

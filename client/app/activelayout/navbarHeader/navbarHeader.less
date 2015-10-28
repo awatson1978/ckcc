@@ -1,0 +1,75 @@
+#navbarHeader{
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: white;
+  outline: none;
+  z-index: 1;
+
+  .navbarTitle{
+    position: absolute;
+    font-size: 20px;
+    padding: 10px;
+    padding-left: 20px;
+    text-decoration: none;
+    color: black;
+  }
+  .navbarTitle:hover{
+    color: teal;
+  }
+
+  .navbarLink{
+    position: relative;
+    font-size: 16px;
+    padding: 14px;
+    text-decoration: none;
+    color: black;
+    float: right;
+  }
+}
+
+#searchBar{
+  width: 60%;
+  min-width: 500px;
+  left: 0px;
+  position: fixed;
+  input{
+    border-top: 1px solid #cccccc;
+    background-color: rgba(0,0,0,0);
+    width: 100%;
+  }
+}
+
+
+
+
+//-------------------------------
+// shared links
+.eastLinks{
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  min-width: 200px;
+  padding-right: 20px;
+  font-size: 14px;
+  .fa{
+    padding-right: 10px;
+  }
+  float: right;
+  a{
+    cursor: pointer;
+  }
+}
+
+
+// portrait orientation
+@media only screen and (max-width: 768px) {
+  #accountCard{
+    visibility: hidden;
+  }
+}
+
+
+
+//

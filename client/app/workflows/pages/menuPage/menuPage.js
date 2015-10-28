@@ -2,7 +2,14 @@ Session.setDefault('hasPageBorder', false);
 Session.setDefault('hasPagePadding', false);
 Session.setDefault('pageBackgroundIsWhite', false);
 
+Meteor.startup(function (){
+  Session.set('hasPagePadding', false);
+});
+
 Template.menuPage.helpers({
+  getNullCount: function (){
+    return 0;
+  },
   getBackground: function (){
     if (Session.get('pageBackgroundIsWhite')) {
       return "background-color: white;";
@@ -11,8 +18,9 @@ Template.menuPage.helpers({
     }
   },
   getPagePadding: function (){
+    //return "padding: 0px;";
     if (Session.get('hasPagePadding')) {
-      return "padding: 40px;";
+      return "padding-right: 40px; padding-left: 40px;";
     } else {
       return "padding: 0px;";
     }
@@ -32,14 +40,25 @@ Template.menuPage.helpers({
     }
   },
   getMenuWidth: function () {
+    var newWidth = 180;
+
     if (Session.get('appWidth') > 768) {
-      return "width: 180px;";
+      newWidth = (($("#menuItems").width() - 10) / 3) - 20;
     } else {
-      return "width: " + ($('#menuPage').width() - 40) + "px;";
+      newWidth = $('#menuItems').width() - 20;
     }
+
+    if ($('#menuItems').width() < 180) {
+
+    }
+    if (newWidth < 0) {
+      newWidth = 212;
+    }
+
+    return "min-width: 180px; width: " + newWidth + "px;";
   },
   getStudiesCount: function () {
-    return 0;
+    return Studies.find().count();
   },
   getCollaborationsCount: function () {
     return Collaborations.find().count();
@@ -48,14 +67,23 @@ Template.menuPage.helpers({
     return Questionnaires.find().count() + "*";
   },
   getClinicalDataCount: function () {
-    return Foo.find().count();
+    return Records.find().count();
   },
   getUsersCount: function () {
     return Meteor.users.find().count();
+  },
+  getHipaaCount: function () {
+    return Hipaa.find().count();
   }
 });
 
 Template.menuPage.events({
+  'click #auditTile': function (){
+    Router.go('/audit');
+  },
+  'click #studiesTile': function (){
+    Router.go('/list/studies/');
+  },
   "click #collaborationsTile": function (event, template) {
     Router.go('/grid/collaborations');
   },
@@ -63,7 +91,7 @@ Template.menuPage.events({
     Router.go('/list/questionnaires/');
   },
   "click #clinicalDataTile": function (event, template) {
-    Router.go('/list/foos');
+    Router.go('/list/records');
   }
 });
 

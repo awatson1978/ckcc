@@ -3,7 +3,7 @@ var expect = require('chai').expect;
 
 module.exports = {
   "TinyTestApi::equal()" : function (client) {
-    client.url("http://localhost:3000/list/foos")
+    client.url("http://localhost:3000/list/records")
       .execute( function (data){
         return TinyTestWidget.yellow();
       }, [], function (result){

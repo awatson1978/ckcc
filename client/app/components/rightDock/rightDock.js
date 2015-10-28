@@ -13,8 +13,29 @@ Session.setDefault("backgroundImgSrc", 'forest1.jpg');
 Session.setDefault('isOpaque', 'opaque');
 Session.setDefault('foregroundTheme', 'light');
 
+Session.setDefault('appTitle', 'California Kids Cancer Comparison');
 
 Template.rightDock.events({
+  'click .cardWidthBtn': function (){
+    Session.set('pageIsWide', false);
+    Session.set('pageLeftToWestRule', false);
+  },
+  'click .pageWidthBtn': function (){
+    Session.set('pageIsWide', true);
+    Session.set('pageLeftToWestRule', true);
+  },
+  'keyup #appTitleInput': function (){
+    Session.set('appTitle', $('#appTitleInput').val());
+  },
+  'change #appTitleInput': function (){
+    Session.set('appTitle', $('#appTitleInput').val());
+  },
+  'click .fullNavBtn': function (){
+    Session.set('navIsFullscreen', false);
+  },
+  'click .narrowNavBtn': function (){
+    Session.set('navIsFullscreen', true);
+  },
   'change #backgroundImgSrcInput': function (){
     Session.set('backgroundImgSrc', $('#backgroundImgSrcInput').val());
   },
@@ -109,4 +130,9 @@ Template.rightDock.helpers({
       return "right: -310px;";
     }
   }
+});
+
+
+Template.registerHelper("getAppTitle", function (argument){
+  return Session.get('appTitle');
 });

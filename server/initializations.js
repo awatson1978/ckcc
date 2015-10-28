@@ -21,6 +21,14 @@ Meteor.startup(function () {
       createdAt: new Date(),
       schema: CkccSchema
     });
+    Questionnaires.insert({
+      institutionName: "AsiaPacificCo",
+      institutionId: "apc",
+      participantId: "",
+      questionnaireName: "Patient Satisfaction Survey",
+      createdAt: new Date(),
+      dynamicSchema: CkccSchema
+    });
   }
 });
 

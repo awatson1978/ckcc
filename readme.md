@@ -13,6 +13,16 @@ Copy the application to your computer and run it locally:
   meteor
 ````
 
+=========================
+#### Testing  
+Copy the application to your computer and run it locally:
+
+````sh
+  npm install -g starrynight
+  starrynight generate --autoconfig
+  starrynight run-tests --framework nightwatch
+````
+
 
 =========================
 #### Licensing  

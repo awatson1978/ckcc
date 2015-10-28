@@ -48,7 +48,7 @@
 //   },
 //   "A. RecordsList Walkthrough": function ( client ) {
 //     client
-//       .url( "http://localhost:3000/list/foos" )
+//       .url( "http://localhost:3000/list/records" )
 //       .resizeWindow( 1024, 768 )
 //       .reviewMainPanel();
 //   },
@@ -112,7 +112,7 @@
 //
 //   "K. RecordTable Walkthrough": function ( client ) {
 //     client
-//       .url( "http://localhost:3000/list/foos" )
+//       .url( "http://localhost:3000/list/records" )
 //       .resizeWindow( 1024, 768 )
 //       .reviewMainPanel()
 //
@@ -120,7 +120,7 @@
 //   },
 //   "L. RecordImageGrid Walkthrough": function ( client ) {
 //     client
-//       .url( "http://localhost:3000/list/foos" )
+//       .url( "http://localhost:3000/list/records" )
 //       .resizeWindow( 1024, 768 )
 //       .reviewMainPanel()
 //

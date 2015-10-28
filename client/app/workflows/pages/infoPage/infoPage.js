@@ -1,6 +1,6 @@
 Template.infoPage.events({
   'click #listButton': function () {
-    Router.go('/list/foos');
+    Router.go('/list/records');
   }
 });
 

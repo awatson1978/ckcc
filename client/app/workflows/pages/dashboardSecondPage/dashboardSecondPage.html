@@ -1,0 +1,10 @@
+<template name="dashboardSecondPage">
+  <div id="dashboardSecondPage" class="helveticas" style="{{getSecondPanelStyle}}">
+    <div class="upperPanel helveticas" style="{{getOpacityWithCorner}}">
+      {{> DailyStatsChart }}
+    </div>
+    <div class="lowerPanel helveticas" style="{{getOpacity}}">
+      {{> studiesTablePage }}
+    </div>
+  </div>
+</template>

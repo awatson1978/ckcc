@@ -20,10 +20,8 @@ photonic:active-users-table@0.0.3
 photonic:no-select-everything
 
 gadicohen:prism
-
 digilord:faker
 natestrauser:jquery-scrollto
-
 awsp:handsontable
 
 #meteorhacks:kadira

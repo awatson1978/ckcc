@@ -9,7 +9,7 @@ autopublish
 insecure
 awatson1978:fonts-helveticas
 fortawesome:fontawesome
-iron:router
+iron:router@1.0.9
 grove:less
 
 starrynight:dropdatabase@0.0.2

@@ -64,7 +64,7 @@ var newPatientEnrollment = {
 module.exports = {
   before: function (client){
     client
-      .url("http://localhost:3000").pause(500)
+      .url("http://localhost:3000").pause(1000)
       .dropCollaborations();
   },
   "A. Signing In UserA": function (client) {
@@ -85,7 +85,7 @@ module.exports = {
   },
   "C. UserA Can Add a Collaboration": function (client) {
     client
-      .click("#addCollaborationButton").pause(500)
+      .click("#addCollaborationButton").pause(1000)
       .reviewUpsertCollaboration()
       .upsertCollaboration(ckccCollaboration)
       .pause(1000)
@@ -98,7 +98,7 @@ module.exports = {
   },
   "D. UserA Can Add a Questionnaire": function (client) {
     client
-      .click("#newQuestionnaireBtn").pause(500)
+      .click("#newQuestionnaireBtn").pause(1000)
       .reviewUpsertQuestionnare()
       .upsertQuestionnaire(intakeQuestionnaire)
       .pause(1000)
@@ -121,7 +121,7 @@ module.exports = {
     client
       .signIn(userC.email, userC.password)
       .verify.containsText("#usernameLink", userC.fullName)
-      .click("#collaborationsTile").pause(500)
+      .click("#collaborationsTile").pause(1000)
       .canSeeCollaborationInList(userC, ckccCollaboration)
       .canNotAccessCollaboration(userC, ckccCollaboration)
       .requestAccessToPublicCollaboration()

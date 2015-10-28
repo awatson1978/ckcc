@@ -6,7 +6,7 @@ exports.command = function (email) {
     .verify.elementPresent("#collaborationGrid #collaborationGridElements .collaboration:nth-child(1)")
     .verify.elementPresent("#collaborationGrid #collaborationGridElements .collaboration:nth-child(1) .cardBody .review")
 
-    .click("#collaborationGrid #collaborationGridElements .collaboration:nth-child(1) .cardBody .review").pause(500)
+    .click("#collaborationGrid #collaborationGridElements .collaboration:nth-child(1) .cardBody .review").pause(1000)
 
     .verify.elementPresent("#collaborationReview")
     .verify.elementPresent("#collaborationReview .basicPanel")
@@ -19,9 +19,9 @@ exports.command = function (email) {
     .verify.elementPresent("#doneReviewingBtn")
     .verify.elementPresent("#cancelReviewBtn")
 
-    .click('#collaborationReview input[name="' + email + '"][value="approved"]').pause(500)
+    .click('#collaborationReview input[name="' + email + '"][value="approved"]').pause(100)
 
-    .click("#doneReviewingBtn").pause(500)
+    .click("#doneReviewingBtn").pause(1000)
 
     .verify.elementPresent("#collaborationGrid");
 

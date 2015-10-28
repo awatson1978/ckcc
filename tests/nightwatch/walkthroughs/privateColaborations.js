@@ -62,7 +62,7 @@ var newPatientEnrollment = {
 module.exports = {
   before: function (client){
     client
-      .url("http://localhost:3000").pause(500)
+      .url("http://localhost:3000").pause(1000)
       .dropCollaborations();
   },
   "A. Signing In UserA": function (client) {
@@ -83,7 +83,7 @@ module.exports = {
   },
   "C. UserA Can Add a Collaboration": function (client) {
     client
-      .click("#addCollaborationButton").pause(500)
+      .click("#addCollaborationButton").pause(1000)
       .reviewUpsertCollaboration()
       .upsertCollaboration(ckccCollaboration)
       .pause(1000)
@@ -96,7 +96,7 @@ module.exports = {
   },
   "D. UserA Can Add a Questionnaire": function (client) {
     client
-      .click("#newQuestionnaireBtn").pause(500)
+      .click("#newQuestionnaireBtn").pause(1000)
       .reviewUpsertQuestionnare()
       .upsertQuestionnaire(intakeQuestionnaire)
       .pause(1000)
@@ -119,7 +119,7 @@ module.exports = {
     client
       .signIn(userC.email, userC.password)
       .verify.containsText("#usernameLink", userC.fullName)
-      .click("#collaborationsTile").pause(500)
+      .click("#collaborationsTile").pause(1000)
       .canSeeCollaborationInList(userC, ckccCollaboration)
 
       .verify.elementPresent("#collaborationGrid #collaborationGridElements .collaboration:nth-child(1) .cardBody h6")
@@ -133,16 +133,16 @@ module.exports = {
     client
       .signIn(userA.email, userA.password)
       .verify.containsText("#usernameLink", userA.fullName)
-      .click("#collaborationsTile").pause(500)
+      .click("#collaborationsTile").pause(1000)
       .canGrantCollaborationAccess()
       .grantsCollaboration(userC.email)
-      .signOut(userA.fullName).pause(500);
+      .signOut(userA.fullName).pause(1000);
   },
   "I. UserC Can Access Collaboration": function (client) {
     client
       .signIn(userC.email, userC.password)
       .verify.containsText("#usernameLink", userC.fullName)
-      .click("#collaborationsTile").pause(500)
+      .click("#collaborationsTile").pause(1000)
 
       .canAccessCollaboration(userC.email, ckccCollaboration)
       .signOut(userC.fullName);
@@ -151,15 +151,15 @@ module.exports = {
     client
       .signIn(userA.email, userA.password)
       .verify.containsText("#usernameLink", userA.fullName)
-      .click("#collaborationsTile").pause(500)
+      .click("#collaborationsTile").pause(1000)
 
-      .click("#collaborationGrid .collaboration:nth-child(1)").pause(500)
+      .click("#collaborationGrid .collaboration:nth-child(1)").pause(1000)
       //.removeNthCollaborator(userB.email, 3)
       .clearValue('#addCollaborationForm input[name="collaborators"]')
       .setValue('#addCollaborationForm input[name="collaborators"]', ckccCollaboration.collaborators)
 
       .verify.elementPresent("#saveFormButton")
-      .click("#saveFormButton").pause(500)
+      .click("#saveFormButton").pause(1000)
 
       .signOut(userA.fullName);
   },
@@ -167,7 +167,7 @@ module.exports = {
     client
       .signIn(userC.email, userC.password)
       .verify.containsText("#usernameLink", userC.fullName)
-      .click("#collaborationsTile").pause(500)
+      .click("#collaborationsTile").pause(1000)
 
       .canNotAccessCollaboration(userC, ckccCollaboration)
 

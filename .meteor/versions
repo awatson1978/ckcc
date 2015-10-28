@@ -28,7 +28,7 @@ clinical:collaborations-ui@2.1.8
 clinical:env@3.1.6
 clinical:extended-api@2.0.4
 clinical:graphs-dailystats@2.3.4
-clinical:hipaa-audit-log@2.3.4
+clinical:hipaa-audit-log@2.3.5
 clinical:hl7-fhir@0.0.5
 clinical:json2json@0.0.1
 clinical:keybindings@1.0.9
@@ -37,7 +37,7 @@ clinical:modals@1.0.6
 clinical:overlays@2.1.5
 clinical:study-picklist@1.0.6
 clinical:user-model@1.2.2
-clinical:users-picklist@1.0.5
+clinical:users-picklist@1.0.6
 coffeescript@1.0.6
 d3js:d3@3.5.5
 ddp@1.1.0

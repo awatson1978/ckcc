@@ -28,7 +28,7 @@ Package.onUse(function (api) {
 
   api.addFiles([
     'components/helpers.js',
-    
+
     'components/studiesListPage/studiesListPage.html',
     'components/studiesListPage/studiesListPage.js',
     'components/studiesListPage/studiesListPage.less',

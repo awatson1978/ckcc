@@ -29,7 +29,7 @@ awsp:handsontable
 clinical:barcode
 clinical:extended-api
 clinical:collaborations
-clinical:collaborations-ui
+clinical:collaborations-ui@2.1.13
 clinical:active-entry
 clinical:active-record
 clinical:env

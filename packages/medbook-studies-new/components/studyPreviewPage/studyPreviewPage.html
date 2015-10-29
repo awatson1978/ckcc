@@ -1,12 +1,6 @@
 <template name="studyPreviewPage">
   <div id="studyPreviewPage" class="fullheight padded page">
-    <header class="pageHeader">
-      <i class="indexButton fa fa-chevron-left"></i>
-      <h4 class="studyId barcode">{{_id}}</h4>
-      <i class="imageGridButton fa fa-th"></i>
-      <i class="listButton fa fa-list"></i>
-      <i class="tableButton fa fa-table"></i>
-    </header>
+    {{> recordHeader type="record" url="studies" spreadsheet=false}}
 
       <div id="studyPreviewCard" class="card-contents">
         <h2 id="studyTitleText">{{title}}</h2>

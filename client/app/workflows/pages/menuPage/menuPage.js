@@ -78,6 +78,9 @@ Template.menuPage.helpers({
 });
 
 Template.menuPage.events({
+  'click #formBuilderTile': function (){
+    Router.go('/builder');
+  },
   'click #auditTile': function (){
     Router.go('/audit');
   },

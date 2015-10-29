@@ -2,7 +2,7 @@
 <template name="studiesListPage">
   <article id="studiesListPage" class="page fizzle">
 
-    {{> recordHeader type="study"}}
+    {{> recordHeader url="studies" spreadsheet=false}}
 
     <div class="pageBody" style="{{getOpacity}}">
       <input id="studySearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." value="{{getStudySearchFilter}}" />

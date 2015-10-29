@@ -1,6 +1,6 @@
 var seed = new Meteor.Collection.ObjectID();
 
-Session.setDefault("westPanelVisible", false);
+Session.setDefault("builderPanelVisible", false);
 
 Session.setDefault('selectedBuilderTab', 'addNewFieldTab');
 Session.setDefault('seed', new Meteor.Collection.ObjectID());
@@ -11,9 +11,9 @@ Session.setDefault('multiSelectValues', {
   }]
 });
 
-Template.westPanel.events({
+Template.builderPanel.events({
   'keyup .multiselectInput': function (event) {
-    // get the values from our sidebar
+    // get the values from our sidebarB
     var array = Session.get('multiSelectValues');
 
     // update our array
@@ -167,9 +167,9 @@ Template.westPanel.events({
 });
 
 
-Template.westPanel.helpers({
+Template.builderPanel.helpers({
   getWestPanelStyle: function (){
-    if (Session.get("westPanelVisible")) {
+    if (Session.get("builderPanelVisible")) {
       return "visibility: visible; left: 0px;";
     } else {
       return "visibility: hidden; left: -300px;";
@@ -284,25 +284,4 @@ initiateAddingBlock = function (blockType) {
   Session.set('movedElementId', blockType);
   Session.set('selectedBlockItem', addBlockToForm());
   Session.set('selectedBuilderTab', 'editFieldTab');
-};
-
-
-
-//----------------------------------------------
-// sidebar toggle functions
-
-toggleWestPanel = function () {
-  if ($('body').hasClass('leftSidebar')) {
-    hideWestPanel();
-  } else {
-    showWestPanel();
-  }
-};
-showWestPanel = function () {
-  $('body').addClass('leftSidebar');
-  $('#westPanel').addClass('active');
-};
-hideWestPanel = function () {
-  $('body').removeClass('leftSidebar');
-  $('#westPanel').removeClass('active');
 };

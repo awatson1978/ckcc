@@ -47,6 +47,6 @@ clinical:accounts-housemd
 clinical:hl7-fhir
 clinical:hipaa-audit-log
 clinical:graphs-dailystats@2.3.5
-#clinical:form-builder
+clinical:form-builder
 
 medbook:studies

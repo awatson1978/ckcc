@@ -1,39 +1,39 @@
-Session.setDefault('selectedBlockItem', false);
+
+
+Meteor.startup(function () {
+  Session.setDefault('selectedBlockItem', false);
+});
+
 
 Router.map(function () {
-  // this.route('builderPageWithId', {
-  //   path: '/builder/:id',
-  //   template: 'builderPage',
-  //   onBeforeAction: function () {
-  //     Session.set('currentForm', this.params.id);
-  //   },
-  //   waitOn: function () {
-  //     return Meteor.subscribe('forms');
-  //   },
-  //   data: function () {
-  //     return Forms.findOne({
-  //       _id: this.params.id
-  //     });
-  //   },
-  //   onAfterAction: function () {
-  //     showSidebars();
-  //   }
-  // });
+  this.route('builderPageWithId', {
+    path: '/builder/:questionnaireId',
+    template: 'builderPage',
+    waitOn: function () {
+      return Meteor.subscribe('questionnaires');
+    },
+    data: function () {
+      return Questionnaires.findOne({
+        _id: this.params.questionnaireId
+      });
+    },
+    onAfterAction: function () {
+      showSidebars();
+      Session.set('activeQuestionnaireId', this.params.questionnaireId);
+    }
+  });
   this.route('builderPage', {
     path: '/builder',
     template: 'builderPage',
-    onBeforeAction: function () {
-      Session.set('currentForm', false);
-    },
-    waitOn: function () {
-      return Meteor.subscribe('forms');
-    },
+    // waitOn: function () {
+    //   return Meteor.subscribe('forms');
+    // },
     data: function () {
       return {};
     },
-    // onAfterAction: function () {
-    //   showWestPanel();
-    // }
+    onAfterAction: function () {
+      WestPanel.show();
+    }
   });
 });
 
@@ -101,11 +101,11 @@ Template.builderPage.helpers({
     });
   },
   formName: function () {
-    var currentForm = Forms.findOne(Session.get('currentForm'));
+    var activeQuestionnaire = Questionnaires.findOne(Session.get('activeQuestionnaireId'));
 
-    if (currentForm) {
-      console.log('currentForm', currentForm);
-      return currentForm.formName;
+    if (activeQuestionnaire) {
+      console.log('activeQuestionnaire', activeQuestionnaire);
+      return activeQuestionnaire.formName;
     } else {
       return "";
     }
@@ -265,4 +265,4 @@ addBlockToForm = function (seed) {
   console.log('newObject', newObject);
 
   return Items.insert(newObject);
-}
+};

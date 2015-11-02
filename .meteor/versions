@@ -32,7 +32,6 @@ clinical:form-builder@0.0.1
 clinical:graphs-dailystats@2.3.5
 clinical:hipaa-audit-log@2.3.5
 clinical:hl7-fhir@0.0.5
-clinical:json2json@0.0.1
 clinical:keybindings@1.0.9
 clinical:migrations@0.8.7
 clinical:modals@1.0.6

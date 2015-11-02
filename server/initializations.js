@@ -5,55 +5,93 @@ Meteor.startup(function () {
     });
   }
   if (Questionnaires.find().count() === 0) {
-    Questionnaires.insert({
+
+    var pathologyQuestionnaire = {
       institutionName: "UCSC",
       institutionId: "UCSC",
       participantId: "",
-      questionnaireName: "Pathology Report",
+      questionnaireName: "WCDT Pathology Report",
       createdAt: new Date(),
-      schema: PathologySchema
-    });
-    Questionnaires.insert({
+      schema: hydratedPathologySchema
+    };
+    var ckccQuestionnaire = {
       institutionName: "UCSC",
       institutionId: "UCSC",
       participantId: "",
-      questionnaireName: "Genetic Analysis Results",
+      questionnaireName: "California Kids Cancer Comparison",
       createdAt: new Date(),
       schema: CkccSchema
-    });
-    Questionnaires.insert({
+    };
+
+    var patientSatisfactionQuestionnaire = {
       institutionName: "AsiaPacificCo",
       institutionId: "apc",
       participantId: "",
       questionnaireName: "Patient Satisfaction Survey",
       createdAt: new Date(),
-      dynamicSchema: CkccSchema
+      schema: CkccSchema
+    };
+
+
+    console.log('PathologyQuestionnaire', pathologyQuestionnaire);
+    console.log('dehydratedBasicSchema', dehydratedBasicSchema);
+
+    //var hydratedBrasicSchema = SchemaHydrator.hydrate(dehydratedBasicSchema);
+    //console.log('hydratedBasicSchema', hydratedBrasicSchema);
+
+    var hydrationTestQuestionnaire = {
+      questionnaireName: "Hydration Test",
+      createdAt: new Date(),
+      schema: dehydratedBasicSchema
+    };
+
+    console.log('hydrationTestQuestionnaire', hydrationTestQuestionnaire);
+
+    Questionnaires.insert(pathologyQuestionnaire, {validate: false});
+    Questionnaires.insert(ckccQuestionnaire, {validate: false});
+    Questionnaires.insert(patientSatisfactionQuestionnaire, {validate: false});
+    Questionnaires.insert(hydrationTestQuestionnaire, {validate: false}, function (error, result){
+      if (error) {
+        console.log(error);
+      }
     });
   }
 });
 
 
+var dehydratedBasicSchema = {
+  title: {
+    type: "String",
+    optional: true,
+    label: "Full Name"
+  },
+  description: {
+    type: "Number",
+    optional: true,
+    label: "Count"
+  },
+};
 
-PathologySchema = new SimpleSchema({
-  'title': {
+var hydratedPathologySchema = {
+  title: {
     type: String,
     optional: true,
     label: "Sample ID"
   },
-  'description': {
+  description: {
     type: String,
     optional: true,
     label: "Institution"
   },
-  'url': {
+  url: {
     type: String,
     optional: true
   },
-  'imageUrl': {
+  imageUrl: {
     type: String,
     optional: true
   },
-  "AR_chromosomeX_ratio": {
+  'AR_chromosomeX_ratio': {
     type: Number,
     decimal: true,
     optional: true
@@ -198,7 +236,9 @@ PathologySchema = new SimpleSchema({
       ],
     "label": "Final Histology Call",
     "max": 200,
-    type: String,
-    optional: true
+    "type": String,
+    "optional": true
   }
-});
+};
+
+PathologySchema = new SimpleSchema(hydratedPathologySchema);

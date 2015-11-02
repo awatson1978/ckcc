@@ -3,6 +3,21 @@
     margin-bottom: 20px;
   }
 
+  #questionnaireDesigner{
+    .form-control{
+      border-top: 0px none white !important;
+      padding-left: 0px;
+    }
+  }
+
+
+  .textInputBlock,
+  .textareaBlock{
+    border-top: 1px solid #bbbbbb !important;
+    margin-left: 40px;
+  }
+
+
   // sortable list
   .item{
     cursor: move;
@@ -17,7 +32,7 @@
       color: #a52323;
     }
     label{
-      padding-left: 10px;
+      font-weight: bold;
     }
   }
   .item-text{
@@ -41,9 +56,6 @@
   #sortableDropZone:hover{
     border: 2px dashed green !important;
   }
-  .blockLabel{
-    padding-left: 5px;
-  }
 
 
   .visible{
@@ -51,6 +63,21 @@
   }
   .selected{
     border: 2px dashed #7a929c;
+  }
+
+  #formBlocks{
+    .padded{
+      padding: 0px;
+    }
+    .textBlock,
+    .textareaBlock,
+    .yesNoBlock,
+    .dateTimeBlock,
+    .timeBlock,
+    .radioBlock,
+    .multiSelectBlock{
+      margin-left: 20px;
+    }
   }
 
 }

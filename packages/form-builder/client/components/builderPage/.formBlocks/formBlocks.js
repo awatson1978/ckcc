@@ -1,20 +1,13 @@
-Template.formBlock.helpers({
+Template.formBlocks.helpers({
   isSelected: function () {
     if (Session.get('selectedBlockItem') === this._id) {
       return "selected";
     }
   },
-  isInput: function () {
-    if (this.elementType === "input") {
-      return true;
-    } else {
-      return false;
-    }
-  },
   getLabelText: function () {
     var resultString = "";
-    if (this.labelText) {
-      return resultString + this.labelText;
+    if (this.label) {
+      return resultString + this.label;
     } else {
       return resultString;
     }
@@ -23,7 +16,7 @@ Template.formBlock.helpers({
     return this.inputType;
   },
   getInputPlaceholder: function () {
-    if (this.inputPlaceholder) {
+    if (this.autoforms.afFieldInput.placeholder) {
       return this.inputPlaceholder;
     } else {
       return "...";
@@ -68,5 +61,4 @@ Template.formBlock.helpers({
       return "5";
     }
   }
-
 });

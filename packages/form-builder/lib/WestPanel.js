@@ -1,17 +1,15 @@
 WestPanel = {
   toggle: function () {
-    if ($('body').hasClass('leftSidebar')) {
-      hideWestPanel();
+    if (Session.get('formBuilderPanelVisible')) {
+      Session.set('formBuilderPanelVisible', false);
     } else {
-      showWestPanel();
+      Session.set('formBuilderPanelVisible', true);
     }
   },
   show: function () {
-    $('body').addClass('leftSidebar');
-    $('#builderPanel').addClass('active');
+    Session.set('formBuilderPanelVisible', true);
   },
   hide: function () {
-    $('body').removeClass('leftSidebar');
-    $('#builderPanel').removeClass('active');
+    Session.set('formBuilderPanelVisible', false);
   }
 };

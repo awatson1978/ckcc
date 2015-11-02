@@ -20,24 +20,32 @@ Package.onUse(function (api) {
   api.use('grove:less@0.1.1');
 
   api.addFiles('client/jquery-ui-sortable.js', 'client');
+  api.addFiles('client/helpers.js', 'client');
 
-  api.addFiles('lib/Builder.js');
+  api.addFiles('lib/SimpleRationalRanks.js');
+  api.addFiles('lib/Items.js');
+  //api.addFiles('lib/Builder.js');
   api.addFiles('lib/FormBuilder.js');
   api.addFiles('lib/WestPanel.js', 'client');
+
+  api.addFiles('client/components/formBuilderPanel/formBuilderPanel.html', 'client');
+  api.addFiles('client/components/formBuilderPanel/formBuilderPanel.js', 'client');
+  api.addFiles('client/components/formBuilderPanel/formBuilderPanel.less', 'client');
+
+  // api.addFiles('client/components/builderPage/formBlocks/formBlocks.html', 'client');
+  // api.addFiles('client/components/builderPage/formBlocks/formBlocks.js', 'client');
+  // api.addFiles('client/components/builderPage/formBlocks/formBlocks.less', 'client');
+
+  api.addFiles('client/components/builderActionButtons/builderActionButtons.html', 'client');
+  api.addFiles('client/components/builderActionButtons/builderActionButtons.js', 'client');
+  api.addFiles('client/components/builderActionButtons/builderActionButtons.less', 'client');
 
   api.addFiles('client/components/builderPage/builderPage.html', 'client');
   api.addFiles('client/components/builderPage/builderPage.js', 'client');
   api.addFiles('client/components/builderPage/builderPage.less', 'client');
 
-  api.addFiles('client/components/builderPanel/builderPanel.html', 'client');
-  api.addFiles('client/components/builderPanel/builderPanel.js', 'client');
-  api.addFiles('client/components/builderPanel/builderPanel.less', 'client');
-
-  api.addFiles('client/components/formBlock/formBlock.html', 'client');
-  api.addFiles('client/components/formBlock/formBlock.js', 'client');
-  api.addFiles('client/components/formBlock/formBlock.less', 'client');
-
   api.export('WestPanel');
+  api.export('Items');
 });
 
 Package.onTest(function (api) {

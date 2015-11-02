@@ -9,7 +9,7 @@
     {{> yield 'header'}}
 
       {{> errorPanel }}
-      {{> builderPanel }}
+      {{> formBuilderPanel }}
       {{> leftDock }}
 
       {{> rightDock }}
@@ -30,7 +30,23 @@
 
     {{> reactiveOverlaysTemplate }}
 
-    {{> yield 'footer'}}
+    <!-- {{> yield 'footer'}} -->
+    <footer id="navbarFooter" style="{{getOpacity}} {{isVisible}} {{getNavWidth}}">
+      {{#if isLoggedIn}}
+        <button id="addCollaborationButton">New Collaboration</button>
+        <button id="saveCollaborationButton">Save Collaboration</button>
+        <button id="newQuestionnaireBtn">New Questionnaire</button>
+        <button id="saveFormButton">Save Questionnaire</button>
+        <button id="saveDataButton">Save Data</button>
+      {{/if}}
+
+      {{> yield 'footerActionElements' }}
+
+      <div class="eastLinks">
+        <button id="keybindingsBtn">Keybindings</button>
+      </div>
+
+    </footer>
 
   {{> keybindingsModal }}
   {{> userPicklistModal }}

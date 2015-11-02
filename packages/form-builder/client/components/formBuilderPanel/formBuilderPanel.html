@@ -1,6 +1,6 @@
 
-<template name="builderPanel">
-  <aside id="builderPanel" class="padded ui sidebar helveticas" style="{{getWestPanelStyle}}">
+<template name="formBuilderPanel">
+  <aside id="formBuilderPanel" class="padded ui sidebar helveticas" style="{{getWestPanelStyle}}">
 
 
     <!-- Nav tabs -->
@@ -14,11 +14,8 @@
       {{#if isAddNewFieldTab }}
         <div class="tab-pane" id="addNewFieldPanel">
           <ul class="list-group">
-            <li id="plainTextBlock" class="dragDropBlock list-group-item">
-              <label class="smallgray" for="plainTextBlock">Text Block</label>
-            </li>
             <li id="textInputBlock" class="dragDropBlock list-group-item">
-              <label class="smallgray" for="textInputBlock">Text Question</label>
+              <label class="smallgray" for="textInputBlock">Text Input</label>
             </li>
             <li id="textareaInputBlock" class="dragDropBlock list-group-item">
               <label class="smallgray" for="textareaInputBlock">Textarea Question</label>
@@ -26,10 +23,14 @@
             <li id="numericInputBlock" class="dragDropBlock list-group-item">
               <label class="smallgray" for="numericInputBlock">Numeric Value</label>
             </li>
-            <li id="spacerBlock" class="dragDropBlock list-group-item">
+            <!-- <li id="spacerBlock" class="dragDropBlock list-group-item">
               <label class="smallgray" for="spacerBlock">Spacer</label>
-            </li>
-            <li id="sectionTitleBlock" class="dragDropBlock list-group-item">
+            </li> -->
+            <!-- <li id="paragraphBlock" class="dragDropBlock list-group-item">
+              <label class="smallgray" for="paragraphBlock">Paragraph Block</label>
+            </li> -->
+
+            <!-- <li id="sectionTitleBlock" class="dragDropBlock list-group-item">
               <label class="smallgray" for="sectionTitleBlock">Section Title</label>
             </li>
             <li id="yesNoInputBlock" class="dragDropBlock list-group-item">
@@ -46,7 +47,7 @@
             </li>
             <li id="multiSelectInputBlock" class="dragDropBlock list-group-item">
               <label class="smallgray" for="multiSelectInputBlock">MultiSelect</label>
-            </li>
+            </li> -->
           </ul>
         </div>
       {{else}}

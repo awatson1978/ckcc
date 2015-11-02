@@ -1,23 +1,4 @@
 Meteor.startup(function () {
-  //  Studies.upsert({
-  //    id: "admin"
-  //  }, {
-  //    $set: {
-  //      "cbio_id": "?",
-  //      "id": "admin",
-  //      "type_of_cancer_id": "many",
-  //      "name": "admin",
-  //      "short_name": "admin",
-  //      "description": "",
-  //      "public": false,
-  //      "pmid": "NULL",
-  //      "citation": "admin",
-  //      "collaborations": ["admin"],
-  //      "tables": [],
-  //      "Sample_IDs": [],
-  //      "Patient_IDs": [],
-  //    }
-  //  });
 
   Studies.upsert({
     id: "prad_wcdt"
@@ -97,7 +78,7 @@ Meteor.startup(function () {
       "collaborations": ["treehouse"],
       "tables": [],
       "Sample_IDs": [],
-      "Patient_IDs": [],
+      "Patient_IDs": []
     }
   });
 

@@ -7,16 +7,12 @@
       <button id="saveFormButton">Save Questionnaire</button>
       <button id="saveDataButton">Save Data</button>
     {{/if}}
-    <!-- <button id="overlayBtn">Overlay</button> -->
+
+    {{> yield 'footerActionElements' }}
 
     <div class="eastLinks">
-
       <button id="keybindingsBtn">Keybindings</button>
-
-      <!-- <button id="scrollTopBtn">Top</button>
-      <button id="scrollBottomBtn">Bottom</button> -->
-      <!-- <button id="initializeBtn">Initialize</button>
-      <button id="dropBtn">Drop</button> -->
     </div>
+
   </footer>
 </template>

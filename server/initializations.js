@@ -12,7 +12,7 @@ Meteor.startup(function () {
       participantId: "",
       questionnaireName: "WCDT Pathology Report",
       createdAt: new Date(),
-      schema: hydratedPathologySchema
+      schema: dehydratedPathologySchema
     };
     var ckccQuestionnaire = {
       institutionName: "UCSC",
@@ -34,15 +34,15 @@ Meteor.startup(function () {
 
 
     console.log('PathologyQuestionnaire', pathologyQuestionnaire);
-    console.log('dehydratedBasicSchema', dehydratedBasicSchema);
+    console.log('hydratedBasicSchema', hydratedBasicSchema);
 
-    //var hydratedBrasicSchema = SchemaHydrator.hydrate(dehydratedBasicSchema);
-    //console.log('hydratedBasicSchema', hydratedBrasicSchema);
+    //var dehydratedBrasicSchema = SchemaHydrator.dehydrate(hydratedBasicSchema);
+    //console.log('dehydratedBasicSchema', dehydratedBrasicSchema);
 
     var hydrationTestQuestionnaire = {
       questionnaireName: "Hydration Test",
       createdAt: new Date(),
-      schema: dehydratedBasicSchema
+      schema: hydratedBasicSchema
     };
 
     console.log('hydrationTestQuestionnaire', hydrationTestQuestionnaire);
@@ -59,7 +59,7 @@ Meteor.startup(function () {
 });
 
 
-var dehydratedBasicSchema = {
+var hydratedBasicSchema = {
   title: {
     type: "String",
     optional: true,
@@ -72,7 +72,7 @@ var dehydratedBasicSchema = {
   },
 };
 
-var hydratedPathologySchema = {
+var dehydratedPathologySchema = {
   title: {
     type: String,
     optional: true,
@@ -241,4 +241,4 @@ var hydratedPathologySchema = {
   }
 };
 
-PathologySchema = new SimpleSchema(hydratedPathologySchema);
+PathologySchema = new SimpleSchema(dehydratedPathologySchema);

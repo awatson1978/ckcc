@@ -17,7 +17,6 @@ initializeMetadata = function () {
     var fo = _.pluck(CRFinit[collectionName].Fields, "Field_Name");
     var fs = _.clone(CRFinit[collectionName]);
     var schema = {};
-
     fs.Fields.map(function (field) {
       field = _.clone(field);
       var name = field["Field_Name"];
@@ -39,9 +38,10 @@ initializeMetadata = function () {
       study: this.study,
     }, {
       upsert: true
-    });
+    })
 
 
+    console.log("before", this.study, collectionName);
     Studies.update({
       name: this.study
     }, {
@@ -70,18 +70,15 @@ initializeMetadata = function () {
 
 
 
-  function migrateCollection (collName, query) {
+  function migrateCollection(collName, query) {
 
     var count = 0;
     var countInserted = 0;
     var coll = new Meteor.Collection(collName);
     Collections[collName] = coll;
-    if (query === null) {
+    if (query == null)
       query = {};
-    }
-
     coll.find().forEach(function (doc) {
-
       count++;
 
       doc.Study_ID = query.Study_ID ? query.Study_ID : 'prad_wcdt'; // needs both
@@ -116,12 +113,12 @@ initializeMetadata = function () {
         name: migrationName
       });
     }
-  }
+  };
 
   console.log("before");
-
   Migration('CRFunification 20151023-D', function () {
     Collections.CRFs.remove({});
+
     console.log("Migration before CRFs", Collections.CRFs.find().count());
 
     for (var i = 0; i < prad_wcdt_unique_crfs.length; i++){
@@ -135,13 +132,10 @@ initializeMetadata = function () {
     console.log("Migration after CRFs", Collections.CRFs.find().count());
     ingestOncore();
   });
-
   console.log("after");
 
-  function maintain_prad_wcdt(field) {
+  function maintain_prad_wcdt (field) {
     var fields = {};
-
-
     fields[field] = 1;
     var objectList = Collections.CRFs.find({
       CRF: {
@@ -153,7 +147,7 @@ initializeMetadata = function () {
     var aList = objectList.map(function (object) {
       return object[field];
     }).filter(function (element) {
-      return element !== null;
+      return element != null;
     });
     var sortedSet = _.union(aList).sort();
 
@@ -173,6 +167,7 @@ initializeMetadata = function () {
     // console.log("maintain_prad_wcdt", updateClause, sortedSet, updateResult, "\nfinal", final);
 
   };
+
   maintain_prad_wcdt("Patient_ID");
   maintain_prad_wcdt("Sample_ID");
 

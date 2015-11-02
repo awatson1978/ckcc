@@ -387,46 +387,51 @@ Meteor.startup(function () {
   ingestOncore = function () {
     var study = Studies.findOne({
       id: "prad_wcdt"
-    })
-    var schemaMap = {};
-    Collections.Metadata.find({
-      study: "prad_wcdt",
-      name: {
-        $in: study.tables
-      }
-    }).forEach(function (crf) {
-      schemaMap[crf.name] = crf.schema;
     });
 
-    // We re-import these CRFs every time
-    prad_wcdt_oncore_crfs.map(function (oncore_crf) {
-      console.log("Removing CRFs", oncore_crf)
-      Collections.CRFs.remove({
-        CRF: oncore_crf
+    if (study) {
+      var schemaMap = {};
+      Questionnaires.find({
+        study: "prad_wcdt",
+        name: {
+          $in: study.tables
+        }
+      }).forEach(function (crf) {
+        schemaMap[crf.name] = crf.schema;
       });
-    });
 
-    Oncore.find({}, {
-      sort: {
-        patient: 1
-      }
-    }).forEach(function (patient) {
-      console.log("Mapping Patient", patient.patient)
-      mapPatient(patient, schemaMap)
-    });
-    console.log("Ingesting finished");
+      // We re-import these CRFs every time
+      prad_wcdt_oncore_crfs.map(function (oncore_crf) {
+        console.log("Removing CRFs", oncore_crf);
 
-    console.log("ingestClinical- Starting Cohort Level Analysis")
-    ingestClinical();
-    console.log("ingestClinical- Finished ")
-  }
+        Collections.CRFs.remove({
+          CRF: oncore_crf
+        });
+      });
+
+      Oncore.find({}, {
+        sort: {
+          patient: 1
+        }
+      }).forEach(function (patient) {
+        console.log("Mapping Patient", patient.patient);
+        mapPatient(patient, schemaMap);
+      });
+      console.log("Ingesting finished");
+
+      console.log("ingestClinical- Starting Cohort Level Analysis");
+
+      ingestClinical();
+      console.log("ingestClinical- Finished ");
+
+    }
+  };
 
   function find(crf) {
-    var ret = Collections.CRFs.find({
+    return Collections.CRFs.find({
       Study_ID: "prad_wcdt",
       CRF: crf
     }).fetch();
-    return ret;
   }
 
   ingestClinical = function () {
@@ -440,7 +445,7 @@ Meteor.startup(function () {
     });
 
     var schemas = {};
-    Collections.Metadata.find({
+    Questionnaires.find({
       study: "prad_wcdt",
       name: {
         $in: study.tables

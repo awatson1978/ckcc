@@ -84,7 +84,7 @@ Meteor.startup(function () {
 
 
   //  function maintainReferentialIntegrity () {
-  //    Collections.Metadata.find({
+  //    Metadata.find({
   //      study: {
   //        $exists: 1
   //      }

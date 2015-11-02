@@ -57,6 +57,9 @@ Template.menuPage.helpers({
 
     return "min-width: 180px; width: " + newWidth + "px;";
   },
+  getMetadataCount: function () {
+    return Metadata.find().count();
+  },
   getStudiesCount: function () {
     return Studies.find().count();
   },
@@ -78,6 +81,9 @@ Template.menuPage.helpers({
 });
 
 Template.menuPage.events({
+  'click #metadataTile': function (){
+    Router.go('/list/metadata');
+  },
   'click #formBuilderTile': function (){
     Router.go('/builder');
   },

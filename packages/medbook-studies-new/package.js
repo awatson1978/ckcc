@@ -49,7 +49,7 @@ Package.onUse(function (api) {
 
   api.addFiles(['server/publications.js'], 'server');
 
-  api.export("ActiveStudy");
+  // api.export("ActiveStudy");
   api.export("Studies");
 });
 

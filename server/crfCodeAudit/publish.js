@@ -1,6 +1,6 @@
 Meteor.startup(function () {
   Meteor.publish("metadata", function () {
-    var cursor = Collections.Metadata.find();
+    var cursor = Metadata.find();
     console.log("Metadata", cursor.count());
     return cursor;
   });
@@ -68,7 +68,7 @@ Meteor.publish('myForms', function (formName, studyName) {
   if (study == null)
     return [];
 
-  var coll = Collections.Metadata.findOne({
+  var coll = Metadata.findOne({
     study: {
       $in: ["common", studyName]
     },

@@ -53,3 +53,4 @@ clinical:graphs-dailystats@2.3.5
 clinical:form-builder
 
 medbook:studies
+medbook:metadata-crud

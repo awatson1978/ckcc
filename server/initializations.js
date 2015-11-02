@@ -4,7 +4,7 @@ Meteor.startup(function () {
       userCount: 0
     });
   }
-  if (Questionnaires.find().count() === 0) {
+  if (Questionnaires && Questionnaires.find().count() === 0) {
 
     var pathologyQuestionnaire = {
       institutionName: "UCSC",

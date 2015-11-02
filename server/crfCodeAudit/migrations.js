@@ -17,6 +17,7 @@ initializeMetadata = function () {
     var fo = _.pluck(CRFinit[collectionName].Fields, "Field_Name");
     var fs = _.clone(CRFinit[collectionName]);
     var schema = {};
+
     fs.Fields.map(function (field) {
       field = _.clone(field);
       var name = field["Field_Name"];
@@ -25,7 +26,7 @@ initializeMetadata = function () {
     });
 
 
-    var n = Collections.Metadata.update({
+    var n = Metadata.update({
       _id: collectionName
     }, {
       _id: collectionName,
@@ -38,7 +39,7 @@ initializeMetadata = function () {
       study: this.study,
     }, {
       upsert: true
-    })
+    });
 
 
     console.log("before", this.study, collectionName);
@@ -70,14 +71,17 @@ initializeMetadata = function () {
 
 
 
-  function migrateCollection(collName, query) {
+  function migrateCollection (collName, query) {
 
     var count = 0;
     var countInserted = 0;
     var coll = new Meteor.Collection(collName);
     Collections[collName] = coll;
-    if (query == null)
+
+    if (query === null){
       query = {};
+    }
+
     coll.find().forEach(function (doc) {
       count++;
 
@@ -89,7 +93,7 @@ initializeMetadata = function () {
           Patient_ID: doc.Patient_ID,
           Sample_ID: doc.Sample_ID,
           CRF: doc.CRF
-        }) == null) {
+        }) === null) {
         var ret = Collections.CRFs.insert(doc);
         if (ret) {
           countInserted++;
@@ -121,7 +125,7 @@ initializeMetadata = function () {
 
     console.log("Migration before CRFs", Collections.CRFs.find().count());
 
-    for (var i = 0; i < prad_wcdt_unique_crfs.length; i++){
+    for (var i = 0; i < prad_wcdt_unique_crfs.length; i++) {
       migrateCollection(prad_wcdt_unique_crfs[i]);
     }
 
@@ -132,9 +136,10 @@ initializeMetadata = function () {
     console.log("Migration after CRFs", Collections.CRFs.find().count());
     ingestOncore();
   });
+
   console.log("after");
 
-  function maintain_prad_wcdt (field) {
+  function maintain_prad_wcdt(field) {
     var fields = {};
     fields[field] = 1;
     var objectList = Collections.CRFs.find({
@@ -149,6 +154,7 @@ initializeMetadata = function () {
     }).filter(function (element) {
       return element != null;
     });
+
     var sortedSet = _.union(aList).sort();
 
     var updateClause = {};

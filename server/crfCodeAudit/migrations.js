@@ -2,7 +2,66 @@
 initializeMetadata = function () {
   console.log("initializeMetadata");
 
-  function initializeCollectionCRF(collectionName, nthCollection) {
+  _.each(admin_crfs, Migrator.initializeCollectionCRF, {
+    study: 'admin'
+  });
+  _.each(prad_wcdt_crfs, Migrator.initializeCollectionCRF, {
+    study: 'prad_wcdt'
+  });
+  _.each(common_crfs, Migrator.initializeCollectionCRF, {
+    study: 'common'
+  });
+
+  if (!('DataMigrations' in Collections)) {
+    Collections.DataMigrations = new Meteor.Collection("DataMigrations");
+  }
+
+  Migration = function (migrationName, func) {
+    var migration = Collections.DataMigrations.findOne({
+      name: migrationName
+    });
+    if (migration == null) {
+      console.log("migrating", migrationName);
+      func();
+      Collections.DataMigrations.insert({
+        name: migrationName
+      });
+    }
+  };
+
+  console.log("before");
+
+  Migration('CRFunification 20151023-D', function () {
+    Collections.CRFs.remove({});
+
+    console.log("Migration before CRFs", Collections.CRFs.find().count());
+
+    for (var i = 0; i < prad_wcdt_unique_crfs.length; i++) {
+      Migrator.migrateCollection(prad_wcdt_unique_crfs[i]);
+    }
+
+    Migrator.migrateCollection("Clinical_Info", {
+      Study_ID: "prad_tcga"
+    });
+
+    console.log("Migration after CRFs", Collections.CRFs.find().count());
+
+    ingestOncore();
+  });
+
+  console.log("after");
+
+
+  Migrator.maintain_prad_wcdt("Patient_ID");
+  Migrator.maintain_prad_wcdt("Sample_ID");
+
+};
+Meteor.startup(initializeMetadata);
+
+
+
+Migrator = {
+  initializeCollectionCRF: function (collectionName, nthCollection) {
 
     if (Initialization[collectionName]) {
       var fo = _.pluck(Initialization[collectionName].Fields, "Field_Name");
@@ -24,6 +83,7 @@ initializeMetadata = function () {
         _id: collectionName,
         name: collectionName,
         commonName: Initialization[collectionName].commonName,
+        version: Initialization[collectionName].version,
         n: nthCollection,
         incompleteCount: 0,
         schema: schema,
@@ -44,27 +104,8 @@ initializeMetadata = function () {
         }
       });
     }
-  }
-
-  _.each(admin_crfs, initializeCollectionCRF, {
-    study: 'admin'
-  });
-  _.each(prad_wcdt_crfs, initializeCollectionCRF, {
-    study: 'prad_wcdt'
-  });
-  _.each(common_crfs, initializeCollectionCRF, {
-    study: 'common'
-  });
-
-
-
-  if (!('DataMigrations' in Collections)) {
-    Collections.DataMigrations = new Meteor.Collection("DataMigrations");
-  }
-
-
-
-  function migrateCollection (collName, query) {
+  },
+  migrateCollection: function (collName, query) {
 
     var count = 0;
     var countInserted = 0;
@@ -72,7 +113,7 @@ initializeMetadata = function () {
 
     Collections[collName] = coll;
 
-    if (query === null){
+    if (query === null) {
       query = {};
     }
 
@@ -96,45 +137,8 @@ initializeMetadata = function () {
 
     });
     console.log("migration", collName, count, countInserted, query);
-  };
-
-
-
-  Migration = function (migrationName, func) {
-    var migration = Collections.DataMigrations.findOne({
-      name: migrationName
-    });
-    if (migration == null) {
-      console.log("migrating", migrationName);
-      func();
-      Collections.DataMigrations.insert({
-        name: migrationName
-      });
-    }
-  };
-
-  console.log("before");
-  Migration('CRFunification 20151023-D', function () {
-    Collections.CRFs.remove({});
-
-    console.log("Migration before CRFs", Collections.CRFs.find().count());
-
-    for (var i = 0; i < prad_wcdt_unique_crfs.length; i++) {
-      migrateCollection(prad_wcdt_unique_crfs[i]);
-    }
-
-    migrateCollection("Clinical_Info", {
-      Study_ID: "prad_tcga"
-    });
-
-    console.log("Migration after CRFs", Collections.CRFs.find().count());
-
-    ingestOncore();
-  });
-
-  console.log("after");
-
-  function maintain_prad_wcdt(field) {
+  },
+  maintain_prad_wcdt: function(field) {
     var fields = {};
     fields[field] = 1;
     var objectList = Collections.CRFs.find({
@@ -167,11 +171,5 @@ initializeMetadata = function () {
     var final = Studies.findOne({
       id: "prad_wcdt"
     });
-
-  };
-
-  maintain_prad_wcdt("Patient_ID");
-  maintain_prad_wcdt("Sample_ID");
-
+  }
 };
-Meteor.startup(initializeMetadata);

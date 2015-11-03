@@ -52,7 +52,7 @@ Template.navbarFooter.events({
   },
   "click #initializeBtn": function (event, template) {
     console.log('initializing database');
-    Meteor.call("initializeDatabase");
+    Meteor.call("initializeCollaborations");
   },
   "click #dropBtn": function (event, template) {
     console.log('dropping database');

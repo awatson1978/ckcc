@@ -1,22 +1,5 @@
 Meteor.startup( function () {
 
-  CRFinit.Metadata = {
-      "Form_Name": "String",
-      "Fields": [
-        { "Field_Name": "Form_Name", "type": "String", },
-        {
-          "Field_Name": "Fields",
-          "autoform": {
-            afFieldInput: {
-              type: 'CRF_Field'
-              },
-            },
-            "optional": true,
-            "type": "Object"
-          }
-        ],
-      };
-
 
   if (Meteor.isClient)  {
     AutoForm.addInputType("CRF_Field", {

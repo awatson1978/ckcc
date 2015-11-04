@@ -1,12 +1,12 @@
-##clinical:active-subject  
+##medbook:subject  
 
-An ActiveSubject pattern that provides CRUDL templates, using AutoForms and SimpleSchema.
+UI components for listing subjects and patients.
 
 ===============================
 #### Installation  
 
 ````bash
-meteor add clinical:active-subject
+meteor add medbook:subject
 ````
 
 ===============================
@@ -89,21 +89,6 @@ Router.go('/subject/:id');
 {{> subjectsTablePage }}
 ````
 
-
-===============================
-#### Cloning/Forking  
-
-While ActiveSubject works fine if there's a single schema that you want to create some basic CRUDL user interface for; it's quite likely that you'll want to have multiple schemas, or simply want to modify the default templates somehow.  
-
-The recommended approach for using ActiveSubject is to clone it into your application's ``/packages`` directory, and to then refactor all the references of ``Subject`` to the name of whatever you're modeling.  You'll want to be sure to rename both the capitalized and non-capitalized versions.  Back up your files before doing this refactor!    
-
-```bash
-cd myapp/packages
-git clone http://github.com/clinical-meteor/clinical-active-subject
-cd clinical-active-subject
-find . -tyope f -print0 | xargs -0 sed -i 's/Subject/Foo/g'
-find . -tyope f -print0 | xargs -0 sed -i 's/subject/foo/g'
-```
 
 
 ===============================

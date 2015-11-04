@@ -1,11 +1,5 @@
-##clinical:active-questionnaire  
+##medbook:metadata
 
-===============================
-#### Installation  
-
-````bash
-meteor add clinical:active-questionnaire
-````
 
 ===============================
 #### Licensing  

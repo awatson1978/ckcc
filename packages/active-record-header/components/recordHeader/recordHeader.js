@@ -1,6 +1,6 @@
 Template.recordHeader.helpers({
   hasTitle: function (){
-    console.log('Template.recordHeader.hasTitle', this);
+    //console.log('Template.recordHeader.hasTitle', this);
 
     if (this.title) {
       return false;

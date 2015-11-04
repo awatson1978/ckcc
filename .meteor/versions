@@ -21,6 +21,7 @@ clinical:accounts-housemd@1.1.0
 clinical:active-entry@1.3.1
 clinical:active-questionnaire@1.0.8
 clinical:active-record@1.0.13
+clinical:active-users@0.0.1
 clinical:auto-resizing@0.1.2
 clinical:barcode@3.1.0
 clinical:base-model@1.3.0
@@ -36,6 +37,10 @@ clinical:keybindings@1.0.9
 clinical:migrations@0.8.7
 clinical:modals@1.0.6
 clinical:overlays@2.1.5
+clinical:router@2.0.13
+clinical:router-location@2.0.13
+clinical:router-middleware-stack@2.0.13
+clinical:router-url@2.0.13
 clinical:study-picklist@1.0.6
 clinical:user-model@1.2.3
 clinical:users-picklist@1.0.6
@@ -60,10 +65,6 @@ iron:controller@1.0.8
 iron:core@1.0.11
 iron:dynamic-template@1.0.8
 iron:layout@1.0.8
-iron:location@1.0.11
-iron:middleware-stack@1.0.11
-iron:router@1.0.9
-iron:url@1.0.11
 jquery@1.11.3_2
 json@1.0.3
 launch-screen@1.0.2
@@ -71,7 +72,7 @@ livedata@1.0.13
 localstorage@1.0.3
 logging@1.0.7
 matb33:collection-hooks@0.7.15
-medbook:metadata-crud@1.0.8
+medbook:metadata@1.0.8
 medbook:studies@1.0.13
 medbook:subjects@1.0.13
 meteor@1.1.6
@@ -95,8 +96,6 @@ pfafman:font-awesome-4@4.2.0_4
 photonic:active-record-core@0.0.3
 photonic:active-record-footer@0.0.5
 photonic:active-record-header@0.0.5
-photonic:active-users-core@0.0.3
-photonic:active-users-table@0.0.3
 photonic:glass-ui@0.2.6
 photonic:no-select-everything@0.1.0
 random@1.0.3

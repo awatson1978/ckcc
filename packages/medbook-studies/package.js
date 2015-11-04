@@ -10,7 +10,6 @@ Package.onUse(function (api) {
   api.versionsFrom('1.1.0.2');
 
   api.use('meteor-platform');
-  api.use('iron:router@1.0.7');
   api.use('grove:less@0.1.1');
   api.use('photonic:glass-ui@0.2.4');
 
@@ -20,6 +19,8 @@ Package.onUse(function (api) {
 
   api.imply('aldeed:simple-schema@1.3.3');
   api.imply('aldeed:collection2@2.3.3');
+
+  api.use('clinical:router@2.0.13');
 
   api.addFiles([
     'lib/ActiveStudy.js',

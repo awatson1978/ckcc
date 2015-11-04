@@ -16,8 +16,10 @@ Package.onUse(function (api) {
   api.use('meteor-platform');
   api.use('jquery');
   api.use('session@1.1.0');
-  api.use('iron:router@1.0.7');
   api.use('grove:less@0.1.1');
+
+  api.use('clinical:router@2.0.13');
+
 
   api.addFiles('client/jquery-ui-sortable.js', 'client');
   api.addFiles('client/helpers.js', 'client');

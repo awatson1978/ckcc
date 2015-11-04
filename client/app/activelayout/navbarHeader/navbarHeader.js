@@ -4,6 +4,9 @@ Session.setDefault("show_background", false);
 
 
 Template.navbarHeader.events({
+  'click #navbarTitle': function () {
+    Router.go('/');
+  },
   'click #logoutLink': function () {
     Meteor.logout();
     Router.go('/entrySignIn');

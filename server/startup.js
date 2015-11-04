@@ -1,6 +1,7 @@
 Meteor.startup(function () {
   Env.allow({
-    DEBUG: true
+    DEBUG: true,
+    PROCESS_ENV: true
   });
 
   // we can run the following to prevent initialization

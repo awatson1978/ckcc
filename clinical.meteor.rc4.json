@@ -62,7 +62,6 @@
     "iron:layout":"1.0.8",
     "iron:location":"1.0.9",
     "iron:middleware-stack":"1.0.10",
-    "iron:router":"1.0.9",
     "iron:url":"1.0.9",
     "jquery":"1.11.3_2",
     "launch-screen":"1.0.2",

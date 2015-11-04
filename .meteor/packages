@@ -7,28 +7,31 @@
 meteor-platform
 autopublish
 insecure
+random
+http
+
 awatson1978:fonts-helveticas
 fortawesome:fontawesome
-iron:router@1.0.9
 grove:less
-random
-
-starrynight:dropdatabase@0.0.2
-
-photonic:glass-ui
-photonic:active-users-core
-photonic:active-users-table@0.0.3
-photonic:no-select-everything
-
 gadicohen:prism
 digilord:faker
 natestrauser:jquery-scrollto
 awsp:handsontable
 
-http
+
+starrynight:dropdatabase@0.0.2
+
+
+photonic:glass-ui
+photonic:no-select-everything
+#photonic:active-users-core
+#photonic:active-users-table@0.0.3
+
 
 #meteorhacks:kadira
 
+
+#clinical:json2json
 clinical:barcode
 clinical:extended-api
 clinical:collaborations
@@ -36,7 +39,6 @@ clinical:collaborations-ui@2.1.15
 clinical:active-entry
 clinical:active-record
 clinical:env
-#clinical:json2json
 clinical:migrations
 clinical:overlays
 clinical:modals
@@ -46,12 +48,14 @@ clinical:users-picklist
 clinical:user-model
 clinical:active-questionnaire
 clinical:accounts-housemd
+clinical:router@2.0.13
 
 clinical:hl7-fhir
 clinical:hipaa-audit-log
 clinical:graphs-dailystats@2.3.5
 clinical:form-builder
+clinical:active-users
 
 medbook:studies
-medbook:metadata-crud
+medbook:metadata
 medbook:subjects

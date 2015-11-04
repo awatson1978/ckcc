@@ -15,7 +15,7 @@ Router.route('/builder/:questionnaireId', {
     });
   },
   onAfterAction: function () {
-    WestPanel.show();
+    //WestPanel.show();
     Session.set('activeQuestionnaireId', this.params.questionnaireId);
   },
   yieldTemplates: {

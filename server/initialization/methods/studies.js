@@ -15,10 +15,6 @@ Meteor.methods({
         "citation": "unpublished",
         "collaborations": ["WCDT"],
         "tables": [],
-        /*
-        "Sample_IDs": [],
-        "Patient_IDs": [],
-        */
       }
     });
 
@@ -82,25 +78,5 @@ Meteor.methods({
       }
     });
 
-
-    //  function maintainReferentialIntegrity () {
-    //    Metadata.find({
-    //      study: {
-    //        $exists: 1
-    //      }
-    //    }).forEach(function (table) {
-    //      if (table.study && table.study.length > 0) {
-    //        var n = Studies.update({
-    //          id: table.study
-    //        }, {
-    //          $addToSet: {
-    //            tables: table.name
-    //          }
-    //        });
-    //        //  console.log("maintainReferentialIntegrity", table.study, table.name, n);
-    //      }
-    //    });
-    //  }
-    //  maintainReferentialIntegrity();
   }
 });

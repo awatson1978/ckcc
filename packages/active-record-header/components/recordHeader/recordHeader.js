@@ -1,5 +1,16 @@
 Template.recordHeader.helpers({
+  hasTitle: function (){
+    console.log('Template.recordHeader.hasTitle', this);
+
+    if (this.title) {
+      return false;
+    } else {
+      return true;
+    }
+  },
   isRecord: function () {
+    process.env.TRACE && console.log('Template.recordHeader.isRecord', this);
+
     if (this.type === "record") {
       return true;
     } else {

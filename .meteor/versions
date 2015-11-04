@@ -71,9 +71,9 @@ livedata@1.0.13
 localstorage@1.0.3
 logging@1.0.7
 matb33:collection-hooks@0.7.15
-medbook:active-subjects@1.0.13
 medbook:metadata-crud@1.0.8
 medbook:studies@1.0.13
+medbook:subjects@1.0.13
 meteor@1.1.6
 meteor-platform@1.2.2
 meteorhacks:inject-initial@1.0.2
@@ -94,7 +94,7 @@ ordered-dict@1.0.3
 pfafman:font-awesome-4@4.2.0_4
 photonic:active-record-core@0.0.3
 photonic:active-record-footer@0.0.5
-photonic:active-record-header@0.0.4
+photonic:active-record-header@0.0.5
 photonic:active-users-core@0.0.3
 photonic:active-users-table@0.0.3
 photonic:glass-ui@0.2.6

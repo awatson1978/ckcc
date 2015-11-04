@@ -1,13 +1,12 @@
-<template name="menuPage">
-  <div id="menuPage" class="helveticas page {{getTileTheme}}" style="{{getOpacity}} {{getPagePadding}} {{getPageBorder}} {{getBackground}}">
+<template name="appMenuPage">
+  <div id="appMenuPage" class="helveticas page {{getTileTheme}}" style="{{getOpacity}} {{getPagePadding}} {{getPageBorder}} {{getBackground}}">
 
     <div id="menuItems">
       <div id="collaborationsTile" class="menuItem" style="{{getMenuWidth}}">
-        <h4>COLLABORATIONS</h4>
+        <h4>WRANGLER</h4>
         <hr>
         <div class="panel-image">
-          <img id="collaborationsTileImage" src="/images/home/sponsors.jpg" class="panel-image-preview" />
-          <!-- <img id="formBuilderTileImage" src="/images/home/formbuilder.png" class="panel-image-preview" /> -->
+          <img src="/images/home/sponsors.jpg" class="panel-image-preview" />
           <div class="statsRibbon">
             <h1>{{ getCollaborationsCount }}</h1>
           </div>
@@ -18,7 +17,7 @@
         <h4>DESIGN</h4>
         <hr>
         <div class="panel-image">
-          <img id="formBuilderTileImage" src="/images/home/formbuilder.png" class="panel-image-preview" />
+          <img src="/images/home/sponsors.jpg" class="panel-image-preview" />
           <div class="statsRibbon">
             <h1>{{ getNullCount }}</h1>
           </div>
@@ -29,7 +28,7 @@
         <h4>QUESTIONAIRES</h4>
         <hr>
         <div class="panel-image">
-          <img id="savedFormsTileImage" src="/images/home/forms-square.jpg" class="panel-image-preview" />
+          <img src="/images/home/sponsors.jpg" class="panel-image-preview" />
           <div class="statsRibbon">
             <h1>{{ getQuestionsCount }}</h1>
           </div>
@@ -41,7 +40,7 @@
         <h4>FORM METADATA</h4>
         <hr>
         <div class="panel-image">
-          <img id="savedFormsTileImage" src="/images/home/forms-square.jpg" class="panel-image-preview" />
+          <img src="/images/home/sponsors.jpg" class="panel-image-preview" />
           <div class="statsRibbon">
             <h1>{{ getMetadataCount }}</h1>
           </div>
@@ -53,7 +52,7 @@
         <h4>CLINICAL RECORDS</h4>
         <hr>
         <div class="panel-image">
-          <img id="collectedDataTileImage" src="/images/home/wordcloud.jpg" class="panel-image-preview" />
+          <img src="/images/home/sponsors.jpg" class="panel-image-preview" />
           <div class="statsRibbon">
             <h1>{{ getClinicalDataCount }}</h1>
           </div>
@@ -64,7 +63,7 @@
         <h4>USERS</h4>
         <hr>
         <div class="panel-image">
-          <img id="usersTileImage" src="/images/home/users.jpg" class="panel-image-preview" />
+          <img src="/images/home/sponsors.jpg" class="panel-image-preview" />
           <div class="statsRibbon">
             <h1>{{ getUsersCount }}</h1>
           </div>
@@ -75,27 +74,17 @@
         <h4>STUDIES</h4>
         <hr>
         <div class="panel-image">
-          <img id="studiesTileImage" src="/images/home/clinical-studies.jpg" class="panel-image-preview" />
+          <img src="/images/home/sponsors.jpg" class="panel-image-preview" />
           <div class="statsRibbon">
             <h1>{{ getStudiesCount }}</h1>
           </div>
         </div>
       </div>
-      <!-- <div id="sponsorsTile" class="menuItem notImplementedYet" style="{{getMenuWidth}}">
-        <h4>SPONSORS</h4>
-        <hr>
-        <div class="panel-image">
-          <img id="sponsorsTileImage" src="/images/home/sponsors.jpg" class="panel-image-preview" />
-          <div class="statsRibbon">
-            <h1>{{ getNullCount }}</h1>
-          </div>
-        </div>
-      </div> -->
       <div id="patientsTile" class="menuItem" style="{{getMenuWidth}}">
         <h4>SUBJECTS</h4>
         <hr>
         <div class="panel-image">
-          <img id="subjectsTileImage" src="/images/home/subjects.jpg" class="panel-image-preview" />
+          <img src="/images/home/sponsors.jpg" class="panel-image-preview" />
           <div class="statsRibbon">
             <h1>{{ getSubjectsCount }}</h1>
           </div>
@@ -105,7 +94,7 @@
         <h4>COMMENTS</h4>
         <hr>
         <div class="panel-image">
-          <img id="auditTileImage" src="/images/home/comments.jpg" class="panel-image-preview" />
+          <img src="/images/home/sponsors.jpg" class="panel-image-preview" />
           <div class="statsRibbon">
             <h1>{{ getNullCount }}</h1>
           </div>
@@ -115,7 +104,7 @@
         <h4>AUDIT</h4>
         <hr>
         <div class="panel-image">
-          <img id="auditTileImage" src="/images/home/audit.jpg" class="panel-image-preview" />
+          <img src="/images/home/sponsors.jpg" class="panel-image-preview" />
           <div class="statsRibbon">
             <h1>{{ getHipaaCount }}</h1>
           </div>

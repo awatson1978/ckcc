@@ -54,4 +54,4 @@ clinical:form-builder
 
 medbook:studies
 medbook:metadata-crud
-medbook:active-subjects
+medbook:subjects

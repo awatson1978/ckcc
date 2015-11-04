@@ -5,6 +5,10 @@
   <header class="recordHeader" style={{getOpacityWithCorner}}>
     {{#if isRecord}}
       <h4 class="recordId barcode">{{_id}}</h4>
+    {{else}}
+      {{#if hasTitle}}
+        <h4 class="recordTitle">{{title}}</h4>
+      {{/if}}
     {{/if}}
     {{#if _id}}
       <i class="lockButton fa {{getLockIcon}}"></i>

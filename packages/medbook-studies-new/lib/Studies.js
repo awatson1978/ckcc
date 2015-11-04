@@ -1,10 +1,5 @@
 Studies = new Meteor.Collection('studies');
 
-// if (Collections === undefined) {
-//   Collections = {};
-// }
-// Studies = Studies;
-
 Studies.allow({
   insert: function () {
     return true;

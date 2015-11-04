@@ -1,3 +1,11 @@
+Template.registerHelper("getStudySite", function (argument){
+  if (this && this.attributes && this.attributes.Demographics && this.attributes.Demographics["Study Site"]) {
+    return this.attributes.Demographics["Study Site"];
+  } else {
+    return "";
+  }
+});
+
 Template.registerHelper("studiesList", function (argument){
   return Studies.find({
     $or: [

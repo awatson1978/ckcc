@@ -1,6 +1,6 @@
 Package.describe({
   name:'photonic:active-record-header',
-  version: '0.0.4',
+  version: '0.0.5',
   summary: 'Photonic::ActiveRecord::recordHeader',
   git: 'http://github.com/awatson1978/active-record/packages/active-record-header',
   documentation: 'README.md',

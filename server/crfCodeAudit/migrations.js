@@ -20,6 +20,7 @@ initializeMetadata = function () {
     var migration = Collections.DataMigrations.findOne({
       name: migrationName
     });
+
     if (migration == null) {
       console.log("migrating", migrationName);
       func();
@@ -46,6 +47,7 @@ initializeMetadata = function () {
 
     console.log("Migration after CRFs", Collections.CRFs.find().count());
 
+    //Oncore.ingest();
     ingestOncore();
   });
 
@@ -138,7 +140,7 @@ Migrator = {
     });
     console.log("migration", collName, count, countInserted, query);
   },
-  maintain_prad_wcdt: function(field) {
+  maintain_prad_wcdt: function (field) {
     var fields = {};
     fields[field] = 1;
     var objectList = Collections.CRFs.find({

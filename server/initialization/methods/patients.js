@@ -5,7 +5,8 @@ Meteor.methods({
     Oncore.find().forEach(function (record){
       console.log('record', record);
 
-      Patients.insert(record);
+      breakpoint;
+      //Patients.insert(record);
 
     });
 

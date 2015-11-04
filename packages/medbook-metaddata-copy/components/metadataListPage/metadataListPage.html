@@ -1,0 +1,35 @@
+
+<template name="metadatasListPage">
+  <article id="metadatasListPage" class="page fizzle">
+    {{> recordHeader type="metadata" spreadsheet=false}}
+
+    <div class="pageBody" style="{{getOpacity}}">
+      <input id="metadataSearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." value="{{getQuestionnaireSearchFilter}}"/>
+      <ul id="metadatasList">
+        {{#if hasNoContent}}
+          <li id="noResultsMessage" class="addQuestionnaireItem">
+            <article class="noResultsMessage">
+              <span>There are no results!  Click to add one.</span>
+            </article>
+            <div class="fadeAway"></div>
+          </li>
+
+        {{else}}
+          {{#each metadatasList}}
+            <li class="metadataItem">
+              <article>
+                <h2 class="metadataName titleText">{{commonName}}</h2>
+                <span class="pull-right barcode gray idText">{{_id}}</span><br>
+                <!-- <span class="institutionName">{{institutionId}}</span> -->
+                <span class="descriptionText">{{version}}</span>
+                <span class="pull-right newLink">New</span>
+              </article>
+              <div class="fadeAway"></div>
+            </li>
+          {{/each}}
+        {{/if}}
+      </ul>
+    </div>
+    {{> recordFooter }}
+  </article>
+</template>

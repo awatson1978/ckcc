@@ -1,0 +1,30 @@
+<template name="metadataUpsertPage">
+  <div id="metadataUpsertPage" class="page">
+
+    {{> recordHeader type="record" url="metadatas" spreadsheet=false}}
+
+    <div id="metadataUpsertCard" class="horizontally-padded card-contents" style={{getOpacity}}>
+      {{#autoForm
+        id="newQuestionnaireForm"
+        collection="Questionnaires"
+        type="insert"
+        schema=QuestionnaireSchema
+        buttonContent="Save"
+        buttonClass="glass-footer-btn"
+        doc=this
+      }}
+
+        {{#each afFieldNames}}
+          {{> afQuickField name=this.name options=afOptionsFromSchema autocomplete="off"}}
+        {{/each}}
+
+        <button id="saveQuestionnaireButton" type="submit" class="glass-footer-btn">Save Questionnaire</button>
+        {{#if this}}
+          <button id="removeQuestionnaireButton" data-_id={{doc._id}} data-name={{doc.name}} type="button" class="right removeQuestionnaire btn btn-danger">Delete</button>
+        {{/if}}
+
+      {{/autoForm}}
+    </div>
+    {{> recordFooter }}
+  </div>
+</template>

@@ -1,0 +1,52 @@
+
+<template name="subjectsListPage">
+  <article id="subjectsListPage" class="page fizzle">
+    {{> recordHeader imageGrid=false url="subjects"}}
+    <div class="pageBody" style="{{getOpacity}}">
+      <input id="subjectSearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." value="{{getSubjectSearchFilter}}" />
+      <ul id="subjectsList">
+        {{#if hasNoContent}}
+          <li id="noResultsMessage" class="addSubjectItem">
+            <article class="noResultsMessage">
+              <span>There are no results!  Click to add one.</span>
+            </article>
+            <div class="fadeAway"></div>
+          </li>
+
+        {{else}}
+          {{#each subjectsList}}
+            <li class="recordItem">
+              <article>
+                <h2 class="titleText">{{participantId}}</h2>
+                <span class="pull-right barcode gray barcodeText">{{_id}}</span><br>
+
+                <span class="leftSubtitle">{{ getStudySite }}</span>
+                <span class="leftSubSubtitle">{{ attributes.Demographics.Gender }} / {{attributes.Demographics.Age}}</span>
+                <span class="leftText">{{attributes.Demographics.Race}}</span>
+                <!-- <span class="leftText">{{description}}</span> -->
+
+                <span class="pull-right rightSubtitle">{{questionnaireName}}</span>
+                <span class="pull-right rightSubSubtitle">{{createdAt}}</span>
+              </article>
+              <div class="fadeAway"></div>
+            </li>
+            <!-- <li class="subjectItem">
+              <article>
+                <h2 class="titleText">{{institutionId}} - {{participantId}}</h2>
+                <span class="pull-right barcode gray barcodeText">{{_id}}</span><br>
+                <span class="leftSubtitle">{{physicianName}}</span>
+                <span class="leftSubSubtitle">{{subjectGender}} / {{subjectAge}}</span>
+                <span class="leftText">{{description}}</span>
+
+                <span class="pull-right rightSubtitle">{{questionnaireName}}</span>
+                <span class="pull-right rightSubSubtitle">{{createdAt}}</span>
+              </article>
+              <div class="fadeAway"></div>
+            </li> -->
+          {{/each}}
+        {{/if}}
+      </ul>
+    </div>
+    {{> recordFooter }}
+  </article>
+</template>

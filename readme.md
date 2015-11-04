@@ -14,6 +14,18 @@ Copy the application to your computer and run it locally:
   meteor
 ````
 
+
+=========================
+#### Development
+Copy the application to your computer and run it locally:
+
+````sh
+  cd ckcc
+  starrynight fetch
+````
+
+
+
 =========================
 #### Testing  
 Copy the application to your computer and run it locally:

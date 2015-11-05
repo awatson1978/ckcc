@@ -39,6 +39,30 @@ Template.metadataUpsertPage.rendered = function (){
 
 
 Template.metadataUpsertPage.helpers({
+
+  getCurrentSchema: function (){
+    console.log('Template.metadataUpsertPage.getCurrentSchema');
+
+    if (this) {
+      console.log('currentRecord', this);
+
+      var questionnaireMetadata = Metadata.findOne({_id: this.name});
+      console.log('currentDehydratedSchema', questionnaireMetadata);
+
+      if (questionnaireMetadata) {
+        if (questionnaireMetadata) {
+          console.log('SchemaHydrator.hydrate(questionnaireMetadata.schema)', SchemaHydrator.hydrate(questionnaireMetadata));
+          return SchemaHydrator.hydrate(questionnaireMetadata);
+        } else {
+          return false;
+        }
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  },
   isNewQuestionnaire: function (){
     if (this._id){
       return false;
@@ -85,7 +109,7 @@ Template.metadataUpsertPage.events({
   },
   "click #saveQuestionnaireButton": function (event, template){
     event.preventDefault();
-    Template.metadataUpsertPage.saveQuestionnaire(this);
+    Template.metadataUpsertPage.saveQuestionnaire(this, false);
     Session.set('metadataReadOnly', true);
   },
   "click .barcode": function (){
@@ -95,7 +119,7 @@ Template.metadataUpsertPage.events({
     } else {
       Session.set('metadataReadOnly', true);
       console.log('Locking the metadata...');
-      Template.metadataUpsertPage.saveQuestionnaire(this);
+      Template.metadataUpsertPage.saveQuestionnaire(this, false);
     }
   },
   "click #lockQuestionnaireButton": function (){
@@ -126,30 +150,71 @@ Template.metadataUpsertPage.events({
 });
 
 
-Template.metadataUpsertPage.saveQuestionnaire = function (metadata){
+Template.metadataUpsertPage.saveQuestionnaire = function (metadata, record){
   console.log('Template.metadataUpsertPage.saveQuestionnaire', metadata);
 
-  var newQuestionnaire = {
-    metadataName: $('input[name="metadataName"]').val(),
-    institutionName: $('input[name="institutionName"]').val(),
-    institutionId: $('input[name="institutionId"]').val(),
-    collaborationName: $('input[name="collaborationName"]').val(),
-    collaborationId: $('input[name="collaborationId"]').val(),
-    slug: $('input[name="slug"]').val()
-  };
+  var newRecord = {};
+  var inputElements = $('#newQuestionnaireForm input');
+  var textareaElements = $('#newQuestionnaireForm textarea');
 
-  process.env.DEBUG && console.log ("newQuestionnaire", newQuestionnaire);
+  console.log('inputElements', inputElements);
+  console.log('textareaElements', textareaElements);
 
-  if (metadata._id){
-    Metadata.update({_id: metadata._id}, {$set: newQuestionnaire }, function (error, result){
+  for (var i = 0; i < inputElements.length; i++) {
+    newRecord[inputElements[i].name] = inputElements[i].value;
+  }
+  for (var i = 0; i < textareaElements.length; i++) {
+    newRecord[textareaElements[i].name] = textareaElements[i].value;
+  }
+
+  newRecord.createdAt = new Date();
+  newRecord.questionnaireId = metadata._id;
+
+  console.log ("newRecord", newRecord);
+
+
+  if (record._id){
+    Records.update({_id: record._id}, {$set: newRecord }, function (error, result){
       if (error) console.log(error);
-      Router.go('/view/metadata/' + metadata._id);
+      Router.go('/view/record/' + record._id);
     });
   } else {
-    Metadata.insert(newQuestionnaire, function (error, result){
+    Records.insert(newRecord, function (error, result){
       if (error) console.log(error);
-      Router.go('/list/metadatas/');
-      //Router.go('/view/metadata/' + result);
+      Router.go('/list/records');
     });
   }
+
+
+  // var newQuestionnaire = {
+  //   metadataName: $('input[name="metadataName"]').val(),
+  //   institutionName: $('input[name="institutionName"]').val(),
+  //   institutionId: $('input[name="institutionId"]').val(),
+  //   collaborationName: $('input[name="collaborationName"]').val(),
+  //   collaborationId: $('input[name="collaborationId"]').val(),
+  //   slug: $('input[name="slug"]').val()
+  // };
+  //
+  // var inputElements = $('input');
+  //
+  // var newRecord = {};
+  //
+  // inputElements.forEach(function (input){
+  //
+  // });
+  //
+  // //process.env.DEBUG && console.log ("newQuestionnaire", newQuestionnaire);
+  //
+  // if (metadata._id){
+  //   Metadata.update({_id: metadata._id}, {$set: newQuestionnaire }, function (error, result){
+  //     if (error) console.log(error);
+  //     Router.go('/view/metadata/' + metadata._id);
+  //   });
+  // } else {
+  //   Metadata.insert(newQuestionnaire, function (error, result){
+  //     if (error) console.log(error);
+  //     Router.go('/list/metadatas/');
+  //     //Router.go('/view/metadata/' + result);
+  //   });
+  // }
 };

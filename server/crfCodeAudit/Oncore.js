@@ -34,6 +34,7 @@ ingestOncore = function () {
       console.log("Mapping Patient", patient.patient);
       mapPatient(patient, schemaMap);
     });
+    
     console.log("Ingesting finished");
 
     console.log("ingestClinical- Starting Cohort Level Analysis");

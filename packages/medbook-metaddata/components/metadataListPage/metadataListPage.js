@@ -17,9 +17,11 @@ Router.map(function () {
 });
 Router.route('/metadata/:metadataId/new', {
   name: 'metadataUpsertForTemplate',
-  template: 'recordUpsertPage',
+  template: 'metadataUpsertPage',
   data: function (){
-    return Metadata.findOne({_id: this.params.metadataId});
+    var formSchema = Metadata.findOne({_id: this.params.metadataId});
+    console.log('formSchema', formSchema);
+    return formSchema;
   }
 });
 

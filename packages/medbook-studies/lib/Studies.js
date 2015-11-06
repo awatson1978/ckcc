@@ -99,8 +99,19 @@ StudySchema = new SimpleSchema({
         template: "photonic"
       }
     }
+  },
+  "Questionnaires": {
+    type: [String],
+    optional: true,
+    defaultValue: "",
+    label: "Questionnaires",
+    autoform: {
+      afArrayField: {
+        class: "questionnaires",
+        template: "photonic"
+      }
+    }
   }
-
 
 });
 Studies.attachSchema(StudySchema);

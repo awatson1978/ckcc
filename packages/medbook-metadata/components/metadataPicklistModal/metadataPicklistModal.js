@@ -1,14 +1,18 @@
 Meteor.startup(function () {
   Session.setDefault('showMetadataPicklist', false);
+  Session.setDefault('selectedInputNameForMetadataPicklist', null);
+  Session.setDefault('selectedInputIdForMetadataPicklist', null);
   Session.setDefault('metadataModalSearchFilter', "");
   Session.setDefault('selectedMetadataId', null);
+
 });
 
 
 Template.metadataPicklistModal.events({
   'click #metadataPicklistCancelButton': function (){
+    Session.set('metadataSearchFilter', "");
     Session.set('showMetadataPicklist', false);
-    Session.set('show_reactive_overlay', false);
+    Session.set('showReactiveOverlay', false);
   },
   'change #metadataModalSearchInput': function (){
     Session.set('metadataModalSearchFilter', $('#metadataModalSearchInput').val());
@@ -17,17 +21,32 @@ Template.metadataPicklistModal.events({
     Session.set('metadataSearchFilter', $('#metadataSearchInput').val());
   },
   "click #metadataPicklistOkButton": function (event, template) {
+    Session.set('metadataSearchFilter', "");
     Session.set('showMetadataPicklist', false);
-    Session.set('show_reactive_overlay', false);
+    Session.set('showReactiveOverlay', false);
   },
   'click .metadataRow': function (){
     Session.set("selectedMetadataId", this._id);
     Session.set("metadataSearchFilter", this.name);
     Session.set('showMetadataPicklist', false);
-    Session.set('show_reactive_overlay', false);
 
-    $('input[name="metadataId"]').val(this._id);
-    $('input[name="metadataName"]').val(this.name);
+    console.log('click .metadataRow', this._id);
+
+    var selectedInputId = Session.get('selectedInputIdForMetadataPicklist');
+
+    if (selectedInputId) {
+      console.log('#' + selectedInputId);
+
+      $('#' + selectedInputId).val(this._id);
+    }
+
+
+    Session.set('selectedInputNameForMetadataPicklist', null);
+    Session.set('selectedInputIdForMetadataPicklist', null);
+
+    Session.set('showReactiveOverlay', false);
+    Session.set('metadataSearchFilter', "");
+
   }
 });
 

@@ -90,6 +90,27 @@ Template.studyUpsertPage.helpers({
 });
 
 Template.studyUpsertPage.events({
+  'click input': function (event, template){
+    console.log('event.currentTarget', event.currentTarget);
+    console.log('event.currentTarget.name', event.currentTarget.name);
+    console.log('event.currentTarget.name.indexOf("Questionnaires")', event.currentTarget.name.indexOf("Questionnaires"));
+
+    // This may seem hacky, but we need to do it to handle array inputs
+    // I wouldn't go so far as to say it's elegant, but don't mistake it for a kludge or a hack.
+    // It's actualy doing pretty much exactly what it needs to do
+    // in about as concise a way possible, given the constraints of the array inputs
+    if (event.currentTarget.name.indexOf("Questionnaires") > -1) {
+      //console.log('event.currentTarget.name.indexOf("Questionnaires")', event.currentTarget.name.indexOf("Questionnaires"));
+
+      Session.set('selectedInputNameForMetadataPicklist', event.currentTarget.name);
+      Session.set('selectedInputIdForMetadataPicklist', event.currentTarget.id);
+      Session.set('metadataModalSearchFilter', "");
+      Session.get('selectedMetadataId', null);
+
+      Session.set('showReactiveOverlay', true);
+      Session.set('showMetadataPicklist', true);
+    }
+  },
   'click #removeStudyButton': function (){
     Studies.remove(this._id, function (error, result){
       if (result){

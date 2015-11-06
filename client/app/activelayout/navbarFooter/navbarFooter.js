@@ -24,11 +24,11 @@ Template.appLayout.events({
     //$('input[type="submit"]').click();
   },
   'click #keybindingsBtn': function (){
-    Session.toggle('show_reactive_overlay');
+    Session.toggle('showReactiveOverlay');
     Session.toggle('show_keybindings');
   },
   'click #overlayBtn': function (){
-    Session.toggle('show_reactive_overlay');
+    Session.toggle('showReactiveOverlay');
   },
   "click #homeBtn": function (event, template) {
     Router.go('/');

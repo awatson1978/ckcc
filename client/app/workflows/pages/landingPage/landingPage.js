@@ -7,7 +7,7 @@ Template.landingPage.events({
   'click #screenshotTileBlue, tap #screenshotTileBlue': function () {
 
     Session.set('overlay_image_path', $('#screenshotBlue').attr('src'));
-    Session.set('show_reactive_overlay', true);
+    Session.set('showReactiveOverlay', true);
     Session.set('show_overlay_image', true);
 
   }

@@ -232,27 +232,27 @@ Template.formBuilderPanel.helpers({
   // },
 
 
-  // addNewFieldTabActive: function () {
-  //   if (Session.equals('selectedBuilderTab', 'addNewFieldTab')) {
-  //     return "active";
-  //   } else {
-  //     return "";
-  //   }
-  // },
-  // editFieldTabActive: function () {
-  //   if (Session.equals('selectedBuilderTab', 'editFieldTab')) {
-  //     return "active";
-  //   } else {
-  //     return "";
-  //   }
-  // },
-  // isAddNewFieldTab: function () {
-  //   if (Session.get('selectedBuilderTab') === 'addNewFieldTab') {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // },
+  addNewFieldTabActive: function () {
+    if (Session.equals('selectedBuilderTab', 'addNewFieldTab')) {
+      return "active";
+    } else {
+      return "";
+    }
+  },
+  editFieldTabActive: function () {
+    if (Session.equals('selectedBuilderTab', 'editFieldTab')) {
+      return "active";
+    } else {
+      return "";
+    }
+  },
+  isAddNewFieldTab: function () {
+    if (Session.get('selectedBuilderTab') === 'addNewFieldTab') {
+      return true;
+    } else {
+      return false;
+    }
+  },
   // hasDefaultValue: function () {
   //   if (Session.get('selectedBlockType') === 'paragraphBlock') {
   //     return false;

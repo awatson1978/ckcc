@@ -40,7 +40,6 @@ Meteor.startup(function () {
 
 
 
-
 //==================================================================================================
 
 
@@ -54,7 +53,7 @@ Template.appLayout.helpers({
   resized: function () {
     Template.appLayout.layout();
   },
-  getSecondPanelStyle: function (){
+  getSecondPanelStyle: function () {
     if (Session.get('pageIsWide')) {
       return "visibility: hidden; left: " + (Session.get('appWidth') + 1024) + "px;";
     } else {
@@ -68,22 +67,35 @@ Template.appLayout.helpers({
 
 
 
-
-generateStylesheet = function (secondPanel){
+generateStylesheet = function (secondPanel) {
   var stylesheet = {};
 
 
   if (secondPanel) {
     if (Session.get('appWidth') > 2076) {
       var halfDiff = (Session.get('appWidth') - 1856) * 0.5;
+      if (Session.get('formBuilderPanelVisible')) {
+        halfDiff = halfDiff + 300;
+      }
       stylesheet.left = (halfDiff + 938) + "px;";
     } else {
-      stylesheet.left = Session.get('mainPanelLeft') + "px;";
+      var leftPosition = Session.get('mainPanelLeft');
+      if (Session.get('formBuilderPanelVisible')) {
+        leftPosition = leftPosition + 300;
+      }
+      stylesheet.left = leftPosition + "px;";
       stylesheet.visibility = "hidden;";
     }
   } else {
-    stylesheet.left = Session.get('mainPanelLeft') + "px;";
+    var leftPosition = Session.get('mainPanelLeft');
+    if (Session.get('formBuilderPanelVisible')) {
+      //leftPosition = leftPosition + 300;
+      leftPosition = 440;
+    };
+    stylesheet.left = leftPosition + "px;";
   };
+
+
 
   if (Session.get('pageIsWide')) {
     stylesheet.width = (Session.get('appWidth') - 400) + "px;";
@@ -125,8 +137,8 @@ Template.appLayout.layout = function () {
     Session.set('mainPanelLeft', (100 + (Session.get('appWidth') - 1856) * 0.5));
     Session.set("sidebarVisible", true);
 
-  // one-page with sidebar
-  // 1208 =  single 768px panel + 2 margins at least 220px wide + 20px sidebar spacer
+    // one-page with sidebar
+    // 1208 =  single 768px panel + 2 margins at least 220px wide + 20px sidebar spacer
   } else if (Session.get('appWidth') > 1228) {
     Session.set('sidebarLeft', (Session.get('appWidth') - 1228) * 0.5);
     Session.set("sidebarVisible", true);
@@ -138,14 +150,14 @@ Template.appLayout.layout = function () {
       Session.set('mainPanelLeft', (Session.get('appWidth') - 768) * 0.5);
     }
 
-  // one-page
-  // 768 =  single 768px panel
+    // one-page
+    // 768 =  single 768px panel
   } else if (Session.get('appWidth') > 768) {
     Session.set('mainPanelLeft', (Session.get('appWidth') - 768) * 0.5);
     Session.set("sidebarLeft", -200);
     Session.set("sidebarVisible", false);
 
-  // mobile
+    // mobile
   } else {
     Session.set('mainPanelLeft', 0);
     Session.set("sidebarLeft", -200);
@@ -162,25 +174,28 @@ Template.appLayout.delayedLayout = function (timeout) {
 //==================================================================================================
 
 
-Template.registerHelper("getOpacityWithCorner", function (){
+Template.registerHelper("getOpacityWithCorner", function () {
   if (Session.get('appWidth') > 768) {
     if (Session.get('mainPanelIsCard')) {
-      return "background: linear-gradient(225deg, transparent 28.28px, rgba(255,255,255," + Session.get("glassOpacity") + ") 0) top right;";
+      return "background: linear-gradient(225deg, transparent 28.28px, rgba(255,255,255," +
+        Session.get("glassOpacity") + ") 0) top right;";
     } else {
-      return "background-color: rgba(255,255,255," + Session.get("glassOpacity") + "); top: 50px;";
+      return "background-color: rgba(255,255,255," + Session.get("glassOpacity") +
+        "); top: 50px;";
     }
   } else {
-    return "background-color: rgba(255,255,255," + Session.get("glassOpacity") + "); top: 50px;";
+    return "background-color: rgba(255,255,255," + Session.get("glassOpacity") +
+      "); top: 50px;";
   }
 });
-Template.registerHelper("getOpacity", function (){
+Template.registerHelper("getOpacity", function () {
   return "background-color: rgba(255,255,255," + Session.get("glassOpacity") + ");";
 });
 Template.registerHelper("btnPrimary", function () {
   return "background-color: " + Session.get('backgroundColorA') + "; color: #ffffff;";
 });
 
-Template.registerHelper("getNorthRule", function (argument){
+Template.registerHelper("getNorthRule", function (argument) {
   var topDistance = 0;
 
   if (Session.get('showNavbars')) {

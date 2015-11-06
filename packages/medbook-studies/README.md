@@ -49,18 +49,18 @@ Meteor.subscribe("studies");
 // server/publications.js
 Meteor.publish("studies", function (studyId) {
   if (studyId) {
-    // if (User.collaborationsContain(
+    // if (User.studiesContain(
 
     return Studies.findOne({
       _id: studyId,
-      collaborations: {
-        $in: User.getCollaborations()
+      studies: {
+        $in: User.getStudies()
       }
     });
   } else
     return Studies.find({
-      collaborations: {
-        $in: User.getCollaborations()
+      studies: {
+        $in: User.getStudies()
       }
   });
 });

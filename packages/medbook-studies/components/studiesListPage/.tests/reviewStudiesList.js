@@ -11,7 +11,7 @@ exports.command = function (dataStudy) {
   if (dataStudy){
     this
       .clearValue("#studySearchInput")
-      .setValue("#studySearchInput", dataStudy.collaborationSearch).pause(5000)
+      .setValue("#studySearchInput", dataStudy.studySearch).pause(5000)
       .verify.elementPresent("#studiesList .studyItem:nth-child(1)")
       .verify.elementPresent("#studiesList .studyItem:nth-child(1) article")
       .verify.elementPresent("#studiesList .studyItem:nth-child(1) article .rightSubtitle")

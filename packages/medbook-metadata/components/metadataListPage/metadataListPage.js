@@ -18,17 +18,14 @@ Router.route('/list/metadata/', {
       to: 'header'
     },
     'navbarFooter': {
-      to: 'studyter'
+      to: 'footer'
     },
     'mainSidebar': {
       to: 'sidebar'
     },
     'metadataActionButtons': {
       to: 'footerActionElements'
-    },
-    // 'studyUpsertPage': {
-    //   to: 'secondPage'
-    // },
+    }
   }
 });
 
@@ -46,17 +43,14 @@ Router.route('/metadata/:metadataId/new', {
       to: 'header'
     },
     'navbarFooter': {
-      to: 'studyter'
+      to: 'footer'
     },
     'mainSidebar': {
       to: 'sidebar'
     },
     'metadataActionButtons': {
       to: 'footerActionElements'
-    },
-    // 'studyUpsertPage': {
-    //   to: 'secondPage'
-    // },
+    }
   }
 });
 

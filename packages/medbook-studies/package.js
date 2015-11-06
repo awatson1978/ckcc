@@ -46,6 +46,10 @@ Package.onUse(function (api) {
     'components/studyUpsertPage/studyUpsertPage.js',
     'components/studyUpsertPage/studyUpsertPage.less',
 
+    'components/studiesPicklistModal/studiesPicklistModal.html',
+    'components/studiesPicklistModal/studiesPicklistModal.js',
+    'components/studiesPicklistModal/studiesPicklistModal.less',
+
     'components/studiesActionButtons/studiesActionButtons.html',
     'components/studiesActionButtons/studiesActionButtons.js',
     'components/studiesActionButtons/studiesActionButtons.less'

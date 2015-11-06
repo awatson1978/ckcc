@@ -35,6 +35,10 @@ Package.onUse(function (api) {
     'components/metadataUpsertPage/metadataUpsertPage.js',
     'components/metadataUpsertPage/metadataUpsertPage.less',
 
+    'components/metadataPicklistModal/metadataPicklistModal.html',
+    'components/metadataPicklistModal/metadataPicklistModal.js',
+    'components/metadataPicklistModal/metadataPicklistModal.less',
+
     'components/metadataActionButtons/metadataActionButtons.html',
     'components/metadataActionButtons/metadataActionButtons.js',
     'components/metadataActionButtons/metadataActionButtons.less',

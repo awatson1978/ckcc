@@ -18,7 +18,7 @@ Router.map(function (){
       'mainSidebar': {
         to: 'sidebar'
       },
-      'studyUpsertPage': {
+      '': {
         to: 'secondPage'
       },
       'insertStudyActionButtons': {
@@ -162,23 +162,78 @@ Template.studyUpsertPage.events({
 
 
 Template.studyUpsertPage.saveStudy = function (study, questionnaire){
-
   console.log("Template.studyUpsertPage.saveStudies.", questionnaire);
-  // TODO:  add validation functions
 
   var newStudy = {};
-  var inputElements = $('#studyUpsertPage input');
-  var textareaElements = $('#studyUpsertPage textarea');
 
-  console.log('inputElements', inputElements);
-  console.log('textareaElements', textareaElements);
-
+  var inputElements = $('#studyUpsertPage .form-group input');
   for (var i = 0; i < inputElements.length; i++) {
-    newStudy[inputElements[i].name] = inputElements[i].value;
+    //console.log('inputElements[i]', inputElements[i]);
+    // console.log("inputElements[i].id", inputElements[i].id);
+    //console.log("inputElements[i].value", inputElements[i].value);
+
+    // don't use the input's name as it's data-schema-key if it's using dotted notation
+    if (inputElements[i].name.indexOf('.') === -1) {
+      newStudy[inputElements[i].name] = inputElements[i].value;
+    } else {
+      // drat, it's in dotted notation, so it's going to be a pain
+
+      // lets start by grabbing the fieldname
+      var fieldName = inputElements[i].name.split('.')[0];
+      console.log('fieldName', fieldName);
+
+      // it's an array, so if the fieldName doesn't exist, create an empty array
+      if (newStudy[fieldName]) {
+        newStudy[fieldName].push(inputElements[i].value);
+      } else {
+        newStudy[fieldName] = [];
+        newStudy[fieldName].push(inputElements[i].value);
+      }
+
+      // and now we have to push the new values onto the stack
+    }
   }
+  console.log ("newStudy", newStudy);
+
+  var textareaElements = $('#studyUpsertPage .form-group textarea');
   for (var i = 0; i < textareaElements.length; i++) {
     newStudy[textareaElements[i].name] = textareaElements[i].value;
   }
+
+  // the initial parse of the checkboxes is going to put text strings where a boolean should be
+  // so we need to make sure we rescan the checkboxes and put proper booleans in place
+  var checkboxElements = $('#studyUpsertPage .form-group input[type="checkbox"]');
+  for (var i = 0; i < checkboxElements.length; i++) {
+    newStudy[checkboxElements[i].name] = checkboxElements[i].checked;
+  }
+
+  // // // we now need to get the array items
+  // var inputElements = $('#studyUpsertPage .form-group input');
+  // var
+  // for (var i = 0; i < inputElements.length; i++) {
+  //   // check if the name is using dotted notation, indicating that it's storing a value that should go into an array
+  //   if (inputElements[i].name.indexOf('.') > -1) {
+  //
+  //     // grab the fieldName
+  //     var fieldName = inputElements[i].name.split('.')[0];
+  //
+  //     // if the fieldName is undefined, create a default array
+  //     if (typeof newStudy[fieldName] === undefined) {
+  //       newStudy[fieldName] = [];
+  //     }
+  //
+  //     // push the new value onto the array
+  //     newStudy[fieldName].push(inputElements[i].value);
+  //     // newStudy[fieldName].push(inputElements[i].name.split('.')[1])
+  //
+  //   }
+  // }
+
+  console.log('inputElements', inputElements);
+  // console.log('textareaElements', textareaElements);
+  // console.log('checkboxElements', checkboxElements);
+
+
 
   newStudy.createdAt = new Date();
   newStudy.questionnaireId = questionnaire._id;

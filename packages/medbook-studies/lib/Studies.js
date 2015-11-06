@@ -70,7 +70,7 @@ StudySchema = new SimpleSchema({
   "tables": {
     type: [String],
     optional: true,
-    defaultValue: "",
+    defaultValue: [],
     label: "Tables",
     autoform: {
       afArrayField: {
@@ -81,7 +81,7 @@ StudySchema = new SimpleSchema({
   "Sample_IDs": {
     type: [String],
     optional: true,
-    defaultValue: "",
+    defaultValue: [],
     label: "Sample IDs",
     autoform: {
       afArrayField: {
@@ -92,7 +92,7 @@ StudySchema = new SimpleSchema({
   "Patient_IDs": {
     type: [String],
     optional: true,
-    defaultValue: "",
+    defaultValue: [],
     label: "Patient IDs",
     autoform: {
       afArrayField: {
@@ -103,7 +103,7 @@ StudySchema = new SimpleSchema({
   "Questionnaires": {
     type: [String],
     optional: true,
-    defaultValue: "",
+    defaultValue: [],
     label: "Questionnaires",
     autoform: {
       afArrayField: {

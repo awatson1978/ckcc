@@ -181,12 +181,18 @@ Template.metadataUpsertPage.saveQuestionnaire = function (metadata, record){
 
   if (record._id){
     Records.update({_id: record._id}, {$set: newRecord }, function (error, result){
-      if (error) console.log(error);
+      if (error) {
+        console.log(error);
+        Session.set('errorMessage', error);
+      }
       Router.go('/view/record/' + record._id);
     });
   } else {
     Records.insert(newRecord, function (error, result){
-      if (error) console.log(error);
+      if (error) {
+        console.log(error);
+        Session.set('errorMessage', error);
+      }
       Router.go('/list/records');
     });
   }

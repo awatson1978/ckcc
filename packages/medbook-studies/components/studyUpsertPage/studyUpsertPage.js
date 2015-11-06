@@ -168,15 +168,17 @@ Template.studyUpsertPage.saveStudy = function (study, questionnaire){
   if (study._id){
     Studies.update({_id: study._id}, {$set: newStudy }, function (error, result){
       if (error) {
+        console.log(error);
         Session.set('errorMessage', error);
-      } console.log(error);
+      }
       Router.go('/view/study/' + study._id);
     });
   } else {
     Studies.insert(newStudy, function (error, result){
       if (error) {
+        console.log(error);
         Session.set('errorMessage', error);
-      } console.log(error);
+      }
       Router.go('/list/studies');
       //Router.go('/view/study/' + result);
     });

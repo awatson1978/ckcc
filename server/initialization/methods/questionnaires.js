@@ -49,6 +49,7 @@ Meteor.methods({
       Questionnaires.insert(hydrationTestQuestionnaire, {validate: false}, function (error, result){
         if (error) {
           console.log(error);
+          Session.set('errorMessage', error);
         }
       });
     }

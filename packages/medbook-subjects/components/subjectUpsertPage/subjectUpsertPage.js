@@ -144,14 +144,19 @@ Template.subjectUpsertPage.saveSubject = function (subject, questionnaire){
 
   if (subject._id){
     Subjects.update({_id: subject._id}, {$set: newSubject }, function (error, result){
-      if (error) console.log(error);
+      if (error) {
+        console.log(error);
+        Session.set('errorMessage', error);
+      }
       Router.go('/view/subject/' + subject._id);
     });
   } else {
     Subjects.insert(newSubject, function (error, result){
-      if (error) console.log(error);
+      if (error) {
+        console.log(error);
+        Session.set('errorMessage', error);
+      }
       Router.go('/list/subjects');
-      //Router.go('/view/subject/' + result);
     });
   }
 };

@@ -226,6 +226,7 @@ FormBuilder = {
         }
       }, {validate: false}, function (error, result) {
         if (error) {
+          console.log(error);
           Session.set('errorMessage', error);
         }
       });

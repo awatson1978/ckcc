@@ -1,8 +1,13 @@
 
 
+// since the navbarFooter can't support {{> yield }} blocks
+// we need to move the footer into the appLayout
+// so we're attaching those events and footers to the appLayout Template
+// but storing them here for organizational sake
 
-Template.navbarFooter.helpers({
-  isVisible: function (){
+Template.appLayout.helpers({
+  getFooterHeight: function (){
+    console.log('getFooterHeight', Session.get('showNavbars'));
     if (Session.get('showNavbars')) {
       return "height: 50px;";
     } else {
@@ -11,13 +16,9 @@ Template.navbarFooter.helpers({
   }
 });
 
-Template.navbarFooter.events({
-  'click #saveDataButton': function (){
-    $('#saveRecordButton').click();
-  },
-  'click #saveCollaborationButton': function (){
-    $('#upsertCollaborationButton').click();
-  },
+// most of these items need to be refactored away into actionBarHelperBlocks
+
+Template.appLayout.events({
   'click #saveFormButton': function (){
     $('#saveRecordButton').click();
     //$('input[type="submit"]').click();
@@ -28,12 +29,6 @@ Template.navbarFooter.events({
   },
   'click #overlayBtn': function (){
     Session.toggle('show_reactive_overlay');
-  },
-  'click #addCollaborationButton': function (){
-    Router.go('/new/collaboration');
-  },
-  'click #collaborationsBtn': function (){
-    Router.go('/grid/collaborations');
   },
   "click #homeBtn": function (event, template) {
     Router.go('/');
@@ -46,9 +41,6 @@ Template.navbarFooter.events({
   },
   "click #tableBtn": function (event, template) {
     Router.go('/table/records');
-  },
-  "click #newQuestionnaireBtn": function (event, template) {
-    Router.go('/build/questionnaire');
   },
   "click #initializeBtn": function (event, template) {
     console.log('initializing database');

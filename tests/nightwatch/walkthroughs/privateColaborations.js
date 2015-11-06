@@ -94,7 +94,7 @@ module.exports = {
         .click("#collaborationGridElements .collaboration:nth-child(1)")
       .reviewUpsertCollaboration(ckccCollaboration);
   },
-  "D. UserA Can Add a Questionnaire": function (client) {
+  "D. UserA Can Add a Study": function (client) {
     client
       .click("#newQuestionnaireBtn").pause(1000)
       .reviewUpsertQuestionnare()
@@ -102,7 +102,16 @@ module.exports = {
       .pause(1000)
       .reviewQuestionnairesList(intakeQuestionnaire, true);
   },
-  "E. UserA Can complete a Questionnaire": function (client) {
+
+  "D. UserA Can Add a Questionnaire to a Study": function (client) {
+    client
+      .click("#newQuestionnaireBtn").pause(1000)
+      .reviewUpsertQuestionnare()
+      .upsertQuestionnaire(intakeQuestionnaire)
+      .pause(1000)
+      .reviewQuestionnairesList(intakeQuestionnaire, true);
+  },
+  "E. UserA Can complete the Study Questionnaire": function (client) {
     client
       .reviewPatientIntakeForm()
       .upsertPatientIntakeForm(newPatientEnrollment)

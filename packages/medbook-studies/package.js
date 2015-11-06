@@ -45,6 +45,11 @@ Package.onUse(function (api) {
     'components/studyUpsertPage/studyUpsertPage.html',
     'components/studyUpsertPage/studyUpsertPage.js',
     'components/studyUpsertPage/studyUpsertPage.less',
+
+    'components/studiesActionButtons/studiesActionButtons.html',
+    'components/studiesActionButtons/studiesActionButtons.js',
+    'components/studiesActionButtons/studiesActionButtons.less'
+
   ], ['client']);
 
 

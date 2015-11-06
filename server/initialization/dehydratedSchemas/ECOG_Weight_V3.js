@@ -24,7 +24,7 @@ Meteor.startup(function() {
                 "autoform": autoformDate,
                 "optional": true,
                 "type": "Date",
-		"autoform": autoformDate,
+		              "autoform": autoformDate,
             },
             {
                 "Field_Name": "ECOG_PS",

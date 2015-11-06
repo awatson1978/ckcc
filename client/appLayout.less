@@ -47,12 +47,20 @@ body{
 }
 
 
-// .page{
-//   padding-top: 40px;
-//   padding-left: 40px;
-//   padding-right: 40px;
-//   padding-bottom: 40px;
-// }
+//====================================================================================
+// OVERRIDES - PLEASE TRY TO REMOVE FROM THIS FILE, AND FIX CORRECTLY IN PROPER PLACES
+
+// hacky fixes
+.btn-danger{
+  padding-right: 3em;
+  color: black !important;
+  background-color: white !important;
+  height: 40px;
+  margin-top: 1px;
+}
+.control-label{
+  position: relative !important;
+}
 
 #usersTablePage{
   padding: 40px;
@@ -151,7 +159,6 @@ a{
 // landscape orientation
 @media only screen and (max-width: 768px) {
   #mainPanel{
-    top: 50px;
     margin-bottom: 50px;
     left: 0px !important;
     padding-right: 20px;

@@ -26,6 +26,9 @@ Router.map(function () {
       'studyUpsertPage': {
         to: 'secondPage'
       },
+      'studiesActionButtons': {
+        to: 'footerActionElements'
+      }
     },
     data: function () {
       if (Session.get('activeStudy')) {

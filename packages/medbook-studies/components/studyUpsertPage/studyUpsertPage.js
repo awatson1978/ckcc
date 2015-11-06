@@ -7,6 +7,23 @@ Router.map(function (){
     template: 'studyUpsertPage',
     onAfterAction: function (){
       Session.set('studyReadOnly', false);
+    },
+    yieldTemplates: {
+      'navbarHeader': {
+        to: 'header'
+      },
+      'navbarFooter': {
+        to: 'studyter'
+      },
+      'mainSidebar': {
+        to: 'sidebar'
+      },
+      'studyUpsertPage': {
+        to: 'secondPage'
+      },
+      'insertStudyActionButtons': {
+        to: 'footerActionElements'
+      }
     }
   });
 
@@ -150,12 +167,16 @@ Template.studyUpsertPage.saveStudy = function (study, questionnaire){
 
   if (study._id){
     Studies.update({_id: study._id}, {$set: newStudy }, function (error, result){
-      if (error) console.log(error);
+      if (error) {
+        Session.set('errorMessage', error);
+      } console.log(error);
       Router.go('/view/study/' + study._id);
     });
   } else {
     Studies.insert(newStudy, function (error, result){
-      if (error) console.log(error);
+      if (error) {
+        Session.set('errorMessage', error);
+      } console.log(error);
       Router.go('/list/studies');
       //Router.go('/view/study/' + result);
     });

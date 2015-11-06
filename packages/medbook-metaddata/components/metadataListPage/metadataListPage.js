@@ -9,12 +9,30 @@ Session.setDefault('skipCount', 0);
 //------------------------------------------------------------------------------
 // ROUTING
 
-Router.map(function () {
-  this.route('metadatasListPage', {
-    path: '/list/metadata/',
-    template: 'metadatasListPage'
-  });
+
+Router.route('/list/metadata/', {
+  name: 'metadatasListPage',
+  template: 'metadatasListPage',
+  yieldTemplates: {
+    'navbarHeader': {
+      to: 'header'
+    },
+    'navbarFooter': {
+      to: 'studyter'
+    },
+    'mainSidebar': {
+      to: 'sidebar'
+    },
+    'metadataActionButtons': {
+      to: 'footerActionElements'
+    },
+    // 'studyUpsertPage': {
+    //   to: 'secondPage'
+    // },
+  }
 });
+
+
 Router.route('/metadata/:metadataId/new', {
   name: 'metadataUpsertForTemplate',
   template: 'metadataUpsertPage',
@@ -22,8 +40,27 @@ Router.route('/metadata/:metadataId/new', {
     var formSchema = Metadata.findOne({_id: this.params.metadataId});
     console.log('formSchema', formSchema);
     return formSchema;
+  },
+  yieldTemplates: {
+    'navbarHeader': {
+      to: 'header'
+    },
+    'navbarFooter': {
+      to: 'studyter'
+    },
+    'mainSidebar': {
+      to: 'sidebar'
+    },
+    'metadataActionButtons': {
+      to: 'footerActionElements'
+    },
+    // 'studyUpsertPage': {
+    //   to: 'secondPage'
+    // },
   }
 });
+
+
 
 
 

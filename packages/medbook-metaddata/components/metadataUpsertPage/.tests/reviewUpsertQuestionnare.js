@@ -1,44 +1,45 @@
-exports.command = function (metadata) {
+exports.command = function (questionnaire) {
 
   // first we test that default elements are there
   this
-    .verify.elementPresent("#metadataUpsertPage")
-    .verify.elementPresent("#metadataUpsertPage .recordHeader")
-    .verify.elementPresent("#metadataUpsertCard")
-    // .verify.elementPresent("#metadataMetaData")
-    // .verify.elementPresent("#metadataMetaInputs")
-    .verify.elementPresent('input[name="metadataName"]')
+    .verify.elementPresent("#questionnaireUpsertPage")
+    .verify.elementPresent("#questionnaireUpsertPage .recordHeader")
+    .verify.elementPresent("#questionnaireUpsertCard")
+    // .verify.elementPresent("#questionnaireMetaData")
+    // .verify.elementPresent("#questionnaireMetaInputs")
+    .verify.elementPresent('input[name="questionnaireName"]')
     .verify.elementPresent('input[name="institutionName"]')
     .verify.elementPresent('input[name="institutionId"]')
     .verify.elementPresent('input[name="collaborationName"]')
     .verify.elementPresent('input[name="collaborationId"]')
     .verify.elementPresent('input[name="slug"]');
 
+
   // if the field was specified, lets check it's set in its corresponding input
-  if (metadata) {
-    if (metadata.metadataName) {
-      this.verify.attributeEquals('input[name="metadataName"]', "value", metadata.metadataName);
+  if (questionnaire) {
+    if (questionnaire.questionnaireName) {
+      this.verify.attributeEquals('input[name="questionnaireName"]', "value", questionnaire.questionnaireName);
     }
-    if (metadata.institutionName) {
-      this.verify.attributeEquals('input[name="institutionName"]', "value", metadata.institutionName);
+    if (questionnaire.institutionName) {
+      this.verify.attributeEquals('input[name="institutionName"]', "value", questionnaire.institutionName);
     }
-    if (metadata.institutionId) {
-      this.verify.attributeEquals('input[name="institutionId"]', "value", metadata.institutionId);
+    if (questionnaire.institutionId) {
+      this.verify.attributeEquals('input[name="institutionId"]', "value", questionnaire.institutionId);
     }
-    if (metadata.collaborationName) {
-      this.verify.attributeEquals('input[name="collaborationName"]', "value", metadata.collaborationName);
+    if (questionnaire.collaborationName) {
+      this.verify.attributeEquals('input[name="collaborationName"]', "value", questionnaire.collaborationName);
     }
-    if (metadata.collaborationId) {
-      this.verify.attributeEquals('input[name="collaborationId"]', "value", metadata.collaborationId);
+    if (questionnaire.collaborationId) {
+      this.verify.attributeEquals('input[name="collaborationId"]', "value", questionnaire.collaborationId);
     }
-    if (metadata.slug) {
-      this.verify.attributeEquals('input[name="slug"]', "value", metadata.slug);
+    if (questionnaire.slug) {
+      this.verify.attributeEquals('input[name="slug"]', "value", questionnaire.slug);
     }
   }
 
 
   this
-    .verify.elementPresent("#metadataUpsertPage .recordFooter")
+    .verify.elementPresent("#questionnaireUpsertPage .recordFooter")
     .verify.elementPresent("#saveQuestionnaireButton");
 
   return this;

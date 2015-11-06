@@ -92,6 +92,12 @@ Template.metadataUpsertPage.helpers({
 });
 
 Template.metadataUpsertPage.events({
+  'click input[name="Patient_ID"]': function (){
+    //Session.set('errorMessage', "Patient picklist not implemented yet.");
+    //Session.set('showPatientPicklist', true);
+    Session.set('show_reactive_overlay', true);
+    Session.set('show_users_picklist', true);
+  },
   'click input[name="collaborationName"]': function (){
     Session.set('show_reactive_overlay', true);
     Session.set('showCollaborationPicklist', true);

@@ -34,6 +34,11 @@ Package.onUse(function (api) {
     'components/metadataUpsertPage/metadataUpsertPage.html',
     'components/metadataUpsertPage/metadataUpsertPage.js',
     'components/metadataUpsertPage/metadataUpsertPage.less',
+
+    'components/metadataActionButtons/metadataActionButtons.html',
+    'components/metadataActionButtons/metadataActionButtons.js',
+    'components/metadataActionButtons/metadataActionButtons.less',
+
   ], ['client']);
 
   api.addFiles([

@@ -10,9 +10,6 @@ Meteor.startup(function () {
 
     console.log('Initializing collections....');
 
-    if (Oncore.find().count() === 0) {
-      //Meteor.call('initializeOncoreSample');
-    }
 
     if (Metadata.find().count() === 0) {
       //Meteor.call('initializeMetadata');

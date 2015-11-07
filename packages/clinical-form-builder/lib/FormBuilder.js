@@ -1,64 +1,79 @@
 FormBuilder = {
-  add: function (blockType) {
+  add: function (blockType, question) {
     Session.set('selectedBlockType', blockType);
     Session.set('selectedFormElementId', blockType);
-    Session.set('selectedBlockItem', FormBuilder.addQuestion());
+    Session.set('selectedBlockItem', FormBuilder.addQuestion(question));
     Session.set('selectedBuilderTab', 'editFieldTab');
   },
-  addQuestion: function () {
+  addQuestion: function (question) {
     Session.set('selectedBuilderTab', 'addNewFieldTab');
 
-    var newFormElement;
+    var formElementRecord;
 
     if (Session.get('selectedFormElementId') === "textInputBlock") {
-      newFormElement = {
-        type: String,
-        optional: true,
-        label: "Q: Lorem textum...",
-        autoforms: {
-          afFieldInput: {
-            type: "text",
-            placeholder: "Lorem ipsum...",
-            rank: Items.find().count() + 1,
+      formElementRecord = {
+        formElementId: "textInputBlock",
+        elementType: "text",
+        keyName: "textInputBlock" + Items.find().count(),
+        rank: Items.find().count(),
+        schemaTemplate: {
+          type: "String",
+          optional: true,
+          label: "Q: Lorem textum...",
+          autoforms: {
+            afFieldInput: {
+              type: "text",
+              placeholder: "Lorem ipsum..."
+            }
           }
         }
       };
+
     };
     if (Session.get('selectedFormElementId') === "textareaInputBlock") {
-      newFormElement = {
-        type: String,
-        optional: true,
-        label: "Q: Lorem textum...",
-        autoforms: {
-          afFieldInput: {
-            type: "textarea",
-            rows: 5,
-            placeholder: "Lorem ipsum...",
-            rank: Items.find().count() + 1,
+      formElementRecord = {
+        formElementId: "textareaInputBlock",
+        elementType: "textarea",
+        keyName: "textareaInputBlock" + Items.find().count(),
+        rank: Items.find().count(),
+        schemaTemplate: {
+          type: "String",
+          optional: true,
+          label: "Q: Lorem textum...",
+          autoforms: {
+            afFieldInput: {
+              type: "textarea",
+              rows: 5,
+              placeholder: "Lorem ipsum..."
+            }
           }
         }
       };
     };
 
     if (Session.get('selectedFormElementId') === "sectionTitleBlock") {
-      newFormElement = {
-        type: String,
-        optional: true,
-        label: "Section ipsum...",
-        defaultValue: "",
-        autoforms: {
-          afFieldInput: {
-            type: "textarea",
-            rows: 5,
-            placeholder: "Lorem ipsum...",
-            rank: Items.find().count() + 1,
+      formElementRecord = {
+        formElementId: "sectionTitleBlock",
+        keyName: "sectionTitleBlock" + Items.find().count(),
+        rank: Items.find().count(),
+        schemaTemplate: {
+          type: "String",
+          optional: true,
+          label: "Section ipsum...",
+          defaultValue: "",
+          autoforms: {
+            afFieldInput: {
+              type: "textarea",
+              rows: 5,
+              placeholder: "Lorem ipsum..."
+            }
           }
         }
       };
     };
 
     // if (Session.get('selectedFormElementId') === "spacerBlock") {
-    //   newFormElement.autoforms = {
+    //   formElementRecord.autoforms = {
     //     elementType: "spacer",
     //     afFieldInput: {
     //       type: "spacer"
@@ -67,8 +82,8 @@ FormBuilder = {
     // };
 
     // if (Session.get('selectedFormElementId') === "paragraphBlock") {
-    //   newFormElement.label = "Lorem ipsum dolar sit amet...";
-    //   newFormElement.autoforms = {
+    //   formElementRecord.label = "Lorem ipsum dolar sit amet...";
+    //   formElementRecord.autoforms = {
     //     elementType: "paragraph",
     //     afFieldInput: {
     //       type: "paragraph",
@@ -138,19 +153,33 @@ FormBuilder = {
     //   var defaultValue5 = "4";
     // }
     // if (Session.get('selectedFormElementId') === "radioInputBlock") {
-    //   newFormElement.defaultValue1 = defaultValue1;
-    //   newFormElement.defaultValue2 = defaultValue2;
-    //   newFormElement.defaultValue3 = defaultValue3;
-    //   newFormElement.defaultValue4 = defaultValue4;
-    //   newFormElement.defaultValue5 = defaultValue5;
+    //   formElementRecord.defaultValue1 = defaultValue1;
+    //   formElementRecord.defaultValue2 = defaultValue2;
+    //   formElementRecord.defaultValue3 = defaultValue3;
+    //   formElementRecord.defaultValue4 = defaultValue4;
+    //   formElementRecord.defaultValue5 = defaultValue5;
     // }
-    // console.log('newFormElement', newFormElement);
+    // console.log('formElementRecord', formElementRecord);
 
-    console.log('newFormElement', newFormElement);
-    //return Items.insert(newFormElement);
-    var schema = Session.get('formDesignerSchema');
-    schema["foo"] = newFormElement;
-    Session.set('formDesignerSchema', schema);
+    // did we get a question object?
+    // if so, override the defualt values
+    if (question) {
+      if (question.key) {
+        formElementRecord.keyName = question.key;
+      }
+      if (question.label) {
+        formElementRecord.partialSchema.label = question.label;
+      }
+      if (question.placeholder) {
+        formElementRecord.partialSchema.autoforms.afFieldInput.placeholder = question.placeholder;
+      }
+    }
+
+    console.log('formElementRecord', formElementRecord);
+    return Items.insert(formElementRecord);
+    // var schema = Session.get('formDesignerSchema');
+    // schema["foo"] = formElementRecord;
+    // Session.set('formDesignerSchema', schema);
   },
   save: function () {
     // var blockItems = Items.find({}, {

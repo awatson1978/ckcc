@@ -2,6 +2,7 @@
 
 Meteor.startup(function () {
   Session.setDefault('selectedBlockItem', false);
+  Session.setDefault('selectedItemId', false);
 });
 
 
@@ -56,24 +57,22 @@ Router.route('/builder', {
 
 
 Template.builderPage.events({
+  'click #formTitleInput': function (){
+    Session.set('selectedItemId', false);
+  },
   'click .close': function () {
     Items.remove(this._id);
   },
   'click .item': function () {
-    //Session.set('errorMessage', this.name);
-    Session.set('selectedQuestionField', this.name);
-
+    Session.set('selectedItemId', this._id);
     Session.set('selectedBuilderTab', 'editFieldTab');
   },
   'click .yes-button': function () {
     Session.set('selectedBlockItem', this._id);
     Session.set('errorMessage', 'Form not activated yet.');
-    // alert('yes: ' + this._id);
   },
   'click .no-button': function () {
     Session.set('selectedBlockItem', this._id);
-    // alert('no: ' + this._id);
-    // alert('Form not activated yet.');
     Session.set('errorMessage', 'Form not activated yet.');
   }
 
@@ -125,85 +124,127 @@ Template.builderPage.onRendered(function (){
 });
 
 
-Template.builderPage._originalSchema = function (){
-  return {
-    fullName: {
-      type: String,
-      optional: true,
-      defaultValue: "Full Name...",
-      label: "Full Name",
-      autoform: {
-        afFieldInput:{
-          type: "text",
-          placeholder: "Full Name...",
-          class: "question"
-        }
-      }
-    },
-    medicalHistory: {
-      type: String,
-      optional: true,
-      defaultValue: "Foo...",
-      label: "Please list your medical history...",
-      autoform: {
-        afFieldInput:{
-          type: "textarea",
-          rows: 10,
-          placeholder: "Bar...",
-          class: "question"
-        }
-      }
-    }
-  };
-};
+// Template.builderPage._originalSchema = function (){
+//   return {
+//     fullName: {
+//       type: String,
+//       optional: true,
+//       defaultValue: "Full Name...",
+//       label: "Full Name",
+//       autoform: {
+//         afFieldInput:{
+//           type: "text",
+//           placeholder: "Full Name...",
+//           class: "question"
+//         }
+//       }
+//     },
+//     medicalHistory: {
+//       type: String,
+//       optional: true,
+//       defaultValue: "Foo...",
+//       label: "Please list your medical history...",
+//       autoform: {
+//         afFieldInput:{
+//           type: "textarea",
+//           rows: 10,
+//           placeholder: "Bar...",
+//           class: "question"
+//         }
+//       }
+//     }
+//   };
+// };
+//
+// Template.builderPage._schema = function (){
+//   return Session.get('formDesignerSchema');
+// };
 
-Template.builderPage._schema = function (){
-  return Session.get('formDesignerSchema');
-};
-
-Session.setDefault('formDesignerSchema', Template.builderPage._originalSchema());
+//Session.setDefault('formDesignerSchema', Template.builderPage._originalSchema());
 
 Template.builderPage.helpers({
+  questionnairesList: function (){
+    return Items.find().fetch();
+  },
+  getFormId: function (){
+    return Meteor.uuid();
+  },
+  getItemSchemaData: function (){
+    console.log('getItemSchema', this);
+    if (this.schemaTemplate) {
+      return JSON.stringify(SchemaHydrator.hydratePartialSchema(this));
+    }
+  },
+  getItemSchema: function (){
+    console.log('getItemSchema', this);
+    //if (this.schemaTemplate) {
+      //console.log('this.partialSchema', this.schemaTemplate);
+
+      //return SchemaHydrator.hydratePartialSchema(this);
+    return new SimpleSchema({
+      "foo": {
+        type: String,
+        optional: true,
+        label: "This is a foo"
+      },
+      "bar": {
+        type: String,
+        optional: true,
+        label: "This is a bar"
+      },
+    });
+    //}
+  },
   getThisId: function (){
     return Random.id();
   },
-  getThisSchema: function (){
-    var formDesignerSchema = Session.get('formDesignerSchema');
-    console.log('formDesignerSchema[this]', formDesignerSchema[this]);
-    return formDesignerSchema[this];
-  },
-  schemaFieldNames: function (){
-    var result = [];
-    var formDesignerSchema = Session.get('formDesignerSchema');
-    Object.keys(formDesignerSchema).forEach(function (key){
-      result.push(key);
-    });
-    return result;
-  },
-  getOriginalSchema: function (){
-    return Session.get('formDesignerSchema');
-  },
-  getBasicSchema: function (){
-    Meteor.autorun(function (){
-      var desginerSchema = new SimpleSchema(Session.get('formDesignerSchema'));
-    });
-    return desginerSchema;
-  },
+  // getThisSchema: function (){
+  //   var formDesignerSchema = Session.get('formDesignerSchema');
+  //   console.log('formDesignerSchema[this]', formDesignerSchema[this]);
+  //   return formDesignerSchema[this];
+  // },
+  // schemaFieldNames: function (){
+  //   var result = [];
+  //   var formDesignerSchema = Session.get('formDesignerSchema');
+  //   Object.keys(formDesignerSchema).forEach(function (key){
+  //     result.push(key);
+  //   });
+  //   return result;
+  // },
+  // getOriginalSchema: function (){
+  //   return Session.get('formDesignerSchema');
+  // },
+  // getBasicSchema: function (){
+  //   Meteor.autorun(function (){
+  //     var desginerSchema = new SimpleSchema(Session.get('formDesignerSchema'));
+  //   });
+  //   return desginerSchema;
+  // },
   isInput: function (fieldName){
-    console.log('fieldName', fieldName);
+    //console.log('fieldName', fieldName);
+    // var designerSchema = Session.get('formDesignerSchema');
+    // if (designerSchema[fieldName].autoform.afFieldInput.type === "text") {
+    //   return true;
+    // } else {
+    //   return false;
+    // }
 
-    var designerSchema = Session.get('formDesignerSchema');
-    if (designerSchema[fieldName].autoform.afFieldInput.type === "text") {
+    if (this.formElementId === "textInputBlock") {
       return true;
     } else {
       return false;
     }
   },
   isTextarea: function (fieldName){
-    console.log('fieldName', fieldName);
-
-    var designerSchema = Session.get('formDesignerSchema');
-    if (designerSchema[fieldName].autoform.afFieldInput.type === "textarea") {
+    // console.log('fieldName', fieldName);
+    //
+    // var designerSchema = Session.get('formDesignerSchema');
+    // if (designerSchema[fieldName].autoform.afFieldInput.type === "textarea") {
+    //   return true;
+    // } else {
+    //   return false;
+    // }
+    if (this.formElementId === "textareaInputBlock") {
       return true;
     } else {
       return false;
@@ -226,28 +267,22 @@ Template.builderPage.helpers({
       return "";
     }
   },
-  isSelected: function (blockType) {
-    if (Session.get('selectedBlockType') === blockType) {
+  isSelected: function () {
+    if (Session.equals('selectedItemId', this._id)) {
       return "selected";
     }
   },
-  getLabelText: function (fieldName) {
-    var designerSchema = Session.get('formDesignerSchema');
-    return designerSchema[fieldName].label;
+  getLabelText: function () {
+    return this.schemaTemplate.label;
+    // var designerSchema = Session.get('formDesignerSchema');
+    // return designerSchema[fieldName].label;
   },
-  getInputType: function () {
-    return this.inputType;
-  },
-  // getInputPlaceholder: function () {
-  //   if (this.autoforms.afFieldInput.placeholder) {
-  //     return this.inputPlaceholder;
-  //   } else {
-  //     return "...";
-  //   }
+  // getInputType: function () {
+  //   return this.inputType;
   // },
-  getInputValue: function () {
-    return this.inputValue;
-  },
+  // getInputValue: function () {
+  //   return this.inputValue;
+  // },
 
   // getValue1: function () {
   //   if (this.defaultValue1) {

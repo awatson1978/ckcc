@@ -18,10 +18,10 @@
           {{> afQuickField name=this.name options=afOptionsFromSchema autocomplete="off"}}
         {{/each}}
 
-      <button id="saveSubjectButton" type="submit" class="glass-footer-btn">Save Subjects.</button>
-      {{#if this}}
-        <button id="removeSubjectButton" data-_id={{doc._id}} data-name={{doc.name}} type="button" class="right removeSubject btn btn-danger">Delete</button>
-      {{/if}}
+        <button id="saveSubjectButton" type="submit" class="glass-footer-btn">Save Subjects.</button>
+        {{#if this}}
+          <button id="removeSubjectButton" data-_id={{doc._id}} data-name={{doc.name}} type="button" class="right removeSubject btn btn-danger">Delete</button>
+        {{/if}}
 
       {{/autoForm}}
     </div>

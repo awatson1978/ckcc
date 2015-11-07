@@ -12,7 +12,11 @@ Session.setDefault('multiSelectValues', {
 });
 
 Template.formBuilderPanel.events({
+  'click #deleteBlockButton': function (){
+    Items.remove({_id: this._id});
+  },
   'click #textInputBlock': function () {
+    console.log('click #textInputBlock');
     Session.set('selectedBlockType', 'textInputBlock');
     FormBuilder.add('textInputBlock');
   },
@@ -73,7 +77,7 @@ Template.formBuilderPanel.events({
       Session.set('selectedBuilderTab', 'editFieldTab');
       console.log(Session.get('selectedBuilderTab'));
     }
-  }
+  },
 
   // 'keyup .multiselectInput': function (event) {
   //   // get the values from our sidebarB
@@ -151,24 +155,28 @@ Template.formBuilderPanel.events({
   //   Session.set('selectedBuilderTab', 'addNewFieldTab');
   //   Session.set('selectedBlockItem', false);
   // },
-  // 'click #saveFormBlockParamsButton': function () {
-  //   var newObject = {
-  //     label: $('#questionInput').val(),
-  //     inputValue: $('#defaultValueInput').val(),
-  //   };
-  //   if (Session.get('selectedBlockType') === 'radioInputBlock') {
-  //     newObject.defaultValue1 = $('#defaultValueInput1').val();
-  //     newObject.defaultValue2 = $('#defaultValueInput2').val();
-  //     newObject.defaultValue3 = $('#defaultValueInput3').val();
-  //     newObject.defaultValue4 = $('#defaultValueInput4').val();
-  //     newObject.defaultValue5 = $('#defaultValueInput5').val();
-  //   }
-  //   Items.update({
-  //     _id: Session.get('selectedBlockItem')
-  //   }, {
-  //     $set: newObject
-  //   });
-  // },
+  'click #saveFormBlockParamsButton': function () {
+    // var newObject = {
+    //   label: $('#questionInput').val(),
+    //   inputValue: $('#defaultValueInput').val(),
+    // };
+    // if (Session.get('selectedBlockType') === 'radioInputBlock') {
+    //   newObject.defaultValue1 = $('#defaultValueInput1').val();
+    //   newObject.defaultValue2 = $('#defaultValueInput2').val();
+    //   newObject.defaultValue3 = $('#defaultValueInput3').val();
+    //   newObject.defaultValue4 = $('#defaultValueInput4').val();
+    //   newObject.defaultValue5 = $('#defaultValueInput5').val();
+    // }
+    Items.update({
+      _id: Session.get('selectedItemId')
+    }, {
+      $set: {
+        'schemaTemplate.label': $('#questionInput').val(),
+        'schemaTemplate.defaultValue': $('#defaultValueInput').val(),
+        'schemaTemplate.autoforms.afFieldInput.placeholder': $('#placeholderInput').val()
+      }
+    });
+  },
   // 'click #duplicateFormBlockButton': function () {
   //   Session.set('selectedBlockType', this.blockType);
   //   Session.set('selectedFormElementId', this.blockType);
@@ -181,6 +189,9 @@ Template.formBuilderPanel.events({
 
 
 Template.formBuilderPanel.helpers({
+  getLabelText: function (){
+    return this.keyName;
+  },
   getWestPanelStyle: function (){
     if (Session.get("formBuilderPanelVisible")) {
       return "visibility: visible; left: 0px;";
@@ -205,7 +216,7 @@ Template.formBuilderPanel.helpers({
     }
   },
   selectedFormBlock: function () {
-    return Items.findOne(Session.get('selectedBlockItem'));
+    return Items.findOne(Session.get('selectedItemId'));
   },
   getQuestionText: function () {
     return this.label;

@@ -10,24 +10,31 @@
     }
   }
 
-
-  .textInputBlock,
-  .textareaBlock{
-    border-top: 1px solid #bbbbbb !important;
-    margin-left: 40px;
+  .form-control{
+    width: 100%;
+    margin-top: 12px;
+    margin-bottom: 13px;
+    border-top: 1px none #bbbbbb !important;
+    border-bottom: 1px solid #bbbbbb !important;
+    border-left: 1px dashed #bbbbbb !important;
+    border-right: 0px;
+    background-color: inherit;
   }
+  .control-label{
+    position: relative !important;
+    font-size: 90%;
+    color: #999999;
+    top: -10px;
+    left: -10px;
+  }
+
 
 
   // sortable list
   .item{
     cursor: move;
-    //border: 2px solid #eeeeee;
     border: 2px solid white;
     margin-top: 5px;
-    //margin: 10px;
-    // .padded{
-    //   padding-left: 25px;
-    // }
     .close:hover{
       color: #a52323;
     }

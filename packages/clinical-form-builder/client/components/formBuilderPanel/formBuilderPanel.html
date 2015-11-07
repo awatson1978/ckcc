@@ -55,8 +55,16 @@
           {{#with selectedFormBlock}}
             <ul class="list-group">
               <li class="list-group-item">
-                  <label class="smallgray" for="questionInput">Default Text</label>
-                  <textarea id="questionInput" class="form-control" rows="10" type="text" placeholder="Q:  How many asprins do you take a day?">{{getQuestionText}}</textarea>
+                  <label class="smallgray" for="keyNameInput">Key Name</label>
+                  <input id="keyNameInput" class="form-control" type="text" placeholder="keyName" value="{{keyName}}">
+              </li>
+              <li class="list-group-item">
+                  <label class="smallgray" for="questionInput">Question</label>
+                  <input id="questionInput" class="form-control" type="text" placeholder="Q:  How many asprins do you take a day?" value="{{schemaTemplate.label}}">
+              </li>
+              <li class="list-group-item">
+                  <label class="smallgray" for="questionInput">Placeholder Text</label>
+                  <textarea id="placeholderInput" class="form-control" rows="10" type="text" placeholder="Q:  How many asprins do you take a day?">{{schemaTemplate.autoforms.afFieldInput.placeholder}}</textarea>
               </li>
               {{#if hasDefaultValue}}
                 <li class="list-group-item">

@@ -61,6 +61,12 @@ StudySchema = new SimpleSchema({
     defaultValue: "",
     label: "PMID"
   },
+  "slug": {
+    type: String,
+    optional: true,
+    defaultValue: "",
+    label: "Slug"
+  },
   "citation": {
     type: String,
     optional: true,

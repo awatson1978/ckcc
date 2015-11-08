@@ -26,7 +26,7 @@ var userD = {
   password: "cuddy",
 };
 
-// collaboration
+
 var ckccCollaboration = {
   collaborationName: "California Kids Cancer Comparison (Private)",
   description: "Lorem ipsum...",
@@ -36,6 +36,16 @@ var ckccCollaboration = {
   isUnlisted: false,
   requiresAdmin: true
 };
+
+var ckccStudy = {
+  name: "California Kids Cancer Comparison",
+  short_name: "ckcc",
+  description: "California Kids Cancer Comparison",
+  public: true,
+  slug: "CKCC",
+  Questionnaires: []
+};
+
 
 // questionnaire
 var intakeQuestionnaire = {
@@ -96,35 +106,54 @@ module.exports = {
   },
   "D. UserA Can Add a Study": function (client) {
     client
-      .click("#newQuestionnaireBtn").pause(1000)
+      .click("#navbarTitle").pause(500)
+      .click("#studiesTile").pause(500)
+      .reviewStudiesList()
+      .click("#newStudyLink").pause(500)
+      .reviewUpsertStudy()
+      .upsertStudy(ckccStudy)
+      .reviewStudiesList(ckccStudy)
+      .click("#studiesListPage #studiesList .studyItem:nth-child(1)").pause(500)
+      .reviewUpsertStudy(ckccStudy)
+
+      //// need to add these back in and test for study editing
+      // .upsertStudy(ckccStudy)
+      // .reviewStudiesList(ckccStudy)
+  },
+
+  "E. UserA Can Design a Questionnaire and Add it to a Study": function (client) {
+    client
+      .click("#navbarTitle").pause(500)
+      .click("#formBuilderTile").pause(500)
       .reviewUpsertQuestionnare()
       .upsertQuestionnaire(intakeQuestionnaire)
       .pause(1000)
       .reviewQuestionnairesList(intakeQuestionnaire, true);
   },
 
-  "D. UserA Can Add a Questionnaire to a Study": function (client) {
-    client
-      .click("#newQuestionnaireBtn").pause(1000)
-      .reviewUpsertQuestionnare()
-      .upsertQuestionnaire(intakeQuestionnaire)
-      .pause(1000)
-      .reviewQuestionnairesList(intakeQuestionnaire, true);
-  },
-  "E. UserA Can complete the Study Questionnaire": function (client) {
+  // "E. UserA Can Add a Questionnaire to a Study": function (client) {
+  //   client
+  //     .click("#navbarTitle").pause(500)
+  //     .click("#newQuestionnaireButton").pause(1000)
+  //     .reviewUpsertQuestionnare()
+  //     .upsertQuestionnaire(intakeQuestionnaire)
+  //     .pause(1000)
+  //     .reviewQuestionnairesList(intakeQuestionnaire, true);
+  // },
+  "F. UserA Can complete the Study Questionnaire": function (client) {
     client
       .reviewPatientIntakeForm()
       .upsertPatientIntakeForm(newPatientEnrollment)
       .pause(3000);
   },
-  "F. View Questionnaires associated with a Collaboration": function (client) {
+  "G. View Questionnaires associated with a Collaboration": function (client) {
     client
       .reviewRecordsList(newPatientEnrollment)
       .click("#recordsList .recordItem:nth-child(1)")
       .reviewPatientIntakeForm(newPatientEnrollment)
       .signOut(userA.fullName);
   },
-  "G. UserC Requests To Join Collaboration": function (client) {
+  "H. UserC Requests To Join Collaboration": function (client) {
     client
       .signIn(userC.email, userC.password)
       .verify.containsText("#usernameLink", userC.fullName)
@@ -138,7 +167,7 @@ module.exports = {
       .requestAccessToPrivateCollaboration(userC, ckccCollaboration)
       .signOut(userC.fullName);
   },
-  "H. UserA Grants Access to UserC": function (client) {
+  "I. UserA Grants Access to UserC": function (client) {
     client
       .signIn(userA.email, userA.password)
       .verify.containsText("#usernameLink", userA.fullName)
@@ -147,7 +176,7 @@ module.exports = {
       .grantsCollaboration(userC.email)
       .signOut(userA.fullName).pause(1000);
   },
-  "I. UserC Can Access Collaboration": function (client) {
+  "J. UserC Can Access Collaboration": function (client) {
     client
       .signIn(userC.email, userC.password)
       .verify.containsText("#usernameLink", userC.fullName)
@@ -156,7 +185,7 @@ module.exports = {
       .canAccessCollaboration(userC.email, ckccCollaboration)
       .signOut(userC.fullName);
   },
-  "J. UserA Denies Access To UserB": function (client) {
+  "K. UserA Denies Access To UserB": function (client) {
     client
       .signIn(userA.email, userA.password)
       .verify.containsText("#usernameLink", userA.fullName)
@@ -172,7 +201,7 @@ module.exports = {
 
       .signOut(userA.fullName);
   },
-  "K. UserC Cant See Collaboration": function (client) {
+  "L. UserC Cant See Collaboration": function (client) {
     client
       .signIn(userC.email, userC.password)
       .verify.containsText("#usernameLink", userC.fullName)
@@ -182,7 +211,7 @@ module.exports = {
 
       .signOut(userC.fullName);
   },
-  "End": function (client){
+  "M. End": function (client){
     client.end();
   }
 };

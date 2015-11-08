@@ -1,4 +1,6 @@
-exports.command = function (action, study, title, url, imageUrl, description) {
+exports.command = function (study, action) {
+  var self = this;
+  this.sectionBreak(".upsertStudy()");
 
   if (action === "update") {
     this
@@ -6,52 +8,28 @@ exports.command = function (action, study, title, url, imageUrl, description) {
       .click("#studyUpsertPage .barcode").pause(300);
   }
 
-
-  // then we check whether we received an entire study to parse
-  // if so, set the fields we're goint to test for accordingly
   if (study) {
-    if (study.title) {
-      title = study.title;
-    }
-    if (study.url) {
-      url = study.url;
-    }
-    if (study.imageUrl) {
-      imageUrl = study.imageUrl;
-    }
-    if (study.description) {
-      description = study.description;
-    }
-  }
+    // this is a rather clever way to iterate through all the fields
+    // and set the necessary inputs
+    Object.keys(study).forEach(function (key){
+      // but it only works on fields that contain plain text strings
 
-  if (title) {
-    this
-      .clearValue('input[name="title"]')
-      .setValue('input[name="title"]', title);
-  }
-  if (url) {
-    this
-      .clearValue('input[name="url"]')
-      .setValue('input[name="url"]', url);
-  }
-  if (imageUrl) {
-    this
-      .clearValue('input[name="imageUrl"]')
-      .setValue('input[name="imageUrl"]', imageUrl);
-  }
-  if (description) {
-    this
-      .clearValue('input[name="description"]')
-      .setValue('input[name="description"]', description);
+      if (typeof study[key] === "string") {
+        self
+          .verify.elementPresent('input[name="' + key + '"]')
+          .clearValue('input[name="' + key + '"]')
+          .setValue('input[name="' + key + '"]', study[key]);
+      }
+    });
   }
 
 
   this
-    .verify.elementPresent("#saveStudyButton")
-    .moveToElement('#saveStudyButton', 10, 10)
-    .verify.visible('#saveStudyButton')
-
-  .click("#saveStudyButton").pause(300);
+    // .verify.elementPresent("#saveStudyButton")
+    // .moveToElement('#saveStudyButton', 10, 10)
+    // .verify.visible('#saveStudyButton')
+    .verify.elementPresent("#saveStudyLink")
+    .click("#saveStudyLink").pause(1000);
 
   return this;
 };

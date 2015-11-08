@@ -22,6 +22,12 @@ Template.registerHelper("studiesList", function (argument){
         }
       },
       {
+        'slug': {
+          $regex: Session.get('studySearchFilter'),
+          $options: 'i'
+        }
+      },
+      {
         _id: {
           $regex: Session.get('studySearchFilter'),
           $options: 'i'

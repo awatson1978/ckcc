@@ -1,45 +1,59 @@
 Session.setDefault('studyReadOnly', true);
 
 
-Router.map(function (){
-  this.route('newStudies.Route', {
-    path: '/insert/study',
-    template: 'studyUpsertPage',
-    onAfterAction: function (){
-      Session.set('studyReadOnly', false);
+Router.route('/insert/study', {
+  name: 'newStudyRoute',
+  template: 'studyUpsertPage',
+  onAfterAction: function (){
+    Session.set('studyReadOnly', false);
+  },
+  yieldTemplates: {
+    'navbarHeader': {
+      to: 'header'
     },
-    yieldTemplates: {
-      'navbarHeader': {
-        to: 'header'
-      },
-      'navbarFooter': {
-        to: 'studyter'
-      },
-      'mainSidebar': {
-        to: 'sidebar'
-      },
-      '': {
-        to: 'secondPage'
-      },
-      'insertStudyActionButtons': {
-        to: 'footerActionElements'
-      }
+    'navbarFooter': {
+      to: 'studyter'
+    },
+    'mainSidebar': {
+      to: 'sidebar'
+    },
+    '': {
+      to: 'secondPage'
+    },
+    'insertStudyActionButtons': {
+      to: 'footerActionElements'
     }
-  });
-
+  }
 });
 
-
 Router.route('/upsert/study/:id', {
-  name: 'upsertStudies.Route',
+  name: 'upsertStudyRoute',
   template: 'studyUpsertPage',
   data: function (){
     return Studies.findOne(this.params.id);
   },
   onAfterAction: function (){
     Session.set('studyReadOnly', false);
+  },
+  yieldTemplates: {
+    'navbarHeader': {
+      to: 'header'
+    },
+    'navbarFooter': {
+      to: 'studyter'
+    },
+    'mainSidebar': {
+      to: 'sidebar'
+    },
+    '': {
+      to: 'secondPage'
+    },
+    'insertStudyActionButtons': {
+      to: 'footerActionElements'
+    }
   }
 });
+
 Router.route('/view/study/:id', {
   name: 'viewStudies.Route',
   template: 'studyUpsertPage',
@@ -48,6 +62,23 @@ Router.route('/view/study/:id', {
   },
   onAfterAction: function (){
     Session.set('studyReadOnly', true);
+  },
+  yieldTemplates: {
+    'navbarHeader': {
+      to: 'header'
+    },
+    'navbarFooter': {
+      to: 'studyter'
+    },
+    'mainSidebar': {
+      to: 'sidebar'
+    },
+    '': {
+      to: 'secondPage'
+    },
+    'insertStudyActionButtons': {
+      to: 'footerActionElements'
+    }
   }
 });
 

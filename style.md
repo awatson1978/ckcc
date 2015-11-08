@@ -17,3 +17,14 @@ Convert href links to buttons.
 <!-- after -->
 <button id="fooBtn" onClick="Router.go('http://www.foo.com')">Foo</button>
 ````
+
+## Schema Conventions
+- no fields named 'id'
+
+
+## Naming Conventions
+- no variable names less then 5 characters long
+- variables names should be more than 7 characters, preferably
+- use camelCase
+- feel free to variations on Suffix Apps Hungarian notation (http://www.joelonsoftware.com/articles/Wrong.html)
+- 

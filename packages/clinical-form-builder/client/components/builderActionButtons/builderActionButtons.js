@@ -6,9 +6,9 @@ Template.builderActionButtons.helpers({
 });
 
 Template.builderActionButtons.events({
-  // TODO refactor #saveFormLink to #saveBuilderLink
-  'click #saveFormLink': function () {
-    console.log('click #saveFormLink', this);
+  // TODO refactor #publishFormLink to #saveBuilderLink
+  'click #publishFormLink': function () {
+    console.log('click #publishFormLink', this);
     FormBuilder.save(this);
   },
   // TODO refactor #clearFormLink to #clearBuilderLink

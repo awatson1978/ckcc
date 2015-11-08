@@ -182,76 +182,61 @@ FormBuilder = {
     // Session.set('formDesignerSchema', schema);
   },
   save: function () {
-    // var blockItems = Items.find({}, {
-    //   sort: {
-    //     rank: 1
-    //   }
-    // }).map(function (record){
-    //   delete record._id;
-    //   if (record.type === "String") {
-    //     record.type = String;
-    //   }
-    //   return record;
-    // });
 
+    // copy the form elements in the form designer to a working copy
     var blockItems = Items.find({}, {
       sort: {
         rank: 1
       }
     }).fetch();
 
+    // clean up the current
     blockItems.forEach(function (formElement){
       console.log('formElement', formElement);
-      formElement.type = String;
       delete formElement._id;
     });
+    console.log("**** blockItems", blockItems);
 
-    var blockItemFoo = {
-      type: String,
-      optional: true,
-      defaultValue: "",
-      label: "Owner"
-    };
-    // console.log("blockItems", blockItems[0]);
-    console.log("blockItems", blockItemFoo);
 
-    var fooSchema = new SimpleSchema({"fooSchema": blockItemFoo});
-    console.log("fooSchema: ", fooSchema);
-
-    var newQuestionnaire = {
-      questionnaireName: $('#formTitleInput').val(),
+    var newMetadata = {
+      _id: $('#formTitleInput').val().replace(/ /g, "_"),
+      name: $('#formTitleInput').val(),
+      commonName: $('#formTitleInput').val(),
+      version: 'V1',
       starred: false,
       active: true,
-      ownerId: Meteor.userId(),
-      owner: Meteor.user().defaultEmail(),
-      collaborationId: $('input[name="collaborationId"]').val(),
-      collaborationName: $('input[name="collaborationName"]').val(),
+      creatorId: Meteor.userId(),
+      creator: Meteor.user().defaultEmail(),
       slug: $('input[name="slug"]').val(),
-      schema: fooSchema,
-      numBlocks: blockItems.length
+      schema: {},
+      Fields: [],
+      numBlocks: blockItems.length,
+      study: ""
     };
-    console.log('newQuestionnaire', newQuestionnaire);
+    console.log('newMetadata', newMetadata);
+
+
+    // build up our new questionnaire schema
+    blockItems.forEach(function (formElement){
+      newMetadata.schema[formElement.keyName] = formElement.schemaTemplate;
+    });
+    console.log('newMetadata', newMetadata);
 
     if (Session.get('currentForm')) {
-      Questionnaires.update({
+      Metadata.update({
         _id: Session.get('currentForm')
       }, {
         $set: {
-          questionnaireName: newQuestionnaire.formName,
-          starred: newQuestionnaire.starred,
-          active: newQuestionnaire.active,
-          ownerId: newQuestionnaire.owner,
-          owner: newQuestionnaire.ownerUsername,
-          collaborationId: newQuestionnaire.collaborationId,
-          collaborationName: newQuestionnaire.collaborationName,
-          slug: newQuestionnaire.slug,
-          schema: fooSchema,
-          // schema: new SimpleSchema(Items.find({}, {
-          //   sort: {
-          //     rank: 1
-          //   }
-          // }).fetch()),
-          numBlocks: newQuestionnaire.numBlocks
+          questionnaireName: newMetadata.formName,
+          starred: newMetadata.starred,
+          active: newMetadata.active,
+          ownerId: newMetadata.owner,
+          owner: newMetadata.ownerUsername,
+          collaborationId: newMetadata.collaborationId,
+          collaborationName: newMetadata.collaborationName,
+          slug: newMetadata.slug,
+          schema: newMetadata.schema,
+          numBlocks: newMetadata.numBlocks
         }
       }, {validate: false}, function (error, result) {
         if (error) {
@@ -260,7 +245,7 @@ FormBuilder = {
         }
       });
     } else {
-      Questionnaires.insert(newQuestionnaire, function (error, result) {
+      Metadata.insert(newMetadata, function (error, result) {
         if (error) {
           Session.set('errorMessage', error);
           HipaaLogger.logEvent("error", Meteor.userId(), "Questionnaires", null, error,

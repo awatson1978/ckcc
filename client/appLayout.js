@@ -208,11 +208,11 @@ Template.registerHelper("getNorthRule", function (argument) {
 
   // we should add spacing if the app is in card mode and in landscape mode of some sort
   // otherwise, if it's in portrait or phone mode, we want it flush with the header
-  if (Session.get('mainPanelIsCard')) {
-    if (Session.get('appWidth') > 768) {
-      topDistance = topDistance + 50;
-    }
+  if (Session.get('appWidth') > 768) {
+    topDistance = topDistance + 50;
   }
+  // if (Session.get('mainPanelIsCard')) {
+  // }
 
   return "top: " + topDistance + "px;";
 });

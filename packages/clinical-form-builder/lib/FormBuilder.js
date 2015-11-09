@@ -257,6 +257,6 @@ FormBuilder = {
         }
       });
     }
-    Router.go('/list/questionnaires');
+    Router.go('/list/metadata');
   }
 };

@@ -113,23 +113,21 @@ Template.metadatasListPage.helpers({
     }
   },
   metadatasList: function () {
-
-    return Metadata.find();
-    // return Metadata.find({
-    //   $or: [
-    //     {
-    //       name: {
-    //         $regex: Session.get('metadataSearchFilter'),
-    //         $options: 'i'
-    //       }
-    //     },
-    //     {
-    //       _id: {
-    //         $regex: Session.get('metadataSearchFilter'),
-    //         $options: 'i'
-    //       }
-    //     }
-    // ]
-    // });
+    return Metadata.find({
+      $or: [
+        {
+          commonName: {
+            $regex: Session.get('metadataSearchFilter'),
+            $options: 'i'
+          }
+        },
+        {
+          _id: {
+            $regex: Session.get('metadataSearchFilter'),
+            $options: 'i'
+          }
+        }
+    ]
+  }, {sort: {createdAt: -1}});
   }
 });

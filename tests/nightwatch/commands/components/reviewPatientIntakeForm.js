@@ -4,6 +4,7 @@ exports.command = function (newPatientEnrollment) {
 
     .verify.elementPresent('input[name="institutionName"]')
     .verify.elementPresent('input[name="institutionId"]')
+
     .verify.elementPresent('input[name="participantId"]')
     .verify.elementPresent('input[name="physicianName"]')
     .verify.elementPresent('input[name="studyName"]')

@@ -51,11 +51,64 @@ var ckccStudy = {
 var intakeQuestionnaire = {
   questionnaireName: "CKCC Patient Intake",
   questionnaireSearch: "Int",
-  institutionName: "U.C. Santa Cruz",
-  institutionId: "UCSC",
-  collaborationId: "CKCC",
-  collaborationName: "CKCC"
+  inputs: {
+    institutionName: "Institution Name",
+    institutionId: "Institution Id",
+    participantId: "Participant ID",
+    physicianName: "Physician Name",
+    studyName: "Study Name",
+    studyId: "Study ID",
+    patientAge: "Age",
+    patientGender: "Gender",
+    diagnosisCode: "Diagnosis Code",
+    diseaseSubtype: "Disease Subtype",
+    lastFollowUpDate: "Last Followup Date",
+  },
+  textareas: {
+    diagnosisDescription: "Diagnosis Description",
+    priorTreatmentHistory: "Prior Treatment History",
+    complicatingConditions: "Complicating Conditions",
+    currentStatus: "Current Status",
+    familyHistory: "Family History",
+    molecularTesting: "Molecular Testing",
+    actionableFindings: "Actionable Findings",
+    genomicAnalysis: "Genomic Anslysis",
+    biopsySource: "Biopsy Source",
+    tumorCellFraction: "Tumor Cell Fraction",
+    otherStudies: "Other Studies"
+  }
 };
+
+var intakeQuestionnaireAnswers = {
+  questionnaireName: "CKCC Patient Intake",
+  questionnaireSearch: "Int",
+  inputs: {
+    institutionName: "U.C. Santa Cruz",
+    institutionId: "UCSC",
+    participantId: "",
+    physicianName: "",
+    studyName: "",
+    studyId: "",
+    patientAge: "",
+    patientGender: "",
+    diagnosisCode: "",
+    diseaseSubtype: "",
+    lastFollowUpDate: "",
+  },
+  textareas: {
+    diagnosisDescription: "",
+    priorTreatmentHistory: "",
+    complicatingConditions: "",
+    currentStatus: "",
+    familyHistory: "",
+    molecularTesting: "",
+    actionableFindings: "",
+    genomicAnalysis: "",
+    biopsySource: "",
+    tumorCellFraction: "",
+    otherStudies: ""
+  }
+}
 
 // patient enrollment form (new clinical data point)
 var newPatientEnrollment = {
@@ -125,23 +178,20 @@ module.exports = {
     client
       .click("#navbarTitle").pause(500)
       .click("#formBuilderTile").pause(500)
-      .reviewUpsertQuestionnare()
-      .upsertQuestionnaire(intakeQuestionnaire)
-      .pause(1000)
-      .reviewQuestionnairesList(intakeQuestionnaire, true);
+      .reviewFormDesigner()
+      .buildForm(intakeQuestionnaire);
   },
 
-  // "E. UserA Can Add a Questionnaire to a Study": function (client) {
-  //   client
-  //     .click("#navbarTitle").pause(500)
-  //     .click("#newQuestionnaireButton").pause(1000)
-  //     .reviewUpsertQuestionnare()
-  //     .upsertQuestionnaire(intakeQuestionnaire)
-  //     .pause(1000)
-  //     .reviewQuestionnairesList(intakeQuestionnaire, true);
-  // },
   "F. UserA Can complete the Study Questionnaire": function (client) {
     client
+      // .click("#navbarTitle").pause(500)
+      // .click("#savedFormsTileImage").pause(500)
+
+      .verify.elementPresent("#metadataSearchInput")
+      .clearValue('#metadataSearchInput')
+      .setValue('#metadataSearchInput', intakeQuestionnaireAnswers.questionnaireSearch)
+      .click("#metadatasList .metadataItem:nth-child(1) .newLink").pause(500)
+
       .reviewPatientIntakeForm()
       .upsertPatientIntakeForm(newPatientEnrollment)
       .pause(3000);

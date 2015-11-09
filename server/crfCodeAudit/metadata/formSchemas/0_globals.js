@@ -51,7 +51,7 @@ Completion_Date_type = {
   type: Date,
   autoform: {
     afFieldInput: {
-      type: 'bootstrap-datepicker',
+      type: 'date',
       timezoneId: 'America/Los_Angeles'
     }
   }
@@ -68,7 +68,7 @@ Mutated_GeneList_type = {
 // TEO: should refactor the name?
 autoformDate =  {
   afFieldInput: {
-    type: 'bootstrap-datepicker',
+    type: 'date',
     timezoneId: 'America/Los_Angeles'
   }
 };

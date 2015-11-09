@@ -41,12 +41,12 @@ Template.metadataUpsertPage.rendered = function (){
 Template.metadataUpsertPage.helpers({
 
   getCurrentSchema: function (){
-    console.log('Template.metadataUpsertPage.getCurrentSchema');
+    console.log('Template.metadataUpsertPage.getCurrentSchema', this);
 
     if (this) {
       console.log('currentRecord', this);
 
-      var questionnaireMetadata = Metadata.findOne({_id: this.name});
+      var questionnaireMetadata = Metadata.findOne({_id: this._id});
       console.log('currentDehydratedSchema', questionnaireMetadata);
 
       if (questionnaireMetadata) {

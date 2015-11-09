@@ -210,6 +210,7 @@ FormBuilder = {
       slug: $('input[name="slug"]').val(),
       schema: {},
       Fields: [],
+      fieldOrder: [],
       numBlocks: blockItems.length,
       study: ""
     };
@@ -219,6 +220,7 @@ FormBuilder = {
     // build up our new questionnaire schema
     blockItems.forEach(function (formElement){
       newMetadata.schema[formElement.keyName] = formElement.schemaTemplate;
+      newMetadata.fieldOrder.push(formElement.keyName);
     });
     console.log('newMetadata', newMetadata);
 

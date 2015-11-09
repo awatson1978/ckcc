@@ -30,30 +30,6 @@ Router.route('/list/metadata/', {
 });
 
 
-Router.route('/metadata/:metadataId/new', {
-  name: 'metadataUpsertForTemplate',
-  template: 'metadataUpsertPage',
-  data: function (){
-    var formSchema = Metadata.findOne({_id: this.params.metadataId});
-    console.log('formSchema', formSchema);
-    return formSchema;
-  },
-  yieldTemplates: {
-    'navbarHeader': {
-      to: 'header'
-    },
-    'navbarFooter': {
-      to: 'footer'
-    },
-    'mainSidebar': {
-      to: 'sidebar'
-    },
-    'metadataActionButtons': {
-      to: 'footerActionElements'
-    }
-  }
-});
-
 
 
 

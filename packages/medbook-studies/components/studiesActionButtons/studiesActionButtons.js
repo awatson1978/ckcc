@@ -12,6 +12,7 @@ Template.studiesActionButtons.events({
 });
 Template.insertStudyActionButtons.events({
   'click #saveStudyLink': function () {
-    $('#saveStudyButton').click();
+    // $('#saveStudyButton').click();
+    Template.studyUpsertPage.saveStudy(Session.get('activeStudyId'));
   }
 });

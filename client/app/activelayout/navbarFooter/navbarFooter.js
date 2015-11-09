@@ -49,15 +49,5 @@ Template.appLayout.events({
   "click #dropBtn": function (event, template) {
     console.log('dropping database');
     Meteor.call('dropDatabase');
-  },
-  // 'click #scrollTopBtn': function (event, template) {
-  //   $('html, body').animate({
-  //       scrollTop: 0
-  //   }, 500);
-  // },
-  // 'click #scrollBottomBtn': function (event, template) {
-  //   $('html, body').animate({
-  //       scrollTop: $('.recordFooter').offset().top
-  //   }, 500);
-  // }
+  }
 });

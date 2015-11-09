@@ -55,6 +55,7 @@ var intakeQuestionnaire = {
     institutionName: "Institution Name",
     institutionId: "Institution Id",
     participantId: "Participant ID",
+    Patient_ID: "Patient ID",
     physicianName: "Physician Name",
     studyName: "Study Name",
     studyId: "Study ID",
@@ -179,13 +180,37 @@ module.exports = {
       .click("#navbarTitle").pause(500)
       .click("#formBuilderTile").pause(500)
       .reviewFormDesigner()
-      .buildForm(intakeQuestionnaire);
+      .buildForm(intakeQuestionnaire)
+
+      .verify.elementPresent("#navbarTitle")
+      .click("#navbarTitle").pause(500)
+
+      .verify.elementPresent("#studiesTile")
+      .click("#studiesTile").pause(500)
+
+      .verify.elementPresent("#studiesList .studyItem:nth-child(1)")
+      .click("#studiesList .studyItem:nth-child(1)").pause(500)
+
+      .verify.elementPresent("input[name='Questionnaires.0']")
+        .click("input[name='Questionnaires.0']").pause(500)
+
+      .verify.elementPresent("#metadataModalSearchInput")
+        .clearValue('#metadataModalSearchInput')
+        .setValue('#metadataModalSearchInput', intakeQuestionnaire.questionnaireSearch)
+
+        .verify.elementPresent("#metadataPicklistModal .metadataPicklist .metadataRow:nth-child(1)")
+        .verify.containsText("#metadataPicklistModal .metadataPicklist .metadataRow:nth-child(1)", intakeQuestionnaire.questionnaireName)
+        .click("#metadataPicklistModal .metadataPicklist .metadataRow:nth-child(1").pause(500)
+
+        .verify.elementPresent("#saveStudyLink")
+        .click("#saveStudyLink").pause(500);
+
   },
 
   "F. UserA Can complete the Study Questionnaire": function (client) {
     client
-      // .click("#navbarTitle").pause(500)
-      // .click("#savedFormsTileImage").pause(500)
+      .click("#navbarTitle").pause(500)
+      .click("#metadataTile").pause(500)
 
       .verify.elementPresent("#metadataSearchInput")
       .clearValue('#metadataSearchInput')

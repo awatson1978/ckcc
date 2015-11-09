@@ -1,5 +1,5 @@
 Session.setDefault('metadataReadOnly', true);
-
+Session.setDefault('activeMetadataId', false);
 
 
 Router.route('/build/metadata', {
@@ -29,6 +29,31 @@ Router.route('/view/metadata/:id', {
     return Metadata.findOne(this.params.id);
   }
 });
+Router.route('/metadata/:metadataId/new', {
+  name: 'metadataUpsertForTemplate',
+  template: 'metadataUpsertPage',
+  data: function (){
+    var formSchema = Metadata.findOne({_id: this.params.metadataId});
+    Session.set('activeMetadataId', formSchema);
+    console.log('formSchema', formSchema);
+    return formSchema;
+  },
+  yieldTemplates: {
+    'navbarHeader': {
+      to: 'header'
+    },
+    'navbarFooter': {
+      to: 'footer'
+    },
+    'mainSidebar': {
+      to: 'sidebar'
+    },
+    'metadataActionButtons': {
+      to: 'footerActionElements'
+    }
+  }
+});
+
 
 //-------------------------------------------------------------
 

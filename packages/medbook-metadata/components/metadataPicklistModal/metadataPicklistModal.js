@@ -17,8 +17,8 @@ Template.metadataPicklistModal.events({
   'change #metadataModalSearchInput': function (){
     Session.set('metadataModalSearchFilter', $('#metadataModalSearchInput').val());
   },
-  'keyup #metadataSearchInput': function (){
-    Session.set('metadataSearchFilter', $('#metadataSearchInput').val());
+  'keyup #metadataModalSearchInput': function (){
+    Session.set('metadataModalSearchFilter', $('#metadataModalSearchInput').val());
   },
   "click #metadataPicklistOkButton": function (event, template) {
     Session.set('metadataSearchFilter', "");
@@ -59,13 +59,19 @@ Template.metadataPicklistModal.helpers({
     return Metadata.find({$or:[
       {
         _id: {
-          $regex: Session.get('metadataSearchFilter'),
+          $regex: Session.get('metadataModalSearchFilter'),
           $options: 'i'
         }
       },
       {
         'name': {
-          $regex: Session.get('metadataSearchFilter'),
+          $regex: Session.get('metadataModalSearchFilter'),
+          $options: 'i'
+        }
+      },
+      {
+        'commonName': {
+          $regex: Session.get('metadataModalSearchFilter'),
           $options: 'i'
         }
       }

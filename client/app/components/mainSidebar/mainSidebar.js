@@ -18,6 +18,6 @@ Template.mainSidebar.events({
     $('html, body').animate({
       scrollTop: $("#" + event.currentTarget.attributes["target"].value).offset().top -
         50
-    }, 500);
+    }, 200);
   }
 });

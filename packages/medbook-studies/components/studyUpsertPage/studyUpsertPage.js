@@ -1,5 +1,5 @@
 Session.setDefault('studyReadOnly', true);
-
+Session.setDefault('activeStudyId', false);
 
 Router.route('/insert/study', {
   name: 'newStudyRoute',
@@ -26,11 +26,13 @@ Router.route('/insert/study', {
   }
 });
 
-Router.route('/upsert/study/:id', {
+Router.route('/upsert/study/:studyId', {
   name: 'upsertStudyRoute',
   template: 'studyUpsertPage',
   data: function (){
-    return Studies.findOne(this.params.id);
+    var activeStudy = Studies.findOne(this.params.studyId);
+    Session.set('activeStudyId', activeStudy._id);
+    return activeStudy;
   },
   onAfterAction: function (){
     Session.set('studyReadOnly', false);
@@ -54,11 +56,13 @@ Router.route('/upsert/study/:id', {
   }
 });
 
-Router.route('/view/study/:id', {
+Router.route('/view/study/:studyId', {
   name: 'viewStudies.Route',
   template: 'studyUpsertPage',
   data: function (){
-    return Studies.findOne(this.params.id);
+    var activeStudy = Studies.findOne(this.params.studyId);
+    Session.set('activeStudyId', activeStudy._id);
+    return activeStudy;
   },
   onAfterAction: function (){
     Session.set('studyReadOnly', true);
@@ -151,7 +155,7 @@ Template.studyUpsertPage.events({
   },
   "click #saveStudyButton": function (event, template){
     event.preventDefault();
-    Template.studyUpsertPage.saveStudy(false, this);
+    Template.studyUpsertPage.saveStudy(this, false);
     Session.set('studyReadOnly', true);
   },
   "click .barcode": function (){
@@ -161,7 +165,7 @@ Template.studyUpsertPage.events({
     } else {
       Session.set('studyReadOnly', true);
       console.log('Locking the study...');
-      Template.studyUpsertPage.saveStudy(false, this);
+      Template.studyUpsertPage.saveStudy(this, false);
     }
   },
   "click #lockStudies.Button": function (){
@@ -192,8 +196,8 @@ Template.studyUpsertPage.events({
 });
 
 
-Template.studyUpsertPage.saveStudy = function (study, questionnaire){
-  console.log("Template.studyUpsertPage.saveStudies.", questionnaire);
+Template.studyUpsertPage.saveStudy = function (activeStudyId){
+  console.log("Template.studyUpsertPage.saveStudies()", activeStudyId);
 
   var newStudy = {};
 
@@ -267,18 +271,18 @@ Template.studyUpsertPage.saveStudy = function (study, questionnaire){
 
 
   newStudy.createdAt = new Date();
-  newStudy.questionnaireId = questionnaire._id;
+  //newStudy.questionnaireId = questionnaire._id;
 
   console.log ("newStudy", newStudy);
 
 
-  if (study._id){
-    Studies.update({_id: study._id}, {$set: newStudy }, function (error, result){
+  if (activeStudyId){
+    Studies.update({_id: activeStudyId}, {$set: newStudy }, function (error, result){
       if (error) {
         console.log(error);
         Session.set('errorMessage', error);
       }
-      Router.go('/view/study/' + study._id);
+      Router.go('/view/study/' + activeStudyId);
     });
   } else {
     Studies.insert(newStudy, function (error, result){

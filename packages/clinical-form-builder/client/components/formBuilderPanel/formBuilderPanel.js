@@ -171,6 +171,7 @@ Template.formBuilderPanel.events({
       _id: Session.get('selectedItemId')
     }, {
       $set: {
+        'keyName': $('#keyNameInput').val(),
         'schemaTemplate.label': $('#questionInput').val(),
         'schemaTemplate.defaultValue': $('#defaultValueInput').val(),
         'schemaTemplate.autoforms.afFieldInput.placeholder': $('#placeholderInput').val()

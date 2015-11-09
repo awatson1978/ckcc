@@ -20,7 +20,7 @@ FormBuilder = {
           type: "String",
           optional: true,
           label: "Q: Lorem textum...",
-          autoforms: {
+          autoform: {
             afFieldInput: {
               type: "text",
               placeholder: "Lorem ipsum..."
@@ -40,7 +40,7 @@ FormBuilder = {
           type: "String",
           optional: true,
           label: "Q: Lorem textum...",
-          autoforms: {
+          autoform: {
             afFieldInput: {
               type: "textarea",
               rows: 5,
@@ -61,7 +61,7 @@ FormBuilder = {
           optional: true,
           label: "Section ipsum...",
           defaultValue: "",
-          autoforms: {
+          autoform: {
             afFieldInput: {
               type: "textarea",
               rows: 5,
@@ -171,7 +171,7 @@ FormBuilder = {
         formElementRecord.partialSchema.label = question.label;
       }
       if (question.placeholder) {
-        formElementRecord.partialSchema.autoforms.afFieldInput.placeholder = question.placeholder;
+        formElementRecord.partialSchema.autoform.afFieldInput.placeholder = question.placeholder;
       }
     }
 

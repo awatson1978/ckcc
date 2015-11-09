@@ -1,6 +1,6 @@
 exports.command = function (intakeQuestionnaire) {
   this
-    .verify.elementPresent('#recordUpsertPage');
+    .verify.elementPresent('#metadataUpsertPage');
 
   if (intakeQuestionnaire) {
     if (intakeQuestionnaire.instititionName) {

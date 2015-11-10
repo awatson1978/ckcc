@@ -71,5 +71,6 @@ Meteor.methods({
     Records.remove({});
     Studies.remove({});
     Items.remove({});
+    Metadata.remove({});
   }
 });

@@ -27,16 +27,17 @@ var userD = {
 };
 
 
+
+// collaboration
 var ckccCollaboration = {
-  collaborationName: "California Kids Cancer Comparison (Private)",
+  collaborationName: "California Kids Cancer Comparison",
   description: "Lorem ipsum...",
   slug: "CKCC",
   administrators: [userA.email],
   collaborators: [userA.email, userB.email],
   isUnlisted: false,
-  requiresAdmin: true
+  requiresAdmin: false
 };
-
 var ckccStudy = {
   name: "California Kids Cancer Comparison",
   short_name: "ckcc",
@@ -46,6 +47,51 @@ var ckccStudy = {
   Questionnaires: []
 };
 
+
+// // questionnaire
+// var intakeQuestionnaire = {
+//   questionnaireName: "CKCC Patient Intake",
+//   questionnaireSearch: "Int",
+//   institutionName: "U.C. Santa Cruz",
+//   institutionId: "UCSC",
+//   collaborationId: "CKCC",
+//   collaborationName: "CKCC"
+// };
+
+// // questionnaire
+// var intakeQuestionnaire = {
+//   questionnaireName: "CKCC Patient Intake",
+//   questionnaireSearch: "Int",
+//   inputs: {
+//     institutionName: "Institution Name",
+//     institutionId: "Institution Id",
+//     participantId: "Participant ID",
+//     Patient_ID: "Patient ID",
+//     studyName: "Study Name",
+//     studyId: "Study ID"
+//   },
+//   textareas: {
+//     diagnosisDescription: "Diagnosis Description",
+//     priorTreatmentHistory: "Prior Treatment History",
+//   }
+// };
+//
+// var intakeQuestionnaireAnswers = {
+//   questionnaireName: "CKCC Patient Intake",
+//   questionnaireSearch: "Int",
+//   inputs: {
+//     institutionName: "U.C. Santa Cruz",
+//     institutionId: "UCSC",
+//     participantId: "",
+//     Patient_ID: "DTB-99999",
+//     studyName: "",
+//     studyId: ""
+//   },
+//   textareas: {
+//     diagnosisDescription: "",
+//     priorTreatmentHistory: ""
+//   }
+// };
 
 // questionnaire
 var intakeQuestionnaire = {
@@ -112,13 +158,14 @@ var intakeQuestionnaireAnswers = {
   }
 };
 
+
+
 // patient enrollment form (new clinical data point)
 var newPatientEnrollment = {
   questionnaireName: "CKCC Patient Intake",
   collaborationSearch: "Int",
   institutionName: "U.C. Santa Cruz",
   participantId: "abc",
-  Patient_ID: "DTB-99999",
   studyName: "CKCC",
   patientAge: "17",
   patientGender: "Female",
@@ -170,13 +217,8 @@ module.exports = {
       .upsertStudy(ckccStudy)
       .reviewStudiesList(ckccStudy)
       .click("#studiesListPage #studiesList .studyItem:nth-child(1)").pause(500)
-      .reviewUpsertStudy(ckccStudy)
-
-      //// need to add these back in and test for study editing
-      // .upsertStudy(ckccStudy)
-      // .reviewStudiesList(ckccStudy)
+      .reviewUpsertStudy(ckccStudy);
   },
-
   "E. UserA Can Design a Questionnaire and Add it to a Study": function (client) {
     client
       .click("#navbarTitle").pause(500)
@@ -209,15 +251,11 @@ module.exports = {
         .verify.containsText("#metadataPicklistModal .metadataPicklist .metadataRow:nth-child(1) .commonNameText", intakeQuestionnaire.questionnaireName)
         .click("#metadataPicklistModal .metadataPicklist .metadataRow:nth-child(1").pause(500)
 
-        //.verify.elementPresent("input[name='Questionnaires.0']")
-        //  .verify.attributeEquals("input[name='Questionnaires.0']", "value", intakeQuestionnaire.questionnaireName)
-
         .verify.elementPresent("#saveStudyLink")
         .click("#saveStudyLink").pause(500);
-
   },
 
-  "F. UserA Can complete the Study Questionnaire": function (client) {
+  "F. UserA Can complete a Questionnaire": function (client) {
     client
       .click("#navbarTitle").pause(500)
       .click("#metadataTile").pause(500)
@@ -244,59 +282,18 @@ module.exports = {
       .verify.containsText("#usernameLink", userC.fullName)
       .click("#collaborationsTile").pause(1000)
       .canSeeCollaborationInList(userC, ckccCollaboration)
-
-      .verify.elementPresent("#collaborationGrid #collaborationGridElements .collaboration:nth-child(1) .cardBody h6")
-      .verify.containsText("#collaborationGrid #collaborationGridElements .collaboration:nth-child(1) .cardBody h6", "Users require administrator approval")
-
       .canNotAccessCollaboration(userC, ckccCollaboration)
-      .requestAccessToPrivateCollaboration(userC, ckccCollaboration)
-      .signOut(userC.fullName);
+      .requestAccessToPublicCollaboration()
+      .canLeaveCollaboration();
   },
-  "I. UserA Grants Access to UserC": function (client) {
+  "I. UserC Can Leave Collaboration": function (client) {
     client
-      .signIn(userA.email, userA.password)
-      .verify.containsText("#usernameLink", userA.fullName)
-      .click("#collaborationsTile").pause(1000)
-      .canGrantCollaborationAccess()
-      .grantsCollaboration(userC.email)
-      .signOut(userA.fullName).pause(1000);
+      .canAccessCollaboration(userC, ckccCollaboration)
+      .leaveCollaboration(userC, ckccCollaboration);
   },
-  "J. UserC Can Access Collaboration": function (client) {
+  "End": function (client){
     client
-      .signIn(userC.email, userC.password)
-      .verify.containsText("#usernameLink", userC.fullName)
-      .click("#collaborationsTile").pause(1000)
-
-      .canAccessCollaboration(userC.email, ckccCollaboration)
-      .signOut(userC.fullName);
-  },
-  "K. UserA Denies Access To UserB": function (client) {
-    client
-      .signIn(userA.email, userA.password)
-      .verify.containsText("#usernameLink", userA.fullName)
-      .click("#collaborationsTile").pause(1000)
-
-      .click("#collaborationGrid .collaboration:nth-child(1)").pause(1000)
-      //.removeNthCollaborator(userB.email, 3)
-      .clearValue('#addCollaborationForm input[name="collaborators"]')
-      .setValue('#addCollaborationForm input[name="collaborators"]', ckccCollaboration.collaborators)
-
-      .verify.elementPresent("#saveCollaborationButton")
-      .click("#saveCollaborationButton").pause(1000)
-
-      .signOut(userA.fullName);
-  },
-  "L. UserC Cant See Collaboration": function (client) {
-    client
-      .signIn(userC.email, userC.password)
-      .verify.containsText("#usernameLink", userC.fullName)
-      .click("#collaborationsTile").pause(1000)
-
-      .canNotAccessCollaboration(userC, ckccCollaboration)
-
-      .signOut(userC.fullName);
-  },
-  "M. End": function (client){
-    client.end();
+      .signOut(userC.fullName)
+      .end();
   }
 };

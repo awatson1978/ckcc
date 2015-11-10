@@ -247,6 +247,7 @@ FormBuilder = {
         }
       });
     } else {
+      delete newMetadata._id;
       Metadata.insert(newMetadata, function (error, result) {
         if (error) {
           Session.set('errorMessage', error);

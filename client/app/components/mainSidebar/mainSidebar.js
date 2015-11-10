@@ -16,8 +16,7 @@ Template.mainSidebar.events({
     console.log("event", event.currentTarget.attributes["target"].value);
 
     $('html, body').animate({
-      scrollTop: $("#" + event.currentTarget.attributes["target"].value).offset().top -
-        50
-    }, 200);
+      scrollTop: $("#" + event.currentTarget.attributes["target"].value).offset().top - 50
+    }, 500);
   }
 });

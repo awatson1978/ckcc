@@ -12,21 +12,29 @@ Router.route('/insert/metadata', {
   template: 'metadataUpsertPage'
 });
 
-Router.route('/upsert/metadata/:id', {
+Router.route('/upsert/metadata/:metadataId', {
   name: 'upsertMetadataRoute',
   template: 'metadataUpsertPage',
   data: function (){
-    return Metadata.findOne(this.params.id);
+    var formSchema = Metadata.findOne({_id: this.params.metadataId});
+    Session.set('activeMetadataId', formSchema._id);
+    Session.set('activeMetadata', formSchema);
+    console.log('formSchema', formSchema);
+    return formSchema;
   },
   onAfterAction: function (){
     Session.set('metadataReadOnly', false);
   }
 });
-Router.route('/view/metadata/:id', {
+Router.route('/view/metadata/:metadataId', {
   name: 'viewMetadataRoute',
   template: 'metadataUpsertPage',
   data: function (){
-    return Metadata.findOne(this.params.id);
+    var formSchema = Metadata.findOne({_id: this.params.metadataId});
+    Session.set('activeMetadataId', formSchema._id);
+    Session.set('activeMetadata', formSchema);
+    console.log('formSchema', formSchema);
+    return formSchema;
   }
 });
 Router.route('/metadata/:metadataId/new', {
@@ -34,7 +42,8 @@ Router.route('/metadata/:metadataId/new', {
   template: 'metadataUpsertPage',
   data: function (){
     var formSchema = Metadata.findOne({_id: this.params.metadataId});
-    Session.set('activeMetadataId', formSchema);
+    Session.set('activeMetadataId', formSchema._id);
+    Session.set('activeMetadata', formSchema);
     console.log('formSchema', formSchema);
     return formSchema;
   },
@@ -199,7 +208,11 @@ Template.metadataUpsertPage.saveQuestionnaire = function (metadata, record){
   }
 
   newRecord.createdAt = new Date();
-  newRecord.questionnaireId = metadata._id;
+
+  if (metadata) {
+    newRecord.questionnaireId = metadata._id;
+    newRecord.questionnaireName = metadata.commonName;
+  }
 
   console.log ("newRecord", newRecord);
 

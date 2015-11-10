@@ -3,7 +3,7 @@ exports.command = function (intakeQuestionnaire) {
     .verify.elementPresent('#metadataUpsertPage');
 
   if (intakeQuestionnaire) {
-    if (intakeQuestionnaire.instititionName) {
+    if (intakeQuestionnaire.institutionName) {
       this
         .verify.elementPresent('input[name="institutionName"]')
         .clearValue('input[name="institutionName"]')
@@ -23,7 +23,12 @@ exports.command = function (intakeQuestionnaire) {
         .clearValue('input[name="participantId"]')
         .setValue('input[name="participantId"]', intakeQuestionnaire.participantId);
     }
-
+    if (intakeQuestionnaire.Patient_ID) {
+      this
+        .verify.elementPresent('input[name="Patient_ID"]')
+        .clearValue('input[name="Patient_ID"]')
+        .setValue('input[name="Patient_ID"]', intakeQuestionnaire.Patient_ID);
+    }
     if (intakeQuestionnaire.patientAge) {
       this
         .verify.elementPresent('input[name="patientAge"]')
@@ -44,6 +49,8 @@ exports.command = function (intakeQuestionnaire) {
         .clearValue('textarea[name="diagnosisDescription"]')
         .setValue('textarea[name="diagnosisDescription"]', intakeQuestionnaire.diagnosisDescription);
     }
+
+
   }
 
   this.verify.elementPresent("#saveDataButton")

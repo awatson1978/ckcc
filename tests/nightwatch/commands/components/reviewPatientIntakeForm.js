@@ -1,6 +1,7 @@
 exports.command = function (newPatientEnrollment) {
   this
-    .verify.elementPresent('#metadataUpsertPage')
+    // .verify.elementPresent('#metadataUpsertPage')
+    //.verify.elementPresent('#newRecordForm')
 
     .verify.elementPresent('input[name="institutionName"]')
     .verify.elementPresent('input[name="institutionId"]')

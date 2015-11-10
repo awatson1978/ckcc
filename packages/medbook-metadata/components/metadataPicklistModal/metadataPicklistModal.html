@@ -10,7 +10,7 @@
           <input id="metadataModalSearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." value="{{getCurrentSearchFilter}}" />
           <ul class="metadataPicklist">
           {{#each metadataList}}
-            <li class="metadataRow">{{name}} {{description}}</li>
+            <li class="metadataRow"><span class="commonNameText">{{commonName}}</span></li>
           {{/each}}
           </ul>
         </div>

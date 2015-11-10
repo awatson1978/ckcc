@@ -87,6 +87,7 @@ var intakeQuestionnaireAnswers = {
     institutionName: "U.C. Santa Cruz",
     institutionId: "UCSC",
     participantId: "",
+    // Patient_ID: "DTB-99999",
     physicianName: "",
     studyName: "",
     studyId: "",
@@ -109,7 +110,7 @@ var intakeQuestionnaireAnswers = {
     tumorCellFraction: "",
     otherStudies: ""
   }
-}
+};
 
 // patient enrollment form (new clinical data point)
 var newPatientEnrollment = {
@@ -117,6 +118,7 @@ var newPatientEnrollment = {
   collaborationSearch: "Int",
   institutionName: "U.C. Santa Cruz",
   participantId: "abc",
+  Patient_ID: "DTB-99999",
   studyName: "CKCC",
   patientAge: "17",
   patientGender: "Female",
@@ -191,16 +193,24 @@ module.exports = {
       .verify.elementPresent("#studiesList .studyItem:nth-child(1)")
       .click("#studiesList .studyItem:nth-child(1)").pause(500)
 
+      .verify.elementPresent("#scrollStudiesLink")
+        .click("#scrollStudiesLink").pause(300)
+
       .verify.elementPresent("input[name='Questionnaires.0']")
         .click("input[name='Questionnaires.0']").pause(500)
 
       .verify.elementPresent("#metadataModalSearchInput")
+      .verify.visible("#metadataModalSearchInput")
         .clearValue('#metadataModalSearchInput')
         .setValue('#metadataModalSearchInput', intakeQuestionnaire.questionnaireSearch)
 
         .verify.elementPresent("#metadataPicklistModal .metadataPicklist .metadataRow:nth-child(1)")
-        .verify.containsText("#metadataPicklistModal .metadataPicklist .metadataRow:nth-child(1)", intakeQuestionnaire.questionnaireName)
+        .verify.visible("#metadataPicklistModal .metadataPicklist .metadataRow:nth-child(1)")
+        .verify.containsText("#metadataPicklistModal .metadataPicklist .metadataRow:nth-child(1) .commonNameText", intakeQuestionnaire.questionnaireName)
         .click("#metadataPicklistModal .metadataPicklist .metadataRow:nth-child(1").pause(500)
+
+        //.verify.elementPresent("input[name='Questionnaires.0']")
+        //  .verify.attributeEquals("input[name='Questionnaires.0']", "value", intakeQuestionnaire.questionnaireName)
 
         .verify.elementPresent("#saveStudyLink")
         .click("#saveStudyLink").pause(500);
@@ -271,8 +281,8 @@ module.exports = {
       .clearValue('#addCollaborationForm input[name="collaborators"]')
       .setValue('#addCollaborationForm input[name="collaborators"]', ckccCollaboration.collaborators)
 
-      .verify.elementPresent("#saveFormButton")
-      .click("#saveFormButton").pause(1000)
+      .verify.elementPresent("#saveCollaborationButton")
+      .click("#saveCollaborationButton").pause(1000)
 
       .signOut(userA.fullName);
   },

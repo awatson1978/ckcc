@@ -5,6 +5,7 @@ Template.builderActionButtons.helpers({
 
 });
 
+
 Template.builderActionButtons.events({
   'click #scrollFormLink': function () {
     var inputCount = $('#questionnaireDesigner .item').length;

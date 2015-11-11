@@ -207,7 +207,7 @@ module.exports = {
         .verify.elementPresent("#metadataPicklistModal .metadataPicklist .metadataRow:nth-child(1)")
         .verify.visible("#metadataPicklistModal .metadataPicklist .metadataRow:nth-child(1)")
         .verify.containsText("#metadataPicklistModal .metadataPicklist .metadataRow:nth-child(1) .commonNameText", intakeQuestionnaire.questionnaireName)
-        .click("#metadataPicklistModal .metadataPicklist .metadataRow:nth-child(1").pause(500)
+        .click("#metadataPicklistModal .metadataPicklist .metadataRow:nth-child(1)").pause(500)
 
         //.verify.elementPresent("input[name='Questionnaires.0']")
         //  .verify.attributeEquals("input[name='Questionnaires.0']", "value", intakeQuestionnaire.questionnaireName)

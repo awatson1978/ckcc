@@ -1,0 +1,12 @@
+<template name="studyPreviewPage">
+  <div id="studyPreviewPage" class="fullheight padded page">
+    {{> recordHeader type="record" url="studies" spreadsheet=false}}
+
+      <div id="studyPreviewCard" class="card-contents">
+        <h2 id="studyTitleText">{{title}}</h2>
+        <p id="notesText">
+          {{description}}
+        </p>
+      </div>
+  </div>
+</template>

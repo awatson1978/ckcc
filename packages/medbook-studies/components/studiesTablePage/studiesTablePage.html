@@ -1,0 +1,59 @@
+
+<template name="studiesTablePage">
+  <article id="studiesTablePage" class="page">
+    {{> recordHeader url="studies" spreadsheet=false}}
+    <div class="pageBody" style="{{getOpacity}}">
+      <input id="studySearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." />
+
+      <table id="studiesTable" class=" table table-striped tablesorter">
+        <thead>
+          <tr class="recordHeaderRow">
+            <th>
+              <i class="fa fa-check"></i>
+            </th>
+            {{#if showMongoIds }}
+            <th>_id</th>
+            {{/if}}
+            <th>
+              <i class="fa fa-image"></i>
+            </th>
+            <th>Title</th>
+            <th>Slug</th>
+            <th>
+              <i class="fa fa-flag-o"></i>
+            </th>
+            <th>
+              <i class="fa fa-times"></i>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each studiesList}}
+            <tr class="studyRow {{isGrayedOut}}">
+              <td class="checkbox">
+                <i class="fa {{checkedIcon}}"></i>
+              </td>
+              {{#if showMongoIds }}
+              <td class="barcode">{{_id}}</td>
+              {{/if}}
+              <td class="avatar">
+                {{#if imageUrl}}
+                <i class="fa fa-image"></i>
+                {{/if}}
+              </td>
+              <td>{{name}}</td>
+              <td>{{id}}</td>
+              <td class="flag">
+                <i class="fa {{flaggedIcon}}"></i>
+              </td>
+              <td class="delete">
+                <i class="fa fa-times"></i>
+              </td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+    {{> recordFooter}}
+  </article>
+</template>

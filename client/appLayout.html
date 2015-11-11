@@ -9,7 +9,7 @@
     {{> yield 'header'}}
 
       {{> errorPanel }}
-      {{> westPanel }}
+      {{> formBuilderPanel }}
       {{> leftDock }}
 
       {{> rightDock }}
@@ -18,10 +18,10 @@
 
       {{> yield 'sidebar'}}
 
-      <div id="mainPanel" class="helveticas" style="{{getStyle}} {{getNorthRule}}">
+      <div id="mainPanel" class="helveticas layoutPanel" style="{{getLeftPanelStyle}} {{getNorthRule}}">
         {{> yield }}
       </div>
-      <div id="secondPanel" class="helveticas" style="{{getSecondPanelStyle}} {{getNorthRule}}">
+      <div id="secondPanel" class="helveticas layoutPanel" style="{{getRightPanelStyle}} {{getNorthRule}}">
         {{> yield 'secondPage'}}
       </div>
 
@@ -30,12 +30,20 @@
 
     {{> reactiveOverlaysTemplate }}
 
-    {{> yield 'footer'}}
+    <!-- {{> yield 'footer'}} -->
+    <footer id="navbarFooter" style="{{getOpacity}} {{getFooterHeight}} {{getNavWidth}}">
+      {{> yield 'footerActionElements' }}
+      <div class="eastLinks">
+        <button id="keybindingsBtn">Keybindings</button>
+      </div>
+    </footer>
 
   {{> keybindingsModal }}
   {{> userPicklistModal }}
   {{> studyPicklistModal }}
   {{> collaborationPicklistModal }}
+  {{> studiesPicklistModal }}
+  {{> metadataPicklistModal }}
 
 </template>
 

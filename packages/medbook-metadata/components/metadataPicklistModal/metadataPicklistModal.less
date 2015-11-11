@@ -1,0 +1,35 @@
+#metadataPicklistModal{
+  position: fixed !important;
+  .modal{
+    z-index: 100000;
+  }
+  .modal-body{
+    overflow-y: scroll;
+    font-size: 150%;
+    line-spacing: 120%;
+    ul{
+      list-style: none
+    }
+    li{
+      list-style: none;
+      border-top: 1px solid lightgray;
+      height: 50px;
+    }
+    li:hover{
+      color: green;
+      cursor: pointer;
+    }
+  }
+  .modal-footer{
+    position:absolute;
+    bottom: 0px;
+    width: 100%;
+    button{
+      margin-right: 40px;
+    }
+  }
+  .description{
+    position: absolute;
+    left: 300px;
+  }
+}

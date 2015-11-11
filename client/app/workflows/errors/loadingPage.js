@@ -1,5 +1,5 @@
 Template.loadingPage.events({
-  'click #notFoundErrorMessage':function(){
+  'click #notFoundErrorMessage':function (){
     Router.go('/');
   }
-})
+});

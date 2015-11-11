@@ -1,9 +1,11 @@
 exports.command = function (newPatientEnrollment) {
   this
-    .verify.elementPresent('#recordUpsertPage')
+    // .verify.elementPresent('#metadataUpsertPage')
+    //.verify.elementPresent('#newRecordForm')
 
     .verify.elementPresent('input[name="institutionName"]')
     .verify.elementPresent('input[name="institutionId"]')
+
     .verify.elementPresent('input[name="participantId"]')
     .verify.elementPresent('input[name="physicianName"]')
     .verify.elementPresent('input[name="studyName"]')
@@ -60,6 +62,6 @@ exports.command = function (newPatientEnrollment) {
   }
 
   this
-    .verify.elementPresent("#saveRecordButton");
+    .verify.elementPresent("#saveDataButton");
   return this;
 };

@@ -57,6 +57,12 @@ Template.menuPage.helpers({
 
     return "min-width: 180px; width: " + newWidth + "px;";
   },
+  getSubjectsCount: function () {
+    return Subjects.find().count();
+  },
+  getMetadataCount: function () {
+    return Metadata.find().count();
+  },
   getStudiesCount: function () {
     return Studies.find().count();
   },
@@ -78,6 +84,15 @@ Template.menuPage.helpers({
 });
 
 Template.menuPage.events({
+  'click #patientsTile': function (){
+    Router.go('/list/subjects');
+  },
+  'click #metadataTile': function (){
+    Router.go('/list/metadata');
+  },
+  'click #formBuilderTile': function (){
+    Router.go('/builder');
+  },
   'click #auditTile': function (){
     Router.go('/audit');
   },

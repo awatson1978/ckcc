@@ -1,5 +1,19 @@
+Session.setDefault('cardTitle', '');
+
 Template.recordHeader.helpers({
+  getCardTitle: function (){
+    return Session.get('cardTitle');
+  },
+  hasTitle: function (){
+    if (this.title) {
+      return true;
+    } else {
+      return false;
+    }
+  },
   isRecord: function () {
+    process.env.TRACE && console.log('Template.recordHeader.isRecord', this);
+
     if (this.type === "record") {
       return true;
     } else {

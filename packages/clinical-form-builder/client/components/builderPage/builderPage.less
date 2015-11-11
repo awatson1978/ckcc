@@ -1,0 +1,106 @@
+#builderPage{
+  #formTitleInput{
+    margin-bottom: 20px;
+  }
+
+  #questionnaireDesigner{
+    .form-control{
+      width: 100%;
+      margin-top: 0px;
+      margin-bottom: 20px;
+      // border-top: 1px none #bbbbbb !important;
+      // border-bottom: 1px solid #bbbbbb !important;
+      border-top: 1px solid #bbbbbb !important;
+      border-left: 1px dashed #bbbbbb !important;
+      border-right: 0px;
+      background-color: inherit;
+    }
+    .control-label{
+      position: relative !important;
+      font-size: 90%;
+      color: #999999;
+      //top: -10px;
+      left: -10px;
+    }
+  }
+
+  // textarea,
+  // input{
+  //   border-top: 1px solid #bbbbbb !important;
+  //   margin-top: 12px;
+  //   margin-bottom: 13px;
+  // }
+
+
+
+
+
+  // sortable list
+  .item{
+    cursor: move;
+    border: 2px solid white;
+    margin-top: 5px;
+    .close:hover{
+      color: #a52323;
+    }
+    label{
+      font-weight: bold;
+      cursor: pointer;
+    }
+    input, textarea{
+      cursor: pointer;
+    }
+  }
+  .item-text{
+    padding: 10px !important;
+  }
+  .ui-sortable-helper{
+    background-color: #eeeeee;
+  }
+  .ui-sortable-placeholder{
+    margin: 10px !important;
+    padding: 20px !important;
+  }
+  #sortableDropZone{
+    min-height: 200px;
+    border: 2px dashed coral;
+    margin: 10px;
+    padding-top: 60px;
+    color: coral;
+    visibility: hidden;
+  }
+  #sortableDropZone:hover{
+    border: 2px dashed green !important;
+  }
+
+
+  .visible{
+    visibility: visible !important;
+  }
+  .selected{
+    //border: 2px dashed #7a929c;
+    background-color: #f0f9fd;
+    .control-label{
+      color: #4682B4 !important;
+    }
+    input, textarea{
+      color: #4682B4;
+    }
+  }
+
+  #formBlocks{
+    .padded{
+      padding: 0px;
+    }
+    .textBlock,
+    .textareaBlock,
+    .yesNoBlock,
+    .dateTimeBlock,
+    .timeBlock,
+    .radioBlock,
+    .multiSelectBlock{
+      margin-left: 20px;
+    }
+  }
+
+}

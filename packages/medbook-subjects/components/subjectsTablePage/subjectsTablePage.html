@@ -1,0 +1,57 @@
+
+<template name="subjectsTablePage">
+  <article id="subjectsTablePage" class="page">
+    {{> recordHeader imageGrid=false url="subjects"}}
+    <div class="pageBody" style="{{getOpacity}}">
+      <input id="subjectSearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." />
+
+      <table id="subjectsTable" class=" table table-striped tablesorter">
+        <thead>
+          <tr class="recordHeaderRow">
+            <th>
+              <i class="fa fa-check"></i>
+            </th>
+            <th>Institution</th>
+            <!-- <th>
+              <i class="fa fa-image"></i>
+            </th> -->
+            <th>Participant</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>
+              <i class="fa fa-flag-o"></i>
+            </th>
+            <th>
+              <i class="fa fa-times"></i>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each subjectsList}}
+            <tr class="subjectRow {{isGrayedOut}}">
+              <td class="checkbox">
+                <i class="fa {{checkedIcon}}"></i>
+              </td>
+              <td class="barcode">{{institutionId}}</td>
+              <!-- <td class="avatar">
+                {{#if imageUrl}}
+                <i class="fa fa-image"></i>
+                {{/if}}
+              </td> -->
+              <td>{{participantId}}</td>
+              <td>{{subjectGender}}</td>
+              <td>{{subjectAge}}</td>
+              <td class="flag">
+                <i class="fa {{flaggedIcon}}"></i>
+              </td>
+              <td class="delete">
+                <i class="fa fa-times"></i>
+              </td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+    {{> recordFooter}}
+  </article>
+</template>

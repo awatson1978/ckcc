@@ -1,0 +1,78 @@
+#appMenuPage{
+  padding-left: 40px;
+  padding-right: 20px;
+  hr{
+    margin-top: 20px;
+  }
+  #menuItems{
+    width: 100%;
+    padding-right: 20px;
+  }
+  .menuItem{
+    display: inline-block;
+    min-width: 170px;
+    width: 100%;
+    margin-right: 20px;
+    margin-bottom: 50px;
+  }
+  .menuItem:hover{
+    box-shadow: 3px 3px 6px 3px #222222;
+    opacity: 1;
+    cursor: pointer;
+  }
+  hr{
+    margin: 0px;
+    padding: 0px;
+  }
+  h4{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    padding: 10px;
+  }
+  h1{
+    padding-left: 10px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+  .statsRibbon{
+    margin-top: 10px;
+    position: absolute;
+    bottom: 0px;
+    background-color: rgba(10,10,10,.6);
+    color: white;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+  }
+
+  .notImplementedYet{
+    opacity: .3;
+  }
+}
+
+
+
+.darkTheme{
+  .menuItem{
+    background-color: gray;
+  }
+  color: white;
+}
+.lightTheme{
+  .menuItem{
+    background-color: white;
+  }
+  color: black;
+}
+
+// portrait orientation
+@media only screen and (max-width: 768px) {
+  #menuPage{
+    left:0px;
+    //padding: 40px;
+    padding-right: 40px;
+    .menuItem{
+      margin-right: 20px;
+    }
+  }
+}

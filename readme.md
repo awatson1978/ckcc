@@ -14,6 +14,58 @@ Copy the application to your computer and run it locally:
   meteor
 ````
 
+
+=========================
+#### Development
+You'll want to fetch all of the packages in ``.meteor/packages`` directory into ``/packages`` so you can develop on them locally.
+
+````sh
+  cd ckcc
+
+  # clone the necessary directories
+  git clone https://github.com/clinical-meteor/clinical-active-entry
+  git clone https://github.com/clinical-meteor/clinical-active-questionnaire
+  git clone https://github.com/clinical-meteor/clinical-active-record
+  git clone https://github.com/clinical-meteor/clinical-barcode
+  git clone https://github.com/clinical-meteor/clinical-collaborations
+  git clone https://github.com/clinical-meteor/clinical-collaborations-ui
+  git clone https://github.com/clinical-meteor/clinical-env
+  git clone https://github.com/clinical-meteor/clinical-extended-api
+  git clone https://github.com/clinical-meteor/clinical-graphs-dailystats
+  git clone https://github.com/clinical-meteor/clinical-hipaa-audit-log
+  git clone https://github.com/clinical-meteor/clinical-keybindings
+  git clone https://github.com/clinical-meteor/clinical-modals
+  git clone https://github.com/clinical-meteor/clinical-overlays
+  git clone https://github.com/clinical-meteor/clinical-router
+  git clone https://github.com/clinical-meteor/clinical-router-location
+  git clone https://github.com/clinical-meteor/clinical-router-middleware-stack
+  git clone https://github.com/clinical-meteor/clinical-router-url
+  git clone https://github.com/clinical-meteor/clinical-study-picklist
+  git clone https://github.com/clinical-meteor/clinical-user-model
+  git clone https://github.com/clinical-meteor/clinical-users-picklist
+  git clone https://github.com/clinical-meteor/clinical-verification
+
+
+  # or be adventures, and use the starrynight fetch command, which uses the .meteor/repo file
+  npm install -g starrynight
+  cd ckcc
+  starrynight fetch
+````
+
+If you're running a local installation of Mongo, and working on inter-app functionality, you may want to specify the ``MONGO_URL``, like so:
+````sh
+MONGO_URL="mongodb://localhost:27017/MyAppDatabase" meteor
+````
+
+
+=========================
+#### Deployment
+Be sure to set the ROOT_URL with the appropriate prefix when deploying behind a proxy server.
+
+````sh
+ROOT_URL="http://localhost:3000/forms" meteor
+````
+
 =========================
 #### Testing  
 Copy the application to your computer and run it locally:

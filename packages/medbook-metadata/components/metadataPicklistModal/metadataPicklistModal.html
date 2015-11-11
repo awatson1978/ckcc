@@ -1,0 +1,24 @@
+<!-- set up the modal to start hidden and fade in and out -->
+<template name="metadataPicklistModal">
+  <div id="metadataPicklistModal" class="modal helveticas {{getVisibility}}" style={{getVerticalModal}}>
+    <div class="modal-dialog" data-dismiss="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Select A Metadata</h2>
+        </div>
+        <div class="modal-body">
+          <input id="metadataModalSearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." value="{{getCurrentSearchFilter}}" />
+          <ul class="metadataPicklist">
+          {{#each metadataList}}
+            <li class="metadataRow"><span class="commonNameText">{{commonName}}</span></li>
+          {{/each}}
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button id="metadataPicklistCancelButton" type="button" name="metadataPicklistCancel" class="btn btn-main">Cancel</button>
+          <button id="metadataPicklistOkButton" type="button" class="btn btn-primary">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

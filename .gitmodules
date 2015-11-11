@@ -1,0 +1,63 @@
+[submodule "packages/clinical-active-entry"]
+    path = packages/clinical-active-entry
+    url = git://github.com/clinical-meteor/clinical-active-entry.git
+
+[submodule "packages/clinical-active-record"]
+    path = packages/clinical-active-record
+    url = git://github.com/clinical-meteor/clinical-active-record.git
+
+[submodule "packages/clinical-collaborations"]
+    path = packages/clinical-collaborations
+    url = git://github.com/clinical-meteor/clinical-collaborations.git
+
+[submodule "packages/clinical-collaborations-ui"]
+    path = packages/clinical-collaborations-ui
+    url = git://github.com/clinical-meteor/clinical-collaborations-ui.git
+
+[submodule "packages/clinical-extended-api"]
+    path = packages/clinical-extended-api
+    url = git://github.com/clinical-meteor/clinical-extended-api.git
+
+[submodule "packages/clinical-keybindings"]
+    path = packages/clinical-keybindings
+    url = git://github.com/clinical-meteor/clinical-keybindings.git
+
+[submodule "packages/clinical-modals"]
+    path = packages/clinical-modals
+    url = git://github.com/clinical-meteor/clinical-modals.git
+
+[submodule "packages/clinical-overlays"]
+    path = packages/clinical-overlays
+    url = git://github.com/clinical-meteor/clinical-overlays.git
+
+[submodule "packages/clinical-router"]
+    path = packages/clinical-router
+    url = git://github.com/clinical-meteor/clinical-router.git
+
+[submodule "packages/clinical-router-location"]
+    path = packages/clinical-router-location
+    url = git://github.com/clinical-meteor/clinical-router-location.git
+
+[submodule "packages/clinical-router-middleware-stack"]
+    path = packages/clinical-router-middleware-stack
+    url = git://github.com/clinical-meteor/clinical-router-middleware-stack.git
+
+[submodule "packages/clinical-router-url"]
+    path = packages/clinical-router-url
+    url = git://github.com/clinical-meteor/clinical-router-url.git
+
+[submodule "packages/clinical-study-picklist"]
+    path = packages/clinical-study-picklist
+    url = git://github.com/clinical-meteor/clinical-study-picklist.git
+
+[submodule "packages/clinical-user-model"]
+    path = packages/clinical-user-model
+    url = git://github.com/clinical-meteor/clinical-user-model.git
+
+[submodule "packages/clinical-users-picklist"]
+    path = packages/clinical-users-picklist
+    url = git://github.com/clinical-meteor/clinical-users-picklist.git
+
+[submodule "packages/clinical-verification"]
+    path = packages/clinical-verification
+    url = git://github.com/awatson1978/clinical-verification.git

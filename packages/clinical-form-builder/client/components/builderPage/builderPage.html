@@ -1,0 +1,49 @@
+<template name="builderPage">
+  <div id="builderPage" class="page" style="{{getOpacity}}">
+    <div class="hidden">{{resized}}</div>
+    <div id="sortableListPanel">
+      <div class="col col-md-12">
+        <input id="formTitleInput" type="text" class="form-control" placeholder="Sample Form Name...." value="{{formName}}">
+      </div>
+      <div id="questionnaireDesigner" class="col col-md-12">
+
+
+        {{#each questionnairesList}}
+
+          {{#if isInput}}
+            <div class="item {{isSelected}}">
+              <div class="textInputBlock horizontally-padded">
+                  <!-- {{getItemSchemaData}} -->
+                  <!-- {{#autoForm id=getFormId type="insert" schema=getItemSchema }}
+                    {{#each afFieldNames}}
+                      {{> afFieldInput autocomplete="off"}}
+                    {{/each}}
+                  {{/autoForm}} -->
+                  <label class="control-label">{{getLabelText}}</label><br>
+                  <input type="text" name="{{keyName}}" class="form-control" value="">
+              </div>
+            </div>
+          {{/if}}
+
+          {{#if isTextarea}}
+            <div class="item {{isSelected}} ">
+              <div class="textareaBlock horizontally-padded">
+                  <!-- {{#autoForm id=getFormId collection="Items" type="insert" doc=this schema=getItemSchema }}
+                    {{#each afFieldNames}}
+                      {{> afFieldInput autocomplete="off"}}
+                    {{/each}}
+                  {{/autoForm}} -->
+                  <label class="control-label">{{getLabelText}}</label>
+                  <textarea rows="5" name="{{keyName}}" class="form-control"></textarea>
+                </div>
+            </div>
+          {{/if}}
+        {{/each}}
+
+      </div>
+    </div>
+    <div id="sortableDropZone" class="centered dragdropzone">
+        <h2>drop here!</h2>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,116 @@
+<template name="appMenuPage">
+  <div id="appMenuPage" class="helveticas page {{getTileTheme}}" style="{{getOpacity}} {{getPagePadding}} {{getPageBorder}} {{getBackground}}">
+
+    <div id="menuItems">
+      <div id="collaborationsTile" class="menuItem" style="{{getMenuWidth}}">
+        <h4>WRANGLER</h4>
+        <hr>
+        <div class="panel-image">
+          <img src="/images/home/sponsors.jpg" class="panel-image-preview" />
+          <div class="statsRibbon">
+            <h1>{{ getCollaborationsCount }}</h1>
+          </div>
+        </div>
+      </div>
+
+      <div id="formBuilderTile" class="menuItem" style="{{getMenuWidth}}">
+        <h4>DESIGN</h4>
+        <hr>
+        <div class="panel-image">
+          <img src="/images/home/sponsors.jpg" class="panel-image-preview" />
+          <div class="statsRibbon">
+            <h1>{{ getNullCount }}</h1>
+          </div>
+        </div>
+      </div>
+
+      <div id="questionnairesTile" class="menuItem notImplementedYet" style="{{getMenuWidth}}">
+        <h4>QUESTIONAIRES</h4>
+        <hr>
+        <div class="panel-image">
+          <img src="/images/home/sponsors.jpg" class="panel-image-preview" />
+          <div class="statsRibbon">
+            <h1>{{ getQuestionsCount }}</h1>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="metadataTile" class="menuItem" style="{{getMenuWidth}}">
+        <h4>FORM METADATA</h4>
+        <hr>
+        <div class="panel-image">
+          <img src="/images/home/sponsors.jpg" class="panel-image-preview" />
+          <div class="statsRibbon">
+            <h1>{{ getMetadataCount }}</h1>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="clinicalDataTile" class="menuItem" style="{{getMenuWidth}}">
+        <h4>CLINICAL RECORDS</h4>
+        <hr>
+        <div class="panel-image">
+          <img src="/images/home/sponsors.jpg" class="panel-image-preview" />
+          <div class="statsRibbon">
+            <h1>{{ getClinicalDataCount }}</h1>
+          </div>
+        </div>
+      </div>
+
+      <div id="usersTile" class="menuItem" style="{{getMenuWidth}}">
+        <h4>USERS</h4>
+        <hr>
+        <div class="panel-image">
+          <img src="/images/home/sponsors.jpg" class="panel-image-preview" />
+          <div class="statsRibbon">
+            <h1>{{ getUsersCount }}</h1>
+          </div>
+        </div>
+      </div>
+
+      <div id="studiesTile" class="menuItem" style="{{getMenuWidth}}">
+        <h4>STUDIES</h4>
+        <hr>
+        <div class="panel-image">
+          <img src="/images/home/sponsors.jpg" class="panel-image-preview" />
+          <div class="statsRibbon">
+            <h1>{{ getStudiesCount }}</h1>
+          </div>
+        </div>
+      </div>
+      <div id="patientsTile" class="menuItem" style="{{getMenuWidth}}">
+        <h4>SUBJECTS</h4>
+        <hr>
+        <div class="panel-image">
+          <img src="/images/home/sponsors.jpg" class="panel-image-preview" />
+          <div class="statsRibbon">
+            <h1>{{ getSubjectsCount }}</h1>
+          </div>
+        </div>
+      </div>
+      <div id="commentsTils" class="menuItem notImplementedYet" style="{{getMenuWidth}}">
+        <h4>COMMENTS</h4>
+        <hr>
+        <div class="panel-image">
+          <img src="/images/home/sponsors.jpg" class="panel-image-preview" />
+          <div class="statsRibbon">
+            <h1>{{ getNullCount }}</h1>
+          </div>
+        </div>
+      </div>
+      <div id="auditTile" class="menuItem" style="{{getMenuWidth}}">
+        <h4>AUDIT</h4>
+        <hr>
+        <div class="panel-image">
+          <img src="/images/home/sponsors.jpg" class="panel-image-preview" />
+          <div class="statsRibbon">
+            <h1>{{ getHipaaCount }}</h1>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>

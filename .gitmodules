@@ -22,9 +22,9 @@
     path = packages/clinical-graphs-dailystats
     url = git://github.com/clinical-meteor/clinical-graphs-dailystats.git
 
-[submodule "packages/clinical-audit-log"]
-    path = packages/clinical-audit-log
-    url = git://github.com/clinical-meteor/clinical-audit-log.git
+[submodule "packages/clinical-hipaa-audit-log"]
+    path = packages/clinical-hipaa-audit-log
+    url = git://github.com/clinical-meteor/clinical-hipaa-audit-log.git
 
 [submodule "packages/clinical-keybindings"]
     path = packages/clinical-keybindings
@@ -65,8 +65,3 @@
 [submodule "packages/clinical-users-picklist"]
     path = packages/clinical-users-picklist
     url = git://github.com/clinical-meteor/clinical-users-picklist.git
-
-
-
-
-    

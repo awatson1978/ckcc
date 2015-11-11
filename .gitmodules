@@ -18,16 +18,6 @@
     path = packages/clinical-extended-api
     url = git://github.com/clinical-meteor/clinical-extended-api.git
 
-[submodule "packages/clinical-graphs-dailystats"]
-    path = packages/clinical-graphs-dailystats
-    url = git://github.com/clinical-meteor/clinical-graphs-dailystats.git
-    commit = f38618c31ebadb07ad2e860c8504f990549249a7
-
-[submodule "packages/clinical-hipaa-audit-log"]
-    path = packages/clinical-hipaa-audit-log
-    url = git://github.com/clinical-meteor/clinical-hipaa-audit-log.git
-    commit = f38618c31ebadb07ad2e860c8504f990549249a7
-
 [submodule "packages/clinical-keybindings"]
     path = packages/clinical-keybindings
     url = git://github.com/clinical-meteor/clinical-keybindings.git

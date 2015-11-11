@@ -24,7 +24,7 @@
 
 [submodule "packages/clinical-hipaa-audit-log"]
     path = packages/clinical-hipaa-audit-log
-    url = git://github.com/clinical-meteor/clinical-hipaa-audit-log.git
+    url = git://github.com/clinical-meteor/clinical-hipaa-audit-logs
 
 [submodule "packages/clinical-keybindings"]
     path = packages/clinical-keybindings

@@ -126,6 +126,7 @@ var newPatientEnrollment = {
 };
 
 module.exports = {
+  tags: ['collaborations'],
   before: function (client){
     client
       .url("http://localhost:3000").pause(1000)

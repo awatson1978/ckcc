@@ -65,3 +65,7 @@
 [submodule "packages/clinical-users-picklist"]
     path = packages/clinical-users-picklist
     url = git://github.com/clinical-meteor/clinical-users-picklist.git
+
+[submodule "packages/clinical-verification"]
+    path = packages/clinical-verification
+    url = git://github.com/clinical-meteor/clinical-verification.git

@@ -34,7 +34,10 @@ Router.map(function () {
       if (Session.get('activeStudy')) {
         return Studies.findOne(Session.get('activeStudy'));
       }
-    }
+    },
+    // onAfterAction: function (){
+    //   Session.set('cardTitle', 'list/studies');
+    // }
   });
 });
 

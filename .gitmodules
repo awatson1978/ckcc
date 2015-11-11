@@ -52,7 +52,7 @@
 
 [submodule "packages/clinical-router-url"]
     path = packages/clinical-router-url
-    url = git://github.com/clinical-meteor/clinical-router-url.git
+    url = git://github.com/clinical-meteor/clinical-router-url.git    
 
 [submodule "packages/clinical-study-picklist"]
     path = packages/clinical-study-picklist

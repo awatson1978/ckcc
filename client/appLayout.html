@@ -18,10 +18,10 @@
 
       {{> yield 'sidebar'}}
 
-      <div id="mainPanel" class="helveticas" style="{{getLeftPanelStyle}} {{getNorthRule}}">
+      <div id="mainPanel" class="helveticas layoutPanel" style="{{getLeftPanelStyle}} {{getNorthRule}}">
         {{> yield }}
       </div>
-      <div id="secondPanel" class="helveticas" style="{{getRightPanelStyle}} {{getNorthRule}}">
+      <div id="secondPanel" class="helveticas layoutPanel" style="{{getRightPanelStyle}} {{getNorthRule}}">
         {{> yield 'secondPage'}}
       </div>
 

@@ -1,11 +1,14 @@
-Template.recordHeader.helpers({
-  hasTitle: function (){
-    //console.log('Template.recordHeader.hasTitle', this);
+Session.setDefault('cardTitle', '');
 
+Template.recordHeader.helpers({
+  getCardTitle: function (){
+    return Session.get('cardTitle');
+  },
+  hasTitle: function (){
     if (this.title) {
-      return false;
-    } else {
       return true;
+    } else {
+      return false;
     }
   },
   isRecord: function () {

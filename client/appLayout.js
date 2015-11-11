@@ -53,25 +53,25 @@ Template.appLayout.helpers({
   resized: function () {
     Template.appLayout.layout();
   },
-  getSecondPanelStyle: function () {
+  getLeftPanelStyle: function () {
+    return Style.parse(generateStylesheet());
+  },
+  getRightPanelStyle: function () {
     if (Session.get('pageIsWide')) {
       return "visibility: hidden; left: " + (Session.get('appWidth') + 1024) + "px;";
     } else {
       return Style.parse(generateStylesheet(true));
     }
   },
-  getStyle: function () {
-    return Style.parse(generateStylesheet());
-  }
 });
 
 
 
-generateStylesheet = function (secondPanel) {
+generateStylesheet = function (rightPanel) {
   var stylesheet = {};
 
-
-  if (secondPanel) {
+    // RIGHT PANEL
+  if (rightPanel) {
     if (Session.get('appWidth') > 2076) {
       var halfDiff = (Session.get('appWidth') - 1856) * 0.5;
       if (Session.get('formBuilderPanelVisible')) {
@@ -87,6 +87,7 @@ generateStylesheet = function (secondPanel) {
       stylesheet.visibility = "hidden;";
     }
   } else {
+    // LEFT PANEL
     var leftPosition = Session.get('mainPanelLeft');
     if (Session.get('formBuilderPanelVisible')) {
       //leftPosition = leftPosition + 300;

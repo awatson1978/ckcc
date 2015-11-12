@@ -31,10 +31,12 @@ Router.route('/view/metadata/:metadataId', {
   template: 'metadataUpsertPage',
   data: function (){
     var formSchema = Metadata.findOne({_id: this.params.metadataId});
-    Session.set('activeMetadataId', formSchema._id);
-    Session.set('activeMetadata', formSchema);
-    console.log('formSchema', formSchema);
-    return formSchema;
+    if (formSchema) {
+      Session.set('activeMetadataId', formSchema._id);
+      Session.set('activeMetadata', formSchema);
+      console.log('formSchema', formSchema);
+      return formSchema;
+    }
   }
 });
 Router.route('/metadata/:metadataId/new', {

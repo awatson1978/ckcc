@@ -30,9 +30,12 @@ Meteor.startup(function () {
           "prior_txs": {
             "label": "Prior Treatments ",
             "optional": true,
-            "type": [
-              null
-            ]
+            "type": "StringArray",
+            "autoform": {
+              "afArrayField": {
+                "template": "photonic"
+              }
+            }
           },
           "biopsy_date": {
             "label": "Biopsy Date",
@@ -48,9 +51,12 @@ Meteor.startup(function () {
           "subsequent_txs": {
             "label": "Subsequent Treatments",
             "optional": true,
-            "type": [
-              null
-            ]
+            "type": "StringArray",
+            "autoform": {
+              "afArrayField": {
+                "template": "photonic"
+              }
+            }
           },
           "biopsy_site": {
             "allowedValues": [
@@ -542,9 +548,12 @@ Meteor.startup(function () {
             ],
             "label": "Treatment for mCRPC Prior to Biopsy",
             "optional": true,
-            "type": [
-              null
-            ]
+            "type": "StringArray",
+            "autoform": {
+              "afArrayField": {
+                "template": "photonic"
+              }
+            }
           },
           "post-biopsy_treatment": {
             "allowedValues": [
@@ -653,9 +662,12 @@ Meteor.startup(function () {
               "Field_Name": "prior_txs",
               "label": "Prior Treatments ",
               "optional": true,
-              "type": [
-                null
-              ]
+              "type": "StringArray",
+              "autoform": {
+                "afArrayField": {
+                  "template": "photonic"
+                }
+              }
             },
             {
               "Field_Name": "biopsy_date",
@@ -673,9 +685,12 @@ Meteor.startup(function () {
               "Field_Name": "subsequent_txs",
               "label": "Subsequent Treatments",
               "optional": true,
-              "type": [
-                null
-              ]
+              "type": "StringArray",
+              "autoform": {
+                "afArrayField": {
+                  "template": "photonic"
+                }
+              }
             },
             {
               "Field_Name": "biopsy_site",
@@ -1211,10 +1226,13 @@ Meteor.startup(function () {
               ],
               "label": "Treatment for mCRPC Prior to Biopsy",
               "optional": true,
-              "type": [
-                  null
-                ]
-              },
+              "type": "StringArray",
+              "autoform": {
+                "afArrayField": {
+                  "template": "photonic"
+                }
+              }
+            },
             {
               "Field_Name": "post-biopsy_treatment",
               "allowedValues": [

@@ -96,7 +96,7 @@ pfafman:font-awesome-4@4.2.0_4
 photonic:active-record-core@0.0.3
 photonic:active-record-footer@0.0.5
 photonic:active-record-header@0.0.5
-photonic:glass-ui@0.2.6
+photonic:glass-ui@0.2.7
 photonic:no-select-everything@0.1.0
 random@1.0.3
 reactive-dict@1.1.0

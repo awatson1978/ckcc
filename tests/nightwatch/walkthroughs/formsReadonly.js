@@ -1,118 +1,133 @@
+var userA = {
+  fullName: "Gregory House",
+  email: "house@test.org",
+  username: "house",
+  password: "house",
+};
 
 
 module.exports = {
   tags: ['forms', 'wcdt'],
-  "Readonly Forms Walkthrough" : function (client) {
+  before: function (client){
+    client
+      .url("http://localhost:3000").pause(1000)
+      .dropCollaborations();
+  },
+  "SignIn" : function (client) {
     client
       .url("http://localhost:3000")
       .resizeWindow(1024, 1200)
       .reviewMainLayout()
-      .reviewSignInPage()
-      .signIn("house@test.org","house")
 
-      .sectionBreak("Clinical Info")
-      .selectFromSidebar('#Clinical_InfoButton')
-      .reviewPageTitle("Clinical_Info")
+      .verify.elementPresent("#usernameLink")
+        .click("#usernameLink").pause(1000)
+        .signIn(userA.email, userA.password)
+  },
+  "Clinical Info Form" : function (client) {
+
+      // .sectionBreak("Clinical Info")
+      .navigateToForm('Clinical Info')
+      .reviewPageTitle("Clinical Info")
       .reviewClinicalInfoForm()
 
       .sectionBreak("Biopsy")
-      .selectFromSidebar('#SU2C_Biopsy_V3Button')
+      .navigateToForm('#SU2C_Biopsy_V3Button')
       .reviewPageTitle("SU2C_Biopsy_V3")
       .reviewBiopsyForm()
 
       .sectionBreak("Follow Up")
-      .selectFromSidebar('#FollowupButton')
+      .navigateToForm('#FollowupButton')
       .reviewPageTitle("Followup")
       .reviewFollowUpForm()
 
       .sectionBreak("Subsequent Treatment")
-      .selectFromSidebar('#SU2C_Subsequent_Treatment_V1Button')
+      .navigateToForm('#SU2C_Subsequent_Treatment_V1Button')
       .reviewPageTitle("SU2C_Subsequent_Treatment_V1")
       .reviewSubsequentTreatmentForm()
 
       .sectionBreak("Prior Treatment")
-      .selectFromSidebar('#SU2C_Prior_TX_V3Button')
+      .navigateToForm('#SU2C_Prior_TX_V3Button')
       .reviewPageTitle("SU2C_Prior_TX_V3")
       .reviewPriorTreatmentForm()
 
       .sectionBreak("Prostate Diagnosis")
-      .selectFromSidebar('#Prostate_Diagnosis_V4Button')
+      .navigateToForm('#Prostate_Diagnosis_V4Button')
       .reviewPageTitle("Prostate_Diagnosis_V4")
       .reviewProstateDiagnosisForm()
 
       .sectionBreak("Blood Labs")
-      .selectFromSidebar('#Blood_Labs_V2Button')
+      .navigateToForm('#Blood_Labs_V2Button')
       .reviewPageTitle("Blood_Labs_V2")
       .reviewBloodLabsForm()
 
       .sectionBreak("Demographics")
-      .selectFromSidebar('#DemographicsButton')
+      .navigateToForm('#DemographicsButton')
       .reviewPageTitle("Demographics")
       .reviewDemographicsForm()
 
       .sectionBreak("Weight")
-      .selectFromSidebar('#ECOG_Weight_V3Button')
+      .navigateToForm('#ECOG_Weight_V3Button')
       .reviewPageTitle("ECOG_Weight_V3")
       .reviewWeightForm()
 
       .sectionBreak("Disease Assessment")
-      .selectFromSidebar('#GU_Disease_Assessment_V3Button')
+      .navigateToForm('#GU_Disease_Assessment_V3Button')
       .reviewPageTitle("GU_Disease_Assessment_V3")
       .reviewDiseaseAssessmentForm()
 
       .sectionBreak("Prior Ca Treatment")
       .sectionBreak("Biopsy AE")
-      .selectFromSidebar('#SU2C_Biopsy_AE_V1Button')
+      .navigateToForm('#SU2C_Biopsy_AE_V1Button')
       .reviewPageTitle("SU2C_Biopsy_AE_V1")
       .reviewBiopsyAeForm()
 
       .sectionBreak("Prior Ca Treatment")
-      .selectFromSidebar('#SU2C_Pr_Ca_Tx_Sumry_V2Button')
+      .navigateToForm('#SU2C_Pr_Ca_Tx_Sumry_V2Button')
       .reviewPageTitle("SU2C_Pr_Ca_Tx_Sumry_V2")
       .reviewPriorCaTreatmentForm()
 
       .sectionBreak("Specimen")
-      .selectFromSidebar('#SU2C_Specimen_V1Button')
+      .navigateToForm('#SU2C_Specimen_V1Button')
       .reviewPageTitle("SU2C_Specimen_V1")
       .reviewSpecimenForm()
 
       .sectionBreak("Patient Enrollment")
-      .selectFromSidebar('#Patient_Enrollment_formButton')
+      .navigateToForm('#Patient_Enrollment_formButton')
       .reviewPageTitle("Patient_Enrollment_form")
       .reviewPatientEnrollmentForm()
 
       .sectionBreak("Histology Research")
-      .selectFromSidebar('#Histology_ResearchButton')
+      .navigateToForm('#Histology_ResearchButton')
       .reviewPageTitle("Histology_Research")
       .reviewHistologyResearchForm()
 
       .sectionBreak("Tissue Specimen")
-      .selectFromSidebar('#Tissue_Specimen_formButton')
+      .navigateToForm('#Tissue_Specimen_formButton')
       .reviewPageTitle("Tissue_Specimen_form")
       .reviewTissueSpecimenForm()
 
       .sectionBreak("Blood Specimen")
-      .selectFromSidebar('#Blood_Specimen_formButton')
+      .navigateToForm('#Blood_Specimen_formButton')
       .reviewPageTitle("Blood_Specimen_form")
       .reviewBloodSpecimenForm()
 
       .sectionBreak("Histology Assessment")
-      .selectFromSidebar('#Histological_Assessment_formButton')
+      .navigateToForm('#Histological_Assessment_formButton')
       .reviewPageTitle("Histological_Assessment_form")
       .reviewHistologyAssessmentForm()
 
       .sectionBreak("Laser Capture Microdissection")
-      .selectFromSidebar('#Laser_Capture_MicrodissectionButton')
+      .navigateToForm('#Laser_Capture_MicrodissectionButton')
       .reviewPageTitle("Laser_Capture_Microdissection")
       .reviewLaserCaptureForm()
 
       .sectionBreak("RNA Sequence Completion")
-      .selectFromSidebar('#RNASeq_completion_formButton')
+      .navigateToForm('#RNASeq_completion_formButton')
       .reviewPageTitle("RNASeq_completion_form")
       .reviewRnaSequenceForm()
 
       .sectionBreak("Pathology")
-      .selectFromSidebar('#Pathology_formButton')
+      .navigateToForm('#Pathology_formButton')
       .reviewPageTitle("Pathology_form")
       .reviewPathologyForm()
 

@@ -129,8 +129,8 @@ module.exports = {
   tags: ['collaborations'],
   before: function (client){
     client
-      .url("http://localhost:3000").pause(1000)
-      .dropCollaborations();
+      .url("http://localhost:3000").pause(1000);
+      //.dropCollaborations();
   },
   "A. Signing In UserA": function (client) {
 
@@ -227,6 +227,8 @@ module.exports = {
       .clearValue('#metadataSearchInput')
       .setValue('#metadataSearchInput', intakeQuestionnaireAnswers.questionnaireSearch)
       .click("#metadatasList .metadataItem:nth-child(1) .newLink").pause(500)
+
+      // .navigateToForm(intakeQuestionnaireAnswers.questionnaireSearch)
 
       .reviewPatientIntakeForm()
       .upsertPatientIntakeForm(newPatientEnrollment)

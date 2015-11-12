@@ -17,15 +17,18 @@ Router.route('/upsert/metadata/:metadataId', {
   template: 'metadataUpsertPage',
   data: function (){
     var formSchema = Metadata.findOne({_id: this.params.metadataId});
-    Session.set('activeMetadataId', formSchema._id);
-    Session.set('activeMetadata', formSchema);
-    console.log('formSchema', formSchema);
-    return formSchema;
+    if (formSchema) {
+      Session.set('activeMetadataId', formSchema._id);
+      Session.set('activeMetadata', formSchema);
+      Session.set('pageTitle', formSchema.commonName);
+      return formSchema;
+    }
   },
   onAfterAction: function (){
     Session.set('metadataReadOnly', false);
   }
 });
+
 Router.route('/view/metadata/:metadataId', {
   name: 'viewMetadataRoute',
   template: 'metadataUpsertPage',
@@ -34,20 +37,23 @@ Router.route('/view/metadata/:metadataId', {
     if (formSchema) {
       Session.set('activeMetadataId', formSchema._id);
       Session.set('activeMetadata', formSchema);
-      console.log('formSchema', formSchema);
+      Session.set('pageTitle', formSchema.commonName);
       return formSchema;
     }
   }
 });
+
 Router.route('/metadata/:metadataId/new', {
   name: 'metadataUpsertForTemplate',
   template: 'metadataUpsertPage',
   data: function (){
     var formSchema = Metadata.findOne({_id: this.params.metadataId});
-    Session.set('activeMetadataId', formSchema._id);
-    Session.set('activeMetadata', formSchema);
-    console.log('formSchema', formSchema);
-    return formSchema;
+    if (formSchema) {
+      Session.set('activeMetadataId', formSchema._id);
+      Session.set('activeMetadata', formSchema);
+      Session.set('pageTitle', formSchema.commonName);
+      return formSchema;
+    }
   },
   yieldTemplates: {
     'navbarHeader': {

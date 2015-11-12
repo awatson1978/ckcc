@@ -41,7 +41,7 @@ exports.command = function() {
     .verify.elementPresent('select[name="radiographic_response"]')
     .verify.elementPresent('select[name="death_or_last_contact"]')
 
-    .verify.elementPresent('button[type="submit"]')
+    .verify.elementPresent('button[type="submit"]');
 
   return this;
 };

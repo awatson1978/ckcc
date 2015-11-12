@@ -81,7 +81,10 @@ Template.metadataUpsertPage.rendered = function (){
 
 
 Template.metadataUpsertPage.helpers({
-
+  getSelectButtonOptions: function (){
+    console.log('getSelectButtonOptions', this);
+    return this.allowedValues;
+  },
   getCurrentSchema: function (){
     console.log('Template.metadataUpsertPage.getCurrentSchema', this);
 

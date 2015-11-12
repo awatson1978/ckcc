@@ -50,6 +50,9 @@ Template.appLayout.onRendered(function () {
 });
 
 Template.appLayout.helpers({
+  getContextTitle: function (){
+    return Session.get('pageTitle');
+  },
   resized: function () {
     Template.appLayout.layout();
   },

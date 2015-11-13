@@ -1,4 +1,4 @@
-exports.command = function() {
+exports.command = function () {
   this
     .verify.elementPresent("form")
 

@@ -142,7 +142,6 @@ module.exports = {
   "SignOut" : function (client) {
     client
       .signOut(userA.fullName)
-      .reviewSignInPage()
       .end();
   }
 };

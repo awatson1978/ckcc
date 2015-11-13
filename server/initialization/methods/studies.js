@@ -45,7 +45,7 @@ Meteor.methods({
         "cbio_id": "?",
         "id": "ckcc",
         "type_of_cancer_id": "many",
-        "name": "Califoria Kids Cancer Comparison",
+        "name": "California Kids Cancer Comparison",
         "short_name": "CKCC",
         "description": "",
         "public": false,

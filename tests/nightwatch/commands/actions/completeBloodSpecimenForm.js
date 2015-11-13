@@ -9,14 +9,14 @@ exports.command = function(bloodSpecimen) {
   this
     .verify.elementPresent("form")
 
-    .verify.elementPresent('select[name="Patient_ID"]')
+    .verify.elementPresent('input[name="Patient_ID"]')
     .verify.elementPresent('select[name="Timepoint"]')
     .verify.elementPresent('input[name="Draw_Date"]')
     .verify.elementPresent('input[name="CRC_at_Collection"]')
 
     if(bloodSpecimen){
       this
-        .setValue('select[name="Patient_ID"]', bloodSpecimen.patientId)
+        .setValue('input[name="Patient_ID"]', bloodSpecimen.patientId)
         .setValue('select[name="Timepoint"]', bloodSpecimen.timepoint)
         .setValue('input[name="Draw_Date"]', bloodSpecimen.drawDate)
         .setValue('input[name="CRC_at_Collection"]', bloodSpecimen.crcAtCollection)

@@ -1,4 +1,4 @@
-exports.command = function(formName) {
+exports.command = function(searchTerm) {
   this
     .verify.elementPresent("#navbarTitle")
     .click("#navbarTitle").pause(500)
@@ -10,8 +10,10 @@ exports.command = function(formName) {
     .click("#metadataTile").pause(500)
 
     .verify.elementPresent("#metadataSearchInput")
-    .clearValue('#metadataSearchInput')
-    .setValue('#metadataSearchInput', formName)
+    .clearValue('#metadataSearchInput').pause(200)
+    // we want to be extra sure the input is cleared
+    .clearValue('#metadataSearchInput').pause(200)
+    .setValue('#metadataSearchInput', searchTerm)
     .click("#metadatasList .metadataItem:nth-child(1) .newLink").pause(500);
 
   return this;

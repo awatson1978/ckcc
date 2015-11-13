@@ -2,7 +2,7 @@ exports.command = function() {
   this
     .verify.elementPresent("form")
 
-    .verify.elementPresent('select[name="Sample_ID"]')
+    .verify.elementPresent('input[name="Sample_ID"]')
 
     .verify.elementPresent('select[name="Tumor_Content"]')
     .verify.elementPresent('select[name="Preliminary_Histology"]')

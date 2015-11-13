@@ -19,7 +19,7 @@ exports.command = function(pathology) {
   this
     .verify.elementPresent("form")
 
-    .verify.elementPresent('select[name="Sample_ID"]')
+    .verify.elementPresent('input[name="Sample_ID"]')
     .verify.elementPresent('select[name="Tumor_Content"]')
     .verify.elementPresent('select[name="Preliminary_Histology"]')
     .verify.elementPresent('select[name="Final_Histology"]')
@@ -34,7 +34,7 @@ exports.command = function(pathology) {
 
     if(pathology){
       this
-        .setValue('select[name="Sample_ID"]', pathology.sampleId )
+        .setValue('input[name="Sample_ID"]', pathology.sampleId )
         .setValue('select[name="Tumor_Content"]', pathology.tumorContent )
         .setValue('select[name="Preliminary_Histology"]', pathology.preliminaryHistology )
         .setValue('select[name="Final_Histology"]', pathology.finalHistology )

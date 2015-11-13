@@ -17,7 +17,6 @@ exports.command = function (pathology) {
   this
     .verify.elementPresent("form")
 
-  .verify.elementPresent('input[name="title"]')
     .verify.elementPresent('select[name="Tumor_Content"]')
     .verify.elementPresent('select[name="Preliminary_Histology"]')
     .verify.elementPresent('select[name="Final_Histology"]')
@@ -30,14 +29,13 @@ exports.command = function (pathology) {
     .verify.elementPresent('select[name="PTEN_IHC"]')
     .verify.elementPresent('select[name="PTEN_test_performed"]')
 
-    .verify.elementPresent("#saveRecordButton");
+    // .verify.elementPresent("#saveRecordButton");
 
   // if (pathology) {
   //   this
   //     .clearValue('input[name="title"]')
   //     .clearValue('input[name="description"]')
   //
-  //     .setValue('input[name="title"]', pathology.sampleId)
   //     .setValue('input[name="description"]', pathology.institution)
   //     .setValue('select[name="Tumor_Content"]', pathology.tumorContent)
   //     .setValue('select[name="Preliminary_Histology"]', pathology.preliminaryHistology)

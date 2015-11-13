@@ -20,7 +20,7 @@ exports.command = function(tissueSpecimen) {
   this
     .verify.elementPresent("form")
 
-    .verify.elementPresent('select[name="Sample_ID"]')
+    .verify.elementPresent('input[name="Sample_ID"]')
     .verify.elementPresent('select[name="Timepoint"]')
     .verify.elementPresent('input[name="Procedure_Date"]')
     .verify.elementPresent('input[name="Attending_Radiologist"]')
@@ -36,7 +36,7 @@ exports.command = function(tissueSpecimen) {
 
     if(tissueSpecimen){
       this
-        .clearValue('select[name="Sample_ID"]')
+        .clearValue('input[name="Sample_ID"]')
         .clearValue('select[name="Timepoint"]')
         .clearValue('input[name="Procedure_Date"]')
         .clearValue('input[name="Attending_Radiologist"]')
@@ -51,7 +51,7 @@ exports.command = function(tissueSpecimen) {
         .clearValue('input[name="TimepointNotes"]')
         .pause(500)
 
-        .setValue('select[name="Sample_ID"]', tissueSpecimen.sampleId )
+        .setValue('input[name="Sample_ID"]', tissueSpecimen.sampleId )
         .setValue('select[name="Timepoint"]', tissueSpecimen.timepoint )
         .setValue('input[name="Procedure_Date"]', tissueSpecimen.procedureDate )
         .setValue('input[name="Attending_Radiologist"]', tissueSpecimen.attendingRadiologist )

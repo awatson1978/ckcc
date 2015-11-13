@@ -40,7 +40,6 @@ var ckccCollaboration = {
 var ckccStudy = {
   name: "California Kids Cancer Comparison",
   short_name: "CKCC",
-  description: "California Kids Cancer Comparison",
   public: true,
   slug: "CKCC",
   Questionnaires: []

@@ -103,24 +103,24 @@ module.exports = {
       .reviewPageTitle("Histological Research")
       .reviewHistologyResearchForm();
   },
-  "Tissue Specimen" : function (client) {
-    client
-      .navigateToForm('Tis')
-      .reviewPageTitle("Tissue Specimen")
-      .reviewTissueSpecimenForm();
-  },
+  // "Tissue Specimen" : function (client) {
+  //   client
+  //     .navigateToForm('Tis')
+  //     .reviewPageTitle("Tissue Specimen")
+  //     .reviewTissueSpecimenForm();
+  // },
   "Blood Specimen" : function (client) {
     client
       .navigateToForm('d S')
       .reviewPageTitle("Blood Specimen Form")
       .reviewBloodSpecimenForm();
   },
-  "Histology Assessment" : function (client) {
-    client
-      .navigateToForm('His')
-      .reviewPageTitle("Histological Assessment")
-      .reviewHistologyAssessmentForm();
-  },
+  // "Histology Assessment" : function (client) {
+  //   client
+  //     .navigateToForm('His')
+  //     .reviewPageTitle("Histological Assessment")
+  //     .reviewHistologyAssessmentForm();
+  // },
   "Laser Capture Microdissection" : function (client) {
     client
       .navigateToForm('Las')

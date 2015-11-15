@@ -67,6 +67,20 @@ Meteor.methods({
   },
   dropCollaborations: function (){
     Collaborations.remove({});
+  },
+  dropRecords: function (){
+    Records.remove({});
+  },
+  dropStudies: function (){
+    Studies.remove({});
+  },
+  dropQuestionnaires: function (){
+    Questionnaires.remove({});
+    Items.remove({});
+    Metadata.remove({});
+  },
+  dropClinicalFormCollections: function (){
+    Collaborations.remove({});
     Questionnaires.remove({});
     Records.remove({});
     Studies.remove({});

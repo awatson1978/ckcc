@@ -26,6 +26,17 @@ Router.route('/upsert/metadata/:metadataId', {
   },
   onAfterAction: function (){
     Session.set('metadataReadOnly', false);
+  },
+  yieldTemplates: {
+    'navbarHeader': {
+      to: 'header'
+    },
+    'navbarFooter': {
+      to: 'footer'
+    },
+    'metadataActionButtons': {
+      to: 'footerActionElements'
+    }
   }
 });
 
@@ -39,6 +50,17 @@ Router.route('/view/metadata/:metadataId', {
       Session.set('activeMetadata', formSchema);
       Session.set('pageTitle', formSchema.commonName);
       return formSchema;
+    }
+  },
+  yieldTemplates: {
+    'navbarHeader': {
+      to: 'header'
+    },
+    'navbarFooter': {
+      to: 'footer'
+    },
+    'metadataActionButtons': {
+      to: 'footerActionElements'
     }
   }
 });
@@ -61,9 +83,6 @@ Router.route('/metadata/:metadataId/new', {
     },
     'navbarFooter': {
       to: 'footer'
-    },
-    'mainSidebar': {
-      to: 'sidebar'
     },
     'metadataActionButtons': {
       to: 'footerActionElements'
@@ -151,18 +170,6 @@ Template.metadataUpsertPage.events({
     Session.set('showReactiveOverlay', true);
     Session.set('showCollaborationPicklist', true);
   },
-  'click #removeQuestionnaireButton': function (){
-    Metadata.remove(this._id, function (error, result){
-      if (result){
-        Router.go('/list/metadatas');
-      }
-    });
-  },
-  "click #saveQuestionnaireButton": function (event, template){
-    event.preventDefault();
-    Template.metadataUpsertPage.saveQuestionnaire(this, false);
-    Session.set('metadataReadOnly', true);
-  },
   "click .barcode": function (){
     // TODO:  refactor to Session.toggle('metadataReadOnly')
     if (Session.equals('metadataReadOnly', true)){
@@ -170,7 +177,7 @@ Template.metadataUpsertPage.events({
     } else {
       Session.set('metadataReadOnly', true);
       console.log('Locking the metadata...');
-      Template.metadataUpsertPage.saveQuestionnaire(this, false);
+      Template.metadataUpsertPage.saveQuestionnaireData(this, false);
     }
   },
   "click #lockQuestionnaireButton": function (){
@@ -196,13 +203,13 @@ Template.metadataUpsertPage.events({
   },
   'submit #upsertQuestionnaireForm': function () {
     console.log('creating new metadata...');
-    //Template.metadataUpsertPage.saveQuestionnaire(this);
+    //Template.metadataUpsertPage.saveQuestionnaireData(this);
   }
 });
 
 
-Template.metadataUpsertPage.saveQuestionnaire = function (metadata, record){
-  console.log('Template.metadataUpsertPage.saveQuestionnaire', metadata);
+Template.metadataUpsertPage.saveQuestionnaireData = function (metadata, record){
+  console.log('Template.metadataUpsertPage.saveQuestionnaireData', metadata);
 
   var newRecord = {};
   var inputElements = $('#newQuestionnaireForm input');

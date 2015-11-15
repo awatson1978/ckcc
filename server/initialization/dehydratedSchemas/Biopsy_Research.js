@@ -15,10 +15,7 @@ Meteor.startup(function () {
           },
           "Patient_ID": {
             "label": "Patient ID",
-            "type": "String",
-            "autoform": {
-              "type": "Patient_ID"
-            }
+            "type": "String"
           },
           "Sample_ID": {
             "label": "Sample ID",
@@ -41,7 +38,7 @@ Meteor.startup(function () {
                       "Lymph Node",
                       "Adrenal lesion",
                       "Seminal Vesicle mass",
-                      "spinal mass",
+                      "Spinal Mass",
                       "Lung",
                       "Bladder mass",
                       "Other"
@@ -59,65 +56,6 @@ Meteor.startup(function () {
             "optional": true,
             "type": "String"
           }
-        },
-        "metadata": {
-          "commonName": "Biopsy Research",
-          "version": "V1",
-          "Form_Name": "Biopsy_Research",
-          "Fields": [
-            {
-              "Field_Name": "Patient_ID",
-              "label": "Patient ID",
-              "type": "String",
-              "autoform": {
-                "type": "Patient_ID"
-              }
-                  },
-            {
-              "Field_Name": "Sample_ID",
-              "label": "Sample ID",
-              "type": "String"
-                  },
-            {
-              "Field_Name": "Date_of_Procedure",
-              "autoform": {
-                "afFieldInput": {
-                  "type": "date",
-                  "timezoneId": "America/Los_Angeles"
-                }
-              },
-              "optional": true,
-              "type": "Date"
-                  },
-            {
-              "Field_Name": "Site",
-              "allowedValues": [
-                          "Bone",
-                          "Liver",
-                          "Lymph Node",
-                          "Adrenal lesion",
-                          "Seminal Vesicle mass",
-                          "spinal mass",
-                          "Lung",
-                          "Bladder mass",
-                          "Other"
-                      ],
-              "label": "Biopsy Site",
-              "max": 200,
-              "optional": true,
-              "type": "String"
-                  },
-            {
-              "Field_Name": "List_all_anticancer_meds__including_steroids__taken_within_the_7_days_leading_up_to_biopsy",
-              "optional": true,
-              "type": "String"
-                  },
-            {
-              "Field_Name": "If_Patient_took_a_Steroid_in_the_Last_7_Days__was_it_within_24_hours_of_Biopsy?",
-              "optional": true,
-              "type": "String"
-                  }
-              ]
         },
         "fieldOrder": [
               "Patient_ID",

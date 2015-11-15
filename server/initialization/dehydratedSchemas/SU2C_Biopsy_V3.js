@@ -15,10 +15,7 @@ Meteor.startup(function () {
           },
           "Patient_ID": {
             "label": "Patient ID",
-            "type": "String",
-            "autoform": {
-              "type": "text"
-            }
+            "type": "String"
           },
           "Sample_ID": {
             "label": "Sample ID",
@@ -84,97 +81,6 @@ Meteor.startup(function () {
             "optional": true,
             "type": "String"
           }
-        },
-        "metadata": {
-          "commonName": "SU2C Biopsy",
-          "version": "V3",
-          "Form_Name": "SU2C_Biopsy_V3",
-          "Fields": [
-            {
-              "Field_Name": "Patient_ID",
-              "label": "Patient ID",
-              "type": "String",
-              "autoform": {
-                "type": "text"
-              }
-                  },
-            {
-              "Field_Name": "Sample_ID",
-              "label": "Sample ID",
-              "type": "String",
-              "autoform": {
-                "type": "text"
-              }
-                  },
-            {
-              "Field_Name": "Site",
-              "optional": true,
-              "type": "String"
-                  },
-            {
-              "Field_Name": "Date_of_Procedure",
-              "autoform": {
-                "afFieldInput": {
-                  "type": "date",
-                  "timezoneId": "America/Los_Angeles"
-                }
-              },
-              "optional": true,
-              "type": "Date"
-                  },
-            {
-              "Field_Name": "Date_of_Procedure_Ext",
-              "optional": true,
-              "type": "String"
-                  },
-            {
-              "Field_Name": "Visit_Date",
-              "autoform": {
-                "afFieldInput": {
-                  "type": "date",
-                  "timezoneId": "America/Los_Angeles"
-                }
-              },
-              "optional": true,
-              "type": "Date"
-                  },
-            {
-              "Field_Name": "List_all_anticancer_meds__including_steroids__taken_within_the_7_days_leading_up_to_biopsy",
-              "optional": true,
-              "type": "String"
-                  },
-            {
-              "Field_Name": "If_Patient_took_a_Steroid_in_the_Last_7_Days__was_it_within_24_hours_of_Biopsy?",
-              "optional": true,
-              "type": "String"
-                  },
-            {
-              "Field_Name": "Was_it_a_Tapered_Dose",
-              "label": "Was it a Tapered Dose?",
-              "optional": true,
-              "type": "String"
-                  },
-            {
-              "Field_Name": "Day",
-              "optional": true,
-              "type": "Number"
-                  },
-            {
-              "Field_Name": "Phase",
-              "optional": true,
-              "type": "String"
-                  },
-            {
-              "Field_Name": "Segment",
-              "optional": true,
-              "type": "String"
-                  },
-            {
-              "Field_Name": "Arm",
-              "optional": true,
-              "type": "String"
-                  }
-              ]
         },
         "fieldOrder": [
               "Patient_ID",

@@ -15,10 +15,7 @@ Meteor.startup(function () {
           },
           "Sample_ID": {
             "label": "Sample ID",
-            "type": "String",
-            "autoform": {
-              "type": "text"
-            }
+            "type": "String"
           },
           "Histology_Call": {
             "allowedValues": [
@@ -44,50 +41,7 @@ Meteor.startup(function () {
           "Trichotomy": {
             "type": "String"
           }
-        },
-        "metadata": {
-          "commonName": "Histological Research",
-          "version": "V1",
-          "Form_Name": "Histology_Research",
-          "Fields": [
-            {
-              "Field_Name": "Sample_ID",
-              "label": "Sample ID",
-              "type": "String",
-              "autoform": {
-                "type": "Sample_ID"
-              }
-            },
-            {
-              "Field_Name": "Histology_Call",
-              "allowedValues": [
-                "Adeno",
-                "Small Cell",
-                "IAC/Adeno",
-                "IAC",
-                "Indeterminate",
-                "Intermediate",
-                "IAC/SC",
-                "Adeno/SC",
-                "Unavailable",
-                "QNS"
-              ],
-              "type": "String"
-            },
-            {
-              "Field_Name": "Adeno",
-              "type": "String"
-            },
-            {
-              "Field_Name": "Small_Cell",
-              "type": "String"
-            },
-            {
-              "Field_Name": "Trichotomy",
-              "type": "String"
-            }
-          ]
-        },
+        },        
         "fieldOrder": [
           "Sample_ID",
           "Histology_Call",

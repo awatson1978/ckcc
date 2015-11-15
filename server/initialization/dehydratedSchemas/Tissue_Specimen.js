@@ -15,10 +15,7 @@ Meteor.startup(function () {
               },
               "Sample_ID" : {
                   "label" : "Sample ID",
-                  "type" : "String",
-                  "autoform" : {
-                      "type" : "text"
-                  }
+                  "type" : "String"
               },
               "Timepoint" : {
                   "allowedValues" : [

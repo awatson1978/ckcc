@@ -16,17 +16,11 @@ Meteor.startup(function () {
 
           "Patient_ID": {
             "label": "Patient ID",
-            "type": "String",
-            "autoform": {
-              "type": "text"
-            }
+            "type": "String"
           },
           "Sample_ID": {
             "label": "Sample ID",
-            "type": "String",
-            "autoform": {
-              "type": "text"
-            }
+            "type": "String"
           },
           "Arm": {
             "optional": true,
@@ -62,70 +56,6 @@ Meteor.startup(function () {
             "optional": true,
             "type": "String"
           }
-        },
-        "metadata": {
-          "commonName": "SU2C Speciment",
-          "version": "V1",
-          "Form_Name": "SU2C_Specimen_V1",
-          "Fields": [
-            {
-              "Field_Name": "Patient_ID",
-              "label": "Patient ID",
-              "type": "String",
-              "autoform": {
-                "type": "text"
-              }
-            },
-            {
-              "Field_Name": "Sample_ID",
-              "label": "Sample ID",
-              "type": "String",
-              "autoform": {
-                "type": "text"
-              }
-            },
-            {
-              "Field_Name": "Arm",
-              "optional": true,
-              "type": "String"
-            },
-            {
-              "Field_Name": "Day",
-              "optional": true,
-              "type": "Number"
-            },
-            {
-              "Field_Name": "Phase",
-              "optional": true,
-              "type": "String"
-            },
-            {
-              "Field_Name": "Segment",
-              "optional": true,
-              "type": "String"
-            },
-            {
-              "Field_Name": "Visit_Date",
-              "autoform": {
-                "afFieldInput": {
-                  "type": "date",
-                  "timezoneId": "America/Los_Angeles"
-                }
-              },
-              "optional": true,
-              "type": "Date"
-            },
-            {
-              "Field_Name": "Were_study_blood_samples_collected_at_this_visit?",
-              "optional": true,
-              "type": "String"
-            },
-            {
-              "Field_Name": "Notes",
-              "optional": true,
-              "type": "String"
-              }
-          ]
         },
         "fieldOrder": [
                 "Patient_ID",

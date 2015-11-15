@@ -16,10 +16,7 @@ Meteor.startup(function () {
               },
               "Sample_ID" : {
                   "label" : "Sample ID",
-                  "type" : "String",
-                  "autoform" : {
-                      "type" : "text"
-                  }
+                  "type" : "String"
               },
               "Cores" : {
                   "autoform" : {
@@ -28,29 +25,6 @@ Meteor.startup(function () {
                   "optional" : true,
                   "type" : "ObjectArray"
               }
-          },
-          "metadata" : {
-              "commonName" : "Histological Assessment",
-              "version" : "V1",
-              "Form_Name" : "Histological_Assessment_form",
-              "Fields" : [
-                  {
-                      "Field_Name" : "Sample_ID",
-                      "label" : "Sample ID",
-                      "type" : "String",
-                      "autoform" : {
-                          "type" : "text"
-                      }
-                  },
-                  {
-                      "Field_Name" : "Cores",
-                      "autoform" : {
-                          "template" : "bootstrap3-horizontal"
-                      },
-                      "optional" : true,
-                      "type" : "Array"
-                  }
-              ]
           },
           "fieldOrder" : [
               "Sample_ID",

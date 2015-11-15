@@ -5,7 +5,6 @@ var userA = {
   password: "house",
 };
 
-
 var bloodSpecimenRecord = {
   patientId: "DTB-999",
   timepoint: "Baseline",

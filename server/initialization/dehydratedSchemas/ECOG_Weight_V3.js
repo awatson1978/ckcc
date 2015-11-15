@@ -15,17 +15,11 @@ Meteor.startup(function () {
           },
           "Patient_ID": {
             "label": "Patient ID",
-            "type": "String",
-            "autoform": {
-              "type": "text"
-            }
+            "type": "String"
           },
           "Sample_ID": {
             "label": "Sample ID",
-            "type": "String",
-            "autoform": {
-              "type": "text"
-            }
+            "type": "String"
           },
           "BMI": {
             "decimal": true,
@@ -67,78 +61,7 @@ Meteor.startup(function () {
             "optional": true,
             "type": "Number"
           }
-        },
-        "metadata": {
-          "commonName": "ECOG Weight",
-          "version": "V3",
-          "Form_Name": "ECOG_Weight_V3",
-          "Fields": [
-            {
-              "Field_Name": "Patient_ID",
-              "label": "Patient ID",
-              "type": "String",
-              "autoform": {
-                "type": "text"
-              }
-                  },
-            {
-              "Field_Name": "Sample_ID",
-              "label": "Sample ID",
-              "type": "String",
-              "autoform": {
-                "type": "text"
-              }
-                  },
-            {
-              "Field_Name": "BMI",
-              "decimal": true,
-              "optional": true,
-              "type": "Number"
-                  },
-            {
-              "Field_Name": "Weight",
-              "decimal": true,
-              "optional": true,
-              "type": "Number"
-                  },
-            {
-              "Field_Name": "Visit_Date",
-              "autoform": {
-                "afFieldInput": {
-                  "type": "date",
-                  "timezoneId": "America/Los_Angeles"
-                }
-              },
-              "optional": true,
-              "type": "Date"
-                  },
-            {
-              "Field_Name": "ECOG_PS",
-              "optional": true,
-              "type": "String"
-                  },
-            {
-              "Field_Name": "Phase",
-              "optional": true,
-              "type": "String"
-                  },
-            {
-              "Field_Name": "Segment",
-              "optional": true,
-              "type": "String"
-                  },
-            {
-              "Field_Name": "Arm",
-              "optional": true,
-              "type": "String"
-                  },
-            {
-              "Field_Name": "Day",
-              "optional": true,
-              "type": "Number"
-                  }
-              ]
-        },
+        },        
         "fieldOrder": [
               "Patient_ID",
               "Sample_ID",

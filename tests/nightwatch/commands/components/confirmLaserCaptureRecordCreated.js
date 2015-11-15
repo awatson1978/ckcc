@@ -4,6 +4,7 @@ exports.command = function (laserCaptureRecord) {
 
     .verify.elementPresent("#recordSearchInput")
       .clearValue('#recordSearchInput')
+      // we're going to search by form name, not by patient name
       .setValue('#recordSearchInput', 'Las')
 
     .verify.elementPresent("#recordsList")

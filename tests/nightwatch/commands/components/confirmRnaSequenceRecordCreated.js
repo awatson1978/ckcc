@@ -4,6 +4,7 @@ exports.command = function (rnaSequenceRecord) {
 
     .verify.elementPresent("#recordSearchInput")
       .clearValue('#recordSearchInput')
+      // we're going to search by form name, not by patient name
       .setValue('#recordSearchInput', 'RNA')
 
     .verify.elementPresent("#recordsList")

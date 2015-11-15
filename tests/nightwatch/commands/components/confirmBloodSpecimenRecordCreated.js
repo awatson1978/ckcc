@@ -4,6 +4,7 @@ exports.command = function (bloodSpecimenRecord) {
 
     .verify.elementPresent("#recordSearchInput")
       .clearValue('#recordSearchInput')
+      // we're going to search by form name, not by patient name
       .setValue('#recordSearchInput', 'd S')
 
     .verify.elementPresent("#recordsList")

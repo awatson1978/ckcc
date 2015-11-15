@@ -3,7 +3,9 @@ exports.command = function (patientEnrollmentRecord) {
     .verify.elementPresent("#recordsListPage")
 
     .verify.elementPresent("#recordSearchInput")
+      .clearValue('#recordSearchInput').pause(500)
       .clearValue('#recordSearchInput')
+
       .setValue('#recordSearchInput', patientEnrollmentRecord.patientId)
 
     .verify.elementPresent("#recordsList")

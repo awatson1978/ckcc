@@ -1,4 +1,4 @@
-clinical:active-users
+##clinical:active-users
 
 ===============================
 #### Installation  

@@ -17,35 +17,15 @@ Router.route('/upsert/metadata/:metadataId', {
   template: 'metadataUpsertPage',
   data: function (){
     var formSchema = Metadata.findOne({_id: this.params.metadataId});
-    Session.set('activeMetadataId', formSchema._id);
-    Session.set('activeMetadata', formSchema);
-    console.log('formSchema', formSchema);
-    return formSchema;
+    if (formSchema) {
+      Session.set('activeMetadataId', formSchema._id);
+      Session.set('activeMetadata', formSchema);
+      Session.set('pageTitle', formSchema.commonName);
+      return formSchema;
+    }
   },
   onAfterAction: function (){
     Session.set('metadataReadOnly', false);
-  }
-});
-Router.route('/view/metadata/:metadataId', {
-  name: 'viewMetadataRoute',
-  template: 'metadataUpsertPage',
-  data: function (){
-    var formSchema = Metadata.findOne({_id: this.params.metadataId});
-    Session.set('activeMetadataId', formSchema._id);
-    Session.set('activeMetadata', formSchema);
-    console.log('formSchema', formSchema);
-    return formSchema;
-  }
-});
-Router.route('/metadata/:metadataId/new', {
-  name: 'metadataUpsertForTemplate',
-  template: 'metadataUpsertPage',
-  data: function (){
-    var formSchema = Metadata.findOne({_id: this.params.metadataId});
-    Session.set('activeMetadataId', formSchema._id);
-    Session.set('activeMetadata', formSchema);
-    console.log('formSchema', formSchema);
-    return formSchema;
   },
   yieldTemplates: {
     'navbarHeader': {
@@ -54,8 +34,55 @@ Router.route('/metadata/:metadataId/new', {
     'navbarFooter': {
       to: 'footer'
     },
-    'mainSidebar': {
-      to: 'sidebar'
+    'metadataActionButtons': {
+      to: 'footerActionElements'
+    }
+  }
+});
+
+Router.route('/view/metadata/:metadataId', {
+  name: 'viewMetadataRoute',
+  template: 'metadataUpsertPage',
+  data: function (){
+    var formSchema = Metadata.findOne({_id: this.params.metadataId});
+    if (formSchema) {
+      Session.set('activeMetadataId', formSchema._id);
+      Session.set('activeMetadata', formSchema);
+      Session.set('pageTitle', formSchema.commonName);
+      return formSchema;
+    }
+  },
+  yieldTemplates: {
+    'navbarHeader': {
+      to: 'header'
+    },
+    'navbarFooter': {
+      to: 'footer'
+    },
+    'metadataActionButtons': {
+      to: 'footerActionElements'
+    }
+  }
+});
+
+Router.route('/metadata/:metadataId/new', {
+  name: 'metadataUpsertForTemplate',
+  template: 'metadataUpsertPage',
+  data: function (){
+    var formSchema = Metadata.findOne({_id: this.params.metadataId});
+    if (formSchema) {
+      Session.set('activeMetadataId', formSchema._id);
+      Session.set('activeMetadata', formSchema);
+      Session.set('pageTitle', formSchema.commonName);
+      return formSchema;
+    }
+  },
+  yieldTemplates: {
+    'navbarHeader': {
+      to: 'header'
+    },
+    'navbarFooter': {
+      to: 'footer'
     },
     'metadataActionButtons': {
       to: 'footerActionElements'
@@ -73,7 +100,10 @@ Template.metadataUpsertPage.rendered = function (){
 
 
 Template.metadataUpsertPage.helpers({
-
+  getSelectButtonOptions: function (){
+    console.log('getSelectButtonOptions', this);
+    return this.allowedValues;
+  },
   getCurrentSchema: function (){
     console.log('Template.metadataUpsertPage.getCurrentSchema', this);
 
@@ -140,18 +170,6 @@ Template.metadataUpsertPage.events({
     Session.set('showReactiveOverlay', true);
     Session.set('showCollaborationPicklist', true);
   },
-  'click #removeQuestionnaireButton': function (){
-    Metadata.remove(this._id, function (error, result){
-      if (result){
-        Router.go('/list/metadatas');
-      }
-    });
-  },
-  "click #saveQuestionnaireButton": function (event, template){
-    event.preventDefault();
-    Template.metadataUpsertPage.saveQuestionnaire(this, false);
-    Session.set('metadataReadOnly', true);
-  },
   "click .barcode": function (){
     // TODO:  refactor to Session.toggle('metadataReadOnly')
     if (Session.equals('metadataReadOnly', true)){
@@ -159,7 +177,7 @@ Template.metadataUpsertPage.events({
     } else {
       Session.set('metadataReadOnly', true);
       console.log('Locking the metadata...');
-      Template.metadataUpsertPage.saveQuestionnaire(this, false);
+      Template.metadataUpsertPage.saveQuestionnaireData(this, false);
     }
   },
   "click #lockQuestionnaireButton": function (){
@@ -185,26 +203,31 @@ Template.metadataUpsertPage.events({
   },
   'submit #upsertQuestionnaireForm': function () {
     console.log('creating new metadata...');
-    //Template.metadataUpsertPage.saveQuestionnaire(this);
+    //Template.metadataUpsertPage.saveQuestionnaireData(this);
   }
 });
 
 
-Template.metadataUpsertPage.saveQuestionnaire = function (metadata, record){
-  console.log('Template.metadataUpsertPage.saveQuestionnaire', metadata);
+Template.metadataUpsertPage.saveQuestionnaireData = function (metadata, record){
+  console.log('Template.metadataUpsertPage.saveQuestionnaireData', metadata);
 
   var newRecord = {};
   var inputElements = $('#newQuestionnaireForm input');
   var textareaElements = $('#newQuestionnaireForm textarea');
+  var selectElements = $('#newQuestionnaireForm select');
 
   console.log('inputElements', inputElements);
   console.log('textareaElements', textareaElements);
+  console.log('selectElements', selectElements);
 
   for (var i = 0; i < inputElements.length; i++) {
     newRecord[inputElements[i].name] = inputElements[i].value;
   }
   for (var i = 0; i < textareaElements.length; i++) {
     newRecord[textareaElements[i].name] = textareaElements[i].value;
+  }
+  for (var i = 0; i < selectElements.length; i++) {
+    newRecord[selectElements[i].name] = selectElements[i].value;
   }
 
   newRecord.createdAt = new Date();

@@ -104,6 +104,6 @@ Template.metadatasListPage.helpers({
           }
         }
     ]
-  }, {sort: {createdAt: -1}});
+  }, {sort: {commonName: 1, createdAt: -1}});
   }
 });

@@ -22,9 +22,9 @@ exports.command = function(laserCapture) {
     .verify.elementPresent('input[name="Estimated_total_capture_area"]')
     .verify.elementPresent('input[name="Lysates"]')
     .verify.elementPresent('input[name="Lysates_Volume"]')
-    .verify.elementPresent('select[name="Downstream_use"]')
+    .verify.elementPresent('select[name="Downstream_use"]');
 
-    if(laserCapture){
+    if (laserCapture){
       this
         .clearValue('input[name="Sample_ID"]')
         .clearValue('select[name="Core"]')
@@ -36,6 +36,7 @@ exports.command = function(laserCapture) {
         .clearValue('select[name="Downstream_use"]')
         .pause(1000)
 
+        .setValue('input[name="Patient_ID"]', laserCapture.patientId )
         .setValue('input[name="Sample_ID"]', laserCapture.sampleId )
         .setValue('select[name="Core"]', laserCapture.core )
         .setValue('input[name="Completion_Date"]', laserCapture.completionDate )
@@ -48,7 +49,7 @@ exports.command = function(laserCapture) {
 
         //.verify.attributeEquals('input[name="Sample_ID"]', "value", laserCapture.sampleId )
         .verify.attributeEquals('select[name="Core"]', "value", laserCapture.core )
-        .verify.attributeEquals('input[name="Completion_Date"]', "value", laserCapture.completionDate )
+        .verify.attributeEquals('input[name="Completion_Date"]', "value", laserCapture.completionDateOutput )
         .verify.attributeEquals('input[name="SlideNumber"]', "value", laserCapture.slideNumber )
         .verify.attributeEquals('input[name="Estimated_total_capture_area"]', "value", laserCapture.estimatedTotalCaptureArea )
         .verify.attributeEquals('input[name="Lysates"]', "value", laserCapture.lysates )
@@ -56,9 +57,8 @@ exports.command = function(laserCapture) {
         .verify.attributeEquals('select[name="Downstream_use"]', "value", laserCapture.downstreamUse )
 
         .verify.elementPresent('button[type="submit"]')
-        .click('button[type="submit"]').pause(500)
-    }
-
+        .click('button[type="submit"]').pause(500);
+  }
 
   return this;
 };

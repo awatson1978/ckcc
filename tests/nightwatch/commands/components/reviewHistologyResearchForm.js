@@ -1,5 +1,6 @@
-exports.command = function() {
+exports.command = function () {
   this
+    .sectionBreak('.reviewHistologyResearchForm()')
     .verify.elementPresent("form")
 
     .verify.elementPresent('input[name="Sample_ID"]')
@@ -11,7 +12,7 @@ exports.command = function() {
     .verify.elementPresent('input[name="Small_Cell"]')
     .verify.elementPresent('input[name="Trichotomy"]')
 
-    .verify.elementPresent('button[type="submit"]')
+    .verify.elementPresent('button[type="submit"]');
 
   return this;
 };

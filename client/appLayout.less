@@ -134,6 +134,12 @@ h6 {
   color: #aaaaaa;
 }
 
+form textarea,
+form input,
+form select{
+  border-left: 1px dashed #dddddd !important;
+}
+
 select {
   -webkit-appearance: button;
   -moz-appearance: button;
@@ -146,30 +152,33 @@ select {
   background-position: center right;
   background-repeat: no-repeat;
 
-  background-color: #F07575; /* fallback color if gradients are not supported */
-  background-image: url(images/select-arrow.png), -webkit-linear-gradient(top, #E5E5E5, #F4F4F4); /* For Chrome and Safari */
-  background-image: url(images/select-arrow.png), -moz-linear-gradient(top, #E5E5E5, #F4F4F4); /* For old Fx (3.6 to 15) */
-  background-image: url(images/select-arrow.png), -ms-linear-gradient(top, #E5E5E5, #F4F4F4); /* For pre-releases of IE 10*/
-  background-image: url(images/select-arrow.png), -o-linear-gradient(top, #E5E5E5, #F4F4F4); /* For old Opera (11.1 to 12.0) */
-  background-image: url(images/select-arrow.png), linear-gradient(to bottom, #E5E5E5, #F4F4F4); /* Standard syntax; must be last */
-  border: 1px solid #dddddd !important;
-  //border-left: 1px dashed #dddddd !important;
+  // background-color: #F07575; /* fallback color if gradients are not supported */
+  // background-image: url(images/select-arrow.png), -webkit-linear-gradient(top, #E5E5E5, #F4F4F4); /* For Chrome and Safari */
+  // background-image: url(images/select-arrow.png), -moz-linear-gradient(top, #E5E5E5, #F4F4F4); /* For old Fx (3.6 to 15) */
+  // background-image: url(images/select-arrow.png), -ms-linear-gradient(top, #E5E5E5, #F4F4F4); /* For pre-releases of IE 10*/
+  // background-image: url(images/select-arrow.png), -o-linear-gradient(top, #E5E5E5, #F4F4F4); /* For old Opera (11.1 to 12.0) */
+  // background-image: url(images/select-arrow.png), linear-gradient(to bottom, #E5E5E5, #F4F4F4); /* Standard syntax; must be last */
+  // border: 1px solid #dddddd !important;
+  border-left: 1px dashed #dddddd !important;
+  border-bottom: 0px none white !important;
+  border-right: 0px none white !important;
 
   border-radius: 2px;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  //box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
   color: #555;
   font-size: inherit;
-  margin: 0;
   overflow: hidden;
   padding-top: 2px;
+  padding-left: 40px;
   padding-bottom: 2px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 15px !important;;
+  margin-bottom: 20px !important;;
   text-overflow: ellipsis;
   white-space: nowrap;
   height: 50px;
-  margin-bottom: 20px !important;;
   cursor: pointer;
-  margin-top: 15px !important;;
-  padding-left: 40px;
 }
 
 //==================================================================================================

@@ -11,9 +11,9 @@ var histologyResearchRecord = {
 
 
 
-exports.command = function(histologyResearchRecord) {
+exports.command = function (histologyResearchRecord) {
   this
-    .verify.elementPresent("form")
+    .sectionBreak('.completeHistologyResearchForm()')
 
     .verify.elementPresent('input[name="Sample_ID"]')
     .verify.elementPresent('select[name="Histology_Call"]')
@@ -30,9 +30,14 @@ exports.command = function(histologyResearchRecord) {
         .clearValue('input[name="Trichotomy"]')
         .pause(500)
 
-
+        .setValue('input[name="Patient_ID"]', histologyResearchRecord.patientId)
         .setValue('input[name="Sample_ID"]', histologyResearchRecord.sampleId)
         .setValue('select[name="Histology_Call"]', histologyResearchRecord.histologyCall).pause(1000)
+
+        // ?
+        .setValue('input[name="Adeno"]', histologyResearchRecord.adeno).pause(1000)
+        .setValue('input[name="Small_Cell"]', histologyResearchRecord.smallCell).pause(1000)
+        .setValue('input[name="Trichotomy"]', histologyResearchRecord.trichotomy).pause(1000)
 
         // these should be autopopulated
         //.verify.attributeEquals('input[name="Sample_ID"]', 'value', histologyResearchRecord.sampleId)

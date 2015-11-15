@@ -214,15 +214,20 @@ Template.metadataUpsertPage.saveQuestionnaireData = function (metadata, record){
   var newRecord = {};
   var inputElements = $('#newQuestionnaireForm input');
   var textareaElements = $('#newQuestionnaireForm textarea');
+  var selectElements = $('#newQuestionnaireForm select');
 
   console.log('inputElements', inputElements);
   console.log('textareaElements', textareaElements);
+  console.log('selectElements', selectElements);
 
   for (var i = 0; i < inputElements.length; i++) {
     newRecord[inputElements[i].name] = inputElements[i].value;
   }
   for (var i = 0; i < textareaElements.length; i++) {
     newRecord[textareaElements[i].name] = textareaElements[i].value;
+  }
+  for (var i = 0; i < selectElements.length; i++) {
+    newRecord[selectElements[i].name] = selectElements[i].value;
   }
 
   newRecord.createdAt = new Date();

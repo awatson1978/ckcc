@@ -128,8 +128,8 @@ module.exports = {
   tags: ['collaborations'],
   before: function (client){
     client
-      .url("http://localhost:3000").pause(1000);
-      //.dropCollaborations();
+      .url("http://localhost:3000").pause(1000)
+      .dropClinicalFormCollections();
   },
   "A. Signing In UserA": function (client) {
 

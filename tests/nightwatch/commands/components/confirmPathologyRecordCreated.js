@@ -15,15 +15,21 @@ exports.command = function (pathologyRecord) {
     .click("#recordsList .recordItem:nth-child(1)").pause(1000)
 
     .verify.elementPresent("#recordUpsertCard").pause(500)
-    .verify.elementPresent('#recordUpsertCard input[name="Sample_ID"]')
+
+    .verify.attributeEquals('#recordUpsertCard input[name="Patient_ID"]', "value", pathologyRecord.patientId)
     .verify.attributeEquals('#recordUpsertCard input[name="Sample_ID"]', "value", pathologyRecord.sampleId)
+    .verify.attributeEquals('#recordUpsertCard input[name="AR_chromosomeX_ratio"]', "value", pathologyRecord.arChromosomeXRatio)
 
-    .verify.attributeEquals('#recordUpsertCard input[name="Baseline_Sample_ID"]', "value", pathologyRecord.baselineSampleId)
-    .verify.attributeEquals('#recordUpsertCard input[name="Progression_Sample_ID"]', "value", pathologyRecord.progressionSampleId)
-
-    .verify.attributeEquals('#recordUpsertCard select[name="institution"]', "value", pathologyRecord.institution)
-    .verify.attributeEquals('#recordUpsertCard select[name="Baseline_Biopsy_Site"]', "value", pathologyRecord.baselineBiopsySite)
-    .verify.attributeEquals('#recordUpsertCard select[name="Progression_Biopsy_Site"]', "value", pathologyRecord.progressionBiopsySite);
+    .verify.attributeEquals('#recordUpsertCard select[name="Tumor_Content"]', "value", pathologyRecord.tumorContent)
+    .verify.attributeEquals('#recordUpsertCard select[name="Preliminary_Histology"]', "value", pathologyRecord.preliminaryHistology)
+    .verify.attributeEquals('#recordUpsertCard select[name="Final_Histology"]', "value", pathologyRecord.finalHistology)
+    .verify.attributeEquals('#recordUpsertCard select[name="AR-FISH_IHC"]', "value", pathologyRecord.arFishIhc)
+    .verify.attributeEquals('#recordUpsertCard select[name="PSA_IHC"]', "value", pathologyRecord.psaIhc)
+    .verify.attributeEquals('#recordUpsertCard select[name="CHGA_IHC"]', "value", pathologyRecord.chgaIhc)
+    .verify.attributeEquals('#recordUpsertCard select[name="AR-FISH_test_performed"]', "value", pathologyRecord.arFishPerformed)
+    .verify.attributeEquals('#recordUpsertCard select[name="ION_Torrent_test_performed"]', "value", pathologyRecord.ionTorrentTestPerformed)
+    .verify.attributeEquals('#recordUpsertCard select[name="PTEN_IHC"]', "value", pathologyRecord.ptenIhc)
+    .verify.attributeEquals('#recordUpsertCard select[name="PTEN_test_performed"]', "value", pathologyRecord.ptenTestPerformed);
 
   return this;
 };

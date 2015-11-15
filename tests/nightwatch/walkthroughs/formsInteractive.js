@@ -6,9 +6,10 @@ var userA = {
 };
 
 var bloodSpecimenRecord = {
-  patientId: "DTB-999",
+  patientId: "DTB‑999",
   timepoint: "Baseline",
   drawDate: "01/01/2015",
+  drawDateOutput: "2015-01-01",
   crcAtCollection: "lorem ipsum"
 };
 
@@ -23,6 +24,7 @@ var histologyAssessmentRecord = {
 
 var histologyResearchRecord = {
   sampleId: "DTB‑999",
+  patientId: "DTB‑999",
   /*mutatedGenes: "",
   immunohistochemistry: "",*/
   histologyCall: "Adeno",
@@ -32,9 +34,11 @@ var histologyResearchRecord = {
 };
 
 var laserCaptureRecord = {
+  patientId: "DTB‑999",
   sampleId: "DTB‑999",
   core: "A",
   completionDate: "01/01/2015",
+  completionDateOutput: "2015-01-01",
   slideNumber: "1",
   estimatedTotalCaptureArea: "1",
   lysates: "1",
@@ -43,7 +47,7 @@ var laserCaptureRecord = {
 };
 
 var pathologyRecord = {
-  patientId: "DTB-999",
+  patientId: "DTB‑999",
   sampleId: "DTB‑999",
   tumorContent: "5%",
   preliminaryHistology: "Adenocarcinoma",
@@ -60,12 +64,14 @@ var pathologyRecord = {
 };
 
 var rnaSequenceRecord = {
-  patientId: "DTB-999",
+  patientId: "DTB‑999",
   lncapControlSource: "foo",
   qcReports: "lorem ipsum",
   rinScoreFromUcsf: "1",
   dateCompleted: "01/01/2015",
   dateReceived: "01/01/2015",
+  dateCompletedOutput: "2015-01-01",
+  dateReceivedOutput: "2015-01-01",
   libraryPrepUsed: "NuGen stranded",
   libraryPrepNotes: "lorem ipsum",
   locationOfFastqFile: "lorem ipsum",
@@ -73,7 +79,7 @@ var rnaSequenceRecord = {
 };
 
 var tissueSpecimenRecord = {
-  sampleId: "DTB-999",
+  sampleId: "DTB‑999",
   timepoint: "Baseline",
   procedureDate: "01/01/2015",
   //biopsySite: "",
@@ -90,7 +96,7 @@ var tissueSpecimenRecord = {
 };
 
 var patientEnrollmentRecord = {
-  patientId: 'DTB-999',
+  patientId: "DTB‑999",
   sampleId: '999A',
   institution: "OHSU",
   baselineSampleId: "999A",
@@ -109,7 +115,8 @@ module.exports = {
   before: function (client){
     client
       .url("http://localhost:3000").pause(1000)
-      .dropRecords();
+      .dropClinicalFormCollections()
+      .initializeQuestionnaires();
   },
   "SignIn" : function (client) {
     client
@@ -131,68 +138,63 @@ module.exports = {
       .saveScreenshot(screenshotDir + "D-PatientEnrollmentForm.png")
       .reviewPatientEnrollmentForm()
       .completePatientEnrollmentForm(patientEnrollmentRecord)
-      //.reviewPatientEnrollmentRow(patientEnrollmentRecord, 1);
       .confirmPatientEnrollmentRecordCreated(patientEnrollmentRecord, 1);
   },
-  // "Histological Research Form" : function (client) {
+  "Histological Research" : function (client) {
+    client
+      .navigateToForm('l R')
+      .reviewPageTitle("Histological Research")
+      .saveScreenshot(screenshotDir + "E-HistologyResearchForm.png")
+      .reviewHistologyResearchForm()
+      .completeHistologyResearchForm(histologyResearchRecord)
+      .confirmHistologyResearchRecordCreated(histologyResearchRecord, 1);
+  },
+  // "Tissue Specimen Form" : function (client) {
   //   client
-  //     .navigateToForm('l R')
-  //     .reviewPageTitle("Histological Research")
-  //     .saveScreenshot(screenshotDir + "E-HistologyResearchForm.png")
-  //     .reviewHistologyResearchForm()
-  //     .completeHistologyResearchForm(histologyResearchRecord)
-  //     // .reviewHistologyResearchRow(histologyResearchRecord, 1);
-  //     .confirmHistologyResearchtRecordCreated(histologyResearchRecord, 1);
+  //     .selectFromSidebar('#Tissue_Specimen_formButton')
+  //     .reviewPageTitle("Tissue_Specimen_form")
+  //     .saveScreenshot(screenshotDir + "F-TissueSpecimenForm.png")
+  //     .reviewTissueSpecimenForm()
+  //     .completeTissueSpecimenForm(tissueSpecimenRecord)
+  //     .reviewTissueSpecimenRow(tissueSpecimenRecord, 1);
   // },
-  // // "Tissue Specimen Form" : function (client) {
-  // //   client
-  // //     .selectFromSidebar('#Tissue_Specimen_formButton')
-  // //     .reviewPageTitle("Tissue_Specimen_form")
-  // //     .saveScreenshot(screenshotDir + "F-TissueSpecimenForm.png")
-  // //     .reviewTissueSpecimenForm()
-  // //     .completeTissueSpecimenForm(tissueSpecimenRecord)
-  // //     .reviewTissueSpecimenRow(tissueSpecimenRecord, 1);
-  // // },
-  // "Blood Specimen Form" : function (client) {
+  "Blood Specimen Form" : function (client) {
+    client
+      .navigateToForm('d S')
+      .reviewPageTitle("Blood Specimen Form")
+      .saveScreenshot(screenshotDir + "G-BloodSpecimenForm.png")
+      .reviewBloodSpecimenForm()
+      .completeBloodSpecimenForm(bloodSpecimenRecord)
+      .confirmBloodSpecimenRecordCreated(bloodSpecimenRecord, 1);
+  },
+  // "Histological Assessment Form" : function (client) {
   //   client
-  //     .navigateToForm('d S')
-  //     .reviewPageTitle("Blood Specimen Form")
-  //     .saveScreenshot(screenshotDir + "G-BloodSpecimenForm.png")
-  //     .reviewBloodSpecimenForm()
-  //     .completeBloodSpecimenForm(bloodSpecimenRecord)
-  //     // .reviewBloodSpecimenRow(bloodSpecimenRecord, 1);
-  //     .confirmBloodSpecimenRecordCreated(bloodSpecimenRecord, 1);
+  //     //.sectionBreak("Histological Assessment Form")
+  //     .selectFromSidebar('#Histological_Assessment_formButton')
+  //     .reviewPageTitle("Histological_Assessment_form")
+  //     .saveScreenshot(screenshotDir + "H-HistologyAssessmentForm.png")
+  //     .reviewHistologyAssessmentForm()
+  //     .completeHistologyAssessmentForm(histologyAssessmentRecord)
+  //     .reviewHistologyAssessmentRow(histologyAssessmentRecord, 1);
   // },
-  // // "Histological Assessment Form" : function (client) {
-  // //   client
-  // //     //.sectionBreak("Histological Assessment Form")
-  // //     .selectFromSidebar('#Histological_Assessment_formButton')
-  // //     .reviewPageTitle("Histological_Assessment_form")
-  // //     .saveScreenshot(screenshotDir + "H-HistologyAssessmentForm.png")
-  // //     .reviewHistologyAssessmentForm()
-  // //     .completeHistologyAssessmentForm(histologyAssessmentRecord)
-  // //     .reviewHistologyAssessmentRow(histologyAssessmentRecord, 1);
-  // // },
-  // "Laser Capture Microdissection" : function (client) {
-  //   client
-  //     .navigateToForm('Las')
-  //     .reviewPageTitle("Laser Capture Microdissection")
-  //     .saveScreenshot(screenshotDir + "I-LaserCaptureForm.png")
-  //     .reviewLaserCaptureForm()
-  //     .completeLaserCaptureForm(laserCaptureRecord)
-  //     // .reviewLaserCaptureRow(laserCaptureRecord, 1)
-  //     .confirmLaserCaptureRecordCreated(bloodSpecimenRecord, 1);
-  // },
-  // "RNA Sequence Completion" : function (client) {
-  //   client
-  //     .navigateToForm('Las')
-  //     .reviewPageTitle("Laser Capture Microdissection")
-  //     .saveScreenshot(screenshotDir + "J-RnaSequenceForm.png")
-  //     .reviewRnaSequenceForm()
-  //     .completeRnaSequenceForm(rnaSequenceRecord)
-  //     // .reviewRnaSequenceRow(rnaSequenceRecord, 1)
-  //     .confirmRnaSequenceRecordCreated(bloodSpecimenRecord, 1);
-  // },
+  "Laser Capture Microdissection" : function (client) {
+    client
+      .navigateToForm('Las')
+      .reviewPageTitle("Laser Capture Microdissection")
+      .saveScreenshot(screenshotDir + "I-LaserCaptureForm.png")
+      .reviewLaserCaptureForm()
+      .completeLaserCaptureForm(laserCaptureRecord)
+      .confirmLaserCaptureRecordCreated(laserCaptureRecord, 1);
+  },
+  "RNA Sequence Completion" : function (client) {
+    client
+      .navigateToForm('RNA')
+      .reviewPageTitle("RNA Sequence Completion")
+      .saveScreenshot(screenshotDir + "J-RnaSequenceForm.png")
+      .reviewRnaSequenceForm()
+      .completeRnaSequenceForm(rnaSequenceRecord)
+      .confirmRnaSequenceRecordCreated(rnaSequenceRecord, 1);
+  },
   "Pathology Form" : function (client) {
     client
       .navigateToForm('Path')

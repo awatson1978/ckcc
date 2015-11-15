@@ -9,7 +9,7 @@ var bloodSpecimenRecord = {
   patientId: "DTB‑999",
   timepoint: "Baseline",
   drawDate: "01/01/2015",
-  drawDateOutput: "2015-01-01",
+  //drawDateOutput: "2015-01-01",
   crcAtCollection: "lorem ipsum"
 };
 
@@ -38,7 +38,7 @@ var laserCaptureRecord = {
   sampleId: "DTB‑999",
   core: "A",
   completionDate: "01/01/2015",
-  completionDateOutput: "2015-01-01",
+  //completionDateOutput: "2015-01-01",
   slideNumber: "1",
   estimatedTotalCaptureArea: "1",
   lysates: "1",
@@ -70,8 +70,8 @@ var rnaSequenceRecord = {
   rinScoreFromUcsf: "1",
   dateCompleted: "01/01/2015",
   dateReceived: "01/01/2015",
-  dateCompletedOutput: "2015-01-01",
-  dateReceivedOutput: "2015-01-01",
+  //dateCompletedOutput: "2015-01-01",
+  //dateReceivedOutput: "2015-01-01",
   libraryPrepUsed: "NuGen stranded",
   libraryPrepNotes: "lorem ipsum",
   locationOfFastqFile: "lorem ipsum",
@@ -133,7 +133,7 @@ module.exports = {
   },
   "Patient Enrollment Form" : function (client) {
     client
-      .navigateToForm('Enr')
+      .navigateToForm('nro')
       .reviewPageTitle("Patient Enrollement")
       .saveScreenshot(screenshotDir + "D-PatientEnrollmentForm.png")
       .reviewPatientEnrollmentForm()

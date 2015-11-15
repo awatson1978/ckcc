@@ -18,7 +18,7 @@ exports.command = function (laserCaptureRecord) {
 
     .verify.attributeEquals('input[name="Sample_ID"]', "value", laserCaptureRecord.sampleId )
     .verify.attributeEquals('select[name="Core"]', "value", laserCaptureRecord.core )
-    .verify.attributeEquals('input[name="Completion_Date"]', "value", laserCaptureRecord.completionDateOutput )
+    // .verify.attributeEquals('input[name="Completion_Date"]', "value", laserCaptureRecord.completionDate )
     .verify.attributeEquals('input[name="SlideNumber"]', "value", laserCaptureRecord.slideNumber )
     .verify.attributeEquals('input[name="Estimated_total_capture_area"]', "value", laserCaptureRecord.estimatedTotalCaptureArea )
     .verify.attributeEquals('input[name="Lysates"]', "value", laserCaptureRecord.lysates )

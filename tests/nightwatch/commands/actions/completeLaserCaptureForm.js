@@ -47,9 +47,9 @@ exports.command = function(laserCapture) {
         .setValue('select[name="Downstream_use"]', laserCapture.downstreamUse )
         .pause(1000)
 
-        //.verify.attributeEquals('input[name="Sample_ID"]', "value", laserCapture.sampleId )
+        .verify.attributeEquals('input[name="Sample_ID"]', "value", laserCapture.sampleId )
         .verify.attributeEquals('select[name="Core"]', "value", laserCapture.core )
-        .verify.attributeEquals('input[name="Completion_Date"]', "value", laserCapture.completionDateOutput )
+        // .verify.attributeEquals('input[name="Completion_Date"]', "value", laserCapture.completionDate )
         .verify.attributeEquals('input[name="SlideNumber"]', "value", laserCapture.slideNumber )
         .verify.attributeEquals('input[name="Estimated_total_capture_area"]', "value", laserCapture.estimatedTotalCaptureArea )
         .verify.attributeEquals('input[name="Lysates"]', "value", laserCapture.lysates )

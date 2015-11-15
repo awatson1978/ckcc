@@ -18,7 +18,7 @@ exports.command = function (bloodSpecimenRecord) {
 
     .verify.attributeEquals('input[name="Patient_ID"]', "value", bloodSpecimenRecord.patientId)
     .verify.attributeEquals('select[name="Timepoint"]', "value", bloodSpecimenRecord.timepoint)
-    .verify.attributeEquals('input[name="Draw_Date"]', "value", bloodSpecimenRecord.drawDateOutput)
+    // .verify.attributeEquals('input[name="Draw_Date"]', "value", bloodSpecimenRecord.drawDate)
     .verify.attributeEquals('input[name="CRC_at_Collection"]', "value", bloodSpecimenRecord.crcAtCollection);
 
   return this;

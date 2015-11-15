@@ -6,7 +6,10 @@ exports.command = function (patientEnrollmentRecord) {
       .clearValue('#recordSearchInput').pause(500)
       .clearValue('#recordSearchInput')
 
-      .setValue('#recordSearchInput', patientEnrollmentRecord.patientId)
+      // we're going to search by form name, not by patient name
+      .setValue('#recordSearchInput', 'nro')
+
+      // .setValue('#recordSearchInput', patientEnrollmentRecord.patientId)
 
     .verify.elementPresent("#recordsList")
     .verify.elementPresent("#recordsList .recordItem:nth-child(1)")

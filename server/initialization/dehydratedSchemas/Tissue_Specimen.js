@@ -86,11 +86,11 @@ Meteor.methods({
                 "label" : "Number of Cores Collected",
                 "type" : "Number"
             },
-            "Cores" : {
-                "label" : "Cores",
-                "optional" : true,
-                "type" : "ObjectArray"
-            },
+            // "Cores" : {
+            //     "label" : "Cores",
+            //     "optional" : true,
+            //     "type" : "ObjectArray"
+            // },
             "Fixed_Core_Ship_Date" : {
                 "autoform" : {
                     "afFieldInput" : {

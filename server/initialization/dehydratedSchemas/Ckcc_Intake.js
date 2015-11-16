@@ -138,10 +138,10 @@ Meteor.methods({
               }
             }
           },
-          lastFollowUpDate : {
-              label : "What is the last date of follow up?",
-              type : "Date",
-              optional: true
+          lastFollowUpDate: {
+            label : "What is the last date of follow up?",
+            type : "Date"
+            // optional: true
           },
           familyHistory: {
             label : "What is the family history of cancer and related disease?",
@@ -249,7 +249,7 @@ Meteor.methods({
           "priorTreatmentHistory",
           "complicatingConditions",
           "currentStatus",
-          "lastFollowUpDate ",
+          "lastFollowUpDate",
           "familyHistory",
           "molecularTesting",
           "actionableFindings",

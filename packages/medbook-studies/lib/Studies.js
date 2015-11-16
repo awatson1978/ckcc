@@ -84,6 +84,17 @@ StudySchema = new SimpleSchema({
       }
     }
   },
+  "collaborations": {
+    type: [String],
+    optional: true,
+    defaultValue: [],
+    label: "Collaborations",
+    autoform: {
+      afArrayField: {
+        template: "photonic"
+      }
+    }
+  },
   "Sample_IDs": {
     type: [String],
     optional: true,

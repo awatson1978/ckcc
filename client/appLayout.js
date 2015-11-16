@@ -199,7 +199,7 @@ Template.registerHelper("btnPrimary", function () {
   return "background-color: " + Session.get('backgroundColorA') + "; color: #ffffff;";
 });
 
-Template.registerHelper("getNorthRule", function (argument) {
+Template.registerHelper("getNorthRule", function () {
   var topDistance = 0;
 
   if (Session.get('showNavbars')) {
@@ -215,10 +215,32 @@ Template.registerHelper("getNorthRule", function (argument) {
   if (Session.get('appWidth') > 768) {
     topDistance = topDistance + 50;
   }
-  // if (Session.get('mainPanelIsCard')) {
-  // }
 
   return "top: " + topDistance + "px;";
+});
+
+Template.registerHelper("getRightPanelNorthRule", function (){
+    var topDistance = 0;
+
+    if (Session.get('showNavbars')) {
+      topDistance = topDistance + 50;
+    }
+
+    if (Session.get('showSearchbar')) {
+      topDistance = topDistance + 50;
+    }
+
+    // we should add spacing if the app is in card mode and in landscape mode of some sort
+    // otherwise, if it's in portrait or phone mode, we want it flush with the header
+    if (Session.get('appWidth') > 768) {
+      topDistance = topDistance + 50;
+    }
+
+    if (Session.get('useHierarchicalLayout')) {
+      topDistance = topDistance + 50;
+    }
+
+    return "top: " + topDistance + "px;";
 });
 
 //==================================================================================================

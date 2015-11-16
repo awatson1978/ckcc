@@ -39,8 +39,7 @@ var ckccCollaboration = {
 
 var ckccStudy = {
   name: "California Kids Cancer Comparison",
-  short_name: "ckcc",
-  description: "California Kids Cancer Comparison",
+  short_name: "CKCC",
   public: true,
   slug: "CKCC",
   Questionnaires: []
@@ -126,10 +125,11 @@ var newPatientEnrollment = {
 };
 
 module.exports = {
+  tags: ['collaborations'],
   before: function (client){
     client
       .url("http://localhost:3000").pause(1000)
-      .dropCollaborations();
+      .dropClinicalFormCollections();
   },
   "A. Signing In UserA": function (client) {
 
@@ -226,6 +226,8 @@ module.exports = {
       .clearValue('#metadataSearchInput')
       .setValue('#metadataSearchInput', intakeQuestionnaireAnswers.questionnaireSearch)
       .click("#metadatasList .metadataItem:nth-child(1) .newLink").pause(500)
+
+      // .navigateToForm(intakeQuestionnaireAnswers.questionnaireSearch)
 
       .reviewPatientIntakeForm()
       .upsertPatientIntakeForm(newPatientEnrollment)

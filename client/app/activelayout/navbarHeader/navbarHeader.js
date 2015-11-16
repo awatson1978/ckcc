@@ -14,7 +14,19 @@ Template.navbarHeader.events({
 });
 
 
+Template.registerHelper("getPageTitle", function (argument){
+  return Session.get('pageTitle');
+});
+
+
 Template.navbarHeader.helpers({
+  breadcrumbsExist: function (){
+    if (Session.get('pageTitle')) {
+      return true;
+    } else {
+      return false;
+    }
+  },
   getSearchStyle: function (){
     style = "";
     if (Session.get('showNavbars')) {

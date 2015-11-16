@@ -11,7 +11,7 @@ exports.command = function(histologyAssessment) {
   this
     .verify.elementPresent("form")
 
-    .verify.elementPresent('select[name="Sample_ID"]')
+    .verify.elementPresent('input[name="Sample_ID"]')
     .verify.elementPresent('select[name="Cores.0.Core"]')
     .verify.elementPresent('input[name="Cores.0.BlockImage"]')
     .verify.elementPresent('input[name="Cores.0.ReferenceSlideNumber"]')
@@ -20,7 +20,7 @@ exports.command = function(histologyAssessment) {
 
     if(histologyAssessment){
       this
-        .clearValue('select[name="Sample_ID"]')
+        .clearValue('input[name="Sample_ID"]')
         .clearValue('select[name="Cores.0.Core')
         .clearValue('input[name="Cores.0.BlockImage"]')
         .clearValue('input[name="Cores.0.ReferenceSlideNumber"]')
@@ -28,7 +28,7 @@ exports.command = function(histologyAssessment) {
         .clearValue('select[name="Cores.0.BlockStatus"]')
         .pause(100)
 
-        .setValue('select[name="Sample_ID"]', histologyAssessment.sampleId)
+        .setValue('input[name="Sample_ID"]', histologyAssessment.sampleId)
         .setValue('select[name="Cores.0.Core"]', histologyAssessment.core)
         .setValue('input[name="Cores.0.BlockImage"]', histologyAssessment.blockImage)
         .setValue('input[name="Cores.0.ReferenceSlideNumber"]', histologyAssessment.referenceSlideNumber)
@@ -36,7 +36,7 @@ exports.command = function(histologyAssessment) {
         .setValue('select[name="Cores.0.BlockStatus"]', histologyAssessment.blockStatus)
         .pause(1000)
 
-        //.verify.attributeEquals('select[name="Sample_ID"]', "value", histologyAssessment.sampleId)
+        //.verify.attributeEquals('input[name="Sample_ID"]', "value", histologyAssessment.sampleId)
         .verify.attributeEquals('select[name="Cores.0.Core"]', "value", histologyAssessment.core)
         .verify.attributeEquals('input[name="Cores.0.BlockImage"]', "value", histologyAssessment.blockImage)
         .verify.attributeEquals('input[name="Cores.0.ReferenceSlideNumber"]', "value", histologyAssessment.referenceSlideNumber)

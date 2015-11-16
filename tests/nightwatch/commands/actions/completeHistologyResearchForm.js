@@ -11,11 +11,11 @@ var histologyResearchRecord = {
 
 
 
-exports.command = function(histologyResearchRecord) {
+exports.command = function (histologyResearchRecord) {
   this
-    .verify.elementPresent("form")
+    .sectionBreak('.completeHistologyResearchForm()')
 
-    .verify.elementPresent('select[name="Sample_ID"]')
+    .verify.elementPresent('input[name="Sample_ID"]')
     .verify.elementPresent('select[name="Histology_Call"]')
     .verify.elementPresent('input[name="Adeno"]')
     .verify.elementPresent('input[name="Small_Cell"]')
@@ -23,19 +23,24 @@ exports.command = function(histologyResearchRecord) {
 
     if(histologyResearchRecord){
       this
-        .clearValue('select[name="Sample_ID"]')
+        .clearValue('input[name="Sample_ID"]')
         .clearValue('select[name="Histology_Call"]')
         .clearValue('input[name="Adeno"]')
         .clearValue('input[name="Small_Cell"]')
         .clearValue('input[name="Trichotomy"]')
         .pause(500)
 
-
-        .setValue('select[name="Sample_ID"]', histologyResearchRecord.sampleId)
+        .setValue('input[name="Patient_ID"]', histologyResearchRecord.patientId)
+        .setValue('input[name="Sample_ID"]', histologyResearchRecord.sampleId)
         .setValue('select[name="Histology_Call"]', histologyResearchRecord.histologyCall).pause(1000)
 
+        // ?
+        .setValue('input[name="Adeno"]', histologyResearchRecord.adeno).pause(1000)
+        .setValue('input[name="Small_Cell"]', histologyResearchRecord.smallCell).pause(1000)
+        .setValue('input[name="Trichotomy"]', histologyResearchRecord.trichotomy).pause(1000)
+
         // these should be autopopulated
-        //.verify.attributeEquals('select[name="Sample_ID"]', 'value', histologyResearchRecord.sampleId)
+        //.verify.attributeEquals('input[name="Sample_ID"]', 'value', histologyResearchRecord.sampleId)
         .verify.attributeEquals('select[name="Histology_Call"]', 'value', histologyResearchRecord.histologyCall)
         .verify.attributeEquals('input[name="Adeno"]', 'value', histologyResearchRecord.adeno)
         .verify.attributeEquals('input[name="Small_Cell"]', 'value', histologyResearchRecord.smallCell)

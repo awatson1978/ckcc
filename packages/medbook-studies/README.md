@@ -1,4 +1,4 @@
-##clinical:active-study  
+##medbook:studies
 
 An ActiveStudy pattern that provides CRUDL templates, using AutoForms and SimpleSchema.
 
@@ -6,7 +6,7 @@ An ActiveStudy pattern that provides CRUDL templates, using AutoForms and Simple
 #### Installation  
 
 ````bash
-meteor add clinical:active-study
+meteor add medbook:studies
 ````
 
 ===============================

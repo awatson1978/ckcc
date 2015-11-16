@@ -1,11 +1,11 @@
 <template name="metadataActionButtons">
   {{#if isLoggedIn}}
     <button id="newQuestionnaireButton">New Questionnaire</button>
-    <!-- <button id="saveFormButton">Save Questionnaire</button> -->
+    <button id="saveQuestionnaireButton" type="submit" class="glass-footer-btn">Save Questionnaire</button>
+    {{#if this}}
+      <button id="removeQuestionnaireButton" data-_id={{doc._id}} data-name={{doc.name}} type="button" class="right removeQuestionnaire btn btn-danger">Delete</button>
+    {{/if}}
+
     <button id="saveDataButton">Save Data</button>
   {{/if}}
-
-  <!-- {{#if isLoggedIn}}
-    <button id="newMetadataLink"><u>N</u>ew Metadata</button>
-  {{/if}} -->
 </template>

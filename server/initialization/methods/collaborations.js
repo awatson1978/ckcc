@@ -1,4 +1,26 @@
 Meteor.methods({
+  initializeQuestionnaires: function (){
+    Meteor.call("initializeBiopsyResearchForm");
+    Meteor.call("initializeBloodLabsForm");
+    Meteor.call("initializeBloodSpecimenForm");
+    Meteor.call("initializeClinicalInfoForm");
+    Meteor.call("initializeDemographicsForm");
+    Meteor.call("initializeEcogWeightForm");
+    Meteor.call("initializeFollowupForm");
+    Meteor.call("initializeGuDiseaseAssessmentForm");
+    Meteor.call("initializeHistologicalAssessmentForm");
+    Meteor.call("initializeHistologyResearchForm");
+    Meteor.call("initializeLaserCaptureForm");
+    Meteor.call("initializePathologyForm");
+    Meteor.call("initializePatientEnrollmentForm");
+    Meteor.call("initialieProstateDiagnosisForm");
+    Meteor.call("initializeRnaSequenceForm");
+    Meteor.call("initializeBiospyForm");
+    Meteor.call("initializePriorTreatmentForm");
+    Meteor.call("initializeSpecimenForm");
+    Meteor.call("initializeSubsequentTreatmentForm");
+    Meteor.call("initializeTissueSpecimenForm");
+  },
   initializeCollaborations: function (){
     console.log('Initializing database....');
     var collaborationId = "";
@@ -66,6 +88,20 @@ Meteor.methods({
     //return count;
   },
   dropCollaborations: function (){
+    Collaborations.remove({});
+  },
+  dropRecords: function (){
+    Records.remove({});
+  },
+  dropStudies: function (){
+    Studies.remove({});
+  },
+  dropQuestionnaires: function (){
+    Questionnaires.remove({});
+    Items.remove({});
+    Metadata.remove({});
+  },
+  dropClinicalFormCollections: function (){
     Collaborations.remove({});
     Questionnaires.remove({});
     Records.remove({});

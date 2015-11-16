@@ -1,8 +1,8 @@
 Package.describe({
   name:'clinical:active-users',
   version: '0.0.1',
-  summary: 'ActiveUsers::userUpsertPage',
-  git: 'https://github.com/awatson1978/photonic/tree/master/packages/active-users-upsert',
+  summary: 'ActiveUsers package with user tables, thumbnail page, basic profiles, etc.',
+  git: 'https://github.com/clinical-meteor/clinical-active-users',
   documentation: 'README.md',
 });
 
@@ -43,11 +43,11 @@ Package.onTest( function ( api ) {
   api.use('tinytest');
   api.use('clinical:active-users');
 
-  api.addFiles('users-core-tests.js');
-  api.addFiles('users-edit-tests.js');
-  api.addFiles('users-image-grid-tests.js');
-  api.addFiles('users-list-tests.js');
-  api.addFiles('users-preview-tests.js');
-  api.addFiles('users-table-tests.js');
-  api.addFiles('users-upsert-tests.js');
+  api.addFiles('tests/users-core-tests.js');
+  api.addFiles('tests/users-edit-tests.js');
+  api.addFiles('tests/users-image-grid-tests.js');
+  api.addFiles('tests/users-list-tests.js');
+  api.addFiles('tests/users-preview-tests.js');
+  api.addFiles('tests/users-table-tests.js');
+  api.addFiles('tests/users-upsert-tests.js');
 });

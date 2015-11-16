@@ -161,6 +161,13 @@ FormBuilder = {
     // }
     // console.log('formElementRecord', formElementRecord);
 
+    // // TODO:  figure out how to incorporate the dehydrated afArrayField photonic template
+    // autoform: {
+    //   afArrayField: {
+    //     template: "photonic"
+    //   }
+    // }
+
     // did we get a question object?
     // if so, override the defualt values
     if (question) {

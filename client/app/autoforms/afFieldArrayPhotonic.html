@@ -1,0 +1,23 @@
+<template name="afArrayField_photonic">
+  <fieldset class="photonicArrayField">
+    <legend>{{afFieldLabelText name=this.atts.name}}</legend>
+    {{#if afFieldIsInvalid name=this.atts.name}}
+    <div class="autoform-array-field-error">
+      {{{afFieldMessage name=this.atts.name}}}
+    </div>
+    {{/if}}
+    {{#afEachArrayItem name=this.atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
+    <div class="autoform-array-item">
+      {{> afQuickField name=this.name label=false}}
+      {{#if afArrayFieldHasMoreThanMinimum name=../atts.name minCount=../atts.minCount maxCount=../atts.maxCount}}
+      <button type="button" class="autoform-remove-item"><i class="fa fa-remove"></i>Remove</button>
+      {{/if}}
+    </div>
+    {{/afEachArrayItem}}
+    {{#if afArrayFieldHasLessThanMaximum name=this.atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
+    <div>
+      <button type="button" class="autoform-add-item" data-autoform-field="{{this.atts.name}}" data-autoform-minCount="{{this.atts.minCount}}" data-autoform-maxCount="{{this.atts.maxCount}}"><i class="fa fa-plus"></i>Add Item</button>
+    </div>
+    {{/if}}
+  </fieldset>
+</template>

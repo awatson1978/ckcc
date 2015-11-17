@@ -16,3 +16,21 @@ Metadata.allow({
 if (Meteor.isClient){
   Meteor.subscribe("metadata");
 }
+
+
+Metadata.getFilteredData = function (){
+  return Records.find({
+    $or: [
+      {
+        _id: {
+          $regex: Session.get('recordSearchFilter'),
+          $options: 'i'
+        }
+      }
+    ]
+  }, {
+    sort: {
+      createdAt: -1
+    }
+  });
+};

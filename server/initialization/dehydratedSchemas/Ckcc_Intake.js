@@ -22,26 +22,26 @@ Meteor.methods({
               label : "Patient ID",
               type : "String"
           },
-          questionnaireName: {
-            label : "Questionnaire Name",
-            type : "String",
-            optional: true
-          },
-          questionnaireId: {
-            label : "Questionnaire ID",
-            type : "String",
-            optional: true
-          },
-          institutionId: {
-            label : "Institution ID",
-            type : "String",
-            optional: true
-          },
-          participantId: {
-            label : "Participant ID",
-            type : "String",
-            optional: true
-          },
+          // questionnaireName: {
+          //   label : "Questionnaire Name",
+          //   type : "String",
+          //   optional: true
+          // },
+          // questionnaireId: {
+          //   label : "Questionnaire ID",
+          //   type : "String",
+          //   optional: true
+          // },
+          // institutionId: {
+          //   label : "Institution ID",
+          //   type : "String",
+          //   optional: true
+          // },
+          // participantId: {
+          //   label : "Participant ID",
+          //   type : "String",
+          //   optional: true
+          // },
 
           collaborationName: {
             label : "Collaboration Name",
@@ -58,16 +58,16 @@ Meteor.methods({
             type : "String",
             optional: true
           },
-          studyName: {
-            label : "Study Name",
-            type : "String",
-            optional: true
-          },
-          studyId: {
-            label : "Study ID",
-            type : "String",
-            optional: true
-          },
+          // studyName: {
+          //   label : "Study Name",
+          //   type : "String",
+          //   optional: true
+          // },
+          // studyId: {
+          //   label : "Study ID",
+          //   type : "String",
+          //   optional: true
+          // },
           patientAge: {
             label : "Age",
             type : "String",
@@ -232,15 +232,15 @@ Meteor.methods({
       fieldOrder : [
           "CreatedAt",
           "Patient_ID",
-          "questionnaireName",
-          "questionnaireId",
-          "institutionId",
-          "participantId",
+          // "questionnaireName",
+          // "questionnaireId",
+          // "institutionId",
+          // "participantId",
           "collaborationName",
           "collaborationId",
           "physicianName",
-          "studyName",
-          "studyId",
+          // "studyName",
+          // "studyId",
           "patientAge",
           "patientGender",
           "diagnosisDescription",

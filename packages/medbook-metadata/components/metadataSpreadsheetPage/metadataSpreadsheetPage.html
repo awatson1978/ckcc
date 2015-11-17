@@ -1,0 +1,12 @@
+
+<template name="metadataSpreadsheetPage">
+  <article id="metadataSpreadsheetPage" class="page">
+    {{> recordHeader imageGrid=false url="metadata" table=false imageGrid=false}}
+    <div class="pageBody" style="{{getOpacity}}">
+      <input id="metadataSearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." />
+
+      <spreadsheet id="metadataSpreadsheet"></spreadsheet>
+    </div>
+    {{> recordFooter}}
+  </article>
+</template>

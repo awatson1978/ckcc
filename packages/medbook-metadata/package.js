@@ -17,10 +17,14 @@ Package.onUse(function (api) {
   api.use('photonic:active-record-header@0.0.4');
   api.use('photonic:active-record-footer@0.0.4');
 
+  api.use('awsp:handsontable@0.11.0');
+
   api.use('clinical:router@2.0.13');
 
   api.imply('aldeed:simple-schema@1.3.3');
   api.imply('aldeed:collection2@2.3.3');
+
+  api.addFiles('lib/Metadata.js');
 
   api.addFiles([
     'components/metadataListPage/metadataListPage.html',
@@ -43,12 +47,11 @@ Package.onUse(function (api) {
     'components/metadataActionButtons/metadataActionButtons.js',
     'components/metadataActionButtons/metadataActionButtons.less',
 
+    'components/metadataSpreadsheetPage/metadataSpreadsheetPage.html',
+    'components/metadataSpreadsheetPage/metadataSpreadsheetPage.js',
+    'components/metadataSpreadsheetPage/metadataSpreadsheetPage.less'
+
   ], ['client']);
-
-  api.addFiles([
-    'lib/Metadata.js'
-
-  ], ['client', 'server']);
 
   api.addFiles(['server/publications.js'], 'server');
 

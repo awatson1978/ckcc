@@ -1,9 +1,9 @@
 Router.route('/eula', {
-  template: 'eulaPage',
+  template: 'termsOfUsePage',
   name: 'eulaRoute'
 });
 
 Router.route('/terms-of-use', {
-  template: 'eulaPage',
+  template: 'termsOfUsePage',
   name: 'termsOfUseRoute'
 });

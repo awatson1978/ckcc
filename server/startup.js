@@ -34,6 +34,9 @@ Meteor.startup(function () {
     if (Questionnaires.find().count() === 0) {
       Meteor.call("initializeQuestionnaires");
     }
+    if (Meteor.users.find().count() === 0) {
+      Meteor.call("iniitalizeUsers");
+    }
   };
 
   Migrations.migrateTo('latest');

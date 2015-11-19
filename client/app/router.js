@@ -112,7 +112,7 @@ Router.map(function () {
   });
   // this.route('eulaRoute', {
   //   path: '/eula',
-  //   template: 'eulaPage',
+  //   template: 'termsOfUsePage',
   //   yieldTemplates: getYieldTemplates(),
   //   onBeforeAction: function () {
   //     setPageTitle("End User License Agreement");

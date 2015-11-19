@@ -1,57 +1,62 @@
-Migrations.add({
-  version: 1,
-  up: function () {
 
-    Metadata.find().forEach(function (record) {
-      console.log('==========================================================');
-      console.log('record.commonName', record.commonName);
 
-      if (record.schema) {
-        //console.log('record.schema.length', record.schema.length);
+if (process.env.MIGRATE) {
+  Migrations.add({
+    version: 1,
+    up: function () {
 
-        Object.keys(record.schema).forEach(function (schemaKey) {
+      Metadata.find().forEach(function (record) {
+        console.log('==========================================================');
+        console.log('record.commonName', record.commonName);
 
-          if (record.schema[schemaKey].allowedValues) {
-            //console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^');
-            //console.log('schemaKey', schemaKey);
-            //console.log('record.schema[schemaKey].allowedValues', record.schema[schemaKey].allowedValues);
+        if (record.schema) {
+          //console.log('record.schema.length', record.schema.length);
 
-            var queryKeyString = "schema." + schemaKey + ".autoform.afFieldInput.options";
+          Object.keys(record.schema).forEach(function (schemaKey) {
 
-            var queryUpdate = {};
-            queryUpdate[queryKeyString] = [];
+            if (record.schema[schemaKey].allowedValues) {
+              //console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^');
+              //console.log('schemaKey', schemaKey);
+              //console.log('record.schema[schemaKey].allowedValues', record.schema[schemaKey].allowedValues);
 
-            Metadata.update({
-              _id: record._id
-            }, {
-              $set: queryUpdate
-            }, function (error, result) {
-              if (result) {
+              var queryKeyString = "schema." + schemaKey + ".autoform.afFieldInput.options";
 
-                record.schema[schemaKey].allowedValues.forEach(function (
-                  allowedValue) {
-                  //console.log('-----------------------------------------------------------');
-                  //console.log('schemaKey.autoform.afFieldInput.options', allowedValue);
+              var queryUpdate = {};
+              queryUpdate[queryKeyString] = [];
 
-                  var pushQueryUpdate = {};
-                  pushQueryUpdate[queryKeyString] = {
-                    'label': allowedValue,
-                    'value': allowedValue
-                  }
+              Metadata.update({
+                _id: record._id
+              }, {
+                $set: queryUpdate
+              }, function (error, result) {
+                if (result) {
 
-                  Metadata.update({
-                    _id: record._id
-                  }, {
-                    $push: pushQueryUpdate
+                  record.schema[schemaKey].allowedValues.forEach(function (
+                    allowedValue) {
+                    //console.log('-----------------------------------------------------------');
+                    //console.log('schemaKey.autoform.afFieldInput.options', allowedValue);
+
+                    var pushQueryUpdate = {};
+                    pushQueryUpdate[queryKeyString] = {
+                      'label': allowedValue,
+                      'value': allowedValue
+                    }
+
+                    Metadata.update({
+                      _id: record._id
+                    }, {
+                      $push: pushQueryUpdate
+                    });
                   });
-                });
 
-              }
-            });
+                }
+              });
 
-          }
-        });
-      }
-    });
-  }
-});
+            }
+          });
+        }
+      });
+    }
+  });
+
+}

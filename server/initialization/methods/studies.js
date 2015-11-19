@@ -1,22 +1,6 @@
 Meteor.methods({
   initializeStudies:function (){
-    Studies.upsert({
-      id: "prad_wcdt"
-    }, {
-      $set: {
-        "cbio_id": "112",
-        "id": "prad_wcdt",
-        "type_of_cancer_id": "prad",
-        "name": "West Coast Prostate Cancer Dream Team",
-        "short_name": "WCDT",
-        "description": "Castration Resistant Prostate Cancer",
-        "public": false,
-        "pmid": "NULL",
-        "citation": "unpublished",
-        "collaborations": ["WCDT"],
-        "tables": [],
-      }
-    });
+
 
     Studies.upsert({
       id: "prad_tcga"
@@ -59,6 +43,23 @@ Meteor.methods({
         "Patient_IDs": [],
       }
     });
+    Studies.upsert({
+      id: "prad_wcdt"
+    }, {
+      $set: {
+        "cbio_id": "112",
+        "id": "prad_wcdt",
+        "type_of_cancer_id": "prad",
+        "name": "West Coast Prostate Cancer Dream Team",
+        "short_name": "WCDT",
+        "description": "Castration Resistant Prostate Cancer",
+        "public": false,
+        "pmid": "NULL",
+        "citation": "unpublished",
+        "collaborations": ["WCDT"],
+        "tables": [],
+      }
+    });    
 
     Studies.upsert({
       id: "treehouse"

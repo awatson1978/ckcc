@@ -17,12 +17,20 @@ Meteor.methods({
     "incompleteCount" : 0,
     "schema" : {
         "CreatedAt" : {
-            "label" : "Created At",
-            "type" : "Date"
+          "label" : "Created At",
+          "type" : "Date"
         },
         "Patient_ID" : {
-            "label" : "Patient ID",
-            "type" : "String"
+          "label" : "Patient ID",
+          "type" : "String"
+        },
+        "MedicalRecordNumber" : {
+          "label" : "Medical Record Number",
+          "type" : "String"
+        },
+        "StudyName" : {
+          "label" : "Study Name",
+          "type" : "String"
         },
         "Followup_Center" : {
             "optional" : true,
@@ -170,12 +178,16 @@ Meteor.methods({
     "study" : "prad_wcdt"
     }});
   },
-  createRandomFollowup: function (){
+  createRandomFollowup: function (mrn, studyName){
+    var randomNumber = Random.fraction() * 17;
+
     var newFollowup = {
       "questionnaireId" : "Followup",
       "questionnaireName" : "Followup",
       "createdAt" : new Date(),
         "Patient_ID" : Random.id(),
+        "MedicalRecordNumber": mrn,
+        "StudyName": studyName,
         "Followup_Center": faker.lorem.sentence(),
         "Last_Known_Survival_Status": "",
         "Last_Date_Known_Alive": new Date(),

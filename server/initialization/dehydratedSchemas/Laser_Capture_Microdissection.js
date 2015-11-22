@@ -16,16 +16,24 @@ Meteor.methods({
         "incompleteCount" : 0,
         "schema" : {
             "CreatedAt" : {
-                "label" : "Created At",
-                "type" : "Date"
+              "label" : "Created At",
+              "type" : "Date"
             },
             "Patient_ID" : {
-                "label" : "Patient ID",
-                "type" : "String"
+              "label" : "Patient ID",
+              "type" : "String"
+            },
+            "MedicalRecordNumber" : {
+              "label" : "Medical Record Number",
+              "type" : "String"
+            },
+            "StudyName" : {
+              "label" : "Study Name",
+              "type" : "String"
             },
             "Sample_ID" : {
-                "label" : "Sample ID",
-                "type" : "String"
+              "label" : "Sample ID",
+              "type" : "String"
             },
             "Core" : {
                 "allowedValues" : [
@@ -156,12 +164,16 @@ Meteor.methods({
         "study" : "prad_wcdt"
     }});
   },
-  createRandomLaserCaptureMicrodisection: function (){
+  createRandomLaserCaptureMicrodisection: function (mrn, studyName){
+    var randomNumber = Random.fraction() * 17;
+
     var newLaserCapture = {
       "questionnaireId" : "Laser_Capture_Microdissection",
       "questionnaireName" : "Laser Capture Microdissection",
       "createdAt" : new Date(),
         "Patient_ID" : Random.id(),
+        "MedicalRecordNumber": mrn,
+        "StudyName": studyName,
         "Sample_ID": "",
         "Core": "",
         "Completion_Date": new Date(),

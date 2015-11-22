@@ -24,6 +24,14 @@ Meteor.methods({
               "label" : "Patient ID",
               "type" : "String"
             },
+            "MedicalRecordNumber" : {
+              "label" : "Medical Record Number",
+              "type" : "String"
+            },
+            "StudyName" : {
+              "label" : "Study Name",
+              "type" : "String"
+            },
             "QC_reports" : {
               "label" : "QC reports",
               "type" : "String"
@@ -117,12 +125,16 @@ Meteor.methods({
         "study" : "prad_wcdt"
     }});
   },
-  createRandomRnaSequence: function (){
+  createRandomRnaSequence: function (mrn, studyName){
+    var randomNumber = Random.fraction() * 17;
+
     var newRnaSequence = {
       "questionnaireId" : "RNASeq_completion_form",
       "questionnaireName" : "RNA Sequence Completion",
       "createdAt" : new Date(),
         "Patient_ID" : Random.id(),
+        "MedicalRecordNumber": mrn,
+        "StudyName": studyName,
         "QC_reports": "",
         "RIN_score_from_UCSF": "",
         "date_completed": new Date(),

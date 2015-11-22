@@ -16,12 +16,20 @@ Meteor.methods({
     "incompleteCount" : 0,
     "schema" : {
         "CreatedAt" : {
-            "label" : "Created At",
-            "type" : "Date"
+          "label" : "Created At",
+          "type" : "Date"
         },
         "Patient_ID" : {
-            "label" : "Patient ID",
-            "type" : "String"
+          "label" : "Patient ID",
+          "type" : "String"
+        },
+        "MedicalRecordNumber" : {
+          "label" : "Medical Record Number",
+          "type" : "String"
+        },
+        "StudyName" : {
+          "label" : "Study Name",
+          "type" : "String"
         },
         "Age" : {
             "optional" : true,
@@ -181,8 +189,7 @@ Meteor.methods({
 
     }});
   },
-  createRandomDemographics: function (){
-
+  createRandomDemographics: function (mrn, studyName){
     var randomAge = Random.fraction() * 17;
 
     var newDemographics = {
@@ -190,7 +197,8 @@ Meteor.methods({
       "questionnaireName" : "Demographics",
       "createdAt" : new Date(),
         "Patient_ID" : Random.id(),
-        "Age": randomAge.toString().slice(0, randomAge.toString().indexOf(".")),
+        "MedicalRecordNumber": mrn,
+        "StudyName": studyName,
         "Study_Site" : Random.choice(["UCSF",
           "OHSU",
           "UCLA",
@@ -198,6 +206,7 @@ Meteor.methods({
           "UBC",
           "LAVA"
         ]),
+        "Age": randomAge.toString().slice(0, randomAge.toString().indexOf(".")),
         "Current_Status": faker.lorem.sentence(),
         "Ethnicity": "",
         "Expired_Date": "",

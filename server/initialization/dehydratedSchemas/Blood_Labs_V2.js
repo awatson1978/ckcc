@@ -17,19 +17,27 @@ Meteor.methods({
     "incompleteCount" : 0,
     "schema" : {
         "CreatedAt" : {
-            "label" : "Created At",
-            "type" : "Date"
+          "label" : "Created At",
+          "type" : "Date"
         },
         "Patient_ID" : {
-            "label" : "Patient ID",
-            "type" : "String"
+          "label" : "Patient ID",
+          "type" : "String"
+        },
+        "MedicalRecordNumber" : {
+          "label" : "Medical Record Number",
+          "type" : "String"
+        },
+        "StudyName" : {
+          "label" : "Study Name",
+          "type" : "String"
         },
         "Sample_ID" : {
-            "label" : "Sample ID",
-            "type" : "String",
-            "autoform" : {
-                "type" : "text"
-            }
+          "label" : "Sample ID",
+          "type" : "String",
+          "autoform" : {
+            "type" : "text"
+          }
         },
         "Segment" : {
             "optional" : true,
@@ -180,12 +188,16 @@ Meteor.methods({
     "study" : "prad_wcdt"
     }});
   },
-  createRandomBloodLabs: function (){
+  createRandomBloodLabs: function (mrn, studyName){
+    var randomNumber = Random.fraction() * 17;
+
     var newBloodLabs = {
       "questionnaireId" : "Blood_Labs_V2",
       "questionnaireName" : "Blood Labs",
       "createdAt" : new Date(),
         "Patient_ID" : Random.id(),
+        "MedicalRecordNumber": mrn,
+        "StudyName": studyName,
         "Sample_ID": "",
         "Segment": "",
         "Visit_Date": new Date(),

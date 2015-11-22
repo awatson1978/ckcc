@@ -1,6 +1,79 @@
-renderHomePage = function (scope) {
 
-};
+
+//--------------------------------------------------------------
+// Security Sign In
+
+Router.onBeforeAction(function () {
+  if (!Meteor.loggingIn() && !Meteor.user()) {
+    this.redirect('/please-sign-in');
+  } else {
+    console.log('Meteor.user()', Meteor.user());
+    console.log('Meteor.user().isMemberOfAnyCollaboration()', Meteor.user().isMemberOfAnyCollaboration());
+    if (Meteor.user() && Meteor.user().isMemberOfAnyCollaboration()) {
+      this.next();
+    } else {
+      this.redirect('/need-collaboration');
+    }
+  }
+},{
+  except: [
+    'homeRoute',
+    'dashboardRoute',
+
+    //errors
+    'browserNotSupportedRoute',
+    'pageNotFoundRoute',
+    'loadingPageRoute',
+    'pleaseSignInRoute',
+    'needCollaborationPriviledgesRoute',
+
+    // static pages
+    'appMenuRoute',
+    'termsOfUseRoute',
+    'marketingRoute',
+    'aboutRoute',
+    'landingRoute',
+    'privacyRoute',
+    'supportRoute',
+    'infoRoute',
+
+    // collaboration pages
+    // TODO: move these exclusions into clinical:collaborations-ui
+    'collaborationGrid',
+    'addCollaboration',
+    'viewCollaborationById',
+
+    // entry pages
+    // TODO: move these exclusions into clinical:entry
+    'entrySignUp',
+    'entrySignIn',
+    'forgotPassword'
+    // 'entrySignOutRoute',
+    // 'entryResetPasswordRoute'
+  ]
+});
+
+
+// Router.onBeforeAction(function() {
+//   if (Meteor.user()) {
+//     if (!Meteor.user().profile.employer_id) {
+//       this.render("noEmployerSetPageErrorPage");
+//
+//       this.render("navbarHeader", {to: 'header'});
+//       this.render("sidebarTemplate",{to: 'aside'});
+//     } else {
+//       this.render("navbarHeader", {to: 'header'});
+//       this.render("sidebarTemplate",{to: 'aside'});
+//     }
+//   }else{
+//     return {};
+//   }
+// });
+
+
+
+//--------------------------------------------------------------
+// Yield Templates and Layouts
 
 getYieldTemplates = function () {
   if (Meteor.userId()) {
@@ -101,8 +174,8 @@ Router.map(function () {
   //   }
   // });
 
-  this.route('dashboardRoute', {
-    path: '/dashboard',
+  this.route('/dashboard', {
+    name: 'dashboardRoute',
     template: "homePage",
     yieldTemplates: getYieldTemplates(),
     onBeforeAction: function () {

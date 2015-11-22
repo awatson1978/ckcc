@@ -19,8 +19,8 @@ exports.command = function (methodName, timeout) {
         meteorCallback(response);
       });
     }, [methodName], function (result) {
-      console.log("result.value", result.value);
-      client.assert.ok(result.value);
+      //console.log("result.value", result.value);
+      //client.assert.ok(result.value);
     }).pause(1000);
   return this;
 };

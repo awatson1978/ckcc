@@ -6,7 +6,7 @@ exports.command = function () {
     .timeoutsAsyncScript(5000)
     .executeAsync(function (data, meteorCallback) {
       //return HipaaLogger.logEventObject(data);
-      Meteor.call("initializeQuestionnaires", data, function (meteorError, meteorResult) {
+      Meteor.call("initializeUsers", data, function (meteorError, meteorResult) {
         var response = (meteorError ? {
           error: meteorError
         } : {

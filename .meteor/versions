@@ -24,7 +24,7 @@ clinical:active-users@0.0.1
 clinical:auto-resizing@0.1.2
 clinical:barcode@3.1.0
 clinical:base-model@1.3.0
-clinical:collaborations@2.1.7
+clinical:collaborations@2.1.8
 clinical:collaborations-ui@2.1.17
 clinical:env@3.1.6
 clinical:extended-api@2.0.5
@@ -69,7 +69,7 @@ launch-screen@1.0.2
 livedata@1.0.13
 localstorage@1.0.3
 logging@1.0.7
-matb33:collection-hooks@0.7.15
+matb33:collection-hooks@0.8.1
 medbook:metadata@1.0.8
 medbook:studies@1.0.13
 medbook:subjects@1.0.13

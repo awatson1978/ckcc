@@ -1,4 +1,4 @@
 Router.route("/privacy",{
   template: 'privacyPage',
-  name: 'privacyPage'
+  name: 'privacyRoute'
 });

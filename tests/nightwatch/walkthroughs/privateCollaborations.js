@@ -9,9 +9,9 @@ var userA = {
 };
 var userB = {
   fullName: "Allison Camron",
-  email: "allison@test.org",
-  username: "allison",
-  password: "allison",
+  email: "camron@test.org",
+  username: "camron",
+  password: "camron",
 };
 var userC = {
   fullName: "James Wilson",

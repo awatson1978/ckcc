@@ -7,8 +7,8 @@ Meteor.methods({
       isUnlisted: false,
       name: "California Kids Cancer Comparison",
       description: faker.company.catchPhrase(),
-      collaborators: ["cuddy@test.org"],
-      administrators: ["cuddy@test.org"],
+      collaborators: ["thirteen@test.org", "kutner@test.org"],
+      administrators: ["thirteen@test.org"],
       invitations: [],
       requests: [],
       requiresAdministratorApprovalToJoin: false
@@ -20,8 +20,8 @@ Meteor.methods({
       isUnlisted: false,
       name: "West Coast Dream Team",
       description: faker.company.catchPhrase(),
-      collaborators: ["house@test.org"],
-      administrators: ["house@test.org"],
+      collaborators: ["cuddy@test.org", "ucsf", "ucla", "ucsc"],
+      administrators: ["cuddy@test.org"],
       invitations: [],
       requests: [],
       requiresAdministratorApprovalToJoin: false
@@ -32,20 +32,20 @@ Meteor.methods({
       isUnlisted: false,
       name: "UC Santa Cruz",
       description: faker.company.catchPhrase(),
-      collaborators: ["allison@test.org"],
-      administrators: ["allison@test.org"],
+      collaborators: ["foreman@test.org", "genomics"],
+      administrators: ["foreman@test.org"],
       invitations: [],
       requests: [],
       requiresAdministratorApprovalToJoin: false
     }});
     Collaborations.upsert({
-      _id: "foreman"
+      _id: "genomics"
     }, {$set:{
       isUnlisted: false,
-      name: "Foreman Lab",
+      name: "Cancer Genoimcs",
       description: faker.company.catchPhrase(),
-      collaborators: ["foreman@test.org"],
-      administrators: ["foreman@test.org"],
+      collaborators: ["kutner@test.org", "chase@test.org"],
+      administrators: ["kutner@test.org"],
       invitations: [],
       requests: [],
       requiresAdministratorApprovalToJoin: false
@@ -56,8 +56,8 @@ Meteor.methods({
       isUnlisted: false,
       name: "UC San Francisco",
       description: faker.company.catchPhrase(),
-      collaborators: ["thirteen@test.org"],
-      administrators: ["thirteen@test.org"],
+      collaborators: ["camron@test.org", "house@test.org"],
+      administrators: ["house@test.org"],
       invitations: [],
       requests: [],
       requiresAdministratorApprovalToJoin: false
@@ -164,5 +164,6 @@ Meteor.methods({
     Studies.remove({});
     Items.remove({});
     Metadata.remove({});
+    //Meteor.users.remove({});
   }
 });

@@ -1,3 +1,16 @@
+Router.route('/landing', {
+  name: "landingRoute",
+  template: "landingPage"
+});
+
+// Router.route("routePath", function (){
+//   this.layout("ApplicationLayout");
+//   this.render("PostHeader", {to: "header"});
+//   this.render("PostAside", {to: "aside"});
+//   this.render("Post");
+//   this.render("PostFooter", {to: "footer"});
+// });
+
 Template.landingPage.getUserCount = function () {
   var count = Meteor.users.find().count();
   return count;
@@ -26,31 +39,31 @@ Meteor.startup(function () {
   }, 3000);
 });
 
-Template.landingPage.getScreenshotPath = function () {
-  switch (Session.get('screenshotIndex')) {
-  case 0:
-    return "/Dermatomes_Female_Double_Medium.png";
-    break;
-  case 1:
-    return "/Dermatomes_Male_Double_Medium.png";
-    break;
-  case 2:
-    return "/Dermatomes_Female_Double_Medium.png";
-    break;
-  }
-};
-
-Template.landingPage.firstImageTransition = function () {
-  if (Session.get('screenshotIndex') === 0) {
-    return 'in';
-  } else {
-    return 'out';
-  }
-};
-Template.landingPage.secondImageTransition = function () {
-  if (Session.get('screenshotIndex') === 1) {
-    return 'in';
-  } else {
-    return 'out';
-  }
-};
+// Template.landingPage.getScreenshotPath = function () {
+//   switch (Session.get('screenshotIndex')) {
+//   case 0:
+//     return "/Dermatomes_Female_Double_Medium.png";
+//     break;
+//   case 1:
+//     return "/Dermatomes_Male_Double_Medium.png";
+//     break;
+//   case 2:
+//     return "/Dermatomes_Female_Double_Medium.png";
+//     break;
+//   }
+// };
+//
+// Template.landingPage.firstImageTransition = function () {
+//   if (Session.get('screenshotIndex') === 0) {
+//     return 'in';
+//   } else {
+//     return 'out';
+//   }
+// };
+// Template.landingPage.secondImageTransition = function () {
+//   if (Session.get('screenshotIndex') === 1) {
+//     return 'in';
+//   } else {
+//     return 'out';
+//   }
+// };

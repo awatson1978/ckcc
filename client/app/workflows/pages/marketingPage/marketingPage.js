@@ -1,4 +1,8 @@
 Router.route("/marketing",{
   template: "marketingPage",
-  name: "marketingPage"
+  name: "marketingRoute"
+});
+Router.route("/about",{
+  template: "marketingPage",
+  name: "aboutRoute"
 });

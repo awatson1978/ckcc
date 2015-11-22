@@ -157,90 +157,56 @@ module.exports = {
       //.initializeUsers()
       .initializeSecurityScenario();
   },
-  // "Anonymous User": function (client){
-  //   var userSecurityLevel = "anonymous";
-  //
-  //   client
-  //   //.checkSecurity( anon,  user,  self,  colla, rootUrl, '/route', "#elementId", userSecurityLevel)
-  //     .checkSecurity( true,  true,  true,  true,  rootUrl, '/marketing', "#marketingPage", userSecurityLevel)
-  //     .checkSecurity( true,  true,  true,  true,  rootUrl, '/terms-of-use', "#termsOfUsePage", userSecurityLevel)
-  //     .checkSecurity( true,  true,  true,  true,  rootUrl, '/', "#menuPage", userSecurityLevel)
-  //
-  //     .checkSecurity( false, true,  true,  true,  rootUrl, '/grid/collaborations', "#collaborationGrid", userSecurityLevel)
-  //     .checkSecurity( false, true,  true,  true,  rootUrl, '/new/collaboration', "#upsertCollaborationForm", userSecurityLevel)
-  //     .checkSecurity( false, false, false, true,  rootUrl, '/upsert/collaboration', "#upsertCollaborationForm", userSecurityLevel)
-  //
-  //     .checkSecurity( false, false, false, true,  rootUrl, '/list/studies', "#studiesListPage", userSecurityLevel)
-  //     .checkSecurity( false, false, false, true,  rootUrl, '/upsert/study', "#studyUpsertPage", userSecurityLevel)
-  //     .checkSecurity( false, false, false, true,  rootUrl, '/table/studies', "#studiesTablePage", userSecurityLevel)
-  //
-  //     .checkSecurity( false, true,  true,  true,  rootUrl, '/builder', "#builderPage", userSecurityLevel)
-  //
-  //     .checkSecurity( false, false, false, true,  rootUrl, '/list/metadata', "#metadatasListPage", userSecurityLevel)
-  //     .checkSecurity( false, false, false, true,  rootUrl, '/spreadsheet/metadata', "#metadataSpreadsheetPage", userSecurityLevel)
-  //     .checkSecurity( false, false, false, true,  rootUrl, '/table/metadata', "#metadatasTablePage", userSecurityLevel)
-  //
-  //     .checkSecurity( false, false, false, true,  rootUrl, '/list/records', "#recordsListPage", userSecurityLevel)
-  //     .checkSecurity( false, false, false, true,  rootUrl, '/grid/records', "#recordImageGridPage", userSecurityLevel)
-  //     .checkSecurity( false, false, false, true,  rootUrl, '/spreadsheet/records', "#recordsSpreadsheetPage", userSecurityLevel)
-  //     .checkSecurity( false, false, false, true,  rootUrl, '/table/records', "#recordsTablePage", userSecurityLevel)
-  //
-  //     .checkSecurity( false, false, false, true,  rootUrl, '/metadata/ckcc_patient_intake/new', "#metadataUpsertPage", userSecurityLevel);
-  //
-  //     // .checkSecurity( false, false, true,  true,  rootUrl, '/user/profile', "#homePage", userSecurityLevel)
-  //     // .checkSecurity( false, true,  true,  true,  rootUrl, '/users/list', "#homePage", userSecurityLevel)
-  //     // .checkSecurity( false, true,  true,  true,  rootUrl, '/users/table', "#homePage", userSecurityLevel)
-  //     // .checkSecurity( false, true,  true,  true,  rootUrl, '/users/upsert', "#homePage", userSecurityLevel)
-  //
-  //     // .checkSecurity( false, false, false, true,  rootUrl, '/table/collaborations', "#homePage", userSecurityLevel)
-  //
-  //     // .checkSecurity( false, false, false, true,  rootUrl, '/upsert/metadata', "#homePage", userSecurityLevel)
-  //     //.checkSecurity( false, false, false, true,  rootUrl, '/metadata/library', "#homePage", userSecurityLevel)
-  //     // .checkSecurity( false, false, false, true,  rootUrl, '/grid/metadata', "#metadataImageGridPage", userSecurityLevel)
-  //
-  //     // .checkSecurity( false, false, false, true,  rootUrl, '/list/questionnaires', "#questionnairesListPage", userSecurityLevel)
-  //     // //.checkSecurity( false, false, false, true,  rootUrl, '/questionnaires/library', "#homePage", userSecurityLevel)
-  //     // .checkSecurity( false, false, false, true,  rootUrl, '/spreadsheet/questionnaires', "#homePage", userSecurityLevel)
-  //     // .checkSecurity( false, false, false, true,  rootUrl, '/grid/questionnaires', "#questionnaireImageGridPage", userSecurityLevel)
-  //     // .checkSecurity( false, false, false, true,  rootUrl, '/table/questionnaires', "#questionnairesTablePage", userSecurityLevel)
-  //     // .checkSecurity( false, false, false, true,  rootUrl, '/upsert/questionnaire', "#homePage", userSecurityLevel)
-  //
-  //     // .checkSecurity( false, false, false, true,  rootUrl, '/upsert/record', "#recordUpsertPage", userSecurityLevel);
-  //
-  // },
-  // "Logged In User": function (client){
-  //   var userSecurityLevel = "self";
-  //   client
-  //     .url("http://localhost:3000/entrySignIn").pause(1000)
-  //     .signIn(userA.email, userA.password)
-  //
-  //     .checkSecurity( true,  true,  true,  true,  rootUrl, '/marketing', "#marketingPage", userSecurityLevel)
-  //     .checkSecurity( true,  true,  true,  true,  rootUrl, '/terms-of-use', "#termsOfUsePage", userSecurityLevel)
-  //     .checkSecurity( true,  true,  true,  true,  rootUrl, '/', "#menuPage", userSecurityLevel)
-  //
-  //     .checkSecurity( false, true,  true,  true,  rootUrl, '/grid/collaborations', "#collaborationGrid", userSecurityLevel)
-  //     .checkSecurity( false, true,  true,  true,  rootUrl, '/new/collaboration', "#upsertCollaborationForm", userSecurityLevel)
-  //     .checkSecurity( false, false, false, true,  rootUrl, '/upsert/collaboration', "#upsertCollaborationForm", userSecurityLevel)
-  //
-  //     .checkSecurity( false, false, false, true,  rootUrl, '/list/studies', "#studiesListPage", userSecurityLevel)
-  //     .checkSecurity( false, false, false, true,  rootUrl, '/upsert/study', "#studyUpsertPage", userSecurityLevel)
-  //     .checkSecurity( false, false, false, true,  rootUrl, '/table/studies', "#studiesTablePage", userSecurityLevel)
-  //
-  //     .checkSecurity( false, true,  true,  true,  rootUrl, '/builder', "#builderPage", userSecurityLevel)
-  //
-  //     .checkSecurity( false, false, false, true,  rootUrl, '/list/metadata', "#metadatasListPage", userSecurityLevel)
-  //     .checkSecurity( false, false, false, true,  rootUrl, '/spreadsheet/metadata', "#metadataSpreadsheetPage", userSecurityLevel)
-  //     .checkSecurity( false, false, false, true,  rootUrl, '/table/metadata', "#metadatasTablePage", userSecurityLevel)
-  //
-  //     .checkSecurity( false, false, false, true,  rootUrl, '/list/records', "#recordsListPage", userSecurityLevel)
-  //     .checkSecurity( false, false, false, true,  rootUrl, '/grid/records', "#recordImageGridPage", userSecurityLevel)
-  //     .checkSecurity( false, false, false, true,  rootUrl, '/spreadsheet/records', "#recordsSpreadsheetPage", userSecurityLevel)
-  //     .checkSecurity( false, false, false, true,  rootUrl, '/table/records', "#recordsTablePage", userSecurityLevel)
-  //
-  //     .checkSecurity( false, false, false, true,  rootUrl, '/metadata/ckcc_patient_intake/new', "#metadataUpsertPage", userSecurityLevel)
-  //
-  //     .signOut(userA.fullName);
-  // },
+  "Anonymous User": function (client){
+    var userSecurityLevel = "anonymous";
+
+    client
+      //.checkSecurity( anon,  user,  colla, rootUrl, '/route', "#elementId", userSecurityLevel)
+        .checkSecurity( true,  true,  true,  rootUrl, '/marketing', "#marketingPage", userSecurityLevel)
+        .checkSecurity( true,  true,  true,  rootUrl, '/terms-of-use', "#termsOfUsePage", userSecurityLevel)
+        .checkSecurity( true,  true,  true,  rootUrl, '/', "#menuPage", userSecurityLevel)
+
+        .checkSecurity( false, true,  true,  rootUrl, '/grid/collaborations', "#collaborationGrid", userSecurityLevel)
+        .checkSecurity( false, true,  true,  rootUrl, '/new/collaboration', "#upsertCollaborationForm", userSecurityLevel)
+
+        .checkSecurity( false, false, true,  rootUrl, '/list/studies', "#studiesListPage", userSecurityLevel)
+        .checkSecurity( false, false, true,  rootUrl, '/insert/study', "#studyUpsertPage", userSecurityLevel)
+        .checkSecurity( false, false, true,  rootUrl, '/table/studies', "#studiesTablePage", userSecurityLevel)
+
+        .checkSecurity( false, false, true,  rootUrl, '/builder', "#builderPage", userSecurityLevel)
+
+        .checkSecurity( false, false, true,  rootUrl, '/list/metadata', "#metadatasListPage", userSecurityLevel)
+        .checkSecurity( false, false, true,  rootUrl, '/spreadsheet/metadata', "#metadataSpreadsheetPage", userSecurityLevel)
+        .checkSecurity( false, false, true,  rootUrl, '/table/metadata', "#metadatasTablePage", userSecurityLevel)
+
+        .checkSecurity( false, false, true,  rootUrl, '/list/records', "#recordsListPage", userSecurityLevel)
+        .checkSecurity( false, false, true,  rootUrl, '/grid/records', "#recordImageGridPage", userSecurityLevel)
+        .checkSecurity( false, false, true,  rootUrl, '/spreadsheet/records', "#recordsSpreadsheetPage", userSecurityLevel)
+        .checkSecurity( false, false, true,  rootUrl, '/table/records', "#recordsTablePage", userSecurityLevel)
+
+        .checkSecurity( false, false, true,  rootUrl, '/metadata/ckcc_patient_intake/new', "#metadataUpsertPage", userSecurityLevel);
+
+      // .checkSecurity( false, false, true,  true,  rootUrl, '/user/profile', "#homePage", userSecurityLevel)
+      // .checkSecurity( false, true,  true,  true,  rootUrl, '/users/list', "#homePage", userSecurityLevel)
+      // .checkSecurity( false, true,  true,  true,  rootUrl, '/users/table', "#homePage", userSecurityLevel)
+      // .checkSecurity( false, true,  true,  true,  rootUrl, '/users/upsert', "#homePage", userSecurityLevel)
+
+      // .checkSecurity( false, false, false, true,  rootUrl, '/table/collaborations', "#homePage", userSecurityLevel)
+
+      // .checkSecurity( false, false, false, true,  rootUrl, '/upsert/metadata', "#homePage", userSecurityLevel)
+      //.checkSecurity( false, false, false, true,  rootUrl, '/metadata/library', "#homePage", userSecurityLevel)
+      // .checkSecurity( false, false, false, true,  rootUrl, '/grid/metadata', "#metadataImageGridPage", userSecurityLevel)
+
+      // .checkSecurity( false, false, false, true,  rootUrl, '/list/questionnaires', "#questionnairesListPage", userSecurityLevel)
+      // //.checkSecurity( false, false, false, true,  rootUrl, '/questionnaires/library', "#homePage", userSecurityLevel)
+      // .checkSecurity( false, false, false, true,  rootUrl, '/spreadsheet/questionnaires', "#homePage", userSecurityLevel)
+      // .checkSecurity( false, false, false, true,  rootUrl, '/grid/questionnaires', "#questionnaireImageGridPage", userSecurityLevel)
+      // .checkSecurity( false, false, false, true,  rootUrl, '/table/questionnaires', "#questionnairesTablePage", userSecurityLevel)
+      // .checkSecurity( false, false, false, true,  rootUrl, '/upsert/questionnaire', "#homePage", userSecurityLevel)
+
+      // .checkSecurity( false, false, false, true,  rootUrl, '/upsert/record', "#recordUpsertPage", userSecurityLevel);
+
+  },
   "Logged In User (Test User)": function (client){
     var userSecurityLevel = "signedInUser";
     client

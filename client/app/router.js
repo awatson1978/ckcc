@@ -11,6 +11,8 @@ Router.onBeforeAction(function () {
     console.log('Meteor.user().isMemberOfAnyCollaboration()', Meteor.user().isMemberOfAnyCollaboration());
     if (Meteor.user() && Meteor.user().isMemberOfAnyCollaboration()) {
       this.next();
+    } else if (Meteor.user() && Meteor.user().hasNoCollaborations()) {
+      this.next();
     } else {
       this.redirect('/need-collaboration');
     }
@@ -37,12 +39,6 @@ Router.onBeforeAction(function () {
     'supportRoute',
     'infoRoute',
 
-    // collaboration pages
-    // TODO: move these exclusions into clinical:collaborations-ui
-    'collaborationGrid',
-    'addCollaboration',
-    'viewCollaborationById',
-
     // entry pages
     // TODO: move these exclusions into clinical:entry
     'entrySignUp',
@@ -52,6 +48,7 @@ Router.onBeforeAction(function () {
     // 'entryResetPasswordRoute'
   ]
 });
+
 
 
 // Router.onBeforeAction(function() {

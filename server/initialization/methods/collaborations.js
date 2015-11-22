@@ -1,28 +1,84 @@
 Meteor.methods({
-  initializeQuestionnaires: function (){
-    Meteor.call("initializeBiopsyResearchForm");
-    Meteor.call("initializeBloodLabsForm");
-    Meteor.call("initializeBloodSpecimenForm");
-    Meteor.call("initializeClinicalInfoForm");
-    Meteor.call("initializeDemographicsForm");
-    Meteor.call("initializeEcogWeightForm");
-    Meteor.call("initializeFollowupForm");
-    Meteor.call("initializeGuDiseaseAssessmentForm");
-    Meteor.call("initializeHistologicalAssessmentForm");
-    Meteor.call("initializeHistologyResearchForm");
-    Meteor.call("initializeLaserCaptureForm");
-    Meteor.call("initializePathologyForm");
-    Meteor.call("initializePatientEnrollmentForm");
-    Meteor.call("initialieProstateDiagnosisForm");
-    Meteor.call("initializeRnaSequenceForm");
-    Meteor.call("initializeBiospyForm");
-    Meteor.call("initializePriorTreatmentForm");
-    Meteor.call("initializeSpecimenForm");
-    Meteor.call("initializeSubsequentTreatmentForm");
-    Meteor.call("initializeTissueSpecimenForm");
+  initializeDefaultCollaborations: function (){
+    // create collaborations
+    Collaborations.upsert({
+      _id: "ckcc"
+    }, {$set:{
+      isUnlisted: false,
+      name: "California Kids Cancer Comparison",
+      description: faker.company.catchPhrase(),
+      collaborators: ["cuddy@test.org"],
+      administrators: ["cuddy@test.org"],
+      invitations: [],
+      requests: [],
+      requiresAdministratorApprovalToJoin: false
+    }});
+
+    Collaborations.upsert({
+      _id: "wcdt"
+    }, {$set:{
+      isUnlisted: false,
+      name: "West Coast Dream Team",
+      description: faker.company.catchPhrase(),
+      collaborators: ["house@test.org"],
+      administrators: ["house@test.org"],
+      invitations: [],
+      requests: [],
+      requiresAdministratorApprovalToJoin: false
+    }});
+    Collaborations.upsert({
+      _id: "ucsc"
+    }, {$set:{
+      isUnlisted: false,
+      name: "UC Santa Cruz",
+      description: faker.company.catchPhrase(),
+      collaborators: ["allison@test.org"],
+      administrators: ["allison@test.org"],
+      invitations: [],
+      requests: [],
+      requiresAdministratorApprovalToJoin: false
+    }});
+    Collaborations.upsert({
+      _id: "foreman"
+    }, {$set:{
+      isUnlisted: false,
+      name: "Foreman Lab",
+      description: faker.company.catchPhrase(),
+      collaborators: ["foreman@test.org"],
+      administrators: ["foreman@test.org"],
+      invitations: [],
+      requests: [],
+      requiresAdministratorApprovalToJoin: false
+    }});
+    Collaborations.upsert({
+      _id: "ucsf"
+    }, {$set:{
+      isUnlisted: false,
+      name: "UC San Francisco",
+      description: faker.company.catchPhrase(),
+      collaborators: ["thirteen@test.org"],
+      administrators: ["thirteen@test.org"],
+      invitations: [],
+      requests: [],
+      requiresAdministratorApprovalToJoin: false
+    }});
+    Collaborations.upsert({
+      _id: "ucla"
+    }, {$set:{
+      isUnlisted: false,
+      name: "UC Los Angeles Francisco",
+      description: faker.company.catchPhrase(),
+      collaborators: ["wilson@test.org"],
+      administrators: ["wilson@test.org"],
+      invitations: [],
+      requests: [],
+      requiresAdministratorApprovalToJoin: false
+    }});
+
   },
-  initializeCollaborations: function (){
+  initializeRandomCollaborations: function (){
     console.log('Initializing database....');
+
     var collaborationId = "";
     var collaborationName = "";
 

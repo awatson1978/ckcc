@@ -169,5 +169,31 @@ Meteor.methods({
     ],
     "study" : "prad_wcdt"
     }});
+  },
+  createRandomFollowup: function (){
+    var newFollowup = {
+      "questionnaireId" : "Followup",
+      "questionnaireName" : "Followup",
+      "createdAt" : new Date(),
+        "Patient_ID" : Random.id(),
+        "Followup_Center": faker.lorem.sentence(),
+        "Last_Known_Survival_Status": "",
+        "Last_Date_Known_Alive": new Date(),
+        "Last_Followup_Date": new Date(),
+        "Expired_Date": "",
+        "Date_of_Progression": "",
+        "Followup_Start_Date": new Date(),
+        "Off_Treatment_Date": new Date(),
+        "Off_Treatment_Reason": faker.lorem.sentence(),
+        "Off_Treatment_Reason_Explain": "",
+        "Off_Study_Date": new Date(),
+        "Off_Study_Reason": faker.lorem.sentence(),
+        "Off_Study_Reason_Explain": faker.lorem.paragraph(),
+        "Best_Response": faker.lorem.sentence(),
+        "Best_Response_Date": new Date(),
+        "Best_Response_Confirm": "",
+        "QA_Date": new Date()
+    };
+    Records.insert(newFollowup);
   }
 });

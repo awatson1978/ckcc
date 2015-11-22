@@ -13,6 +13,10 @@ Studies.allow({
 });
 
 StudySchema = new SimpleSchema({
+  "_id": {
+    type: String,
+    optional: true
+  },
   "name": {
     type: String,
     optional: true,

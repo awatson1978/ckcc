@@ -1,3 +1,5 @@
+Meteor.subscribe("studies");
+
 Template.registerHelper("getStudySite", function (argument){
   if (this && this.attributes && this.attributes.Demographics && this.attributes.Demographics["Study Site"]) {
     return this.attributes.Demographics["Study Site"];

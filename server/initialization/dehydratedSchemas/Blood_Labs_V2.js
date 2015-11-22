@@ -179,5 +179,39 @@ Meteor.methods({
     ],
     "study" : "prad_wcdt"
     }});
+  },
+  createRandomBloodLabs: function (){
+    var newBloodLabs = {
+      "questionnaireId" : "Blood_Labs_V2",
+      "questionnaireName" : "Blood Labs",
+      "createdAt" : new Date(),
+        "Patient_ID" : Random.id(),
+        "Sample_ID": "",
+        "Segment": "",
+        "Visit_Date": new Date(),
+        "PSA__complexed__direct_measurement_": "",
+        "TESTOSTERONE__TOTAL": "",
+        "Alkaline_Phosphatase": "",
+        "LDH_": "",
+        "ANC": "",
+        "HEMATOCRIT": "",
+        "Hemoglobin": "",
+        "Platelets": "",
+        "RBC": "",
+        "WBC": "",
+        "WBC_Basophils": "",
+        "WBC_Eosinophils": "",
+        "WBC_Lymphocytes": "",
+        "WBC_Monocytes": "",
+        "WBC_Neutrophils": "",
+        "Partial_Thromboplastin_Time____PTT_": "",
+        "Prothrombin_Time__PT_": "",
+        "Arm": "",
+        "International_Normalized_Ratio__INR_": "",
+        "Lab_Time": "",
+        "Day": "",
+        "Phase": ""
+    };
+    Records.insert(newBloodLabs);
   }
 });

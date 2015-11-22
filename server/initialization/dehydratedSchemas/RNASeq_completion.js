@@ -105,16 +105,33 @@ Meteor.methods({
             }
         },
         "fieldOrder" : [
-            "Patient_ID",
-            "QC_reports",
-            "RIN_score_from_UCSF",
-            "date_completed",
-            "date_received",
-            "library_prep_used",
-            "library_prep_notes",
-            "location_of_fastq_file"
+          "Patient_ID",
+          "QC_reports",
+          "RIN_score_from_UCSF",
+          "date_completed",
+          "date_received",
+          "library_prep_used",
+          "library_prep_notes",
+          "location_of_fastq_file"
         ],
         "study" : "prad_wcdt"
     }});
+  },
+  createRandomRnaSequence: function (){
+    var newRnaSequence = {
+      "questionnaireId" : "RNASeq_completion_form",
+      "questionnaireName" : "RNA Sequence Completion",
+      "createdAt" : new Date(),
+        "Patient_ID" : Random.id(),
+        "QC_reports": "",
+        "RIN_score_from_UCSF": "",
+        "date_completed": new Date(),
+        "date_received": new Date(),
+        "library_prep_used": faker.lorem.paragraph(),
+        "library_prep_notes": faker.lorem.paragraph(),
+        "location_of_fastq_file": ""
+    };
+    Records.insert(newRnaSequence);
+
   }
 });

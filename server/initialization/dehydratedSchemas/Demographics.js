@@ -180,5 +180,42 @@ Meteor.methods({
     "study" : "prad_wcdt"
 
     }});
+  },
+  createRandomDemographics: function (){
+
+    var randomAge = Random.fraction() * 17;
+
+    var newDemographics = {
+      "questionnaireId" : "Demographics",
+      "questionnaireName" : "Demographics",
+      "createdAt" : new Date(),
+        "Patient_ID" : Random.id(),
+        "Age": randomAge.toString().slice(0, randomAge.toString().indexOf(".")),
+        "Study_Site" : Random.choice(["UCSF",
+          "OHSU",
+          "UCLA",
+          "UCD",
+          "UBC",
+          "LAVA"
+        ]),
+        "Current_Status": faker.lorem.sentence(),
+        "Ethnicity": "",
+        "Expired_Date": "",
+        "Last_Visit": "",
+        "Last_Visit_Date": new Date(),
+        "Off_Study_Date": "",
+        "Off_Treatment_Date": "",
+        "On_Followup_Date": "",
+        "On_Study_Date": new Date(),
+        "On_Treatment_Date": new Date(),
+        "Race": "",
+        "Eligibility_Status": "",
+        "Eligibility_Status_Date": new Date(),
+        "Eligibility_Version_Date": "",
+        "Consent_Date": new Date(),
+        "Arms": ""
+
+    };
+    Records.insert(newDemographics);
   }
 });

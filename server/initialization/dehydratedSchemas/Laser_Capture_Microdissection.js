@@ -155,5 +155,22 @@ Meteor.methods({
         ],
         "study" : "prad_wcdt"
     }});
+  },
+  createRandomLaserCaptureMicrodisection: function (){
+    var newLaserCapture = {
+      "questionnaireId" : "Laser_Capture_Microdissection",
+      "questionnaireName" : "Laser Capture Microdissection",
+      "createdAt" : new Date(),
+        "Patient_ID" : Random.id(),
+        "Sample_ID": "",
+        "Core": "",
+        "Completion_Date": new Date(),
+        "SlideNumber": "",
+        "Estimated_total_capture_area": "",
+        "Lysates": "",
+        "Lysates_Volume": "",
+        "Downstream_use": ""
+    };
+    Records.insert(newLaserCapture);
   }
 });

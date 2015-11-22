@@ -1,14 +1,12 @@
 Meteor.methods({
   initializeStudies:function (){
 
-
     Studies.upsert({
-      id: "prad_tcga"
+      _id: "prad_tcga"
     }, {
       $set: {
         "cbio_id": "?",
-        "id": "prad_tcga",
-        "type_of_cancer_id": "prad",
+        // "id": "prad_tcga",
         "name": "NIH TCGA Prostate Cancer",
         "short_name": "Prad TCGA",
         "description": "Large NIH study of Prostate Cancer",
@@ -22,13 +20,13 @@ Meteor.methods({
       }
     });
 
+
     Studies.upsert({
-      id: "ckcc"
+      _id: "ckcc"
     }, {
       $set: {
         "cbio_id": "?",
-        "id": "ckcc",
-        "type_of_cancer_id": "many",
+        // "id": "ckcc",
         "name": "California Kids Cancer Comparison",
         "description": "California Kids Cancer Comparison",
         "short_name": "CKCC",
@@ -43,13 +41,14 @@ Meteor.methods({
         "Patient_IDs": [],
       }
     });
+
+
     Studies.upsert({
-      id: "prad_wcdt"
+      _id: "prad_wcdt"
     }, {
       $set: {
         "cbio_id": "112",
-        "id": "prad_wcdt",
-        "type_of_cancer_id": "prad",
+        // "id": "prad_wcdt",
         "name": "West Coast Prostate Cancer Dream Team",
         "short_name": "WCDT",
         "description": "Castration Resistant Prostate Cancer",
@@ -59,15 +58,15 @@ Meteor.methods({
         "collaborations": ["WCDT"],
         "tables": [],
       }
-    });    
+    });
+
 
     Studies.upsert({
-      id: "treehouse"
+      _id: "treehouse"
     }, {
       $set: {
         "cbio_id": "?",
-        "id": "treehouse",
-        "type_of_cancer_id": "many",
+        // "id": "treehouse",
         "name": "Treehouseproject",
         "short_name": "treehouse",
         "description": "",
@@ -80,6 +79,5 @@ Meteor.methods({
         "Patient_IDs": []
       }
     });
-
   }
 });

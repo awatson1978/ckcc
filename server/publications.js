@@ -31,6 +31,9 @@ Meteor.publish("metadata", function() {
   //   },{fields:{id:1}}
   // ).map(function(doc){ return doc.id});
 
+
+  // in the future,
+  // it would be great if the users were available in Redis
   var userRecord = Meteor.users.findOne({_id:this.userId});
   console.log('userRecord', userRecord.defaultEmail());
 
@@ -52,10 +55,12 @@ Meteor.publish("metadata", function() {
 
     console.log('metadataRecords', metadataRecords);
     return metadataRecords;
-
   }
-
 });
+
+
+
+
 
 
 // Meteor.publish("CRFs", function (studies, crfs) {

@@ -20,7 +20,7 @@ Meteor.startup(function () {
       Meteor.call("initializePatients");
     }
     if (Collaborations.find().count() === 0) {
-      Meteor.call('initializeCollaborations');
+      Meteor.call('initializeDefaultCollaborations');
     }
     if (Records.find().count() === 0) {
       Meteor.call("initializeDataRecord");

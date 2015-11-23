@@ -5,31 +5,31 @@ var userA = {
   fullName: "Gregory House",
   email: "house@test.org",
   username: "house",
-  password: "house",
+  password: "house"
 };
 var userB = {
   fullName: "Allison Camron",
   email: "camron@test.org",
   username: "camron",
-  password: "camron",
+  password: "camron"
 };
 var userC = {
   fullName: "James Wilson",
   email: "wilson@test.org",
   username: "wilson",
-  password: "wilson",
+  password: "wilson"
 };
 var userD = {
   fullName: "Lisa Cuddy",
   email: "cuddy@test.org",
   username: "cuddy",
-  password: "cuddy",
+  password: "cuddy"
 };
 var testUser = {
   fullName: "Test User",
   email: "test@test.org",
   username: "test",
-  password: "test",
+  password: "test"
 };
 
 // var ckccCollaboration = {

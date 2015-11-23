@@ -1,0 +1,15 @@
+{
+  "nodePath": "",
+  "docsPath": "~/myproject-docs",
+  "meteorPort": 3333,
+  "initMeteor": true,
+  "updateMeteor": true,
+  "preamble": true,
+  "projectRepo": "https://github.com/awatson1978/ckcc/tree/master",
+  "docsConfig": {
+    "title": "Clinical Meteor Docs",
+    "metas": {
+      "description": "Documentation for a Clinical Meteor project."
+    }
+  }
+}

@@ -35,7 +35,7 @@ photonic:no-select-everything
 clinical:barcode
 clinical:extended-api
 clinical:collaborations
-clinical:collaborations-ui@2.1.15
+clinical:collaborations-ui
 clinical:active-entry
 clinical:active-record
 clinical:env

@@ -7,8 +7,12 @@ Router.onBeforeAction(function () {
   if (!Meteor.loggingIn() && !Meteor.user()) {
     this.redirect('/please-sign-in');
   } else {
-    //console.log('Meteor.user()', Meteor.user());
-    //console.log('Meteor.user().isMemberOfAnyCollaboration()', Meteor.user().isMemberOfAnyCollaboration());
+    // BUG:  in firefox, if this console.log() isn't present, Meteor.user() won't hydrate in time
+    // and it will think there are no collaborators, and bump the user to the security page
+    // the console.log forces the function to wait while it's accessess the console
+    // which gives Meteor.user() just enough time to hydrate
+    console.log('Meteor.user().isMemberOfAnyCollaboration()', Meteor.user().isMemberOfAnyCollaboration());
+
     if (Meteor.user() && Meteor.user().isMemberOfAnyCollaboration()) {
       this.next();
     } else if (Meteor.user() && Meteor.user().hasNoCollaborations()) {

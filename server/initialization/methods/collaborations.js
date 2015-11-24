@@ -42,7 +42,7 @@ Meteor.methods({
       _id: "genomics"
     }, {$set:{
       isUnlisted: false,
-      name: "Cancer Genoimcs",
+      name: "Cancer Genomics",
       description: faker.company.catchPhrase(),
       collaborators: ["kutner@test.org", "chase@test.org", "ucsc"],
       administrators: ["kutner@test.org"],

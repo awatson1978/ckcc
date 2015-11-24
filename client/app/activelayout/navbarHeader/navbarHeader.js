@@ -4,6 +4,12 @@ Session.setDefault("show_background", false);
 
 
 Template.navbarHeader.events({
+  'keyup #globalSearchBar' : function (){
+    Session.set('collaborationSearchFilter', $('#globalSearchBar').val());
+  },
+  'change #globalSearchBar' : function (){
+    Session.set('collaborationSearchFilter', $('#globalSearchBar').val());
+  },
   'click #navbarTitle': function () {
     Router.go('/');
   },

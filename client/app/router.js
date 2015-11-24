@@ -7,8 +7,8 @@ Router.onBeforeAction(function () {
   if (!Meteor.loggingIn() && !Meteor.user()) {
     this.redirect('/please-sign-in');
   } else {
-    console.log('Meteor.user()', Meteor.user());
-    console.log('Meteor.user().isMemberOfAnyCollaboration()', Meteor.user().isMemberOfAnyCollaboration());
+    //console.log('Meteor.user()', Meteor.user());
+    //console.log('Meteor.user().isMemberOfAnyCollaboration()', Meteor.user().isMemberOfAnyCollaboration());
     if (Meteor.user() && Meteor.user().isMemberOfAnyCollaboration()) {
       this.next();
     } else if (Meteor.user() && Meteor.user().hasNoCollaborations()) {

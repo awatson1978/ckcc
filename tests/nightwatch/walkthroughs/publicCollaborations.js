@@ -48,50 +48,6 @@ var ckccStudy = {
 };
 
 
-// // questionnaire
-// var intakeQuestionnaire = {
-//   questionnaireName: "CKCC Patient Intake",
-//   questionnaireSearch: "Int",
-//   institutionName: "U.C. Santa Cruz",
-//   institutionId: "UCSC",
-//   collaborationId: "CKCC",
-//   collaborationName: "CKCC"
-// };
-
-// // questionnaire
-// var intakeQuestionnaire = {
-//   questionnaireName: "CKCC Patient Intake",
-//   questionnaireSearch: "Int",
-//   inputs: {
-//     institutionName: "Institution Name",
-//     institutionId: "Institution Id",
-//     participantId: "Participant ID",
-//     Patient_ID: "Patient ID",
-//     studyName: "Study Name",
-//     studyId: "Study ID"
-//   },
-//   textareas: {
-//     diagnosisDescription: "Diagnosis Description",
-//     priorTreatmentHistory: "Prior Treatment History",
-//   }
-// };
-//
-// var intakeQuestionnaireAnswers = {
-//   questionnaireName: "CKCC Patient Intake",
-//   questionnaireSearch: "Int",
-//   inputs: {
-//     institutionName: "U.C. Santa Cruz",
-//     institutionId: "UCSC",
-//     participantId: "",
-//     Patient_ID: "DTB-99999",
-//     studyName: "",
-//     studyId: ""
-//   },
-//   textareas: {
-//     diagnosisDescription: "",
-//     priorTreatmentHistory: ""
-//   }
-// };
 
 // questionnaire
 var intakeQuestionnaire = {

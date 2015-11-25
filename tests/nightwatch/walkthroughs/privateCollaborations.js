@@ -154,10 +154,10 @@ module.exports = {
       .upsertCollaboration(ckccCollaboration)
       .pause(1000)
       .reviewCollaborationGrid(ckccCollaboration)
-      .verify.elementPresent("#globalSearchBar")
-        .clearValue('#globalSearchBar')
-        .setValue('#globalSearchBar', ckccCollaboration.slug)
-        .click("#collaborationGridElements .collaboration:nth-child(1)")
+      // .verify.elementPresent("#globalSearchBar")
+      //   .clearValue('#globalSearchBar')
+      //   .setValue('#globalSearchBar', ckccCollaboration.slug)
+        .click("#collaborationGridElements .collaboration:nth-child(1) .cardBody")
       .reviewUpsertCollaboration(ckccCollaboration);
   },
   "D. UserA Can Add a Study": function (client) {
@@ -285,7 +285,7 @@ module.exports = {
       //   .setValue('#globalSearchBar', "Cal")
       //   .verify.attributeEquals('#globalSearchBar', 'value', 'Cal')
 
-      .click("#collaborationGrid .collaboration:nth-child(1)").pause(1000)
+      .click("#collaborationGrid .collaboration:nth-child(1) .cardBody").pause(1000)
 
       .clearValue('#addCollaborationForm input[name="collaborators"]')
       .setValue('#addCollaborationForm input[name="collaborators"]', ckccCollaboration.collaborators[0] + "," + ckccCollaboration.collaborators[1])

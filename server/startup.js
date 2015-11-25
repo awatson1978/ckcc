@@ -20,7 +20,7 @@ Meteor.startup(function () {
       Meteor.call("initializePatients");
     }
     if (Collaborations.find().count() === 0) {
-      Meteor.call('initializeCollaborations');
+      Meteor.call('initializeDefaultCollaborations');
     }
     if (Records.find().count() === 0) {
       Meteor.call("initializeDataRecord");
@@ -33,6 +33,9 @@ Meteor.startup(function () {
     }
     if (Questionnaires.find().count() === 0) {
       Meteor.call("initializeQuestionnaires");
+    }
+    if (Meteor.users.find().count() === 0) {
+      Meteor.call("iniitalizeUsers");
     }
   };
 

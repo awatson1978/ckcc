@@ -13,6 +13,10 @@ Studies.allow({
 });
 
 StudySchema = new SimpleSchema({
+  "_id": {
+    type: String,
+    optional: true
+  },
   "name": {
     type: String,
     optional: true,
@@ -78,6 +82,17 @@ StudySchema = new SimpleSchema({
     optional: true,
     defaultValue: [],
     label: "Tables",
+    autoform: {
+      afArrayField: {
+        template: "photonic"
+      }
+    }
+  },
+  "collaborations": {
+    type: [String],
+    optional: true,
+    defaultValue: [],
+    label: "Collaborations",
     autoform: {
       afArrayField: {
         template: "photonic"

@@ -44,7 +44,7 @@ Template.appLayout.events({
   },
   "click #initializeBtn": function (event, template) {
     console.log('initializing database');
-    Meteor.call("initializeCollaborations");
+    Meteor.call("initializeDefaultCollaborations");
   },
   "click #dropBtn": function (event, template) {
     console.log('dropping database');

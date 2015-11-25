@@ -49,6 +49,18 @@ Template.appLayout.onRendered(function () {
   $('body').addClass('grayBackground');
 });
 
+/**
+ * @summary This is a Test
+ * @locus Anywhere
+ * @instancename collection
+ * @class
+ * @param {String} name The name of the collection.  If null, creates an unmanaged (unsynchronized) local collection.
+ * @param {Object} [options]
+ * @param {Object} options.connection The server connection that will manage this collection. Uses the default connection if not specified.  Pass the return value of calling [`DDP.connect`](#ddp_connect) to specify a different server. Pass `null` to specify no connection. Unmanaged (`name` is null) collections cannot specify a connection.
+ * @param {String} options.idGeneration The method of generating the `_id` fields of new documents in this collection.  Possible values:
+ * @param {Function} options.transform An optional transformation function. Documents will be passed through this function before being returned from `fetch` or `findOne`, and before being passed to callbacks of `observe`, `map`, `forEach`, `allow`, and `deny`. Transforms are *not* applied for the callbacks of `observeChanges` or to cursors returned from publish functions.
+ */
+
 Template.appLayout.helpers({
   getContextTitle: function (){
     return Session.get('pageTitle');
@@ -199,7 +211,7 @@ Template.registerHelper("btnPrimary", function () {
   return "background-color: " + Session.get('backgroundColorA') + "; color: #ffffff;";
 });
 
-Template.registerHelper("getNorthRule", function (argument) {
+Template.registerHelper("getNorthRule", function () {
   var topDistance = 0;
 
   if (Session.get('showNavbars')) {
@@ -215,10 +227,32 @@ Template.registerHelper("getNorthRule", function (argument) {
   if (Session.get('appWidth') > 768) {
     topDistance = topDistance + 50;
   }
-  // if (Session.get('mainPanelIsCard')) {
-  // }
 
   return "top: " + topDistance + "px;";
+});
+
+Template.registerHelper("getRightPanelNorthRule", function (){
+    var topDistance = 0;
+
+    if (Session.get('showNavbars')) {
+      topDistance = topDistance + 50;
+    }
+
+    if (Session.get('showSearchbar')) {
+      topDistance = topDistance + 50;
+    }
+
+    // we should add spacing if the app is in card mode and in landscape mode of some sort
+    // otherwise, if it's in portrait or phone mode, we want it flush with the header
+    if (Session.get('appWidth') > 768) {
+      topDistance = topDistance + 50;
+    }
+
+    if (Session.get('useHierarchicalLayout')) {
+      topDistance = topDistance + 50;
+    }
+
+    return "top: " + topDistance + "px;";
 });
 
 //==================================================================================================

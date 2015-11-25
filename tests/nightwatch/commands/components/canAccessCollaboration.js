@@ -6,7 +6,7 @@ exports.command = function (user, collaboration) {
 
     .verify.elementPresent("#collaborationGrid #collaborationGridElements .collaboration:nth-child(1)")
     .verify.containsText("#collaborationGrid #collaborationGridElements .collaboration:nth-child(1) .cardBody h2", collaboration.collaborationName)
-    .click("#collaborationGrid #collaborationGridElements .collaboration:nth-child(1)").pause(500)
+    .click("#collaborationGrid #collaborationGridElements .collaboration:nth-child(1) .cardBody").pause(500)
 
     .verify.elementNotPresent("#collaborationGrid")
     .verify.elementPresent("#upsertCollaborationForm")

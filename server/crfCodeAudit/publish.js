@@ -1,8 +1,8 @@
-Meteor.startup(function () {
-  Meteor.publish("metadata", function () {
-    return Metadata.find();
-  });
-});
+// Meteor.startup(function () {
+//   Meteor.publish("metadata", function () {
+//     return Metadata.find();
+//   });
+// });
 
 
 // Meteor.publish('patient', function (patient_id) {

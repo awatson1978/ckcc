@@ -1,3 +1,9 @@
+Router.route('/app-menu', {
+  template: 'appMenuPage',
+  name: 'appMenuRoute'
+});
+
+
 Session.setDefault('hasPageBorder', false);
 Session.setDefault('hasPagePadding', false);
 Session.setDefault('pageBackgroundIsWhite', false);

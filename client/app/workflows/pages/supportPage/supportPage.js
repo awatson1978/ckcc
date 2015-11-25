@@ -1,4 +1,4 @@
 Router.route("/support",{
   template: "supportPage",
-  name: "supportPage"
+  name: "supportRoute"
 });

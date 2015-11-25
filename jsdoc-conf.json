@@ -1,0 +1,12 @@
+{
+  "plugins": ["plugins/markdown"],
+  "markdown": {
+    "parser": "gfm"
+  },
+  "source": {
+    "exclude": [
+      ".meteor",
+      "node_modules"
+    ]
+  }
+}

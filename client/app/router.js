@@ -1,6 +1,80 @@
-renderHomePage = function (scope) {
 
-};
+
+//--------------------------------------------------------------
+// Security Sign In
+
+Router.onBeforeAction(function () {
+  if (!Meteor.loggingIn() && !Meteor.user()) {
+    this.redirect('/please-sign-in');
+  } else {
+    // BUG:  in firefox, if this console.log() isn't present, Meteor.user() won't hydrate in time
+    // and it will think there are no collaborators, and bump the user to the security page
+    // the console.log forces the function to wait while it's accessess the console
+    // which gives Meteor.user() just enough time to hydrate
+    console.log('Meteor.user().isMemberOfAnyCollaboration()', Meteor.user().isMemberOfAnyCollaboration());
+
+    if (Meteor.user() && Meteor.user().isMemberOfAnyCollaboration()) {
+      this.next();
+    } else if (Meteor.user() && Meteor.user().hasNoCollaborations()) {
+      this.next();
+    } else {
+      this.redirect('/need-collaboration');
+    }
+  }
+},{
+  except: [
+    'homeRoute',
+    'dashboardRoute',
+
+    //errors
+    'browserNotSupportedRoute',
+    'pageNotFoundRoute',
+    'loadingPageRoute',
+    'pleaseSignInRoute',
+    'needCollaborationPriviledgesRoute',
+
+    // static pages
+    'appMenuRoute',
+    'termsOfUseRoute',
+    'marketingRoute',
+    'aboutRoute',
+    'landingRoute',
+    'privacyRoute',
+    'supportRoute',
+    'infoRoute',
+
+    // entry pages
+    // TODO: move these exclusions into clinical:entry
+    'entrySignUp',
+    'entrySignIn',
+    'forgotPassword'
+    // 'entrySignOutRoute',
+    // 'entryResetPasswordRoute'
+  ]
+});
+
+
+
+// Router.onBeforeAction(function() {
+//   if (Meteor.user()) {
+//     if (!Meteor.user().profile.employer_id) {
+//       this.render("noEmployerSetPageErrorPage");
+//
+//       this.render("navbarHeader", {to: 'header'});
+//       this.render("sidebarTemplate",{to: 'aside'});
+//     } else {
+//       this.render("navbarHeader", {to: 'header'});
+//       this.render("sidebarTemplate",{to: 'aside'});
+//     }
+//   }else{
+//     return {};
+//   }
+// });
+
+
+
+//--------------------------------------------------------------
+// Yield Templates and Layouts
 
 getYieldTemplates = function () {
   if (Meteor.userId()) {
@@ -101,8 +175,8 @@ Router.map(function () {
   //   }
   // });
 
-  this.route('dashboardRoute', {
-    path: '/dashboard',
+  this.route('/dashboard', {
+    name: 'dashboardRoute',
     template: "homePage",
     yieldTemplates: getYieldTemplates(),
     onBeforeAction: function () {
@@ -112,7 +186,7 @@ Router.map(function () {
   });
   // this.route('eulaRoute', {
   //   path: '/eula',
-  //   template: 'eulaPage',
+  //   template: 'termsOfUsePage',
   //   yieldTemplates: getYieldTemplates(),
   //   onBeforeAction: function () {
   //     setPageTitle("End User License Agreement");

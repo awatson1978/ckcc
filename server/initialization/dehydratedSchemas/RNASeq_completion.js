@@ -24,6 +24,14 @@ Meteor.methods({
               "label" : "Patient ID",
               "type" : "String"
             },
+            "MedicalRecordNumber" : {
+              "label" : "Medical Record Number",
+              "type" : "String"
+            },
+            "StudyName" : {
+              "label" : "Study Name",
+              "type" : "String"
+            },
             "QC_reports" : {
               "label" : "QC reports",
               "type" : "String"
@@ -105,16 +113,37 @@ Meteor.methods({
             }
         },
         "fieldOrder" : [
-            "Patient_ID",
-            "QC_reports",
-            "RIN_score_from_UCSF",
-            "date_completed",
-            "date_received",
-            "library_prep_used",
-            "library_prep_notes",
-            "location_of_fastq_file"
+          "Patient_ID",
+          "QC_reports",
+          "RIN_score_from_UCSF",
+          "date_completed",
+          "date_received",
+          "library_prep_used",
+          "library_prep_notes",
+          "location_of_fastq_file"
         ],
         "study" : "prad_wcdt"
     }});
+  },
+  createRandomRnaSequence: function (mrn, studyName){
+    var randomNumber = Random.fraction() * 17;
+
+    var newRnaSequence = {
+      "questionnaireId" : "RNASeq_completion_form",
+      "questionnaireName" : "RNA Sequence Completion",
+      "createdAt" : new Date(),
+        "Patient_ID" : Random.id(),
+        "MedicalRecordNumber": mrn,
+        "StudyName": studyName,
+        "QC_reports": "",
+        "RIN_score_from_UCSF": "",
+        "date_completed": new Date(),
+        "date_received": new Date(),
+        "library_prep_used": faker.lorem.paragraph(),
+        "library_prep_notes": faker.lorem.paragraph(),
+        "location_of_fastq_file": ""
+    };
+    Records.insert(newRnaSequence);
+
   }
 });

@@ -5,25 +5,25 @@ var userA = {
   fullName: "Gregory House",
   email: "house@test.org",
   username: "house",
-  password: "house",
+  password: "house"
 };
 var userB = {
   fullName: "Allison Camron",
-  email: "allison@test.org",
-  username: "allison",
-  password: "allison",
+  email: "camron@test.org",
+  username: "camron",
+  password: "camron"
 };
 var userC = {
   fullName: "James Wilson",
   email: "wilson@test.org",
   username: "wilson",
-  password: "wilson",
+  password: "wilson"
 };
 var userD = {
   fullName: "Lisa Cuddy",
   email: "cuddy@test.org",
   username: "cuddy",
-  password: "cuddy",
+  password: "cuddy"
 };
 
 
@@ -62,7 +62,7 @@ var intakeQuestionnaire = {
     patientGender: "Gender",
     diagnosisCode: "Diagnosis Code",
     diseaseSubtype: "Disease Subtype",
-    lastFollowUpDate: "Last Followup Date",
+    lastFollowUpDate: "Last Followup Date"
   },
   textareas: {
     diagnosisDescription: "Diagnosis Description",
@@ -94,7 +94,7 @@ var intakeQuestionnaireAnswers = {
     patientGender: "",
     diagnosisCode: "",
     diseaseSubtype: "",
-    lastFollowUpDate: "",
+    lastFollowUpDate: ""
   },
   textareas: {
     diagnosisDescription: "",
@@ -125,7 +125,7 @@ var newPatientEnrollment = {
 };
 
 module.exports = {
-  tags: ['collaborations'],
+  tags: ['collaborations', 'private'],
   before: function (client){
     client
       .url("http://localhost:3000").pause(1000)
@@ -154,10 +154,10 @@ module.exports = {
       .upsertCollaboration(ckccCollaboration)
       .pause(1000)
       .reviewCollaborationGrid(ckccCollaboration)
-      .verify.elementPresent("#globalSearchBar")
-        .clearValue('#globalSearchBar')
-        .setValue('#globalSearchBar', ckccCollaboration.slug)
-        .click("#collaborationGridElements .collaboration:nth-child(1)")
+      // .verify.elementPresent("#globalSearchBar")
+      //   .clearValue('#globalSearchBar')
+      //   .setValue('#globalSearchBar', ckccCollaboration.slug)
+        .click("#collaborationGridElements .collaboration:nth-child(1) .cardBody")
       .reviewUpsertCollaboration(ckccCollaboration);
   },
   "D. UserA Can Add a Study": function (client) {
@@ -278,10 +278,20 @@ module.exports = {
       .verify.containsText("#usernameLink", userA.fullName)
       .click("#collaborationsTile").pause(1000)
 
-      .click("#collaborationGrid .collaboration:nth-child(1)").pause(1000)
-      //.removeNthCollaborator(userB.email, 3)
+      // TODO:  add search bar/search function
+      .triggerKeybinding('ctrl+command+s').pause(500)
+      // .verify.visible('#globalSearchBar')
+      //   .clearValue('#globalSearchBar')
+      //   .setValue('#globalSearchBar', "Cal")
+      //   .verify.attributeEquals('#globalSearchBar', 'value', 'Cal')
+
+      .click("#collaborationGrid .collaboration:nth-child(1) .cardBody").pause(1000)
+
       .clearValue('#addCollaborationForm input[name="collaborators"]')
-      .setValue('#addCollaborationForm input[name="collaborators"]', ckccCollaboration.collaborators)
+      .setValue('#addCollaborationForm input[name="collaborators"]', ckccCollaboration.collaborators[0] + "," + ckccCollaboration.collaborators[1])
+
+      // .verify.elementPresent("#upsertCollaborationButton")
+      // .click("#upsertCollaborationButton").pause(1000)
 
       .verify.elementPresent("#saveCollaborationButton")
       .click("#saveCollaborationButton").pause(1000)

@@ -1,7 +1,7 @@
 
 <template name="metadatasListPage">
   <article id="metadatasListPage" class="page">
-    {{> recordHeader type="metadata" spreadsheet=false}}
+    {{> recordHeader type="record" url="metadata" spreadsheet=true table=false imageGrid=false}}
 
     <div class="pageBody" style="{{getOpacity}}">
       <input id="metadataSearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." value="{{getQuestionnaireSearchFilter}}"/>

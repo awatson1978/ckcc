@@ -31,17 +31,10 @@ cache:
 before_install:
   # - set CONFIG_PREFIX=`npm config get prefix`
 
-  # - wget http://dl.nwjs.io/v0.11.6/chromedriver-nw-v0.11.6-linux-x64.tar.gz
-  # - tar -zxvf chromedriver-nw-v0.11.6-linux-x64.tar.gz
-  # - mv chromedriver-nw-v0.11.6-linux-x64/chromedriver ./
-
-  # - wget http://dl.nwjs.io/v0.11.6/node-webkit-v0.11.6-linux-x64.tar.gz
-  # - tar -zxvf node-webkit-v0.11.6-linux-x64.tar.gz
-  # - mv node-webkit-v0.11.6-linux-x64/* ./
-
-  # - wget http://selenium-release.storage.googleapis.com/2.43/selenium-server-standalone-2.43.0.jar
-  # - java -jar selenium-server-standalone-2.43.0.jar -Dwebdriver.chrome.driver=./chromedriver &
-  # - sleep 10
+  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb
+  - sudo apt-get update -qq
+  - sudo dpkg -i ./google-chrome*.deb
+  - sudo apt-get -f install
 
   # set up the node_modules dir, so we know where it is
   - "mkdir -p node_modules &"

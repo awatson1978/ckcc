@@ -130,13 +130,15 @@ module.exports = {
 
         .checkSecurity( false, false, true,  rootUrl, '/metadata/ckcc_patient_intake/new', "#metadataUpsertPage", userSecurityLevel)
 
-      .signOut(testUser.fullName);
+      .signOut(testUser.fullName)
+      .verify.containsText("#usernameLink", "Sign In");
   },
   "Collaborator": function (client){
     var userSecurityLevel = "collaborator";
     client
       .url("http://localhost:3000/entrySignIn").pause(500)
       .signIn(userC.email, userC.password).pause(500)
+        .verify.containsText("#usernameLink", "James Wilson")
 
       //.checkSecurity( anon,  user,  colla, rootUrl, '/route', "#elementId", userSecurityLevel)
         .checkSecurity( true,  true,  true,  rootUrl, '/marketing', "#marketingPage", userSecurityLevel)
@@ -163,7 +165,8 @@ module.exports = {
 
         .checkSecurity( false, false, true,  rootUrl, '/metadata/ckcc_patient_intake/new', "#metadataUpsertPage", userSecurityLevel)
 
-      .signOut(userC.fullName);
+      .signOut(userC.fullName)
+      .verify.containsText("#usernameLink", "Sign In");
   },
 
   "M. End": function (client){

@@ -76,4 +76,4 @@ before_install:
 
 
 
-script: "starrynight run-tests --framework nightwatch --env travis --tags security"
+script: "starrynight run-tests --framework nightwatch --env travis"

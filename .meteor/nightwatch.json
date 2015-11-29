@@ -130,7 +130,7 @@
         "nativeEvents": true
       }
     },
-    "travis_chrome": {
+    "travischrome": {
       "launch_url": "http://localhost:3000",
       "selenium_host": "127.0.0.1",
       "selenium_port": 4444,

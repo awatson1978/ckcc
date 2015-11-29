@@ -15,7 +15,6 @@ env:
     - TRAVIS=true
     - DISPLAY=:99.0
     - CONFIG_PREFIX=`npm config get prefix`
-    - CHROME_BIN=chromium-browser
   matrix:
 addons:
   apt:
@@ -77,4 +76,4 @@ before_install:
 
 
 
-script: "starrynight run-tests --framework nightwatch --env travischrome"
+script: "starrynight run-tests --framework nightwatch --env travis"

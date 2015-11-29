@@ -25,11 +25,11 @@ var userD = {
   username: "cuddy",
   password: "cuddy"
 };
-var testUser = {
-  fullName: "Test User",
-  email: "test@test.org",
-  username: "test",
-  password: "test"
+var loggedInNonCollaborator = {
+  fullName: "Thirteen",
+  email: "thirteen@test.org",
+  username: "thirteen",
+  password: "thirteen"
 };
 
 var rootUrl = "http://localhost:3000";
@@ -98,12 +98,12 @@ module.exports = {
       // .checkSecurity( false, false, false, true,  rootUrl, '/upsert/record', "#recordUpsertPage", userSecurityLevel);
 
   },
-  "Logged In User (Test User)": function (client){
+  "Logged In User (Thirteen)": function (client){
     var userSecurityLevel = "signedInUser";
     client
       .url("http://localhost:3000/entrySignIn").pause(500)
-      .signIn(testUser.email, testUser.password).pause(500)
-        .verify.containsText("#usernameLink", "Test User")
+      .signIn(loggedInNonCollaborator.email, loggedInNonCollaborator.password).pause(500)
+        .verify.containsText("#usernameLink", "Thirteen")
 
       //.checkSecurity( anon,  user,  colla, rootUrl, '/route', "#elementId", userSecurityLevel)
         .checkSecurity( true,  true,  true,  rootUrl, '/marketing', "#marketingPage", userSecurityLevel)
@@ -130,10 +130,10 @@ module.exports = {
 
         .checkSecurity( false, false, true,  rootUrl, '/metadata/ckcc_patient_intake/new', "#metadataUpsertPage", userSecurityLevel)
 
-      .signOut(testUser.fullName)
+      .signOut(loggedInNonCollaborator.fullName)
       .verify.containsText("#usernameLink", "Sign In");
   },
-  "Collaborator": function (client){
+  "Collaborator (Wilson)": function (client){
     var userSecurityLevel = "collaborator";
     client
       .url("http://localhost:3000/entrySignIn").pause(500)

@@ -15,6 +15,7 @@ env:
     - TRAVIS=true
     - DISPLAY=:99.0
     - CONFIG_PREFIX=`npm config get prefix`
+    - CHROME_BIN=chromium-browser
   matrix:
 addons:
   apt:
@@ -31,10 +32,10 @@ cache:
 before_install:
   # - set CONFIG_PREFIX=`npm config get prefix`
 
-  - "wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb"
-  - "sudo apt-get update -qq"
-  - "sudo dpkg -i ./google-chrome*.deb"
-  - "sudo apt-get -f install"
+  # - "wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb"
+  # - "sudo apt-get update -qq"
+  # - "sudo dpkg -i ./google-chrome*.deb"
+  # - "sudo apt-get -f install"
 
   # set up the node_modules dir, so we know where it is
   - "mkdir -p node_modules &"

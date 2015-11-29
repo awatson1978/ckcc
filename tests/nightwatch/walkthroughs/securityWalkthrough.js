@@ -101,8 +101,8 @@ module.exports = {
   "Logged In User (Thirteen)": function (client){
     var userSecurityLevel = "signedInUser";
     client
-      .url("http://localhost:3000/entrySignIn").pause(500)
-      .signIn(loggedInNonCollaborator.email, loggedInNonCollaborator.password).pause(500)
+      .url("http://localhost:3000/entrySignIn").pause(1000)
+      .signIn(loggedInNonCollaborator.email, loggedInNonCollaborator.password).pause(1000)
         .verify.containsText("#usernameLink", "Thirteen")
 
       //.checkSecurity( anon,  user,  colla, rootUrl, '/route', "#elementId", userSecurityLevel)
@@ -136,8 +136,8 @@ module.exports = {
   "Collaborator (Wilson)": function (client){
     var userSecurityLevel = "collaborator";
     client
-      .url("http://localhost:3000/entrySignIn").pause(500)
-      .signIn(userC.email, userC.password).pause(500)
+      .url("http://localhost:3000/entrySignIn").pause(1000)
+      .signIn(userC.email, userC.password).pause(1000)
         .verify.containsText("#usernameLink", "James Wilson")
 
       //.checkSecurity( anon,  user,  colla, rootUrl, '/route', "#elementId", userSecurityLevel)

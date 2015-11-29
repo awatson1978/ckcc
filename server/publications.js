@@ -1,5 +1,5 @@
 Meteor.publish("publicStats", function (argument) {
-  console.log('Publishing publicStats...');
+  //console.log('Publishing publicStats...');
   return PublicStats.find().forEach(function (record) {
     record.userCount = Meteor.users.find().count();
   });
@@ -10,8 +10,8 @@ Meteor.publish("usersList", function (argument) {
 
 
 Meteor.publish("metadata", function() {
-  console.log('=====================================');
-  console.log('Publishing metadata...');
+  //console.log('=====================================');
+  //console.log('Publishing metadata...');
 
   return Metadata.find();
 
@@ -35,7 +35,7 @@ Meteor.publish("metadata", function() {
   // in the future,
   // it would be great if the users were available in Redis
   var userRecord = Meteor.users.findOne({_id:this.userId});
-  console.log('userRecord', userRecord.defaultEmail());
+  //console.log('userRecord', userRecord.defaultEmail());
 
   if (userRecord) {
     var collaborationsArray = Collaborations.find({
@@ -44,8 +44,8 @@ Meteor.publish("metadata", function() {
       return record._id;
     });
 
-    console.log('collaborationsArray.length', collaborationsArray.length);
-    console.log('collaborationsArray', collaborationsArray);
+    //console.log('collaborationsArray.length', collaborationsArray.length);
+    //console.log('collaborationsArray', collaborationsArray);
 
     var metadataRecords =  Metadata.find({
         collaborations: {$in: collaborationsArray}
@@ -53,7 +53,7 @@ Meteor.publish("metadata", function() {
 
     //console.log("CRFs publish", crfs, studies, cursor.count());
 
-    console.log('metadataRecords', metadataRecords);
+    //console.log('metadataRecords', metadataRecords);
     return metadataRecords;
   }
 });

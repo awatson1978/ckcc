@@ -31,6 +31,11 @@ cache:
 before_install:
   # - set CONFIG_PREFIX=`npm config get prefix`
 
+  # - "wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb"
+  # - "sudo apt-get update -qq"
+  # - "sudo dpkg -i ./google-chrome*.deb"
+  # - "sudo apt-get -f install"
+
   # set up the node_modules dir, so we know where it is
   - "mkdir -p node_modules &"
 
@@ -50,7 +55,7 @@ before_install:
   - "sleep 5"
   - "starrynight fetch"
 
-  - "sleep 15"
+  - "sleep 20"
   - "starrynight generate --autoconfig"
 
 
@@ -67,4 +72,8 @@ before_install:
 
 
 # we're not installing starrynight globally, so we run the script from the local node_modules folder
+#script: "starrynight run-tests --framework nightwatch --env travis"
+
+
+
 script: "starrynight run-tests --framework nightwatch --env travis"

@@ -9,7 +9,6 @@ var bloodSpecimenRecord = {
   patientId: "DTB‑999",
   timepoint: "Baseline",
   drawDate: "01/01/2015",
-  //drawDateOutput: "2015-01-01",
   crcAtCollection: "lorem ipsum"
 };
 
@@ -25,8 +24,6 @@ var histologyAssessmentRecord = {
 var histologyResearchRecord = {
   sampleId: "DTB‑999",
   patientId: "DTB‑999",
-  /*mutatedGenes: "",
-  immunohistochemistry: "",*/
   histologyCall: "Adeno",
   adeno: "Adeno",
   smallCell: "Not Small Cell",
@@ -38,7 +35,6 @@ var laserCaptureRecord = {
   sampleId: "DTB‑999",
   core: "A",
   completionDate: "01/01/2015",
-  //completionDateOutput: "2015-01-01",
   slideNumber: "1",
   estimatedTotalCaptureArea: "1",
   lysates: "1",
@@ -70,8 +66,6 @@ var rnaSequenceRecord = {
   rinScoreFromUcsf: "1",
   dateCompleted: "01/01/2015",
   dateReceived: "01/01/2015",
-  //dateCompletedOutput: "2015-01-01",
-  //dateReceivedOutput: "2015-01-01",
   libraryPrepUsed: "NuGen stranded",
   libraryPrepNotes: "lorem ipsum",
   locationOfFastqFile: "lorem ipsum",
@@ -82,7 +76,6 @@ var tissueSpecimenRecord = {
   sampleId: "DTB‑999",
   timepoint: "Baseline",
   procedureDate: "01/01/2015",
-  //biopsySite: "",
   attendingRadiologist: "Dr. Foo",
   crcAtCollection: "Foo",
   numberOfCores: "1",

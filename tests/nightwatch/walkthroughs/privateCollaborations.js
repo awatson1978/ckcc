@@ -290,9 +290,6 @@ module.exports = {
       .clearValue('#addCollaborationForm input[name="collaborators"]')
       .setValue('#addCollaborationForm input[name="collaborators"]', ckccCollaboration.collaborators[0] + "," + ckccCollaboration.collaborators[1])
 
-      // .verify.elementPresent("#upsertCollaborationButton")
-      // .click("#upsertCollaborationButton").pause(1000)
-
       .verify.elementPresent("#saveCollaborationButton")
       .click("#saveCollaborationButton").pause(1000)
 

@@ -11,8 +11,8 @@ Router.onBeforeAction(function () {
     // and it will think there are no collaborators, and bump the user to the security page
     // the console.log forces the function to wait while it's accessess the console
     // which gives Meteor.user() just enough time to hydrate
+    console.log('Meteor.user()', Meteor.user());
     console.log('Meteor.user().isMemberOfAnyCollaboration()', Meteor.user().isMemberOfAnyCollaboration());
-
     if (Meteor.user() && Meteor.user().isMemberOfAnyCollaboration()) {
       this.next();
     } else if (Meteor.user() && Meteor.user().hasNoCollaborations()) {
@@ -85,7 +85,6 @@ getYieldTemplates = function () {
       'navbarFooter': {
         to: 'footer'
       }
-      //'sidebarTemplate': {to: 'aside'}
     };
   } else {
     return {
@@ -95,10 +94,7 @@ getYieldTemplates = function () {
       'navbarFooter': {
         to: 'footer'
       }
-
-      //'sidebarTemplate': {to: 'aside'}
     };
-    //return {};
   }
 };
 
@@ -146,35 +142,6 @@ Router.map(function () {
 
 Router.map(function () {
 
-  // this.route('homePage', {
-  //   path: '/',
-  //   template: 'homePage',
-  //   yieldTemplates: getYieldTemplates(),
-  //   onBeforeAction: function () {
-  //     console.log('routing to: /');
-  //   },
-  //   onAfterAction: function () {
-  //     if (Meteor.userId()) {
-  //       this.render("homePage");
-  //       // this.render("navbarHeader", {
-  //       //   to: 'header'
-  //       // });
-  //       //this.render("sidebarTemplate",{to: 'aside'});
-  //     } else {
-  //       this.render("landingPage");
-  //       // this.render("navbarHeader", {
-  //       //   to: 'header'
-  //       // });
-  //       //this.render("sidebarTemplate",{to: 'aside'});
-  //     }
-  //     setPageTitle("Landing Page");
-  //
-  //     // the home page route is a hacky way to simulate an onLogin Hook
-  //     Session.set('defaultUserProfileCard', 'basicInfoCard');
-  //     Session.set('updatePasswordIsSuccessful', false);
-  //   }
-  // });
-
   this.route('/dashboard', {
     name: 'dashboardRoute',
     template: "homePage",
@@ -184,38 +151,6 @@ Router.map(function () {
       setPageTitle("Welcome");
     }
   });
-  // this.route('eulaRoute', {
-  //   path: '/eula',
-  //   template: 'termsOfUsePage',
-  //   yieldTemplates: getYieldTemplates(),
-  //   onBeforeAction: function () {
-  //     setPageTitle("End User License Agreement");
-  //   }
-  // });
-  // this.route('privacyRoute', {
-  //   path: '/privacy',
-  //   template: 'privacyPage',
-  //   yieldTemplates: getYieldTemplates(),
-  //   onBeforeAction: function () {
-  //     setPageTitle("Privacy Policy");
-  //   }
-  // });
-  // this.route('glossaryRoute', {
-  //   path: '/glossary',
-  //   template: 'glossaryPage',
-  //   yieldTemplates: getYieldTemplates(),
-  //   onBeforeAction: function () {
-  //     setPageTitle("Glossary");
-  //   }
-  // });
-  // this.route('aboutRoute', {
-  //   path: '/about',
-  //   template: 'aboutPage',
-  //   yieldTemplates: getYieldTemplates(),
-  //   onBeforeAction: function () {
-  //     setPageTitle("About");
-  //   }
-  // });
 
 
 

@@ -1,0 +1,16 @@
+<template name="errorPanel">
+  <aside id="errorPanel" class="helveticas top sidebar alert alert-danger" style="{{errorPanelVisibility}} {{getNavWidth}}">
+    <span class="errorMessageText">{{getErrorMessage}}</span>
+
+    <div class="removeBtn">
+      <i class="fa fa-remove"></i>
+    </div>
+  </aside>
+  <aside id="successPanel" class="helveticas top sidebar alert alert-danger" style="{{successPanelVisibility}} {{getNavWidth}}">
+    <span class="successMessageText">{{getSuccessMessage}}</span>
+
+    <div class="removeBtn">
+      <i class="fa fa-remove"></i>
+    </div>
+  </aside>
+</template>

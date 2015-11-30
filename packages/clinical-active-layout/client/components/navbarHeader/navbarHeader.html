@@ -1,0 +1,18 @@
+<template name="navbarHeader">
+  <header id="navbarHeader" class="helveticas" style="{{getOpacity}} {{isVisible}} {{getNavWidth}}">
+    <a id="navbarTitle" class="navbarTitle" style="{{isVisible}}">{{getAppTitle}}</a>
+    {{#if breadcrumbsExist}}
+      <a id="breadcrumb" class="breadcrumb navbarLink" style="{{isVisible}}"> {{getPageTitle}}</a>
+    {{/if}}
+    <div class="eastLinks">
+      <a id="usernameLink" href="{{getUsernameLink}}" class="eastAligned navbarLink" style="{{isVisible}}">{{ fullName }}</a>
+      {{#if isLoggedIn }}
+      <a id="logoutLink" class="eastAligned navbarLink" style="{{isVisible}}">Logout</a>
+      {{/if}}
+    </div>
+  </header>
+
+  <aside id="searchBar" class="searchBar" style="{{getOpacity}} {{getSearchStyle}}">
+    <input id="globalSearchBar" type="text" name="globalSearchBar" value="" placeholder="search...">
+  </aside>
+</template>

@@ -61,3 +61,11 @@
 [submodule "packages/clinical-verification"]
     path = packages/clinical-verification
     url = git://github.com/awatson1978/clinical-verification.git
+
+[submodule "packages/clinical-autoform"]
+    path = packages/clinical-autoform
+    url = git://github.com/clinical-meteor/clinical-autoform.git
+
+[submodule "packages/clinical-schema-hydrator"]
+    path = packages/clinical-schema-hydrator
+    url = git://github.com/clinical-meteor/clinical-schema-hydrator.git        

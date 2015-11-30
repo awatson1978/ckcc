@@ -7,7 +7,7 @@ var userA = {
 
 
 module.exports = {
-  tags: ['forms', 'wcdt'],
+  tags: ['forms', 'wcdt', 'readonly'],
   before: function (client){
     client
       .url("http://localhost:3000").pause(1000)

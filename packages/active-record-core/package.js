@@ -15,7 +15,7 @@ Package.onUse(function (api) {
 
   api.use('aldeed:simple-schema@1.3.3');
   api.use('aldeed:collection2@2.3.3');
-  api.use('aldeed:autoform@5.3.2');
+  api.use('clinical:autoform@6.7.1');
   api.use('grove:less@0.1.1');
 
   api.imply('aldeed:simple-schema');

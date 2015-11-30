@@ -10,6 +10,9 @@ Package.onUse(function (api) {
   api.versionsFrom('1.1.0.2');
 
   api.use('meteor-platform');
+
+  api.use('clinical:schema-hydrator@0.0.2');
+
   api.use('grove:less@0.1.1');
   api.use('photonic:glass-ui@0.2.4');
 

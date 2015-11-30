@@ -1,6 +1,5 @@
 accounts-base@1.2.0
 accounts-password@1.1.1
-aldeed:autoform@5.5.1
 aldeed:collection2@2.5.0
 aldeed:http@0.2.2
 aldeed:simple-schema@1.3.3
@@ -18,10 +17,12 @@ cfs:http-methods@0.0.30
 check@1.0.5
 clinical:accounts-housemd@1.1.0
 clinical:active-entry@1.3.4
+clinical:active-layout@0.0.1
 clinical:active-questionnaire@1.0.9
 clinical:active-record@1.0.20
 clinical:active-users@0.0.1
 clinical:auto-resizing@0.1.2
+clinical:autoform@6.7.2
 clinical:barcode@3.1.0
 clinical:base-model@1.3.0
 clinical:collaborations@2.2.1
@@ -40,6 +41,7 @@ clinical:router@2.0.15
 clinical:router-location@2.0.14
 clinical:router-middleware-stack@2.0.13
 clinical:router-url@2.0.13
+clinical:schema-hydrator@0.0.2
 clinical:study-picklist@1.0.10
 clinical:user-model@1.2.4
 clinical:users-picklist@1.0.6

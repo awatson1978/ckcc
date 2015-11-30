@@ -121,10 +121,26 @@ Template.registerHelper('isRole', function (role) {
 });
 
 /**
- * @summary Checks that the user has the specified type of role.
+ * @summary Gets the timestamp of when the record was created, returned as a text string.
  * @locus Client, Blaze Template
  * @memberOf ActiveLayout
- * @name {{isRole}}
+ * @name {{getCreatedAt}}
+ * @returns {Date String}
+ * @version 1.2.3
+ * @example
+ * ```html
+ * <div>{{getCreatedAt}}</div>
+ * ```
+ */
+Template.registerHelper('getCreatedAt', function () {
+  return moment(this.createdAt).format("YYYY-MM-DD hh:mm a");
+});
+
+/**
+ * @summary Syntactic sugar for determining if the user is logged in.
+ * @locus Client, Blaze Template
+ * @memberOf ActiveLayout
+ * @name {{isLoggedIn}}
  * @returns {Boolean}
  * @version 1.2.3
  * @example
@@ -132,10 +148,6 @@ Template.registerHelper('isRole', function (role) {
  * {{#if isRole 'secretary'}}<div><!-- secretary content --></div>{{/if}}
  * ```
  */
-Template.registerHelper('getCreatedAt', function () {
-  return moment(this.createdAt).format("YYYY-MM-DD hh:mm a");
-});
-
 Template.registerHelper('isLoggedIn', function () {
   if (Meteor.userId()) {
     return true;

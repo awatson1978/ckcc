@@ -15,6 +15,8 @@ Package.onUse(function (api) {
   api.use('grove:less@0.1.1');
 
   api.use('clinical:router@2.0.13');
+  api.use('clinical:autoform@6.7.2');
+  api.use('clinical:schema-hydrator@0.0.2');
 
   api.addFiles('client/jquery-ui-sortable.js', 'client');
   api.addFiles('client/helpers.js', 'client');

@@ -31,9 +31,9 @@ Meteor.startup(function () {
     if (Studies.find().count() === 0) {
       Meteor.call("initializeStudies");
     }
-    if (Questionnaires.find().count() === 0) {
-      Meteor.call("initializeQuestionnaires");
-    }
+    // if (Questionnaires.find().count() === 0) {
+    //   Meteor.call("initializeQuestionnaires");
+    // }
     if (Meteor.users.find().count() === 0) {
       Meteor.call("iniitalizeUsers");
     }

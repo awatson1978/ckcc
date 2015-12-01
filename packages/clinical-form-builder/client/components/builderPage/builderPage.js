@@ -7,17 +7,17 @@ Meteor.startup(function () {
 
 
 
-Router.route('/builder/:questionnaireId', {
+Router.route('/builder/:metadataId', {
   name: 'builderPageWithId',
   template: 'builderPage',
   data: function () {
-    return Questionnaires.findOne({
-      _id: this.params.questionnaireId
+    return Metadata.findOne({
+      _id: this.params.metadataId
     });
   },
   onAfterAction: function () {
-    //WestPanel.show();
-    Session.set('activeQuestionnaireId', this.params.questionnaireId);
+    WestPanel.show();
+    Session.set('activeQuestionnaireId', this.params.metadataId);
   },
   yieldTemplates: {
     'navbarHeader': {
@@ -258,7 +258,7 @@ Template.builderPage.helpers({
     });
   },
   formName: function () {
-    var activeQuestionnaire = Questionnaires.findOne(Session.get('activeQuestionnaireId'));
+    var activeQuestionnaire = Metadata.findOne(Session.get('activeQuestionnaireId'));
 
     if (activeQuestionnaire) {
       console.log('activeQuestionnaire', activeQuestionnaire);

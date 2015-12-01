@@ -388,11 +388,11 @@ Meteor.startup(function () {
     });
 
     var schemas = {};
-    Questionnaires.find({
+    Metadata.find({
       study: "prad_wcdt",
-      name: {
-        $in: study.tables
-      }
+      // name: {
+      //   $in: study.tables
+      // }
     }).forEach(function (crf) {
       schemas[crf.name] = crf.schema;
     });

@@ -21,48 +21,6 @@ Meteor.methods({
     Meteor.call("initializeSubsequentTreatmentForm");
     Meteor.call("initializeTissueSpecimenForm");
   }
-
-  // initializeQuestionnaires:function (){
-  //   if (Questionnaires && Questionnaires.find().count() === 0) {
-  //
-  //     // var pathologyQuestionnaire = {
-  //     //   institutionName: "UCSC",
-  //     //   institutionId: "UCSC",
-  //     //   participantId: "",
-  //     //   questionnaireName: "WCDT Pathology Report",
-  //     //   createdAt: new Date(),
-  //     //   schema: dehydratedPathologySchema
-  //     // };
-  //     var ckccQuestionnaire = {
-  //       institutionName: "UCSC",
-  //       institutionId: "UCSC",
-  //       participantId: "",
-  //       questionnaireName: "California Kids Cancer Comparison",
-  //       createdAt: new Date(),
-  //       schema: CkccSchema
-  //     };
-  //
-  //     var patientSatisfactionQuestionnaire = {
-  //       institutionName: "AsiaPacificCo",
-  //       institutionId: "apc",
-  //       participantId: "",
-  //       questionnaireName: "Patient Satisfaction Survey",
-  //       createdAt: new Date(),
-  //       schema: CkccSchema
-  //     };
-  //
-  //
-  //     console.log('PathologyQuestionnaire', pathologyQuestionnaire);
-  //
-  //
-  //     console.log('hydrationTestQuestionnaire', hydrationTestQuestionnaire);
-  //
-  //     Questionnaires.insert(pathologyQuestionnaire, {validate: false});
-  //     Questionnaires.insert(ckccQuestionnaire, {validate: false});
-  //     Questionnaires.insert(patientSatisfactionQuestionnaire, {validate: false});
-  //
-  //   }
-  // }
 });
 
 

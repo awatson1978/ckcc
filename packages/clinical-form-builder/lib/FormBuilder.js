@@ -258,11 +258,11 @@ FormBuilder = {
       Metadata.insert(newMetadata, function (error, result) {
         if (error) {
           Session.set('errorMessage', error);
-          HipaaLogger.logEvent("error", Meteor.userId(), "Questionnaires", null, error,
+          HipaaLogger.logEvent("error", Meteor.userId(), "Metadata", null, error,
             null, null);
         }
         if (result) {
-          HipaaLogger.logEvent("create", Meteor.userId(), "Questionnaires", result, null,
+          HipaaLogger.logEvent("create", Meteor.userId(), "Metadata", result, null,
             null, null);
         }
       });

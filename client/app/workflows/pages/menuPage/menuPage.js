@@ -70,7 +70,7 @@ Template.menuPage.helpers({
     return Collaborations.find().count();
   },
   getQuestionsCount: function () {
-    return Questionnaires.find().count() + "*";
+    return "---";
   },
   getClinicalDataCount: function () {
     return Records.find().count();

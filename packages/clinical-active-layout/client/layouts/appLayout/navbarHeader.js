@@ -3,7 +3,7 @@ Session.setDefault("show_background", false);
 
 
 
-Template.navbarHeader.events({
+Template.appLayout.events({
   'keyup #globalSearchBar' : function (){
     Session.set('collaborationSearchFilter', $('#globalSearchBar').val());
   },
@@ -25,7 +25,7 @@ Template.registerHelper("getPageTitle", function (argument){
 });
 
 
-Template.navbarHeader.helpers({
+Template.appLayout.helpers({
   breadcrumbsExist: function (){
     if (Session.get('pageTitle')) {
       return true;

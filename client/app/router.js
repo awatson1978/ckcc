@@ -141,7 +141,6 @@ Router.map(function () {
 
 
 Router.map(function () {
-
   this.route('/dashboard', {
     name: 'dashboardRoute',
     template: "homePage",
@@ -151,7 +150,4 @@ Router.map(function () {
       setPageTitle("Welcome");
     }
   });
-
-
-
 });

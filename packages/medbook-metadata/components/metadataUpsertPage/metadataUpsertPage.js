@@ -257,37 +257,4 @@ Template.metadataUpsertPage.saveQuestionnaireData = function (metadata, record){
       Router.go('/list/records');
     });
   }
-
-
-  // var newQuestionnaire = {
-  //   metadataName: $('input[name="metadataName"]').val(),
-  //   institutionName: $('input[name="institutionName"]').val(),
-  //   institutionId: $('input[name="institutionId"]').val(),
-  //   collaborationName: $('input[name="collaborationName"]').val(),
-  //   collaborationId: $('input[name="collaborationId"]').val(),
-  //   slug: $('input[name="slug"]').val()
-  // };
-  //
-  // var inputElements = $('input');
-  //
-  // var newRecord = {};
-  //
-  // inputElements.forEach(function (input){
-  //
-  // });
-  //
-  // //process.env.DEBUG && console.log ("newQuestionnaire", newQuestionnaire);
-  //
-  // if (metadata._id){
-  //   Metadata.update({_id: metadata._id}, {$set: newQuestionnaire }, function (error, result){
-  //     if (error) console.log(error);
-  //     Router.go('/view/metadata/' + metadata._id);
-  //   });
-  // } else {
-  //   Metadata.insert(newQuestionnaire, function (error, result){
-  //     if (error) console.log(error);
-  //     Router.go('/list/metadatas/');
-  //     //Router.go('/view/metadata/' + result);
-  //   });
-  // }
 };

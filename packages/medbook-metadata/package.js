@@ -20,6 +20,7 @@ Package.onUse(function (api) {
   api.use('awsp:handsontable@0.11.0');
 
   api.use('clinical:router@2.0.13');
+  api.use('clinical:schema-hydrator');
 
   api.imply('aldeed:simple-schema@1.3.3');
   api.imply('aldeed:collection2@2.3.3');

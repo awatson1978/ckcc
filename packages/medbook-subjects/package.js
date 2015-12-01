@@ -12,6 +12,8 @@ Package.onUse(function (api) {
 
   api.use('meteor-platform');
 
+  api.use('clinical:schema-hydrator');
+
   api.use('grove:less@0.1.1');
   api.use('photonic:glass-ui@0.2.4');
 

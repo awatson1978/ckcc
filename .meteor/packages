@@ -46,9 +46,12 @@ clinical:keybindings
 clinical:study-picklist
 clinical:users-picklist
 clinical:user-model
-clinical:active-questionnaire
+#clinical:active-questionnaire
 clinical:accounts-housemd
 clinical:router@2.0.13
+clinical:active-layout
+clinical:autoform
+clinical:schema-hydrator
 
 clinical:hl7-fhir
 clinical:hipaa-audit-log

@@ -7,8 +7,20 @@ Template.registerHelper("getNavWidth", function (argument) {
   }
 });
 
-//---------------------------------------------------------
-// RECORD ACTIVE PATTERN
+/**
+ * @summary Display the connection status of the Meteor app.
+ * @locus Client, Blaze Template
+ * @memberOf ActiveLayout
+ * @name {{getConnection}}
+ * @link The quick brown fox.
+ * @returns {String}
+ * @version 1.2.3
+ * @example
+ * ```html
+ * <div>{{getStatusLabelText}}</div>
+ * ```
+ */
+
 
 Template.registerHelper('getStatusLabelText', function () {
   if (this.active || (this.profile && this.profile.active)) {
@@ -17,6 +29,22 @@ Template.registerHelper('getStatusLabelText', function () {
     return "Inactive";
   }
 });
+
+/**
+ * @summary Returns a color, based on the connection status of the Meteor app.
+ * @locus Client, Blaze Template
+ * @memberOf ActiveLayout
+ * @name {{getStatusLabelColor}}
+ * @returns {String}
+ * @todo: Upgrade from {String} to {Hex}
+ * @version 1.2.3
+ * @since 1.2.3
+ * @see 'foo'
+ * @example
+ * ```html
+ * <div>{{getStatusLabelText}}</div>
+ * ```
+ */
 Template.registerHelper('getStatusLabelColor', function () {
   if (this.active || (this.profile && this.profile.active)) {
     return "label-success";
@@ -24,6 +52,20 @@ Template.registerHelper('getStatusLabelColor', function () {
     return "label-default";
   }
 });
+
+
+/**
+ * @summary Checks the Roles package to see if user is an Admin.
+ * @locus Client, Blaze Template
+ * @memberOf ActiveLayout
+ * @name {{isAdmin}}
+ * @returns {Boolean}
+ * @version 1.2.3
+ * @example
+ * ```html
+ * {{#if isAdmin}}<div><!-- privat content --></div>{{/if}}
+ * ```
+ */
 
 Template.registerHelper('isAdmin', function () {
   // this is a small security hole that a user can exploit
@@ -47,6 +89,19 @@ Template.registerHelper('isAdmin', function () {
   }
 });
 
+/**
+ * @summary Checks that the user has the specified type of role.
+ * @locus Client, Blaze Template
+ * @memberOf ActiveLayout
+ * @name {{isRole}}
+ * @returns {Boolean}
+ * @version 1.2.3
+ * @example
+ * ```html
+ * {{#if isRole 'secretary'}}<div><!-- secretary content --></div>{{/if}}
+ * ```
+ */
+
 Template.registerHelper('isRole', function (role) {
   if (Meteor.user()) {
     var profileRole = Meteor.user().profile.role;
@@ -64,36 +119,39 @@ Template.registerHelper('isRole', function (role) {
     return false;
   }
 });
+
+/**
+ * @summary Gets the timestamp of when the record was created, returned as a text string.
+ * @locus Client, Blaze Template
+ * @memberOf ActiveLayout
+ * @name {{getCreatedAt}}
+ * @returns {Date String}
+ * @version 1.2.3
+ * @example
+ * ```html
+ * <div>{{getCreatedAt}}</div>
+ * ```
+ */
 Template.registerHelper('getCreatedAt', function () {
   return moment(this.createdAt).format("YYYY-MM-DD hh:mm a");
 });
 
+/**
+ * @summary Syntactic sugar for determining if the user is logged in.
+ * @locus Client, Blaze Template
+ * @memberOf ActiveLayout
+ * @name {{isLoggedIn}}
+ * @returns {Boolean}
+ * @version 1.2.3
+ * @example
+ * ```html
+ * {{#if isRole 'secretary'}}<div><!-- secretary content --></div>{{/if}}
+ * ```
+ */
 Template.registerHelper('isLoggedIn', function () {
   if (Meteor.userId()) {
     return true;
   } else {
     return false;
-  }
-});
-
-Template.registerHelper('getApprovalIcon', function () {
-  if (this.approved) {
-    return 'fa-check';
-  } else {
-    return 'fa-inbox';
-  }
-});
-
-Template.registerHelper('getDeleteIcon', function () {
-  if (!this.deleted) {
-    return 'fa-trash-o';
-  }
-});
-
-Template.registerHelper('getLockedIcon', function () {
-  if (this.locked) {
-    return 'fa-lock';
-  } else {
-    return 'fa-unlock';
   }
 });

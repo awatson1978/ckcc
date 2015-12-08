@@ -62,7 +62,7 @@ module.exports = {
 
         .checkSecurity( false, false, true,  rootUrl, '/list/studies', "#studiesListPage", userSecurityLevel)
         .checkSecurity( false, false, true,  rootUrl, '/insert/study', "#studyUpsertPage", userSecurityLevel)
-        .checkSecurity( false, false, true,  rootUrl, '/table/studies', "#studiesTablePage", userSecurityLevel)
+        // .checkSecurity( false, false, true,  rootUrl, '/table/studies', "#studiesTablePage", userSecurityLevel)
 
         .checkSecurity( false, false, true,  rootUrl, '/builder', "#builderPage", userSecurityLevel)
 

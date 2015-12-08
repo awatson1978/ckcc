@@ -26,8 +26,8 @@ clinical:barcode@3.1.0
 clinical:base-model@1.3.0
 clinical:collaborations@2.2.2
 clinical:collaborations-ui@2.1.19
-clinical:env@3.1.6
-clinical:extended-api@2.1.1
+clinical:env@3.1.7
+clinical:extended-api@2.1.2
 clinical:form-builder@0.0.1
 clinical:graphs-dailystats@2.3.5
 clinical:hipaa-audit-log@2.3.6
@@ -39,10 +39,10 @@ clinical:router@2.0.15
 clinical:router-location@2.0.14
 clinical:router-middleware-stack@2.0.13
 clinical:router-url@2.0.13
-clinical:schema-hydrator@0.0.2
+clinical:schema-hydrator@0.0.3
 clinical:study-picklist@1.0.11
 clinical:user-model@1.3.1
-clinical:users-picklist@1.0.6
+clinical:users-picklist@1.0.7
 coffeescript@1.0.6
 d3js:d3@3.5.5
 ddp@1.1.0

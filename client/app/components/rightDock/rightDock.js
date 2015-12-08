@@ -131,8 +131,3 @@ Template.rightDock.helpers({
     }
   }
 });
-
-
-Template.registerHelper("getAppTitle", function (argument){
-  return Session.get('appTitle');
-});

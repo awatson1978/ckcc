@@ -36,6 +36,9 @@ Router.route('/upsert/metadata/:metadataId', {
     },
     'metadataActionButtons': {
       to: 'footerActionElements'
+    },
+    'userPicklistModal': {
+      to: 'userPicklistModal'
     }
   }
 });
@@ -61,6 +64,9 @@ Router.route('/view/metadata/:metadataId', {
     },
     'metadataActionButtons': {
       to: 'footerActionElements'
+    },
+    'userPicklistModal': {
+      to: 'userPicklistModal'
     }
   }
 });

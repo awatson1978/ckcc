@@ -190,7 +190,7 @@ module.exports = {
   },
   "Pathology Form" : function (client) {
     client
-      .navigateToForm('Path')
+      .navigateToForm('Pat')
       .reviewPageTitle("Pathology Report")
       .saveScreenshot(screenshotDir + "K-PathologyForm.png")
       .reviewPathologyForm()

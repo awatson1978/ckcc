@@ -11,9 +11,12 @@ exports.command = function(searchTerm) {
 
     .verify.elementPresent("#metadataSearchInput")
     .clearValue('#metadataSearchInput').pause(200)
+
     // we want to be extra sure the input is cleared
     .clearValue('#metadataSearchInput').pause(200)
-    .setValue('#metadataSearchInput', searchTerm)
+
+    .setValueSlowly('#metadataSearchInput', searchTerm)
+
     .click("#metadatasList .metadataItem:nth-child(1) .newLink").pause(500);
 
   return this;

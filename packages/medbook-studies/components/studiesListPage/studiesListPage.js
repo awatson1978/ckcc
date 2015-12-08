@@ -28,6 +28,9 @@ Router.map(function () {
       },
       'studiesActionButtons': {
         to: 'footerActionElements'
+      },
+      'metadataPicklistModal': {
+        to: 'metadataPicklistModal'
       }
     },
     data: function () {

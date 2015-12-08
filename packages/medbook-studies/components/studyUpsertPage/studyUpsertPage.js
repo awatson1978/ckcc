@@ -82,6 +82,12 @@ Router.route('/view/study/:studyId', {
     },
     'insertStudyActionButtons': {
       to: 'footerActionElements'
+    },
+    'reactiveOverlaysTemplate': {
+      to: 'overlays'
+    },
+    'metadataPicklistModal': {
+      to: 'metadataPicklistModal'
     }
   }
 });

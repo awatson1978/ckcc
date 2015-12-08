@@ -52,7 +52,7 @@ clinical:users-picklist
 clinical:accounts-housemd
 clinical:autoform
 clinical:schema-hydrator
-clinical:active-layout@0.4.0
+clinical:active-layout@0.4.1
 
 clinical:hl7-fhir
 clinical:hipaa-audit-log

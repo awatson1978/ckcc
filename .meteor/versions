@@ -17,7 +17,7 @@ cfs:http-methods@0.0.30
 check@1.0.5
 clinical:accounts-housemd@1.1.0
 clinical:active-entry@1.4.2
-clinical:active-layout@0.4.0
+clinical:active-layout@0.4.1
 clinical:active-record@1.0.20
 clinical:active-users@0.0.1
 clinical:auto-resizing@0.1.2
@@ -35,7 +35,6 @@ clinical:hl7-fhir@0.0.5
 clinical:keybindings@1.2.0
 clinical:migrations@0.8.7
 clinical:modals@1.0.6
-clinical:overlays@2.1.9
 clinical:router@2.0.15
 clinical:router-location@2.0.14
 clinical:router-middleware-stack@2.0.13

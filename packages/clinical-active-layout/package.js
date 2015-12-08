@@ -1,6 +1,6 @@
 Package.describe({
   name: 'clinical:active-layout',
-  version: '0.3.8',
+  version: '0.4.1',
   summary: 'Layout templates with keybindings and animations.',
   git: 'http://github.com/clinical-meteor/clinical-active-layout',
   documentation: 'README.md'
@@ -20,12 +20,12 @@ Package.onUse(function (api) {
   api.use('clinical:extended-api@2.1.0');
   api.use('clinical:user-model@1.3.1');
   api.use('clinical:keybindings@1.2.0');
-  api.use('clinical:overlays@2.1.8');
+  // api.use('clinical:overlays@2.1.8');
 
   api.imply('clinical:router');
   api.imply('clinical:extended-api');
   api.imply('clinical:keybindings');
-  api.imply('clinical:overlays');
+  // api.imply('clinical:overlays');
   api.imply('clinical:user-model');
 
   api.addFiles('client/template.helpers.js', 'client');
@@ -46,10 +46,18 @@ Package.onUse(function (api) {
   api.addFiles('client/components/errorPanel/errorPanel.js', 'client');
   api.addFiles('client/components/errorPanel/errorPanel.less', 'client');
 
+  api.addFiles('client/components/overlay/overlay.html', "client");
+  api.addFiles('client/components/overlay/overlay.js', "client");
+  api.addFiles('client/components/overlay/overlay.less', "client");
+
+  api.addFiles('client/lib/overlay.js', "client");
+
+
   api.export('appLayout');
   api.export('errorPanel');
   api.export('keybindingsModal');
 
+  api.export('Overlay');
   api.export('Header');
 
 });
@@ -58,5 +66,5 @@ Package.onUse(function (api) {
 Package.onTest(function (api) {
   api.use('tinytest');
   api.use('clinical:active-layout');
-  api.addFiles('active-layout-tests.js');
+  api.addFiles('tests/active-layout-tests.js');
 });

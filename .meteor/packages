@@ -34,8 +34,6 @@ photonic:no-select-everything
 #clinical:json2json
 #clinical:active-questionnaire
 
-#clinical:overlays
-#clinical:keybindings
 
 clinical:user-model
 clinical:router@2.0.13
@@ -54,7 +52,7 @@ clinical:users-picklist
 clinical:accounts-housemd
 clinical:autoform
 clinical:schema-hydrator
-clinical:active-layout
+clinical:active-layout@0.4.1
 
 clinical:hl7-fhir
 clinical:hipaa-audit-log

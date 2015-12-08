@@ -11,7 +11,7 @@
           <a id="breadcrumb" class="breadcrumb navbarLink" style="{{isVisible}}"> {{getPageTitle}}</a>
         {{/if}}
       </div>
-      
+
       <div class="eastLinks">
         <a id="usernameLink" href="{{getUsernameLink}}" class="eastAligned navbarLink" style="{{isVisible}}">{{ fullName }}</a>
         {{#if isLoggedIn }}
@@ -51,7 +51,7 @@
       </div>
     </footer>
 
-  {{> yield 'overlays' }}
+  {{> reactiveOverlaysTemplate }}
 
   <!-- ISSUE #1 - Find a better way to attach modal dialogs that isn't app specific. -->
   {{> yield 'keybindingsModal' }}

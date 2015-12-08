@@ -202,7 +202,7 @@ module.exports = {
       .verify.elementPresent("#metadataModalSearchInput")
       .verify.visible("#metadataModalSearchInput")
         .clearValue('#metadataModalSearchInput')
-        .setValue('#metadataModalSearchInput', intakeQuestionnaire.questionnaireSearch)
+        .setValueSlowly('#metadataModalSearchInput', intakeQuestionnaire.questionnaireSearch)
 
         .verify.elementPresent("#metadataPicklistModal .metadataPicklist .metadataRow:nth-child(1)")
         .verify.visible("#metadataPicklistModal .metadataPicklist .metadataRow:nth-child(1)")
@@ -224,7 +224,7 @@ module.exports = {
 
       .verify.elementPresent("#metadataSearchInput")
       .clearValue('#metadataSearchInput')
-      .setValue('#metadataSearchInput', intakeQuestionnaireAnswers.questionnaireSearch)
+      .setValueSlowly('#metadataSearchInput', intakeQuestionnaireAnswers.questionnaireSearch)
       .click("#metadatasList .metadataItem:nth-child(1) .newLink").pause(500)
 
       // .navigateToForm(intakeQuestionnaireAnswers.questionnaireSearch)

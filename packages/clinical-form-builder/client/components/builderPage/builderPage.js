@@ -28,9 +28,13 @@ Router.route('/builder/:metadataId', {
     },
     'builderActionButtons': {
       to: 'footerActionElements'
+    },
+    'formBuilderPanel': {
+      to: 'westPanel'
     }
   }
 });
+
 
 Router.route('/builder', {
   name: 'builderPage',
@@ -50,6 +54,9 @@ Router.route('/builder', {
     },
     'builderActionButtons': {
       to: 'footerActionElements'
+    },
+    'formBuilderPanel': {
+      to: 'westPanel'
     }
   }
 });

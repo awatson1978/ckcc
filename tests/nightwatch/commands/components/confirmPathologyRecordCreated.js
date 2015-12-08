@@ -5,7 +5,7 @@ exports.command = function (pathologyRecord) {
     .verify.elementPresent("#recordSearchInput")
       .clearValue('#recordSearchInput')
       // we're going to search by form name, not by patient name
-      .setValue('#recordSearchInput', 'Path')
+      .setValueSlowly('#recordSearchInput', 'Path')
 
     .verify.elementPresent("#recordsList")
     .verify.elementPresent("#recordsList .recordItem:nth-child(1)")

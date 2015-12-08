@@ -11,7 +11,7 @@ Meteor.methods({
   initializeSpecimenForm:function (){
     Metadata.upsert({"_id": "SU2C_Specimen_V1"}, {$set:{
         "name" : "SU2C_Specimen_V1",
-        "commonName" : "SU2C Speciment",
+        "commonName" : "SU2C Specimen",
         "version" : "V1",
         "n" : 11,
         "incompleteCount" : 0,

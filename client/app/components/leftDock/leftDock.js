@@ -15,7 +15,7 @@ Template.leftDock.events({
   },
   'click #studyPickListBtn': function (){
     Session.toggle('showReactiveOverlay');
-    Session.toggle('show_study_picklist');
+    Session.toggle('showStudyPicklist');
   },
   'click #userPickListBtn': function (){
     Session.toggle('showReactiveOverlay');

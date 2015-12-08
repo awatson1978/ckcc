@@ -23,11 +23,17 @@ module.exports = {
         .click("#usernameLink").pause(1000)
         .signIn(userA.email, userA.password);
   },
-  "Clinical Info Form" : function (client) {
-      client
-        .navigateToForm('Cli')
-        .reviewPageTitle("Clinical Info")
-        .reviewClinicalInfoForm();
+  "Blood Labs" : function (client) {
+    client
+      .navigateToForm('d L')
+      .reviewPageTitle("Blood Labs")
+      .reviewBloodLabsForm();
+  },
+  "Blood Specimen" : function (client) {
+    client
+      .navigateToForm('d S')
+      .reviewPageTitle("Blood Specimen Form")
+      .reviewBloodSpecimenForm();
   },
   "Biopsy Form" : function (client) {
     client
@@ -35,17 +41,53 @@ module.exports = {
       .reviewPageTitle("SU2C Biopsy")
       .reviewBiopsyForm();
   },
+  "Clinical Info Form" : function (client) {
+      client
+        .navigateToForm('Cli')
+        .reviewPageTitle("Clinical Info")
+        .reviewClinicalInfoForm();
+  },
+  "Demographics" : function (client) {
+    client
+      .navigateToForm('Dem')
+      .reviewPageTitle("Demographics")
+      .reviewDemographicsForm();
+  },
   "Followup" : function (client) {
     client
       .navigateToForm('Fol')
       .reviewPageTitle("Followup")
       .reviewFollowUpForm();
   },
-  "Subsequent Treatment" : function (client) {
+  "GU Disease Assessment" : function (client) {
     client
-      .navigateToForm('Sub')
-      .reviewPageTitle("SU2C Subsequent Treatment")
-      .reviewSubsequentTreatmentForm();
+      .navigateToForm('GU ')
+      .reviewPageTitle("GU Disease Assessment")
+      .reviewDiseaseAssessmentForm();
+  },
+  "Histological Research" : function (client) {
+    client
+      .navigateToForm('l R')
+      .reviewPageTitle("Histological Research")
+      .reviewHistologyResearchForm();
+  },
+  "Laser Capture Microdissection" : function (client) {
+    client
+      .navigateToForm('Las')
+      .reviewPageTitle("Laser Capture Microdissection")
+      .reviewLaserCaptureForm();
+  },
+  "Patient Enrollment" : function (client) {
+    client
+      .navigateToForm('Enr')
+      .reviewPageTitle("Patient Enrollement")
+      .reviewPatientEnrollmentForm();
+  },
+  "Pathology Form" : function (client) {
+    client
+      .navigateToForm('Path')
+      .reviewPageTitle("Pathology Report")
+      .reviewPathologyForm();
   },
   "Prior Treatment" : function (client) {
     client
@@ -59,19 +101,23 @@ module.exports = {
       .reviewPageTitle("Prostate Diagnosis")
       .reviewProstateDiagnosisForm();
   },
-
-
-  "Blood Labs" : function (client) {
+  "RNA Sequence Completion" : function (client) {
     client
-      .navigateToForm('d L')
-      .reviewPageTitle("Blood Labs")
-      .reviewBloodLabsForm();
+      .navigateToForm('RNA')
+      .reviewPageTitle("RNA Sequence Completion")
+      .reviewRnaSequenceForm();
   },
-  "Demographics" : function (client) {
+  "Subsequent Treatment" : function (client) {
     client
-      .navigateToForm('Dem')
-      .reviewPageTitle("Demographics")
-      .reviewDemographicsForm();
+      .navigateToForm('Sub')
+      .reviewPageTitle("SU2C Subsequent Treatment")
+      .reviewSubsequentTreatmentForm();
+  },
+  "Specimen" : function (client) {
+    client
+      .navigateToForm('C Sp')
+      .reviewPageTitle("SU2C Specimen")
+      .reviewSpecimenForm();
   },
   "Weight" : function (client) {
     client
@@ -79,66 +125,18 @@ module.exports = {
       .reviewPageTitle("Weight")
       .reviewWeightForm();
   },
-  "GU Disease Assessment" : function (client) {
-    client
-      .navigateToForm('GU ')
-      .reviewPageTitle("GU Disease Assessment")
-      .reviewDiseaseAssessmentForm();
-  },
-  "Specimen" : function (client) {
-    client
-      .navigateToForm('C S')
-      .reviewPageTitle("SU2C Specimen")
-      .reviewSpecimenForm();
-  },
-  "Patient Enrollment" : function (client) {
-    client
-      .navigateToForm('Enr')
-      .reviewPageTitle("Patient Enrollement")
-      .reviewPatientEnrollmentForm();
-  },
-  "Histological Research" : function (client) {
-    client
-      .navigateToForm('l R')
-      .reviewPageTitle("Histological Research")
-      .reviewHistologyResearchForm();
-  },
   // "Tissue Specimen" : function (client) {
   //   client
   //     .navigateToForm('Tis')
   //     .reviewPageTitle("Tissue Specimen")
   //     .reviewTissueSpecimenForm();
   // },
-  "Blood Specimen" : function (client) {
-    client
-      .navigateToForm('d S')
-      .reviewPageTitle("Blood Specimen Form")
-      .reviewBloodSpecimenForm();
-  },
   // "Histology Assessment" : function (client) {
   //   client
   //     .navigateToForm('His')
   //     .reviewPageTitle("Histological Assessment")
   //     .reviewHistologyAssessmentForm();
   // },
-  "Laser Capture Microdissection" : function (client) {
-    client
-      .navigateToForm('Las')
-      .reviewPageTitle("Laser Capture Microdissection")
-      .reviewLaserCaptureForm();
-  },
-  "RNA Sequence Completion" : function (client) {
-    client
-      .navigateToForm('RNA')
-      .reviewPageTitle("RNA Sequence Completion")
-      .reviewRnaSequenceForm();
-  },
-  "Pathology Form" : function (client) {
-    client
-      .navigateToForm('Path')
-      .reviewPageTitle("Pathology Report")
-      .reviewPathologyForm();
-  },
   "SignOut" : function (client) {
     client
       .signOut(userA.fullName)

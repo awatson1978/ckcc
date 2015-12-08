@@ -1,23 +1,36 @@
-<head>
-  <title>CKCC</title>
-</head>
-
-
 
 <template name="appLayout">
 
-    {{> yield 'header'}}
+    {{> errorPanel }}
 
-      {{> errorPanel }}
-      {{> formBuilderPanel }}
-      {{> leftDock }}
+    <!-- {{> yield 'header'}} -->
+    <header id="navbarHeader" class="helveticas" style="{{getOpacity}} {{isVisible}} {{getNavWidth}}">
+      <div class="westLinks">
+        <a id="navbarTitle" class="navbarTitle" style="{{isVisible}}">{{getTitleText}}</a>
+        {{#if breadcrumbsExist}}
+          <a id="breadcrumb" class="breadcrumb navbarLink" style="{{isVisible}}"> {{getPageTitle}}</a>
+        {{/if}}
+      </div>
+      
+      <div class="eastLinks">
+        <a id="usernameLink" href="{{getUsernameLink}}" class="eastAligned navbarLink" style="{{isVisible}}">{{ fullName }}</a>
+        {{#if isLoggedIn }}
+          <a id="logoutLink" class="eastAligned navbarLink" style="{{isVisible}}">Logout</a>
+        {{/if}}
+      </div>
+    </header>
 
-      {{> rightDock }}
+    <aside id="searchBar" class="searchBar" style="{{getOpacity}} {{getSearchStyle}}">
+      <input id="globalSearchBar" type="text" name="globalSearchBar" value="" placeholder="search...">
+    </aside>
+
+      {{> yield 'leftDock' }}
+      {{> yield 'westPanel' }}
 
       <div id="contextTitle" class="helveticas">{{getContextTitle}}</div>
       <div class="hidden">{{resized}}</div>
 
-      {{> yield 'sidebar'}}
+      <!-- {{> yield 'sidebar'}} -->
 
       <div id="mainPanel" class="helveticas layoutPanel" style="{{getLeftPanelStyle}} {{getNorthRule}}">
         {{> yield }}
@@ -26,10 +39,9 @@
         {{> yield 'secondPage'}}
       </div>
 
+      {{> yield 'rightDock' }}
+      {{> yield 'eastPanel' }}
 
-
-
-    {{> reactiveOverlaysTemplate }}
 
     <!-- {{> yield 'footer'}} -->
     <footer id="navbarFooter" style="{{getOpacity}} {{getFooterHeight}} {{getNavWidth}}">
@@ -39,13 +51,15 @@
       </div>
     </footer>
 
-  {{> keybindingsModal }}
-  {{> userPicklistModal }}
-  {{> studyPicklistModal }}
-  {{> collaborationPicklistModal }}
-  {{> studiesPicklistModal }}
-  {{> metadataPicklistModal }}
+  {{> yield 'overlays' }}
 
+  <!-- ISSUE #1 - Find a better way to attach modal dialogs that isn't app specific. -->
+  {{> yield 'keybindingsModal' }}
+  {{> yield 'userPicklistModal' }}
+  {{> yield 'studyPicklistModal' }}
+  {{> yield 'collaborationPicklistModal' }}
+  {{> yield 'studiesPicklistModal' }}
+  {{> yield 'metadataPicklistModal' }}
 </template>
 
 

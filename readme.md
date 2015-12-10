@@ -17,18 +17,24 @@ Copy the application to your computer and run it locally:
 
 =========================
 #### Development
-You'll want to fetch all of the packages in ``.meteor/packages`` directory into ``/packages`` so you can develop on them locally.
 
+This app uses the starrynight utility for QA and publication, so you'll need to install that.
+
+````sh
+  # or be adventures, and use the starrynight fetch command, which uses the .meteor/repo file
+  npm install -g starrynight
+````
+
+Next, you'll want to fetch all of the packages in ``.meteor/packages`` directory into ``/packages`` so you can develop on them locally.
 ````sh
   cd ckcc
 
-  # clone the necessary directories
+  # fetch the latest version of the packages, by parsing the contents of the .meteor/repo file
+  starrynight fetch
+
+  # if there are any problems, make sure the submodules are linked correctly
   git submodule foreach git pull origin master
 
-  # or be adventures, and use the starrynight fetch command, which uses the .meteor/repo file
-  npm install -g starrynight
-  cd ckcc
-  starrynight fetch
 ````
 
 If you're running a local installation of Mongo, and working on inter-app functionality, you may want to specify the ``MONGO_URL``, like so:

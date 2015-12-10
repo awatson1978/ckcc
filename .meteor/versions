@@ -26,7 +26,7 @@ clinical:barcode@3.1.0
 clinical:base-model@1.3.0
 clinical:collaborations@2.2.2
 clinical:collaborations-ui@2.1.19
-clinical:env@3.1.7
+clinical:env@3.1.11
 clinical:extended-api@2.1.2
 clinical:form-builder@0.0.1
 clinical:graphs-dailystats@2.3.5

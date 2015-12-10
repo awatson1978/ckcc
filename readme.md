@@ -18,7 +18,7 @@ Copy the application to your computer and run it locally:
 =========================
 #### Development
 
-This app uses the starrynight utility for QA and publication, so you'll need to install that.
+This app uses the starrynight utility for fetching packages and running QA scripts, so you'll need to install that.
 
 ````sh
   # or be adventures, and use the starrynight fetch command, which uses the .meteor/repo file
@@ -44,21 +44,24 @@ MONGO_URL="mongodb://localhost:27017/MyAppDatabase" meteor
 
 
 =========================
-#### Deployment
-Be sure to set the ROOT_URL with the appropriate prefix when deploying behind a proxy server.
-
-````sh
-ROOT_URL="http://localhost:3000/forms" meteor
-````
-
-=========================
 #### Testing  
 Copy the application to your computer and run it locally:
 
 ````sh
-  npm install -g starrynight
-  starrynight generate --autoconfig
+  # run all the acceptance tests with the following
   starrynight run-tests --framework nightwatch
+
+  # if you're working with packages, and can't a test command isn't found
+  # you may want to to try regenerating the .meteor/nightwatch.json config file
+  starrynight generate --autoconfig
+````
+
+=========================
+#### Deployment
+Be sure to set the ROOT_URL with the appropriate prefix when deploying behind a proxy server.  The tests probably wont run successfully if you specify a ROOT_URL override.  
+
+````sh
+ROOT_URL="http://localhost:3000/forms" meteor
 ````
 
 

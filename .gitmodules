@@ -77,3 +77,7 @@
 [submodule "packages/clinical-barcode"]
     path = packages/clinical-barcode
     url = git://github.com/clinical-meteor/clinical-barcode.git
+
+[submodule "packages/clinical-env"]
+    path = packages/clinical-env
+    url = git://github.com/clinical-meteor/clinical-env.git

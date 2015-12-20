@@ -17,39 +17,24 @@ Copy the application to your computer and run it locally:
 
 =========================
 #### Development
-You'll want to fetch all of the packages in ``.meteor/packages`` directory into ``/packages`` so you can develop on them locally.
 
+This app uses the starrynight utility for fetching packages and running QA scripts, so you'll need to install that.
+
+````sh
+  # or be adventures, and use the starrynight fetch command, which uses the .meteor/repo file
+  npm install -g starrynight
+````
+
+Next, you'll want to fetch all of the packages in ``.meteor/packages`` directory into ``/packages`` so you can develop on them locally.
 ````sh
   cd ckcc
 
-  # clone the necessary directories
-  git clone https://github.com/clinical-meteor/clinical-active-entry
-  git clone https://github.com/clinical-meteor/clinical-active-questionnaire
-  git clone https://github.com/clinical-meteor/clinical-active-record
-  git clone https://github.com/clinical-meteor/clinical-barcode
-  git clone https://github.com/clinical-meteor/clinical-collaborations
-  git clone https://github.com/clinical-meteor/clinical-collaborations-ui
-  git clone https://github.com/clinical-meteor/clinical-env
-  git clone https://github.com/clinical-meteor/clinical-extended-api
-  git clone https://github.com/clinical-meteor/clinical-graphs-dailystats
-  git clone https://github.com/clinical-meteor/clinical-hipaa-audit-log
-  git clone https://github.com/clinical-meteor/clinical-keybindings
-  git clone https://github.com/clinical-meteor/clinical-modals
-  git clone https://github.com/clinical-meteor/clinical-overlays
-  git clone https://github.com/clinical-meteor/clinical-router
-  git clone https://github.com/clinical-meteor/clinical-router-location
-  git clone https://github.com/clinical-meteor/clinical-router-middleware-stack
-  git clone https://github.com/clinical-meteor/clinical-router-url
-  git clone https://github.com/clinical-meteor/clinical-study-picklist
-  git clone https://github.com/clinical-meteor/clinical-user-model
-  git clone https://github.com/clinical-meteor/clinical-users-picklist
-  git clone https://github.com/clinical-meteor/clinical-verification
-
-
-  # or be adventures, and use the starrynight fetch command, which uses the .meteor/repo file
-  npm install -g starrynight
-  cd ckcc
+  # fetch the latest version of the packages, by parsing the contents of the .meteor/repo file
   starrynight fetch
+
+  # if there are any problems, make sure the submodules are linked correctly
+  git submodule foreach git pull origin master
+
 ````
 
 If you're running a local installation of Mongo, and working on inter-app functionality, you may want to specify the ``MONGO_URL``, like so:
@@ -59,21 +44,24 @@ MONGO_URL="mongodb://localhost:27017/MyAppDatabase" meteor
 
 
 =========================
-#### Deployment
-Be sure to set the ROOT_URL with the appropriate prefix when deploying behind a proxy server.
-
-````sh
-ROOT_URL="http://localhost:3000/forms" meteor
-````
-
-=========================
 #### Testing  
 Copy the application to your computer and run it locally:
 
 ````sh
-  npm install -g starrynight
-  starrynight generate --autoconfig
+  # run all the acceptance tests with the following
   starrynight run-tests --framework nightwatch
+
+  # if you're working with packages, and can't a test command isn't found
+  # you may want to to try regenerating the .meteor/nightwatch.json config file
+  starrynight generate --autoconfig
+````
+
+=========================
+#### Deployment
+Be sure to set the ROOT_URL with the appropriate prefix when deploying behind a proxy server.  The tests probably wont run successfully if you specify a ROOT_URL override.  
+
+````sh
+ROOT_URL="http://localhost:3000/forms" meteor
 ````
 
 

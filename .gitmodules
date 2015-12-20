@@ -73,3 +73,7 @@
 [submodule "packages/clinical-active-questionnaire"]
     path = packages/clinical-active-questionnaire
     url = git://github.com/clinical-meteor/clinical-active-questionnaire.git
+
+[submodule "packages/clinical-barcode"]
+    path = packages/clinical-barcode
+    url = git://github.com/clinical-meteor/clinical-barcode.git

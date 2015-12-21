@@ -73,6 +73,7 @@ localstorage@1.0.3
 logging@1.0.7
 matb33:collection-hooks@0.8.1
 medbook:metadata@1.0.8
+medbook:samples@1.0.13
 medbook:studies@1.0.13
 medbook:subjects@1.0.13
 meteor@1.1.6

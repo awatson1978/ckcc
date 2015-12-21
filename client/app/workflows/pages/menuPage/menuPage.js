@@ -105,6 +105,9 @@ Template.menuPage.events({
   'click #studiesTile': function (){
     Router.go('/list/studies/');
   },
+  'click #samplesTile': function (){
+    Router.go('/list/samples/');
+  },
   "click #collaborationsTile": function (event, template) {
     Router.go('/grid/collaborations');
   },

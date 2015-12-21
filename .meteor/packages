@@ -63,5 +63,6 @@ clinical:active-users
 medbook:studies
 medbook:metadata
 medbook:subjects
+medbook:samples
 
 anti:gagarin@=0.4.11

@@ -39,6 +39,9 @@ Router.route('/upsert/metadata/:metadataId', {
     },
     'userPicklistModal': {
       to: 'userPicklistModal'
+    },
+    'samplesPicklistModal': {
+      to: 'samplesPicklistModal'
     }
   }
 });
@@ -67,6 +70,9 @@ Router.route('/view/metadata/:metadataId', {
     },
     'userPicklistModal': {
       to: 'userPicklistModal'
+    },
+    'samplesPicklistModal': {
+      to: 'samplesPicklistModal'
     }
   }
 });
@@ -162,6 +168,12 @@ Template.metadataUpsertPage.helpers({
 });
 
 Template.metadataUpsertPage.events({
+  'click input[name="Sample_ID"]': function (){
+    //Session.set('errorMessage', "Patient picklist not implemented yet.");
+    //Session.set('showPatientPicklist', true);
+    Session.set('showReactiveOverlay', true);
+    Session.set('showSamplePicklist', true);
+  },
   'click input[name="Patient_ID"]': function (){
     //Session.set('errorMessage', "Patient picklist not implemented yet.");
     //Session.set('showPatientPicklist', true);

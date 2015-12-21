@@ -27,6 +27,7 @@ Template.samplesPicklistModal.events({
     Session.set('showReactiveOverlay', false);
 
     $('input[name="sampleId"]').val(this._id);
+    $('input[name="Sample_ID"]').val(this._id);
     $('input[name="sampleName"]').val(this.name);
   }
 });

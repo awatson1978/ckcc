@@ -17,10 +17,10 @@ callback-hook@1.0.3
 cfs:http-methods@0.0.30
 check@1.0.5
 clinical:accounts-housemd@1.1.0
-clinical:active-entry@1.4.11
-clinical:active-layout@0.5.2
-clinical:active-record@1.1.1
-clinical:active-users@0.0.2
+clinical:active-entry@1.4.12
+clinical:active-layout@0.5.3
+clinical:active-record@1.1.2
+clinical:active-users@0.0.3
 clinical:auto-resizing@0.1.2
 clinical:autoform@6.8.4
 clinical:barcode@3.1.0

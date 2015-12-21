@@ -23,7 +23,7 @@ starrynight:dropdatabase@0.0.2
 
 
 photonic:glass-ui
-photonic:no-select-everything
+#photonic:no-select-everything
 #photonic:active-users-core
 #photonic:active-users-table@0.0.3
 

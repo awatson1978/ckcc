@@ -16,6 +16,8 @@ Meteor.startup(function () {
   Session.setDefault('pageIsWide', false);
   Session.setDefault('pageLeftToWestRule', false);
 
+  Session.setDefault('useCardLayout', true);
+
   Session.set("eastRule", 200);
   Session.set("westRule", 200);
   Session.set('appWidth', $(window).width());
@@ -224,8 +226,10 @@ Template.registerHelper("getNorthRule", function () {
 
   // we should add spacing if the app is in card mode and in landscape mode of some sort
   // otherwise, if it's in portrait or phone mode, we want it flush with the header
-  if (Session.get('appWidth') > 768) {
-    topDistance = topDistance + 50;
+  if (Session.get('useCardLayout')) {
+    if (Session.get('appWidth') > 768) {
+      topDistance = topDistance + 50;
+    }
   }
 
   return "top: " + topDistance + "px;";

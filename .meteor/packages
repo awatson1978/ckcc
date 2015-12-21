@@ -36,7 +36,7 @@ photonic:glass-ui
 
 
 clinical:user-model
-clinical:router@2.0.13
+clinical:router@2.0.17
 
 clinical:barcode
 clinical:extended-api@2.1.0
@@ -63,3 +63,5 @@ clinical:active-users
 medbook:studies
 medbook:metadata
 medbook:subjects
+
+anti:gagarin@=0.4.11

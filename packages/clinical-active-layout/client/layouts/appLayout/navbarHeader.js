@@ -26,6 +26,14 @@ Template.registerHelper("getPageTitle", function (argument){
 
 
 Template.appLayout.helpers({
+  hasEntryControls: function (){
+    var headerConfig = Session.get('HeaderConfig');
+    if (headerConfig && (typeof headerConfig.hasEntryControls === "boolean")) {
+      return headerConfig.hasEntryControls;
+    } else {
+      return true;
+    }
+  },
   breadcrumbsExist: function (){
     if (Session.get('pageTitle')) {
       return true;

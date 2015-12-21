@@ -2,6 +2,8 @@ Header = {};
 
 if (Meteor.isClient) {
   Session.setDefault('HeaderConfig', {
+    hasEntryControls: true,
+    showHelp: true,
     classes: {
       header: "",
       title: "",
@@ -15,8 +17,8 @@ if (Meteor.isClient) {
 }
 
 
-Header.configure = function (configObject) {
-  if (Meteor.isClient) {
+if (Meteor.isClient) {
+  Header.configure = function (configObject) {
     Session.set('HeaderConfig', configObject);
-  }
-};
+  };
+}

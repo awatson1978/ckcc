@@ -1,6 +1,6 @@
 Package.describe({
   name:'clinical:active-users',
-  version: '0.0.1',
+  version: '0.0.3',
   summary: 'ActiveUsers package with user tables, thumbnail page, basic profiles, etc.',
   git: 'https://github.com/clinical-meteor/clinical-active-users',
   documentation: 'README.md',
@@ -11,7 +11,7 @@ Package.onUse( function ( api ) {
   api.use('meteor-platform');
   api.use('grove:less@0.1.1');
 
-  api.use('clinical:router@2.0.13');
+  api.use('clinical:router@2.0.17');
 
   api.addFiles('users-core.js', 'client');
 

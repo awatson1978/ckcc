@@ -6,16 +6,18 @@
     <!-- {{> yield 'header'}} -->
     <header id="navbarHeader" class="helveticas" style="{{getOpacity}} {{isVisible}} {{getNavWidth}}">
       <div class="westLinks">
-        <a id="navbarTitle" class="navbarTitle" style="{{isVisible}}">{{getTitleText}}</a>
+        <a id="navbarTitle" class="navbarTitle">{{getTitleText}}</a>
         {{#if breadcrumbsExist}}
           <a id="breadcrumb" class="breadcrumb navbarLink" style="{{isVisible}}"> {{getPageTitle}}</a>
         {{/if}}
       </div>
 
       <div class="eastLinks">
-        <a id="usernameLink" href="{{getUsernameLink}}" class="eastAligned navbarLink" style="{{isVisible}}">{{ fullName }}</a>
-        {{#if isLoggedIn }}
-          <a id="logoutLink" class="eastAligned navbarLink" style="{{isVisible}}">Logout</a>
+        {{#if hasEntryControls}}
+          <a id="usernameLink" href="{{getUsernameLink}}" class="eastAligned navbarLink" style="{{isVisible}}">{{ fullName }}</a>
+          {{#if isLoggedIn }}
+            <a id="logoutLink" class="eastAligned navbarLink" style="{{isVisible}}">Logout</a>
+          {{/if}}
         {{/if}}
       </div>
     </header>
@@ -47,7 +49,9 @@
     <footer id="navbarFooter" style="{{getOpacity}} {{getFooterHeight}} {{getNavWidth}}">
       {{> yield 'footerActionElements' }}
       <div class="eastLinks">
-        <button id="keybindingsBtn">Keybindings</button>
+        {{#if showHelp}}
+        <button id="keybindingsBtn">Help</button>
+        {{/if}}
       </div>
     </footer>
 

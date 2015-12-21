@@ -6,6 +6,14 @@
 // but storing them here for organizational sake
 
 Template.appLayout.helpers({
+  showHelp: function (){
+    var headerConfig = Session.get('HeaderConfig');
+    if (headerConfig && (typeof headerConfig.showHelp === "boolean")) {
+      return headerConfig.showHelp;
+    } else {
+      return true;
+    }
+  },
   getFooterHeight: function (){
     console.log('getFooterHeight', Session.get('showNavbars'));
     if (Session.get('showNavbars')) {

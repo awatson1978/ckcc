@@ -17,17 +17,17 @@
         <h4>STUDIES</h4>
         <hr>
         <div class="panel-image">
-          <img id="studiesTileImage" src="/images/home/clinical-studies.jpg" class="panel-image-preview" />
+          <img id="studiesTileImage" src="{{getRootUrlPrefix}}/images/home/clinical-studies.jpg" class="panel-image-preview" />
           <div class="statsRibbon">
             <h1>{{ getStudiesCount }}</h1>
           </div>
         </div>
       </div>
-      <div id="formBuilderTile" class="menuItem" style="{{getMenuWidth}}">
+      <div id="formBuilderTile" class="menuItem notImplementedYet" style="{{getMenuWidth}}">
         <h4>DESIGN</h4>
         <hr>
         <div class="panel-image">
-          <img id="formBuilderTileImage" src="/images/home/formbuilder.png" class="panel-image-preview" />
+          <img id="formBuilderTileImage" src="{{getRootUrlPrefix}}/images/home/formbuilder.png" class="panel-image-preview" />
           <div class="statsRibbon">
             <h1>{{ getNullCount }}</h1>
           </div>
@@ -50,7 +50,7 @@
         <h4>FORM METADATA</h4>
         <hr>
         <div class="panel-image">
-          <img id="savedFormsTileImage" src="/images/home/forms-square.jpg" class="panel-image-preview" />
+          <img id="savedFormsTileImage" src="{{getRootUrlPrefix}}/images/home/forms-square.jpg" class="panel-image-preview" />
           <div class="statsRibbon">
             <h1>{{ getMetadataCount }}</h1>
           </div>
@@ -62,7 +62,7 @@
         <h4>CLINICAL RECORDS</h4>
         <hr>
         <div class="panel-image">
-          <img id="collectedDataTileImage" src="/images/home/wordcloud.jpg" class="panel-image-preview" />
+          <img id="collectedDataTileImage" src="{{getRootUrlPrefix}}/images/home/wordcloud.jpg" class="panel-image-preview" />
           <div class="statsRibbon">
             <h1>{{ getClinicalDataCount }}</h1>
           </div>
@@ -73,7 +73,7 @@
         <h4>USERS</h4>
         <hr>
         <div class="panel-image">
-          <img id="usersTileImage" src="/images/home/users.jpg" class="panel-image-preview" />
+          <img id="usersTileImage" src="{{getRootUrlPrefix}}/images/home/users.jpg" class="panel-image-preview" />
           <div class="statsRibbon">
             <h1>{{ getUsersCount }}</h1>
           </div>
@@ -85,7 +85,7 @@
         <h4>SUBJECTS</h4>
         <hr>
         <div class="panel-image">
-          <img id="subjectsTileImage" src="/images/home/subjects.jpg" class="panel-image-preview" />
+          <img id="subjectsTileImage" src="{{getRootUrlPrefix}}/images/home/subjects.jpg" class="panel-image-preview" />
           <div class="statsRibbon">
             <h1>{{ getSubjectsCount }}</h1>
           </div>
@@ -95,7 +95,7 @@
         <h4>COMMENTS</h4>
         <hr>
         <div class="panel-image">
-          <img id="auditTileImage" src="/images/home/comments.jpg" class="panel-image-preview" />
+          <img id="auditTileImage" src="{{getRootUrlPrefix}}/images/home/comments.jpg" class="panel-image-preview" />
           <div class="statsRibbon">
             <h1>{{ getNullCount }}</h1>
           </div>
@@ -105,12 +105,23 @@
         <h4>AUDIT</h4>
         <hr>
         <div class="panel-image">
-          <img id="auditTileImage" src="/images/home/audit.jpg" class="panel-image-preview" />
+          <img id="auditTileImage" src="{{getRootUrlPrefix}}/images/home/audit.jpg" class="panel-image-preview" />
           <div class="statsRibbon">
             <h1>{{ getHipaaCount }}</h1>
           </div>
         </div>
       </div>
+      <div id="samplesTile" class="menuItem" style="{{getMenuWidth}}">
+        <h4>AUDIT</h4>
+        <hr>
+        <div class="panel-image">
+          <img id="samplesTileImage" src="{{getRootUrlPrefix}}/images/home/audit.jpg" class="panel-image-preview" />
+          <div class="statsRibbon">
+            <h1>{{ getSamplesCount }}</h1>
+          </div>
+        </div>
+      </div>
+
 
     </div>
   </div>

@@ -57,6 +57,12 @@ Template.menuPage.helpers({
 
     return "min-width: 180px; width: " + newWidth + "px;";
   },
+  getRootUrlPrefix: function () {
+    return "";
+  },
+  getSamplesCount: function () {
+    return Samples.find().count();
+  },
   getSubjectsCount: function () {
     return Subjects.find().count();
   },

@@ -1,0 +1,20 @@
+<template name="sampleImageGridPage">
+  <article id="sampleImageGridPage" class="page">
+    {{> recordHeader url="samples" spreadsheet=false}}
+    <div class="pageBody" style="{{getOpacity}}">
+      <input id="sampleSearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." />
+
+      <ul id="sampleImageGrid">
+        {{#each lists}}
+          <li>
+            <img class="sampleImage" src="{{imageUrl}}" />
+          </li>
+        {{/each}}
+        <li id="addNewSample" class="addNewSample">
+            <img class="sampleImage" src="{{imageUrl}}" />
+        </li>
+      </ul>
+    </div>
+    {{> recordFooter }}
+  </article>
+</template>

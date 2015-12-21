@@ -13,7 +13,7 @@
  */
 
 Template.registerHelper("getAppTitle", function (argument){
-  return Session.get('appTitle');
+  return ActiveLayout.getAppTitle();
 });
 
 
@@ -30,13 +30,13 @@ Template.registerHelper("getAppTitle", function (argument){
  * ```
  */
 Template.registerHelper("getNavWidth", function (argument) {
-  var width = Session.get('appWidth') - (Session.get('westRule') + Session.get('eastRule'));
-  if (Session.get('navIsFullscreen')) {
-    return "left: 0px; width: 100%;";
-  } else {
-    return "left: " + Session.get('westRule') + "px; width: " + width + "px;";
-  }
+  return ActiveLayout.getPageWidth();
 });
+
+Template.registerHelper("getPageWidth", function (argument) {
+  return ActiveLayout.getPageWidth();
+});
+
 
 /**
  * @summary Display the connection status of the Meteor app.

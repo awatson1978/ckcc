@@ -2,10 +2,6 @@
     path = packages/clinical-active-entry
     url = git://github.com/clinical-meteor/clinical-active-entry.git
 
-[submodule "packages/clinical-active-record"]
-    path = packages/clinical-active-record
-    url = git://github.com/clinical-meteor/clinical-active-record.git
-
 [submodule "packages/clinical-collaborations"]
     path = packages/clinical-collaborations
     url = git://github.com/clinical-meteor/clinical-collaborations.git

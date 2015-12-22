@@ -12,19 +12,19 @@ Template.registerHelper("samplesList", function (argument){
   return Samples.find({
     $or: [
       {
-        name: {
+        'Sample_ID': {
           $regex: Session.get('sampleSearchFilter'),
           $options: 'i'
         }
       },
       {
-        'short_name': {
+        'Patient_ID': {
           $regex: Session.get('sampleSearchFilter'),
           $options: 'i'
         }
       },
       {
-        'slug': {
+        'Site': {
           $regex: Session.get('sampleSearchFilter'),
           $options: 'i'
         }
@@ -36,7 +36,7 @@ Template.registerHelper("samplesList", function (argument){
         }
       },
       {
-        id: {
+        'Segment': {
           $regex: Session.get('sampleSearchFilter'),
           $options: 'i'
         }

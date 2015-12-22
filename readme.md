@@ -37,6 +37,12 @@ Next, you'll want to fetch all of the packages in ``.meteor/packages`` directory
 
 ````
 
+When you first run the application, you can initialize the database like so:
+````sh
+INITIALIZE=true meteor
+````
+
+
 If you're running a local installation of Mongo, and working on inter-app functionality, you may want to specify the ``MONGO_URL``, like so:
 ````sh
 MONGO_URL="mongodb://localhost:27017/MyAppDatabase" meteor

@@ -1,0 +1,27 @@
+<!-- set up the modal to start hidden and fade in and out -->
+<template name="patientsPicklistModal">
+  <div id="patientsPicklistModal" class="modal helveticas {{getVisibility}}" style={{getVerticalModal}}>
+    <div class="modal-dialog" data-dismiss="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Select A Patient</h2>
+        </div>
+        <div class="modal-body">
+          <input id="patientModalSearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." value="{{getCurrentSearchFilter}}" />
+          <ul class="patientsList">
+          {{#each patientsList}}
+            <li class="patientRow">
+              <span class="patientdId">{{Patient_ID}} </span>
+              <span class="visitDate">{{Visit_Date}}</span>
+            </li>
+          {{/each}}
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button id="patientPicklistCancelButton" type="button" name="patientPicklistCancel" class="btn btn-main">Cancel</button>
+          <button id="patientPicklistOkButton" type="button" class="btn btn-primary">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

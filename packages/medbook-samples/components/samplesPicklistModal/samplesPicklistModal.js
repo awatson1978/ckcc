@@ -13,8 +13,8 @@ Template.samplesPicklistModal.events({
   'change #sampleModalSearchInput': function (){
     Session.set('sampleModalSearchFilter', $('#sampleModalSearchInput').val());
   },
-  'keyup #sampleSearchInput': function (){
-    Session.set('sampleSearchFilter', $('#sampleSearchInput').val());
+  'keyup #sampleModalSearchInput': function (){
+    Session.set('sampleModalSearchFilter', $('#sampleModalSearchInput').val());
   },
   "click #samplePicklistOkButton": function (event, template) {
     Session.set('showSamplePicklist', false);
@@ -41,13 +41,13 @@ Template.samplesPicklistModal.helpers({
     return Samples.find({$or:[
       {
         _id: {
-          $regex: Session.get('sampleSearchFilter'),
+          $regex: Session.get('sampleModalSearchFilter'),
           $options: 'i'
         }
       },
       {
-        'name': {
-          $regex: Session.get('sampleSearchFilter'),
+        'Sample_ID': {
+          $regex: Session.get('sampleModalSearchFilter'),
           $options: 'i'
         }
       }

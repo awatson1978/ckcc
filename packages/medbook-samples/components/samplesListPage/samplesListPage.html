@@ -2,7 +2,7 @@
 <template name="samplesListPage">
   <div id="samplesListPage" class="page">
 
-    {{> recordHeader url="samples" spreadsheet=false}}
+    {{> recordHeader url="samples" spreadsheet=false  imageGrid=false}}
     <!-- {{> recordHeader type="record" url="samples" spreadsheet=false}} -->
 
     <div class="pageBody" style="{{getOpacity}}">
@@ -20,13 +20,13 @@
           {{#each samplesList}}
             <li class="sampleItem">
               <article>
-                <h2 class="titleText">{{name}}</h2>
+                <h2 class="titleText">{{Sample_ID}}</h2>
                 <span class="pull-right barcode gray barcodeText">{{_id}}</span><br>
-                <span class="leftSubtitle">{{slug}}</span>
+                <span class="leftSubtitle">{{Site}}</span>
                 <!-- <span class="leftSubSubtitle">{{patientGender}} / {{patientAge}}</span>
                 <span class="leftText">{{id}}</span> -->
 
-                <span class="pull-right rightSubSubtitle">{{id}}</span>
+                <span class="pull-right rightSubSubtitle">{{Visit_Date}}</span>
                 <!-- <span class="pull-right rightSubSubtitle">{{createdAt}}</span> -->
               </article>
               <div class="fadeAway"></div>

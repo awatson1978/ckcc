@@ -1,7 +1,7 @@
 
 <template name="samplesTablePage">
   <article id="samplesTablePage" class="page">
-    {{> recordHeader url="samples" spreadsheet=false}}
+    {{> recordHeader url="samples" spreadsheet=false imageGrid=false}}
     <div class="pageBody" style="{{getOpacity}}">
       <input id="sampleSearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." />
 
@@ -14,11 +14,9 @@
             {{#if showMongoIds }}
             <th>_id</th>
             {{/if}}
-            <th>
-              <i class="fa fa-image"></i>
-            </th>
-            <th>Title</th>
-            <th>Slug</th>
+            <th>Sample ID</th>
+            <th>Site</th>
+            <th>Segment</th>
             <th>
               <i class="fa fa-flag-o"></i>
             </th>
@@ -36,13 +34,9 @@
               {{#if showMongoIds }}
               <td class="barcode">{{_id}}</td>
               {{/if}}
-              <td class="avatar">
-                {{#if imageUrl}}
-                <i class="fa fa-image"></i>
-                {{/if}}
-              </td>
-              <td>{{name}}</td>
-              <td>{{id}}</td>
+              <td>{{Sample_ID}}</td>
+              <td>{{Site}}</td>
+              <td>Segment</td>
               <td class="flag">
                 <i class="fa {{flaggedIcon}}"></i>
               </td>

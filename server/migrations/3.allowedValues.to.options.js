@@ -1,8 +1,8 @@
 
 
-if (process.env.MIGRATE) {
+//if (process.env.MIGRATE) {
   Migrations.add({
-    version: 1,
+    version: 3,
     up: function () {
 
       Metadata.find().forEach(function (record) {
@@ -59,4 +59,4 @@ if (process.env.MIGRATE) {
     }
   });
 
-}
+//}

@@ -12,6 +12,7 @@ Package.onUse(function (api) {
   api.use('meteor-platform');
 
   api.use('clinical:schema-hydrator');
+  api.use('aldeed:simple-schema@1.3.3');
 
   api.use('grove:less@0.1.1');
 

@@ -12,127 +12,83 @@ Samples.allow({
   }
 });
 
-// SampleSchema = new SimpleSchema({
-//   "_id": {
-//     type: String,
-//     optional: true
-//   },
-//   "name": {
-//     type: String,
-//     optional: true,
-//     defaultValue: "",
-//     label: "Name"
-//   },
-//   "short_name": {
-//     type: String,
-//     optional: true,
-//     defaultValue: "",
-//     label: "Short Name"
-//   },
-//   "description": {
-//     type: String,
-//     optional: true,
-//     defaultValue: "",
-//     label: "Description"
-//   },
-//   "id": {
-//     type: String,
-//     optional: true,
-//     defaultValue: "",
-//     label: "Sample Slug"
-//   },
-//   "cbio_id": {
-//     type: String,
-//     optional: true,
-//     defaultValue: "",
-//     label: "CBIO"
-//   },
-//   "type_of_cancer_id": {
-//     type: String,
-//     optional: true,
-//     defaultValue: "",
-//     label: "Type of Cancer"
-//   },
-//   "public": {
-//     type: Boolean,
-//     optional: true,
-//     defaultValue: true,
-//     label: "Public"
-//   },
-//   "pmid": {
-//     type: String,
-//     optional: true,
-//     defaultValue: "",
-//     label: "PMID"
-//   },
-//   "slug": {
-//     type: String,
-//     optional: true,
-//     defaultValue: "",
-//     label: "Slug"
-//   },
-//   "citation": {
-//     type: String,
-//     optional: true,
-//     defaultValue: "unpublished",
-//     label: "Citation"
-//   },
-//   "tables": {
-//     type: [String],
-//     optional: true,
-//     defaultValue: [],
-//     label: "Tables",
-//     autoform: {
-//       afArrayField: {
-//         template: "photonic"
-//       }
-//     }
-//   },
-//   "collaborations": {
-//     type: [String],
-//     optional: true,
-//     defaultValue: [],
-//     label: "Collaborations",
-//     autoform: {
-//       afArrayField: {
-//         template: "photonic"
-//       }
-//     }
-//   },
-//   "Sample_IDs": {
-//     type: [String],
-//     optional: true,
-//     defaultValue: [],
-//     label: "Sample IDs",
-//     autoform: {
-//       afArrayField: {
-//         template: "photonic"
-//       }
-//     }
-//   },
-//   "Patient_IDs": {
-//     type: [String],
-//     optional: true,
-//     defaultValue: [],
-//     label: "Patient IDs",
-//     autoform: {
-//       afArrayField: {
-//         template: "photonic"
-//       }
-//     }
-//   },
-//   "Questionnaires": {
-//     type: [String],
-//     optional: true,
-//     defaultValue: [],
-//     label: "Questionnaires",
-//     autoform: {
-//       afArrayField: {
-//         class: "questionnaires",
-//         template: "photonic"
-//       }
-//     }
-//   }
-//
-// });
-// Samples.attachSchema(SampleSchema);
+SampleSchema = new SimpleSchema({
+  "_id": {
+    type: String,
+    optional: true
+  },
+  "Patient_ID": {
+    type: String,
+    optional: true,
+    defaultValue: "",
+    label: "Patient ID"
+  },
+  "Sample_ID": {
+    type: String,
+    optional: true,
+    defaultValue: "",
+    label: "Sample ID"
+  },
+  "Site": {
+    type: String,
+    optional: true,
+    defaultValue: "",
+    label: "Site"
+  },
+  "Date_of_Procedure": {
+    type: Date,
+    optional: true,
+    defaultValue: "",
+    label: "Date of Procedure"
+  },
+  "Visit_Date": {
+    type: String,
+    optional: true,
+    defaultValue: "",
+    label: "Visit Date"
+  },
+  "Was_it_a_Tapered_Dose": {
+    type: Boolean,
+    optional: true,
+    defaultValue: true,
+    label: "Was it a Tapered Dose?"
+  },
+  "Day": {
+    type: String,
+    optional: true,
+    defaultValue: "",
+    label: "Day"
+  },
+  "Phase": {
+    type: String,
+    optional: true,
+    defaultValue: "",
+    label: "Phase"
+  },
+  "Segment": {
+    type: String,
+    optional: true,
+    defaultValue: "",
+    label: "Segment"
+  },
+  "Arm": {
+    type: String,
+    optional: true,
+    defaultValue: "",
+    label: "Arm"
+  },
+  "questionnaireId": {
+    type: String,
+    optional: true,
+    defaultValue: "",
+    label: "Questionnaire ID"
+  },
+  "questionnaireName": {
+    type: String,
+    optional: true,
+    defaultValue: "",
+    label: "Questionnaire Name"
+  }
+
+});
+Samples.attachSchema(SampleSchema);

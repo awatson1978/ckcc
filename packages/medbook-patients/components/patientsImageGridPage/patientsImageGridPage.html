@@ -1,0 +1,20 @@
+<template name="patientImageGridPage">
+  <article id="patientImageGridPage" class="page">
+    {{> recordHeader url="patients" spreadsheet=false imageGrid=false}}
+    <div class="pageBody" style="{{getOpacity}}">
+      <input id="patientSearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." />
+
+      <ul id="patientImageGrid">
+        {{#each lists}}
+          <li>
+            <img class="patientImage" src="{{imageUrl}}" />
+          </li>
+        {{/each}}
+        <li id="addNewPatient" class="addNewPatient">
+            <img class="patientImage" src="{{imageUrl}}" />
+        </li>
+      </ul>
+    </div>
+    {{> recordFooter }}
+  </article>
+</template>

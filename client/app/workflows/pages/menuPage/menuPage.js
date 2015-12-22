@@ -1,12 +1,16 @@
 Session.setDefault('hasPageBorder', false);
 Session.setDefault('hasPagePadding', false);
 Session.setDefault('pageBackgroundIsWhite', false);
+Session.setDefault('showItemsInDevelopment', false);
 
 Meteor.startup(function (){
   Session.set('hasPagePadding', false);
 });
 
 Template.menuPage.helpers({
+  showItemsInDevelopment: function (){
+    return Session.get('showItemsInDevelopment');
+  },
   getNullCount: function (){
     return 0;
   },
@@ -59,6 +63,9 @@ Template.menuPage.helpers({
   },
   getRootUrlPrefix: function () {
     return "";
+  },
+  getPatientsCount: function (){
+    return Patients.find().count();
   },
   getSamplesCount: function () {
     return Samples.find().count();

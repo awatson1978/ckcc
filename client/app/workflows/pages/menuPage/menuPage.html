@@ -23,6 +23,8 @@
           </div>
         </div>
       </div>
+
+      {{#if showItemsInDevelopment }}
       <div id="formBuilderTile" class="menuItem notImplementedYet" style="{{getMenuWidth}}">
         <h4>DESIGN</h4>
         <hr>
@@ -33,6 +35,7 @@
           </div>
         </div>
       </div>
+      {{/if}}
 
       <!-- <div id="questionnairesTile" class="menuItem notImplementedYet" style="{{getMenuWidth}}">
         <h4>QUESTIONAIRES</h4>
@@ -91,6 +94,8 @@
           </div>
         </div>
       </div>
+
+      {{#if showItemsInDevelopment }}
       <div id="commentsTile" class="menuItem notImplementedYet" style="{{getMenuWidth}}">
         <h4>COMMENTS</h4>
         <hr>
@@ -101,6 +106,8 @@
           </div>
         </div>
       </div>
+      {{/if}}
+
       <div id="auditTile" class="menuItem" style="{{getMenuWidth}}">
         <h4>AUDIT</h4>
         <hr>
@@ -112,7 +119,7 @@
         </div>
       </div>
       <div id="samplesTile" class="menuItem" style="{{getMenuWidth}}">
-        <h4>Samples</h4>
+        <h4>SAMPLES</h4>
         <hr>
         <div class="panel-image">
           <!-- <img id="samplesTileImage" src="/images/home/audit.jpg" class="panel-image-preview" /> -->
@@ -121,7 +128,16 @@
           </div>
         </div>
       </div>
-
+      <div id="samplesTile" class="menuItem" style="{{getMenuWidth}}">
+        <h4>PATIENTS</h4>
+        <hr>
+        <div class="panel-image">
+          <!-- <img id="samplesTileImage" src="/images/home/audit.jpg" class="panel-image-preview" /> -->
+          <div class="statsRibbon">
+            <h1>{{ getPatientsCount }}</h1>
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>

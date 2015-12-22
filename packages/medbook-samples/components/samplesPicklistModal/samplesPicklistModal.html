@@ -8,9 +8,12 @@
         </div>
         <div class="modal-body">
           <input id="sampleModalSearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." value="{{getCurrentSearchFilter}}" />
-          <ul>
+          <ul class="samplesList">
           {{#each samplesList}}
-            <li class="sampleRow">{{name}} {{description}}</li>
+            <li class="sampleRow">
+              <span class="sampledId">{{Sample_ID}} </span>
+              <span class="visitDate">{{Visit_Date}}</span>
+            </li>
           {{/each}}
           </ul>
         </div>

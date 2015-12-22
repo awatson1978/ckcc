@@ -5,8 +5,7 @@
 # but you can also edit it by hand.
 
 meteor-platform
-#autopublish
-#insecure
+
 random
 http
 
@@ -22,10 +21,6 @@ awsp:handsontable
 starrynight:dropdatabase@0.0.2
 
 
-photonic:glass-ui
-#photonic:no-select-everything
-#photonic:active-users-core
-#photonic:active-users-table@0.0.3
 
 
 #meteorhacks:kadira
@@ -43,7 +38,6 @@ clinical:extended-api@2.1.0
 clinical:collaborations
 clinical:collaborations-ui@2.1.19
 clinical:active-entry@1.4.2
-clinical:active-record
 clinical:env
 clinical:migrations
 clinical:modals
@@ -53,16 +47,20 @@ clinical:accounts-housemd
 clinical:autoform
 clinical:schema-hydrator
 clinical:active-layout
+clinical:glass-ui
 
-clinical:hl7-fhir
+
+#clinical:hl7-fhir
 clinical:hipaa-audit-log
 clinical:graphs-dailystats@2.3.5
 clinical:form-builder
-clinical:active-users
+#clinical:active-users
 
 medbook:studies
 medbook:metadata
 medbook:subjects
 medbook:samples
+medbook:active-record
+medbook:patients
 
 anti:gagarin@=0.4.11

@@ -1,0 +1,53 @@
+
+<template name="patientsTablePage">
+  <article id="patientsTablePage" class="page">
+    {{> recordHeader url="patients" spreadsheet=false imageGrid=false}}
+    <div class="pageBody" style="{{getOpacity}}">
+      <input id="patientSearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." />
+
+      <table id="patientsTable" class=" table table-striped tablesorter">
+        <thead>
+          <tr class="recordHeaderRow">
+            <th>
+              <i class="fa fa-check"></i>
+            </th>
+            {{#if showMongoIds }}
+            <th>_id</th>
+            {{/if}}
+            <th>Patient ID</th>
+            <th>Site</th>
+            <th>Segment</th>
+            <th>
+              <i class="fa fa-flag-o"></i>
+            </th>
+            <th>
+              <i class="fa fa-times"></i>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each patientsList}}
+            <tr class="patientRow {{isGrayedOut}}">
+              <td class="checkbox">
+                <i class="fa {{checkedIcon}}"></i>
+              </td>
+              {{#if showMongoIds }}
+              <td class="barcode">{{_id}}</td>
+              {{/if}}
+              <td>{{Patient_ID}}</td>
+              <td>{{Site}}</td>
+              <td>Segment</td>
+              <td class="flag">
+                <i class="fa {{flaggedIcon}}"></i>
+              </td>
+              <td class="delete">
+                <i class="fa fa-times"></i>
+              </td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+    {{> recordFooter}}
+  </article>
+</template>

@@ -1,0 +1,12 @@
+
+<template name="recordsSpreadsheetPage">
+  <article id="recordsSpreadsheetPage" class="page">
+    {{> recordHeader imageGrid=false url="records" imageGrid=false}}
+    <div class="pageBody" style="{{getOpacity}}">
+      <input id="recordSearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." />
+
+      <spreadsheet id="recordsSpreadsheet"></spreadsheet>
+    </div>
+    {{> recordFooter}}
+  </article>
+</template>

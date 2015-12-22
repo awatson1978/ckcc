@@ -1,0 +1,13 @@
+<template name="recordPreviewPage">
+  <div id="recordPreviewPage" class="fullheight padded page">
+
+    {{> recordHeader type="record" url="records" imageGrid=false}}
+
+      <div id="recordPreviewCard" class="card-contents">
+        <h2 id="recordTitleText">{{title}}</h2>
+        <p id="notesText">
+          {{description}}
+        </p>
+      </div>
+  </div>
+</template>

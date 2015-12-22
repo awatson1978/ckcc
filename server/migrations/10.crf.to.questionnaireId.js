@@ -8,6 +8,7 @@
     up: function () {
 
       Collections.CRFs.find().forEach(function(crfRecord){
+        delete crfRecord._id;
         Records.insert(crfRecord);
       }, function(){
         Records.find().forEach(function (record) {

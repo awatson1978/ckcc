@@ -13,7 +13,7 @@ Package.onUse(function (api) {
 
   api.use('aldeed:simple-schema@1.3.3');
   api.use('grove:less@0.1.1');
-  
+
   api.use('clinical:schema-hydrator');
   api.use('clinical:glass-ui@1.3.1');
   api.use('clinical:router@2.0.17');

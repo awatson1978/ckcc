@@ -15,10 +15,7 @@ Meteor.startup(function () {
       //Meteor.call('initializeMetadata');
     }
 
-    // if (Patients.find().count() === 0) {
-    //   //console.log('initializePatients');
-    //   Meteor.call("initializePatients");
-    // }
+
     if (Collaborations.find().count() === 0) {
       Meteor.call('initializeDefaultCollaborations');
     }

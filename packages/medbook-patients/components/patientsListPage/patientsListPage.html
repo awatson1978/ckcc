@@ -20,13 +20,13 @@
           {{#each patientsList}}
             <li class="patientItem">
               <article>
-                <h2 class="titleText">{{Patient_ID}}</h2>
+                <h2 class="titleText">{{ givenName }} {{ familyName }}</h2>
                 <span class="pull-right barcode gray barcodeText">{{_id}}</span><br>
-                <span class="leftSubtitle">{{Site}}</span>
+                <span class="leftSubtitle">{{gender.text}}</span>
                 <!-- <span class="leftSubSubtitle">{{patientGender}} / {{patientAge}}</span>
                 <span class="leftText">{{id}}</span> -->
 
-                <span class="pull-right rightSubSubtitle">{{Visit_Date}}</span>
+                <span class="pull-right rightSubSubtitle">{{identifierLabel}}:  {{patientIdentifier}}</span>
                 <!-- <span class="pull-right rightSubSubtitle">{{createdAt}}</span> -->
               </article>
               <div class="fadeAway"></div>

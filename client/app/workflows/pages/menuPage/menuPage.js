@@ -98,6 +98,9 @@ Template.menuPage.helpers({
 
 Template.menuPage.events({
   'click #patientsTile': function (){
+    Router.go('/list/patients');
+  },
+  'click #subjectsTile': function (){
     Router.go('/list/subjects');
   },
   'click #metadataTile': function (){
@@ -114,6 +117,9 @@ Template.menuPage.events({
   },
   'click #samplesTile': function (){
     Router.go('/list/samples/');
+  },
+  'click #usersTile': function (){
+    Router.go('/table/users/');
   },
   "click #collaborationsTile": function (event, template) {
     Router.go('/grid/collaborations');

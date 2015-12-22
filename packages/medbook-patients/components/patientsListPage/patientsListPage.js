@@ -97,6 +97,42 @@ Template.patientsListPage.rendered = function () {
 
 
 Template.patientsListPage.helpers({
+  identifierLabel: function (){
+    if (this.identifier[0]) {
+      if (this.identifier[0].label) {
+        return this.identifier[0].label;
+      }
+    } else {
+      return "";
+    }
+  },
+  patientIdentifier: function (){
+    if (this.identifier[0]) {
+      if (this.identifier[0].value) {
+        return this.identifier[0].value;
+      }
+    } else {
+      return "";
+    }
+  },
+  givenName: function (){
+    if (this.name[0]) {
+      if (this.name[0].given[0]) {
+        return this.name[0].given[0];
+      }
+    } else {
+      return "";
+    }
+  },
+  familyName: function (){
+    if (this.name[0]) {
+      if (this.name[0].family[0]) {
+        return this.name[0].family[0];
+      }
+    } else {
+      return "";
+    }
+  },
   getPatientSearchFilter: function () {
     return Session.get('patientSearchFilter');
   },

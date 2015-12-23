@@ -18,8 +18,8 @@ cfs:http-methods@0.0.30
 check@1.0.5
 clinical:accounts-housemd@1.1.0
 clinical:active-entry@1.4.12
-clinical:active-layout@0.5.6
-clinical:active-users@0.0.4
+clinical:active-layout@0.5.7
+clinical:active-users@0.0.5
 clinical:auto-resizing@0.1.2
 clinical:autoform@6.8.4
 clinical:barcode@3.1.0
@@ -93,6 +93,7 @@ nvd3:nvd3@1.7.1
 observe-sequence@1.0.6
 ordered-dict@1.0.3
 pfafman:font-awesome-4@4.2.0_4
+photonic:no-select-everything@0.2.1
 random@1.0.3
 reactive-dict@1.1.0
 reactive-var@1.0.5

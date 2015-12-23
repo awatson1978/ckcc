@@ -1,6 +1,6 @@
 var seed = new Meteor.Collection.ObjectID();
 
-Session.setDefault("formSelectPanelVisible", false);
+Session.setDefault("westPanelVisible", false);
 
 Session.setDefault('selectedBuilderTab', 'addNewFieldTab');
 Session.setDefault('seed', new Meteor.Collection.ObjectID());
@@ -33,7 +33,7 @@ Template.formSelectPanel.helpers({
     return this.keyName;
   },
   getWestPanelStyle: function (){
-    if (Session.get("formSelectPanelVisible")) {
+    if (Session.get("westPanelVisible")) {
       return "visibility: visible; left: 0px;";
     } else {
       return "visibility: hidden; left: -300px;";

@@ -18,7 +18,7 @@ cfs:http-methods@0.0.30
 check@1.0.5
 clinical:accounts-housemd@1.1.0
 clinical:active-entry@1.4.12
-clinical:active-layout@0.5.5
+clinical:active-layout@0.5.6
 clinical:active-users@0.0.4
 clinical:auto-resizing@0.1.2
 clinical:autoform@6.8.4
@@ -70,7 +70,7 @@ livedata@1.0.13
 localstorage@1.0.3
 logging@1.0.7
 matb33:collection-hooks@0.8.1
-medbook:active-record@1.1.6
+medbook:active-record@1.1.7
 medbook:metadata@1.0.9
 medbook:patients@1.0.13
 medbook:samples@1.0.13

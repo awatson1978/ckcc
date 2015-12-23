@@ -19,6 +19,6 @@ Template.recordListActionButtons.events({
     }
   },
   'click #toggleSidebarButton': function (){
-    Session.toggle("formSelectPanelVisible");
+    Session.toggle("westPanelVisible");
   }
 });

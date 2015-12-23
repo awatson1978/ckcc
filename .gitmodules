@@ -81,3 +81,7 @@
 [submodule "packages/clinical-env"]
     path = packages/clinical-env
     url = git://github.com/clinical-meteor/clinical-env.git
+
+[submodule "packages/clinical-active-users"]
+    path = packages/clinical-active-users
+    url = git://github.com/clinical-meteor/clinical-active-users.git

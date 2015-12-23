@@ -1,7 +1,9 @@
-Meteor.publish("records", function (recordId) {
-  if (recordId) {
-    return Records.findOne({
-      _id: recordId
+Meteor.publish("records", function (activeMetadataId) {
+  if (activeMetadataId) {
+    console.log('Subscribing to questionnaire ' + activeMetadataId);
+
+    return Records.find({
+      questionnaireId: activeMetadataId
     });
   } else {
     return Records.find();

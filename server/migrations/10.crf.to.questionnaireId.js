@@ -26,3 +26,17 @@
     }
   });
 //}
+
+
+//
+// db.records.find().forEach(function (record) {
+//
+//   var newCollaboration = "";
+//   if (record.Study_ID === "prad_wcdt") {
+//     newCollaboration = ["wcdt"];
+//   }
+//   db.records.update({_id: record._id}, {$set:{
+//     questionnaireId: record.CRF,
+//     collaborations: newCollaboration
+//   }});
+// });

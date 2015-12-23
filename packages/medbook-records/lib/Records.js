@@ -67,6 +67,6 @@ Records.getFilteredData = function (){
     sort: {
       createdAt: -1
     },
-    limit: 100
+    limit: 20
   });
 };

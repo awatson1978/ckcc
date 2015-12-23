@@ -27,6 +27,9 @@ Router.map(function () {
       },
       'recordListActionButtons': {
         to: 'footerActionElements'
+      },
+      'formSelectPanel': {
+        to: 'westPanel'
       }
     },
     data: function () {

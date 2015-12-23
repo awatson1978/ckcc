@@ -1,7 +1,7 @@
 Session.setDefault('hasPageBorder', false);
 Session.setDefault('hasPagePadding', false);
 Session.setDefault('pageBackgroundIsWhite', false);
-Session.setDefault('showItemsInDevelopment', false);
+Session.setDefault('showItemsInDevelopment', true);
 
 Meteor.startup(function (){
   Session.set('hasPagePadding', false);

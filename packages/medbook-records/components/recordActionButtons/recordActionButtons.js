@@ -17,5 +17,8 @@ Template.recordListActionButtons.events({
     } else {
       Router.go("/list/metadata/");
     }
+  },
+  'click #toggleSidebarButton': function (){
+    Session.toggle("formSelectPanelVisible");
   }
 });

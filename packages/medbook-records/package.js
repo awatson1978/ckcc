@@ -1,6 +1,6 @@
 Package.describe({
   name: 'medbook:active-record',
-  version: '1.1.3',
+  version: '1.1.7',
   summary: 'ActiveRecord component for the ClinicalFramework; provides CRUD pattern using Autoform.',
   git: 'http://github.com/UCSC-MedBook/medbook-active-record/',
   documentation: 'README.md'
@@ -53,6 +53,11 @@ Package.onUse(function (api) {
     'components/recordUpsertPage/recordUpsertPage.html',
     'components/recordUpsertPage/recordUpsertPage.js',
     'components/recordUpsertPage/recordUpsertPage.less',
+
+    'components/formSelectPanel/formSelectPanel.html',
+    'components/formSelectPanel/formSelectPanel.js',
+    'components/formSelectPanel/formSelectPanel.less'
+
   ], ['client']);
 
 

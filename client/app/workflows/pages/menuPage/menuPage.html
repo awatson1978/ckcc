@@ -1,8 +1,8 @@
 <template name="menuPage">
-  <div id="menuPage" class="helveticas page {{getTileTheme}}" style="{{getOpacity}} {{getPagePadding}} {{getPageBorder}} {{getBackground}}">
+  <div id="menuPage" class="helveticas page" style="{{getOpacity}} {{getPagePadding}} {{getPageBorder}} {{getBackground}}">
 
     <div id="menuItems">
-      <div id="collaborationsTile" class="menuItem" style="{{getMenuWidth}}">
+      <div id="collaborationsTile" class="menuItem {{getTheme}}" style="{{getMenuWidth}}">
         <h4>COLLABORATIONS</h4>
         <hr>
         <div class="panel-image">
@@ -13,7 +13,7 @@
           </div>
         </div>
       </div>
-      <div id="studiesTile" class="menuItem" style="{{getMenuWidth}}">
+      <div id="studiesTile" class="menuItem {{getTheme}}" style="{{getMenuWidth}}">
         <h4>STUDIES</h4>
         <hr>
         <div class="panel-image">
@@ -25,7 +25,7 @@
       </div>
 
       {{#if showItemsInDevelopment }}
-      <div id="formBuilderTile" class="menuItem notImplementedYet" style="{{getMenuWidth}}">
+      <div id="formBuilderTile" class="menuItem {{getTheme}} notImplementedYet" style="{{getMenuWidth}}">
         <h4>DESIGN</h4>
         <hr>
         <div class="panel-image">
@@ -49,7 +49,7 @@
       </div> -->
 
 
-      <div id="metadataTile" class="menuItem" style="{{getMenuWidth}}">
+      <div id="metadataTile" class="menuItem {{getTheme}}" style="{{getMenuWidth}}">
         <h4>FORM METADATA</h4>
         <hr>
         <div class="panel-image">
@@ -61,7 +61,7 @@
       </div>
 
 
-      <div id="clinicalDataTile" class="menuItem" style="{{getMenuWidth}}">
+      <div id="clinicalDataTile" class="menuItem {{getTheme}}" style="{{getMenuWidth}}">
         <h4>CLINICAL RECORDS</h4>
         <hr>
         <div class="panel-image">
@@ -72,7 +72,7 @@
         </div>
       </div>
 
-      <div id="usersTile" class="menuItem" style="{{getMenuWidth}}">
+      <div id="usersTile" class="menuItem {{getTheme}}" style="{{getMenuWidth}}">
         <h4>USERS</h4>
         <hr>
         <div class="panel-image">
@@ -84,7 +84,7 @@
       </div>
 
 
-      <div id="patientsTile" class="menuItem" style="{{getMenuWidth}}">
+      <div id="patientsTile" class="menuItem {{getTheme}}" style="{{getMenuWidth}}">
         <h4>SUBJECTS</h4>
         <hr>
         <div class="panel-image">
@@ -96,7 +96,7 @@
       </div>
 
       {{#if showItemsInDevelopment }}
-      <div id="commentsTile" class="menuItem notImplementedYet" style="{{getMenuWidth}}">
+      <div id="commentsTile" class="menuItem {{getTheme}} notImplementedYet" style="{{getMenuWidth}}">
         <h4>COMMENTS</h4>
         <hr>
         <div class="panel-image">
@@ -108,7 +108,7 @@
       </div>
       {{/if}}
 
-      <div id="auditTile" class="menuItem" style="{{getMenuWidth}}">
+      <div id="auditTile" class="menuItem {{getTheme}}" style="{{getMenuWidth}}">
         <h4>AUDIT</h4>
         <hr>
         <div class="panel-image">
@@ -118,7 +118,7 @@
           </div>
         </div>
       </div>
-      <div id="samplesTile" class="menuItem" style="{{getMenuWidth}}">
+      <div id="samplesTile" class="menuItem {{getTheme}}" style="{{getMenuWidth}}">
         <h4>SAMPLES</h4>
         <hr>
         <div class="panel-image">
@@ -128,7 +128,7 @@
           </div>
         </div>
       </div>
-      <div id="patientsTile" class="menuItem" style="{{getMenuWidth}}">
+      <div id="patientsTile" class="menuItem {{getTheme}}" style="{{getMenuWidth}}">
         <h4>PATIENTS</h4>
         <hr>
         <div class="panel-image">

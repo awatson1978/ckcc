@@ -36,7 +36,7 @@ Template.menuPage.helpers({
       return "border: 0px none;";
     }
   },
-  getTileTheme: function (){
+  getTheme: function (){
     if (Session.equals('foregroundTheme', 'light')) {
       return "lightTheme";
     } else {

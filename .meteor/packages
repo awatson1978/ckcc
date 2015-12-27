@@ -47,7 +47,6 @@ clinical:accounts-housemd
 clinical:autoform
 clinical:schema-hydrator
 clinical:active-layout
-clinical:glass-ui
 
 
 #clinical:hl7-fhir

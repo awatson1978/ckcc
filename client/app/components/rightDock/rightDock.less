@@ -1,70 +1,37 @@
 
 
-#rightDock{
-
-  #profileCard{
-    height: 500px;
-    top: 200px;
-    .cardHandle{
-      height: 500px;
-    }
-  }
-  #accountCard{
+#accountDock{
+  height: 100px;
+  top: 60px;
+  .cardHandle{
     height: 100px;
-    top: 60px;
-    .cardHandle{
-      height: 100px;
-    }
   }
+}
 
-  input{
-    width: 100%;
+#rightDock{
+  height: 500px;
+  top: 200px;
+  .cardHandle{
+    height: 500px;
   }
+}
 
+.rightDockedCard{
+  padding-left: 30px;
+  right: 0px;
+}
 
-  .rightDockedCard{
-    padding-left: 30px;
-    right: 0px;
-    .cardHandle{
-      left: 0px;
-      background: linear-gradient(
-        to bottom,
-        white,
-        white 50%,
-        gray 50%,
-        gray
-      );
-      background-size: 100% 5px;
-    }
-  }
-
-  .colorThemeBtn{
-    width: 30px;
-    height: 30px;
-    border: 1px solid lightgray;
-  }
-  #redBtn{
-    background-color: #A64C4C;
-  }
-  #greenBtn{
-    background-color: #AEC9A8;
-  }
-  #blueBtn{
-    background-color: #89cff0;
-  }
-  #whiteBtn{
-    background-color: white;
-  }
-  #grayBtn{
-    background-color: #999999;
-  }
-  #lightGrayBtn{
-    background-color: #cccccc;
-  }
-  #darkBtn{
-    background-color: #333333;
-  }
-  #lightBtn{
-    background-color: #cccccc;
+#accountDock,
+#rightDock{
+  .cardHandle{
+    left: 0px;
+    background: linear-gradient(
+      to bottom,
+      white,
+      white 50%,
+      gray 50%,
+      gray
+    );
+    background-size: 100% 5px;
   }
 }

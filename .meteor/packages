@@ -55,6 +55,7 @@ clinical:hipaa-audit-log
 clinical:graphs-dailystats@2.3.5
 clinical:form-builder
 clinical:active-users
+clinical:theming
 
 medbook:studies
 medbook:metadata

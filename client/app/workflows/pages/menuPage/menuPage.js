@@ -1,12 +1,16 @@
 Session.setDefault('hasPageBorder', false);
 Session.setDefault('hasPagePadding', false);
 Session.setDefault('pageBackgroundIsWhite', false);
+Session.setDefault('showItemsInDevelopment', true);
 
 Meteor.startup(function (){
   Session.set('hasPagePadding', false);
 });
 
 Template.menuPage.helpers({
+  showItemsInDevelopment: function (){
+    return Session.get('showItemsInDevelopment');
+  },
   getNullCount: function (){
     return 0;
   },
@@ -57,6 +61,15 @@ Template.menuPage.helpers({
 
     return "min-width: 180px; width: " + newWidth + "px;";
   },
+  getRootUrlPrefix: function () {
+    return "";
+  },
+  getPatientsCount: function (){
+    return Patients.find().count();
+  },
+  getSamplesCount: function () {
+    return Samples.find().count();
+  },
   getSubjectsCount: function () {
     return Subjects.find().count();
   },
@@ -85,6 +98,9 @@ Template.menuPage.helpers({
 
 Template.menuPage.events({
   'click #patientsTile': function (){
+    Router.go('/list/patients');
+  },
+  'click #subjectsTile': function (){
     Router.go('/list/subjects');
   },
   'click #metadataTile': function (){
@@ -98,6 +114,12 @@ Template.menuPage.events({
   },
   'click #studiesTile': function (){
     Router.go('/list/studies/');
+  },
+  'click #samplesTile': function (){
+    Router.go('/list/samples/');
+  },
+  'click #usersTile': function (){
+    Router.go('/table/users/');
   },
   "click #collaborationsTile": function (event, template) {
     Router.go('/grid/collaborations');

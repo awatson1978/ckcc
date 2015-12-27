@@ -6,7 +6,7 @@ Meteor.startup(function () {
 
   // we can run the following to prevent initialization
   // INITIALIZE=false meteor
-  if (process.env.INITIALIZE !== false) {
+  if ((typeof process.env.INITIALIZE === "boolean") && process.env.INITIALIZE) {
 
     console.log('Initializing collections....');
 
@@ -15,10 +15,7 @@ Meteor.startup(function () {
       //Meteor.call('initializeMetadata');
     }
 
-    if (Patients.find().count() === 0) {
-      console.log('initializePatients');
-      Meteor.call("initializePatients");
-    }
+
     if (Collaborations.find().count() === 0) {
       Meteor.call('initializeDefaultCollaborations');
     }

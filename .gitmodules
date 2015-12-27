@@ -2,9 +2,9 @@
     path = packages/clinical-active-entry
     url = git://github.com/clinical-meteor/clinical-active-entry.git
 
-[submodule "packages/clinical-active-record"]
-    path = packages/clinical-active-record
-    url = git://github.com/clinical-meteor/clinical-active-record.git
+[submodule "packages/clinical-active-layout"]
+    path = packages/clinical-active-layout
+    url = git://github.com/clinical-meteor/clinical-active-layout.git
 
 [submodule "packages/clinical-collaborations"]
     path = packages/clinical-collaborations
@@ -81,3 +81,11 @@
 [submodule "packages/clinical-env"]
     path = packages/clinical-env
     url = git://github.com/clinical-meteor/clinical-env.git
+
+[submodule "packages/clinical-active-users"]
+    path = packages/clinical-active-users
+    url = git://github.com/clinical-meteor/clinical-active-users.git
+
+[submodule "packages/clinical-form-builder"]
+    path = packages/clinical-form-builder
+    url = git://github.com/clinical-meteor/clinical-form-builder.git

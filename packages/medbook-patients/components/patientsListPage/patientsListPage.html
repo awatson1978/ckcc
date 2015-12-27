@@ -1,0 +1,40 @@
+
+<template name="patientsListPage">
+  <div id="patientsListPage" class="page">
+
+    {{> recordHeader url="patients" spreadsheet=false  imageGrid=false}}
+    <!-- {{> recordHeader type="record" url="patients" spreadsheet=false}} -->
+
+    <div class="pageBody" style="{{getOpacity}}">
+      <input id="patientSearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." value="{{getPatientSearchFilter}}" />
+      <ul id="patientsList">
+        {{#if hasNoContent}}
+          <li id="noResultsMessage" class="addPatientItem">
+            <article class="noResultsMessage">
+              <span>There are no patients!  Click to add one.</span>
+            </article>
+            <div class="fadeAway"></div>
+          </li>
+
+        {{else}}
+          {{#each patientsList}}
+            <li class="patientItem">
+              <article>
+                <h2 class="titleText">{{ givenName }} {{ familyName }}</h2>
+                <span class="pull-right barcode gray barcodeText">{{_id}}</span><br>
+                <span class="leftSubtitle">{{gender.text}}</span>
+                <!-- <span class="leftSubSubtitle">{{patientGender}} / {{patientAge}}</span>
+                <span class="leftText">{{id}}</span> -->
+
+                <span class="pull-right rightSubSubtitle">{{identifierLabel}}:  {{patientIdentifier}}</span>
+                <!-- <span class="pull-right rightSubSubtitle">{{createdAt}}</span> -->
+              </article>
+              <div class="fadeAway"></div>
+            </li>
+          {{/each}}
+        {{/if}}
+      </ul>
+    </div>
+    {{> recordFooter }}
+  </div>
+</template>

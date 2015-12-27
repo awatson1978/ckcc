@@ -1,0 +1,40 @@
+
+<template name="samplesListPage">
+  <div id="samplesListPage" class="page">
+
+    {{> recordHeader url="samples" spreadsheet=false  imageGrid=false}}
+    <!-- {{> recordHeader type="record" url="samples" spreadsheet=false}} -->
+
+    <div class="pageBody" style="{{getOpacity}}">
+      <input id="sampleSearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." value="{{getSampleSearchFilter}}" />
+      <ul id="samplesList">
+        {{#if hasNoContent}}
+          <li id="noResultsMessage" class="addSampleItem">
+            <article class="noResultsMessage">
+              <span>There are no samples!  Click to add one.</span>
+            </article>
+            <div class="fadeAway"></div>
+          </li>
+
+        {{else}}
+          {{#each samplesList}}
+            <li class="sampleItem">
+              <article>
+                <h2 class="titleText">{{Sample_ID}}</h2>
+                <span class="pull-right barcode gray barcodeText">{{_id}}</span><br>
+                <span class="leftSubtitle">{{Site}}</span>
+                <!-- <span class="leftSubSubtitle">{{patientGender}} / {{patientAge}}</span>
+                <span class="leftText">{{id}}</span> -->
+
+                <span class="pull-right rightSubSubtitle">{{Visit_Date}}</span>
+                <!-- <span class="pull-right rightSubSubtitle">{{createdAt}}</span> -->
+              </article>
+              <div class="fadeAway"></div>
+            </li>
+          {{/each}}
+        {{/if}}
+      </ul>
+    </div>
+    {{> recordFooter }}
+  </div>
+</template>

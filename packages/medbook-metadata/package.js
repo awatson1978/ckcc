@@ -1,6 +1,6 @@
 Package.describe({
   name: 'medbook:metadata',
-  version: '1.0.8',
+  version: '1.0.9',
   summary: 'ActiveQuestionnaire component for the ClinicalFramework; provides CRUD pattern using Autoform.',
   git: 'http://github.com/clinical-meteor/active-metadata',
   documentation: 'README.md'
@@ -11,15 +11,12 @@ Package.onUse(function (api) {
 
   api.use('meteor-platform');
   api.use('grove:less@0.1.1');
-  api.use('photonic:glass-ui@0.2.7');
 
-  api.use('photonic:active-record-core@0.0.2');
-  api.use('photonic:active-record-header@0.0.4');
-  api.use('photonic:active-record-footer@0.0.4');
+  api.use('clinical:glass-ui@1.3.1');
+  api.use('clinical:router@2.0.17');
 
   api.use('awsp:handsontable@0.11.0');
 
-  api.use('clinical:router@2.0.13');
   api.use('clinical:schema-hydrator');
 
   api.imply('aldeed:simple-schema@1.3.3');

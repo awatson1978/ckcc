@@ -1,0 +1,27 @@
+<!-- set up the modal to start hidden and fade in and out -->
+<template name="samplesPicklistModal">
+  <div id="samplesPicklistModal" class="modal helveticas {{getVisibility}}" style={{getVerticalModal}}>
+    <div class="modal-dialog" data-dismiss="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Select A Sample</h2>
+        </div>
+        <div class="modal-body">
+          <input id="sampleModalSearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." value="{{getCurrentSearchFilter}}" />
+          <ul class="samplesList">
+          {{#each samplesList}}
+            <li class="sampleRow">
+              <span class="sampledId">{{Sample_ID}} </span>
+              <span class="visitDate">{{Visit_Date}}</span>
+            </li>
+          {{/each}}
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button id="samplePicklistCancelButton" type="button" name="samplePicklistCancel" class="btn btn-main">Cancel</button>
+          <button id="samplePicklistOkButton" type="button" class="btn btn-primary">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

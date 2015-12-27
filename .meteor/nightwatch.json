@@ -1,9 +1,9 @@
 {
   "starrynight": {
-    "version": "3.2.65"
+    "version": "3.7.0"
   },
   "nightwatch": {
-    "version": "0.7.6"
+    "version": "0.8.6"
   },
   "src_folders": [
     "./tests/nightwatch/walkthroughs"
@@ -20,13 +20,6 @@
     "packages/clinical-active-entry/components/entrySignUp/.tests",
     "packages/clinical-active-entry/components/entrySignUp/.tests/actions",
     "packages/clinical-active-entry/components/forgotPassword/.tests",
-    "packages/clinical-active-record/components/recordImageGridPage/.tests",
-    "packages/clinical-active-record/components/recordPreviewPage/.tests",
-    "packages/clinical-active-record/components/recordUpsertPage/.tests",
-    "packages/clinical-active-record/components/recordUpsertPage/.tests/actions",
-    "packages/clinical-active-record/components/recordsListPage/.tests",
-    "packages/clinical-active-record/components/recordsSpreadsheetPage/.tests",
-    "packages/clinical-active-record/components/recordsTablePage/.tests",
     "packages/clinical-active-users/components/userEditPage/.tests",
     "packages/clinical-active-users/components/userImageGridPage/.tests",
     "packages/clinical-active-users/components/userPreviewPage/.tests",
@@ -42,6 +35,23 @@
     "packages/medbook-metadata/components/metadataTablePage/.tests",
     "packages/medbook-metadata/components/metadataUpsertPage/.tests",
     "packages/medbook-metadata/components/metadataUpsertPage/.tests/actions",
+    "packages/medbook-patients/components/patientUpsertPage/.tests",
+    "packages/medbook-patients/components/patientUpsertPage/.tests/actions",
+    "packages/medbook-patients/components/patientsImageGridPage/.tests",
+    "packages/medbook-patients/components/patientsListPage/.tests",
+    "packages/medbook-patients/components/patientsTablePage/.tests",
+    "packages/medbook-records/components/recordImageGridPage/.tests",
+    "packages/medbook-records/components/recordPreviewPage/.tests",
+    "packages/medbook-records/components/recordUpsertPage/.tests",
+    "packages/medbook-records/components/recordUpsertPage/.tests/actions",
+    "packages/medbook-records/components/recordsListPage/.tests",
+    "packages/medbook-records/components/recordsSpreadsheetPage/.tests",
+    "packages/medbook-records/components/recordsTablePage/.tests",
+    "packages/medbook-samples/components/sampleUpsertPage/.tests",
+    "packages/medbook-samples/components/sampleUpsertPage/.tests/actions",
+    "packages/medbook-samples/components/samplesImageGridPage/.tests",
+    "packages/medbook-samples/components/samplesListPage/.tests",
+    "packages/medbook-samples/components/samplesTablePage/.tests",
     "packages/medbook-studies/components/studiesImageGridPage/.tests",
     "packages/medbook-studies/components/studiesListPage/.tests",
     "packages/medbook-studies/components/studiesTablePage/.tests",
@@ -128,6 +138,36 @@
         "acceptSslCerts": true,
         "rotatable": true,
         "nativeEvents": true
+      }
+    },
+    "travischrome": {
+      "launch_url": "http://localhost:3000",
+      "selenium_host": "127.0.0.1",
+      "selenium_port": 4444,
+      "pathname": "/wd/hub",
+      "silent": true,
+      "disable_colors": false,
+      "firefox_profile": false,
+      "screenshots": {
+        "enabled": false,
+        "path": "./tests/nightwatch/screenshots"
+      },
+      "desiredCapabilities": {
+        "browserName": "chrome",
+        "javascriptEnabled": true,
+        "databaseEnabled": true,
+        "locationContextEnabled": true,
+        "applicationCacheEnabled": true,
+        "browserConnectionEnabled": true,
+        "webStorageEnabled": true,
+        "acceptSslCerts": true,
+        "rotatable": true,
+        "nativeEvents": true,
+        "chromeOptions": {
+          "args": [
+            "--no-sandbox"
+          ]
+        }
       }
     },
     "unittests": {

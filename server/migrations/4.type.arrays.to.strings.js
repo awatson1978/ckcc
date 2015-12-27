@@ -1,7 +1,7 @@
 
-if (process.env.MIGRATE) {
+//if (process.env.MIGRATE) {
   Migrations.add({
-    version: 2,
+    version: 4,
     up: function () {
 
       Metadata.find().forEach(function (record) {
@@ -16,7 +16,7 @@ if (process.env.MIGRATE) {
             if (record.schema[schemaKey].type === Array) {
               record.schema[schemaKey].type = "Array";
             }
-            
+
             if (record.schema[schemaKey].type === Array) {
 
 
@@ -64,4 +64,4 @@ if (process.env.MIGRATE) {
     }
   });
 
-}
+//}

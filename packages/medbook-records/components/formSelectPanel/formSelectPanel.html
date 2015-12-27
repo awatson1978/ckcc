@@ -1,0 +1,14 @@
+
+<template name="formSelectPanel">
+  <aside id="formSelectPanel" class="padded ui sidebar helveticas" style="{{getWestPanelStyle}}">
+
+    <div class="tab-pane" id="addNewFieldPanel">
+      <ul>
+      {{#each metadataList}}
+        <li class="{{isSelected}}">{{commonName}}</li>
+      {{/each}}
+      </ul>
+    </div>
+
+  </aside>
+</template>

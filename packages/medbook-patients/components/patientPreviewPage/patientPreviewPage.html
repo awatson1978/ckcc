@@ -1,0 +1,12 @@
+<template name="patientPreviewPage">
+  <div id="patientPreviewPage" class="fullheight padded page">
+    {{> recordHeader type="record" url="patients" spreadsheet=false imageGrid=false}}
+
+      <div id="patientPreviewCard" class="card-contents">
+        <h2 id="patientTitleText">{{title}}</h2>
+        <p id="notesText">
+          {{description}}
+        </p>
+      </div>
+  </div>
+</template>

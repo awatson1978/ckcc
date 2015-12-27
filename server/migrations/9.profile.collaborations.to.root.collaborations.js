@@ -1,6 +1,6 @@
 // Migrate the Metadata collection to Questionnaires
 
-if (process.env.MIGRATE) {
+//if (process.env.MIGRATE) {
   Migrations.add({
     version: 9,
     up: function () {
@@ -13,4 +13,4 @@ if (process.env.MIGRATE) {
       });
     }
   });
-}
+//}

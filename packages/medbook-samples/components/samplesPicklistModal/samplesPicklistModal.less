@@ -1,0 +1,44 @@
+#samplesPicklistModal{
+  .modal{
+    z-index: 100000;
+  }
+  .modal-body{
+    font-size: 150%;
+    line-spacing: 120%;
+    ul{
+      list-style: none
+    }
+    li{
+      list-style: none;
+      border-top: 1px solid lightgray;
+      min-height: 30px;
+    }
+    li:hover{
+      color: green;
+      cursor: pointer;
+    }
+    .sampledId{
+      width: 200px;
+    }
+    .visitDate{
+      position: relative;
+      float: right;
+    }
+    .samplesList{
+      overflow-y: scroll;
+      height: 300px;
+    }
+  }
+  .modal-footer{
+    position:absolute;
+    bottom: 0px;
+    width: 100%;
+    button{
+      margin-right: 40px;
+    }
+  }
+  .description{
+    position: absolute;
+    left: 300px;
+  }
+}

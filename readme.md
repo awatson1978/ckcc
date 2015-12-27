@@ -2,7 +2,8 @@
 
 Rewrite of the CRFs and Clinical-Trials apps, with a modularized package-based component/microservice architecture.
 
-![Travis Status](https://travis-ci.org/awatson1978/ckcc.svg?branch=multiuser)
+![Travis Status](https://travis-ci.org/awatson1978/ckcc.svg?branch=multiuser)  
+[Branch History](https://travis-ci.org/awatson1978/ckcc/branches)
 
 =========================
 #### Installation  
@@ -36,6 +37,12 @@ Next, you'll want to fetch all of the packages in ``.meteor/packages`` directory
   git submodule foreach git pull origin master
 
 ````
+
+When you first run the application, you can initialize the database like so:
+````sh
+INITIALIZE=true meteor
+````
+
 
 If you're running a local installation of Mongo, and working on inter-app functionality, you may want to specify the ``MONGO_URL``, like so:
 ````sh

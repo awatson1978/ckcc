@@ -1,7 +1,9 @@
 Session.setDefault("ActiveRecordId", null);
 
 
-Meteor.subscribe("records", Session.get('ActiveRecordId'));
+Tracker.autorun(function (){
+  Meteor.subscribe("records", Session.get('activeMetadataId'));
+});
 
 Meteor.subscribe("publicStats");
 

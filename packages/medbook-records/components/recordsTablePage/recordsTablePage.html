@@ -1,0 +1,49 @@
+
+<template name="recordsTablePage">
+  <article id="recordsTablePage" class="page">
+    {{> recordHeader imageGrid=false url="records"}}
+    <div class="pageBody" style="{{getOpacity}}">
+      <input id="recordSearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." />
+
+      <table id="recordsTable" class=" table table-striped tablesorter">
+        <thead>
+          <tr class="recordHeaderRow">
+            <!-- <th>
+              <i class="fa fa-check"></i>
+            </th> -->
+            <th>_id</th>
+            <th>Collaborations</th>
+            <th>MRN</th>
+            <th>Questionnaire Name</th>
+            <th>
+              <i class="fa fa-flag-o"></i>
+            </th>
+            <th>
+              <i class="fa fa-times"></i>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each recordsList}}
+            <tr class="recordRow {{isGrayedOut}}">
+              <td class="checkbox">
+                <i class="fa {{checkedIcon}}"></i>
+              </td>
+              <!-- <td class="barcode">{{_id}}</td> -->
+              <td>{{collaborations}}</td>
+              <td>{{getMrn}}</td>
+              <td>{{questionnaireName}}</td>
+              <td class="flag">
+                <i class="fa {{flaggedIcon}}"></i>
+              </td>
+              <td class="delete">
+                <i class="fa fa-times"></i>
+              </td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+    {{> recordFooter}}
+  </article>
+</template>

@@ -1,10 +1,8 @@
 
 
-if (process.env.MIGRATE) {
-  Migrations.add({
-    version: 1,
-    up: function () {
-      // need to go back and figure out what the exact migration script is for this
-    }
-  });
-}
+// Migrations.add({
+//   version: 1,
+//   up: function () {
+//     // need to go back and figure out what the exact migration script is for this
+//   }
+// });

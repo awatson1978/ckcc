@@ -56,11 +56,15 @@ Copy the application to your computer and run it locally:
 
 ````sh
   # run all the acceptance tests with the following
-  starrynight run-tests --framework nightwatch
+  starrynight run-tests --type validation
 
   # if you're working with packages, and can't a test command isn't found
   # you may want to to try regenerating the .meteor/nightwatch.json config file
   starrynight generate --autoconfig
+
+  # you may also want to fetch the latest copies of the packages from time to time
+  starrynight fetch
+
 ````
 
 =========================

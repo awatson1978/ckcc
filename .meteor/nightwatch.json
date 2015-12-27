@@ -28,6 +28,7 @@
     "packages/clinical-collaborations-ui/client/components/collaborationGrid/.tests",
     "packages/clinical-collaborations-ui/client/components/upsertCollaborationForm/.tests",
     "packages/clinical-collaborations-ui/client/components/upsertCollaborationForm/.tests/actions",
+    "packages/clinical-form-builder/client/components/builderPage/.tests",
     "packages/clinical-keybindings/client/components/keybindingsModal/.tests",
     "packages/medbook-metadata/components/metadataListPage/.tests",
     "packages/medbook-metadata/components/metadataSpreadsheetPage/.tests",

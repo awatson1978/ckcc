@@ -62,9 +62,6 @@ Copy the application to your computer and run it locally:
   # you may want to to try regenerating the .meteor/nightwatch.json config file
   starrynight generate --autoconfig
 
-  # you may also want to fetch the latest copies of the packages from time to time
-  starrynight fetch
-
 ````
 
 =========================

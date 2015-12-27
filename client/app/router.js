@@ -43,6 +43,8 @@ Router.onBeforeAction(function () {
     'supportRoute',
     'infoRoute',
 
+    'themingPage',
+
     // entry pages
     // TODO: move these exclusions into clinical:entry
     'entrySignUp',

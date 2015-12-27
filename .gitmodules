@@ -89,3 +89,7 @@
 [submodule "packages/clinical-form-builder"]
     path = packages/clinical-form-builder
     url = git://github.com/clinical-meteor/clinical-form-builder.git
+
+[submodule "packages/clinical-theming"]
+    path = packages/clinical-theming
+    url = git://github.com/clinical-meteor/clinical-theming.git

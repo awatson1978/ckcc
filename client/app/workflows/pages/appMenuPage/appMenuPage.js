@@ -38,13 +38,6 @@ Template.appMenuPage.helpers({
       return "border: 0px none;";
     }
   },
-  getTileTheme: function (){
-    if (Session.equals('foregroundTheme', 'light')) {
-      return "lightTheme";
-    } else {
-      return "darkTheme";
-    }
-  },
   getMenuWidth: function () {
     var newWidth = 180;
 
